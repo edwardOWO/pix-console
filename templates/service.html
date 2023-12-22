@@ -41,7 +41,7 @@
 
     <script>
         function fetchAndDisplayContainers() {
-            fetch("/api/v1/service")
+            fetch("api/v1/cluster_service")
                 .then(response => response.json())
                 .then(data => displayContainers(data))
                 .catch(error => {
