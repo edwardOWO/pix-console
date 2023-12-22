@@ -845,9 +845,8 @@ func ClusterDownloadFromStune(c *gin.Context) {
 
 	addresses := []string{
 		"http://192.168.70.111:8080/api/v1/downloadFromStune?service=" + Service + "&startTime=" + StartTime + "&endTime=" + EndTime + "&time=1",
-		"http://192.168.70.111:8080/api/v1/downloadFromStune?service=" + Service + "&startTime=" + StartTime + "&endTime=" + EndTime + "&time=1",
-		//"http://192.168.70.113:8080/api/v1/downloadFromStune?service=IM&startTime=2023/12/21&endTime=2023/12/23&time=1",
-		//"http://localhost:8080/api/v1/service",
+		"http://192.168.70.112:8080/api/v1/downloadFromStune?service=" + Service + "&startTime=" + StartTime + "&endTime=" + EndTime + "&time=1",
+		"http://192.168.70.113:8080/api/v1/downloadFromStune?service=" + Service + "&startTime=" + StartTime + "&endTime=" + EndTime + "&time=1",
 	}
 
 	zipFilename := "/tmp/test.zip"
