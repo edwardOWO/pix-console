@@ -406,6 +406,7 @@ func CasbinAuthMiddleware(c *gin.Context, username string, e *casbin.Enforcer) b
 
 	status, _ := e.Enforce(username, obj, act)
 
+	fmt.Printf("%s,%s,%s,%t \n", username, obj, act, status)
 	return status
 
 }
@@ -433,6 +434,8 @@ func JWTAuthMiddleware(c *gin.Context) {
 				}
 
 			}
+		} else {
+			fmt.Print(err.Error())
 		}
 	}
 
@@ -455,6 +458,8 @@ func JWTAuthMiddleware(c *gin.Context) {
 					return
 				}
 			}
+		} else {
+			fmt.Print(err.Error())
 		}
 	}
 
@@ -667,8 +672,32 @@ func ServiceHandler(c *gin.Context) {
 	// 合併兩個資料集
 	var combinedData []ContainerInfo
 
-	combinedData = append(combinedData, dockerData...)
+	hardcodedData := []ContainerInfo{
+		{
+			Host:        server,
+			ContainerID: "12345abcde67",
+			Image:       "example:latest",
+			Command:     "example-command",
+			Created:     "2 weeks ago",
+			Status:      "Up 2 weeks",
+			Ports:       "8080/tcp",
+			Names:       "example_container",
+		},
+		{
+			Host:        server,
+			ContainerID: "12345abcde6711",
+			Image:       "example:latest",
+			Command:     "example-command",
+			Created:     "1 weeks ago",
+			Status:      "Up 2 weeks",
+			Ports:       "8080/tcp",
+			Names:       "example1234_container",
+		},
+		// 其他手動編碼的資料...
+	}
 
+	combinedData = append(combinedData, dockerData...)
+	combinedData = append(combinedData, hardcodedData...)
 	// 設定回應標頭
 	c.Header("Content-Type", "application/json")
 	// 回傳合併後的結果

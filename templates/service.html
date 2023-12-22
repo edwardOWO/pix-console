@@ -21,12 +21,15 @@
             </div>
         </div>
         <div class="content" id="content">
+            <input type="text" id="hostFilter" oninput="filterContainers()" placeholder="Filter by Host" value="">
+            <input type="text" id="nameFilter" oninput="filterContainers()" placeholder="Filter by Name" value="">
             <div id="containerList">
                 <table>
                     <thead>
                         <tr>
+                            <th>Host</th>
                             <th>Name</th>
-			    <th>ActiveState</th>
+			                <th>ActiveState</th>
                             <th>Servie Status</th>
                         </tr>
                     </thead>
@@ -37,7 +40,6 @@
     </div>
 
     <script>
-        // 定义函数用于获取和显示容器数据
         function fetchAndDisplayContainers() {
             fetch("/api/v1/service")
                 .then(response => response.json())
@@ -47,7 +49,7 @@
                 });
         }
 
-        // 显示容器数据
+        // 顯示服務數據
         function displayContainers(containers) {
             const containerDataBody = document.getElementById('containerDataBody');
             containerDataBody.innerHTML = '';
@@ -58,6 +60,7 @@
                 containers.forEach(container => {
                     containerDataBody.innerHTML += `
                         <tr>
+                            <td>${container.HOST}</td>
                             <td>${container.NAMES}</td>
                             <td>${container.CREATED}</td>
                             <td class="${container.STATUS.includes('inactive') || container.STATUS.includes('deactivating') ? 'inactive' : 'active'}">${container.STATUS}</td>
@@ -65,6 +68,9 @@
                     `;
                 });
             }
+
+            // 恢复过滤状态
+            filterContainers();
         }
 
         // 初次加载数据
@@ -73,6 +79,48 @@
         // 每15秒自动更新一次数据
         setInterval(fetchAndDisplayContainers, 5000);
 
+        // 添加过滤功能
+        function filterContainers() {
+            const hostFilter = document.getElementById('hostFilter');
+            const nameFilter = document.getElementById('nameFilter');
+
+            const hostFilterValue = hostFilter.value.toLowerCase();
+            const nameFilterValue = nameFilter.value.toLowerCase();
+
+            const rows = document.querySelectorAll('#containerDataBody tr');
+
+            rows.forEach(row => {
+                const hostCell = row.querySelector('td:nth-child(1)');
+                const nameCell = row.querySelector('td:nth-child(3)');
+
+                const hostText = hostCell.textContent.toLowerCase();
+                const nameText = nameCell.textContent.toLowerCase();
+
+                const hostMatch = hostText.includes(hostFilterValue) || hostFilterValue === '';
+                const nameMatch = nameText.includes(nameFilterValue) || nameFilterValue === '';
+
+                if (hostMatch && nameMatch) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            // 保存过滤状态到本地存储
+            localStorage.setItem('hostFilter', hostFilterValue);
+            localStorage.setItem('nameFilter', nameFilterValue);
+        }
+
+        // 恢复过滤状态
+        const storedHostFilter = localStorage.getItem('hostFilter');
+        if (storedHostFilter) {
+            document.getElementById('hostFilter').value = storedHostFilter;
+        }
+
+        const storedNameFilter = localStorage.getItem('nameFilter');
+        if (storedNameFilter) {
+            document.getElementById('nameFilter').value = storedNameFilter;
+        }
     </script>
 
 </body>
