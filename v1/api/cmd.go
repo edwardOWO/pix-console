@@ -845,8 +845,10 @@ func ClusterDownloadFromStune(c *gin.Context) {
 		//"http://localhost:8080/api/v1/service",
 	}
 
-	for test, address := range addresses {
+	var test = 0
+	for _, address := range addresses {
 		getLog(address, "/tmp/"+string(test)+".zip")
+		test += 1
 	}
 
 }
