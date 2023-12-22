@@ -11,6 +11,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"strconv"
 	"strings"
 	"time"
 
@@ -847,7 +848,7 @@ func ClusterDownloadFromStune(c *gin.Context) {
 
 	var test = 0
 	for _, address := range addresses {
-		getLog(address, "/tmp/"+string(test)+".zip")
+		getLog(address, "/tmp/"+strconv.Itoa(test)+".zip")
 		test += 1
 	}
 
