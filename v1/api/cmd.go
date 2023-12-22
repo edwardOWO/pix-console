@@ -606,7 +606,7 @@ func ClusterDockerHandler(c *gin.Context) {
 		"http://192.168.70.111:8080/api/v1/docker",
 		"http://192.168.70.112:8080/api/v1/docker",
 		"http://192.168.70.113:8080/api/v1/docker",
-		"http://localhost:8080/api/v1/service",
+		//"http://localhost:8080/api/v1/service",
 	}
 
 	var mergedData []map[string]interface{}
@@ -717,7 +717,7 @@ func ClusterServiceHandler(c *gin.Context) {
 		"http://192.168.70.111:8080/api/v1/service",
 		"http://192.168.70.112:8080/api/v1/service",
 		"http://192.168.70.113:8080/api/v1/service",
-		"http://localhost:8080/api/v1/service",
+		//"http://localhost:8080/api/v1/service",
 	}
 
 	var mergedData []map[string]interface{}
