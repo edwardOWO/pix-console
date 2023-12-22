@@ -602,7 +602,7 @@ func DockerHandler(c *gin.Context) {
 func ClusterDockerHandler(c *gin.Context) {
 	addresses := []string{
 		"http://192.168.70.111:8080/api/v1/docker",
-		"http://localhost:8080/api/v1/docker",
+		"http://192.168.70.112:8080/api/v1/docker",
 		"http://192.168.70.113:8080/api/v1/docker",
 	}
 
@@ -712,7 +712,7 @@ func ClusterServiceHandler(c *gin.Context) {
 
 	addresses := []string{
 		"http://192.168.70.111:8080/api/v1/service",
-		"http://localhost:8080/api/v1/service",
+		"http://192.168.70.112:8080/api/v1/service",
 		"http://192.168.70.113:8080/api/v1/service",
 	}
 
@@ -759,7 +759,6 @@ func getServiceData(url string) ([]map[string]interface{}, error) {
 		return nil, err
 	}
 
-	fmt.Print(data)
 	return data, nil
 }
 
