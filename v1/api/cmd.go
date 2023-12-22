@@ -442,7 +442,7 @@ func JWTAuthMiddleware(c *gin.Context) {
 	// If no cookie or cookie authentication fails, try Bearer token
 	bearerToken := c.GetHeader("Authorization")
 
-	if bearerToken == "Bearer "+"88888888" {
+	if bearerToken == "Bearer "+"sdklkkfkj!2323dfj92083DKKD2**!*@#&&#!(#&1-9dfg,mzx//v)" {
 		c.Next()
 		return
 	}
@@ -629,7 +629,7 @@ func getDockerData(url string) ([]map[string]interface{}, error) {
 	}
 
 	// 添加 Bearer Token 到標頭
-	req.Header.Set("Authorization", "Bearer "+"88888888")
+	req.Header.Set("Authorization", "Bearer "+"sdklkkfkj!2323dfj92083DKKD2**!*@#&&#!(#&1-9dfg,mzx//v)")
 
 	response, err := client.Do(req)
 	if err != nil {
@@ -741,7 +741,7 @@ func getServiceData(url string) ([]map[string]interface{}, error) {
 	}
 
 	// 添加 Bearer Token 到標頭
-	req.Header.Set("Authorization", "Bearer "+"88888888")
+	req.Header.Set("Authorization", "Bearer "+"sdklkkfkj!2323dfj92083DKKD2**!*@#&&#!(#&1-9dfg,mzx//v)")
 
 	response, err := client.Do(req)
 	if err != nil {
