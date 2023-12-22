@@ -858,7 +858,7 @@ func DownloadFromStune(c *gin.Context) {
 	fileName += ".zip"
 
 	dir := ""
-	if Service == "im" {
+	if Service == "IM" {
 		dir = "/data/docker-data/volumes/run_im2_log"
 	}
 
