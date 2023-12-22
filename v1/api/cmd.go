@@ -857,8 +857,12 @@ func DownloadFromStune(c *gin.Context) {
 	fileName = strings.ReplaceAll(fileName, "/", "_")
 	fileName += ".zip"
 
-	CompressFiles("/tmp", fileName, startTime, endTime)
+	dir := ""
+	if Service == "im" {
+		dir = "/data/docker-data/volumes/run_im2_log"
+	}
 
+	CompressFiles(dir, fileName, startTime, endTime)
 	c.File(fileName)
 }
 
