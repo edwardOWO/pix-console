@@ -11,7 +11,6 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
-	"strconv"
 	"strings"
 	"time"
 
@@ -839,34 +838,36 @@ func DockerComposeHandler(c *gin.Context) {
 
 func ClusterDownloadFromStune(c *gin.Context) {
 
-	addresses := []string{
-		"http://192.168.70.111:8080/api/v1/downloadFromStune?service=IM&startTime=2023/12/21&endTime=2023/12/23&time=1",
-		"http://192.168.70.112:8080/api/v1/downloadFromStune?service=IM&startTime=2023/12/21&endTime=2023/12/23&time=1",
-		"http://192.168.70.113:8080/api/v1/downloadFromStune?service=IM&startTime=2023/12/21&endTime=2023/12/23&time=1",
-		//"http://localhost:8080/api/v1/service",
-	}
+	/*
+		addresses := []string{
+			"http://192.168.70.111:8080/api/v1/downloadFromStune?service=IM&startTime=2023/12/21&endTime=2023/12/23&time=1",
+			"http://192.168.70.112:8080/api/v1/downloadFromStune?service=IM&startTime=2023/12/21&endTime=2023/12/23&time=1",
+			"http://192.168.70.113:8080/api/v1/downloadFromStune?service=IM&startTime=2023/12/21&endTime=2023/12/23&time=1",
+			//"http://localhost:8080/api/v1/service",
+		}
 
-	zipFilename := "/tmp/test.zip"
-	zipFile, err := os.Create(zipFilename)
-	if err != nil {
-		c.String(http.StatusInternalServerError, fmt.Sprintf("Error creating zip file: %s", err))
-		return
-	}
-	defer zipFile.Close()
-
-	zipWriter := zip.NewWriter(zipFile)
-
-	var test = 1
-	for _, address := range addresses {
-		getLog(address, "/tmp/"+strconv.Itoa(test)+".zip")
-
-		// Add file to zip
-		err = addFileToZip(zipWriter, "/tmp/"+strconv.Itoa(test)+".zip", strconv.Itoa(test)+".zip")
+		zipFilename := "/tmp/test.zip"
+		zipFile, err := os.Create(zipFilename)
 		if err != nil {
+			c.String(http.StatusInternalServerError, fmt.Sprintf("Error creating zip file: %s", err))
 			return
 		}
-		test += 1
-	}
+		defer zipFile.Close()
+
+		zipWriter := zip.NewWriter(zipFile)
+
+		var test = 1
+		for _, address := range addresses {
+			getLog(address, "/tmp/"+strconv.Itoa(test)+".zip")
+
+			// Add file to zip
+			err = addFileToZip(zipWriter, "/tmp/"+strconv.Itoa(test)+".zip", strconv.Itoa(test)+".zip")
+			if err != nil {
+				return
+			}
+			test += 1
+		}
+	*/
 
 	c.File("/tmp/test.zip")
 }
