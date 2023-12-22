@@ -846,12 +846,65 @@ func ClusterDownloadFromStune(c *gin.Context) {
 		//"http://localhost:8080/api/v1/service",
 	}
 
-	var test = 0
+	zipFilename := "/tmp/test.zip"
+	zipFile, err := os.Create(zipFilename)
+	if err != nil {
+		c.String(http.StatusInternalServerError, fmt.Sprintf("Error creating zip file: %s", err))
+		return
+	}
+	defer zipFile.Close()
+
+	zipWriter := zip.NewWriter(zipFile)
+
+	var test = 1
 	for _, address := range addresses {
 		getLog(address, "/tmp/"+strconv.Itoa(test)+".zip")
+
+		// Add file to zip
+		err = addFileToZip(zipWriter, "/tmp/"+strconv.Itoa(test)+".zip", strconv.Itoa(test)+".zip")
+		if err != nil {
+			return
+		}
 		test += 1
 	}
 
+	c.File("/tmp/test.zip")
+}
+
+func addFileToZip(zipWriter *zip.Writer, filename string, zipPath string) error {
+	file, err := os.Open(filename)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+
+	// Create a new file header
+	info, err := file.Stat()
+	if err != nil {
+		return err
+	}
+
+	header, err := zip.FileInfoHeader(info)
+	if err != nil {
+		return err
+	}
+
+	// Modify the header to use the provided name
+	header.Name = zipPath
+
+	// Create a new zip file entry
+	writer, err := zipWriter.CreateHeader(header)
+	if err != nil {
+		return err
+	}
+
+	// Copy the file data to the zip entry
+	_, err = io.Copy(writer, file)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
 func getLog(url string, filename string) error {
 	client := &http.Client{
