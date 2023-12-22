@@ -49,7 +49,7 @@ func main() {
 	router.GET("/logout", v1.LogoutHandler)
 
 	// 驗證
-	router.Use(v1.JWTAuthMiddleware)
+	//router.Use(v1.JWTAuthMiddleware)
 
 	PageLink := gin.H{
 		"links": []gin.H{
