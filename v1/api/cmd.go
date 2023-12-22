@@ -11,6 +11,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"strconv"
 	"strings"
 	"time"
 
@@ -838,48 +839,46 @@ func DockerComposeHandler(c *gin.Context) {
 
 func ClusterDownloadFromStune(c *gin.Context) {
 
-	/*
-		addresses := []string{
-			"http://192.168.70.111:8080/api/v1/downloadFromStune?service=IM&startTime=2023/12/21&endTime=2023/12/23&time=1",
-			"http://192.168.70.112:8080/api/v1/downloadFromStune?service=IM&startTime=2023/12/21&endTime=2023/12/23&time=1",
-			"http://192.168.70.113:8080/api/v1/downloadFromStune?service=IM&startTime=2023/12/21&endTime=2023/12/23&time=1",
-			//"http://localhost:8080/api/v1/service",
-		}
+	addresses := []string{
+		"http://192.168.70.111:8080/api/v1/downloadFromStune?service=IM&startTime=2023/12/21&endTime=2023/12/23&time=1",
+		"http://192.168.70.112:8080/api/v1/downloadFromStune?service=IM&startTime=2023/12/21&endTime=2023/12/23&time=1",
+		"http://192.168.70.113:8080/api/v1/downloadFromStune?service=IM&startTime=2023/12/21&endTime=2023/12/23&time=1",
+		//"http://localhost:8080/api/v1/service",
+	}
 
-		zipFilename := "/tmp/test.zip"
-		zipFile, err := os.Create(zipFilename)
+	zipFilename := "/tmp/test.zip"
+	zipFile, err := os.Create(zipFilename)
+	if err != nil {
+		c.String(http.StatusInternalServerError, fmt.Sprintf("Error creating zip file: %s", err))
+		return
+	}
+	defer zipFile.Close()
+
+	zipWriter := zip.NewWriter(zipFile)
+
+	var test = 1
+	for _, address := range addresses {
+		getLog(address, "/tmp/"+strconv.Itoa(test)+".zip")
+
+		// Add file to zip
+		err := addFileToZip(zipWriter, "/tmp/"+strconv.Itoa(test)+".zip")
 		if err != nil {
-			c.String(http.StatusInternalServerError, fmt.Sprintf("Error creating zip file: %s", err))
-			return
+			continue
 		}
-		defer zipFile.Close()
-
-		zipWriter := zip.NewWriter(zipFile)
-
-		var test = 1
-		for _, address := range addresses {
-			getLog(address, "/tmp/"+strconv.Itoa(test)+".zip")
-
-			// Add file to zip
-			err = addFileToZip(zipWriter, "/tmp/"+strconv.Itoa(test)+".zip", strconv.Itoa(test)+".zip")
-			if err != nil {
-				return
-			}
-			test += 1
-		}
-	*/
+		test += 1
+	}
 
 	c.File("/tmp/test.zip")
 }
 
-func addFileToZip(zipWriter *zip.Writer, filename string, zipPath string) error {
+func addFileToZip(zipWriter *zip.Writer, filename string) error {
 	file, err := os.Open(filename)
 	if err != nil {
 		return err
 	}
 	defer file.Close()
 
-	// Create a new file header
+	// 创建一个新文件头
 	info, err := file.Stat()
 	if err != nil {
 		return err
@@ -890,16 +889,16 @@ func addFileToZip(zipWriter *zip.Writer, filename string, zipPath string) error 
 		return err
 	}
 
-	// Modify the header to use the provided name
-	header.Name = zipPath
+	// 修改头部以使用指定的名称
+	header.Name = filepath.Base(filename)
 
-	// Create a new zip file entry
+	// 创建一个新的 zip 文件条目
 	writer, err := zipWriter.CreateHeader(header)
 	if err != nil {
 		return err
 	}
 
-	// Copy the file data to the zip entry
+	// 将文件数据写入 zip 条目
 	_, err = io.Copy(writer, file)
 	if err != nil {
 		return err
