@@ -441,12 +441,14 @@ func JWTAuthMiddleware(c *gin.Context) {
 
 	// If no cookie or cookie authentication fails, try Bearer token
 	bearerToken := c.GetHeader("Authorization")
+
+	if bearerToken == "Bearer "+"88888888" {
+		c.Next()
+		return
+	}
+
 	if bearerToken != "" {
 		tokenString := strings.TrimPrefix(bearerToken, "Bearer ")
-
-		if tokenString == "12345678" {
-			c.Next()
-		}
 
 		claims := jwt.MapClaims{}
 		_, err := jwt.ParseWithClaims(tokenString, claims, func(token *jwt.Token) (interface{}, error) {
@@ -489,8 +491,8 @@ func LoginHandler(c *gin.Context) {
 
 	if found {
 		token := generateJWTToken(user.Username)
-		c.SetCookie("jwt", token, 3600, "/", "localhost", false, true)
-		c.SetCookie("jwt", token, 3600, "/", "60.199.173.12", false, true)
+		c.SetCookie("jwt", token, 360000, "/", "localhost", false, true)
+		c.SetCookie("jwt", token, 360000, "/", "60.199.173.12", false, true)
 		c.Redirect(http.StatusSeeOther, "/index")
 	} else {
 		c.Redirect(http.StatusSeeOther, "/?error=InvalidCredentials")
@@ -604,6 +606,7 @@ func ClusterDockerHandler(c *gin.Context) {
 		"http://192.168.70.111:8080/api/v1/docker",
 		"http://192.168.70.112:8080/api/v1/docker",
 		"http://192.168.70.113:8080/api/v1/docker",
+		"http://localhost:8080/api/v1/service",
 	}
 
 	var mergedData []map[string]interface{}
@@ -626,7 +629,7 @@ func getDockerData(url string) ([]map[string]interface{}, error) {
 	}
 
 	// 添加 Bearer Token 到標頭
-	req.Header.Set("Authorization", "Bearer "+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjIzMzI0OTA1MjgsInVzZXJuYW1lIjoiYWRtaW4ifQ._xp-tG5YiNre-QXiORkfccrtpT7xm3-xdy5ZYNXJzks")
+	req.Header.Set("Authorization", "Bearer "+"88888888")
 
 	response, err := client.Do(req)
 	if err != nil {
@@ -714,6 +717,7 @@ func ClusterServiceHandler(c *gin.Context) {
 		"http://192.168.70.111:8080/api/v1/service",
 		"http://192.168.70.112:8080/api/v1/service",
 		"http://192.168.70.113:8080/api/v1/service",
+		"http://localhost:8080/api/v1/service",
 	}
 
 	var mergedData []map[string]interface{}
@@ -737,7 +741,7 @@ func getServiceData(url string) ([]map[string]interface{}, error) {
 	}
 
 	// 添加 Bearer Token 到標頭
-	req.Header.Set("Authorization", "Bearer "+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjIzMzI0OTA1MjgsInVzZXJuYW1lIjoiYWRtaW4ifQ._xp-tG5YiNre-QXiORkfccrtpT7xm3-xdy5ZYNXJzks")
+	req.Header.Set("Authorization", "Bearer "+"88888888")
 
 	response, err := client.Do(req)
 	if err != nil {
