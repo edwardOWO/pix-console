@@ -112,6 +112,7 @@ func main() {
 	// 系統回報 回傳log 頁面
 	apiV1.POST("/uploadToStune", v1.UploadToStune)
 	apiV1.GET("/downloadFromStune", v1.DownloadFromStune)
+	apiV1.GET("/clusterDownloadFromStune", v1.ClusterDownloadFromStune)
 
 	// Containers 頁面
 	apiV1.GET("/docker", v1.DockerHandler)

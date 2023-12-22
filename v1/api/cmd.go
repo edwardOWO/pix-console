@@ -836,6 +836,61 @@ func DockerComposeHandler(c *gin.Context) {
 	c.Data(http.StatusOK, "application/yml", content)
 }
 
+func ClusterDownloadFromStune(c *gin.Context) {
+
+	addresses := []string{
+		"http://192.168.70.111:8080/api/v1/downloadFromStune?service=IM&startTime=2023/12/21&endTime=2023/12/23&time=1",
+		"http://192.168.70.112:8080/api/v1/downloadFromStune?service=IM&startTime=2023/12/21&endTime=2023/12/23&time=1",
+		"http://192.168.70.113:8080/api/v1/downloadFromStune?service=IM&startTime=2023/12/21&endTime=2023/12/23&time=1",
+		//"http://localhost:8080/api/v1/service",
+	}
+
+	for test, address := range addresses {
+		getLog(address, "/tmp/"+string(test)+".zip")
+	}
+
+}
+func getLog(url string, filename string) error {
+	client := &http.Client{
+		Timeout: time.Second * 5, // 設定超時時間為 5 秒
+	}
+
+	req, err := http.NewRequest("GET", url, nil)
+	if err != nil {
+		return err
+	}
+
+	// 添加 Bearer Token 到標頭
+	req.Header.Set("Authorization", "Bearer "+"sdklkkfkj!2323dfj92083DKKD2**!*@#&&#!(#&1-9dfg,mzx//v)")
+
+	// 發送請求
+	resp, err := client.Do(req)
+	if err != nil {
+		return err
+	}
+	defer resp.Body.Close()
+
+	// 檢查回應狀態碼
+	if resp.StatusCode != http.StatusOK {
+		return fmt.Errorf("unexpected status code: %d", resp.StatusCode)
+	}
+
+	// 創建檔案以保存回應內容
+	file, err := os.Create(filename)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+
+	// 將回應內容寫入檔案
+	_, err = io.Copy(file, resp.Body)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func DownloadFromStune(c *gin.Context) {
 
 	Service := c.Query("service")
