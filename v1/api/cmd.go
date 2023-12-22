@@ -857,12 +857,12 @@ func DownloadFromStune(c *gin.Context) {
 	fileName = strings.ReplaceAll(fileName, "/", "_")
 	fileName += ".zip"
 
-	dir := ""
 	if Service == "IM" {
-		dir = "/data/docker-data/volumes/run_im2_log"
+
+		directories := []string{"/data/docker-data/volumes/run_im_log", "/data/docker-data/volumes/run_im2_log", "/data/docker-data/volumes/run_im3_log"}
+		CompressFiles(directories, fileName, startTime, endTime)
 	}
 
-	CompressFiles(dir, fileName, startTime, endTime)
 	c.File(fileName)
 }
 
@@ -899,7 +899,11 @@ func UploadToStune(c *gin.Context) {
 
 	fileName += ".zip"
 
-	CompressFiles("/tmp", fileName, startTime, endTime)
+	if requestPayload.Service == "IM" {
+
+		directories := []string{"/data/docker-data/volumes/run_im_log", "/data/docker-data/volumes/run_im2_log", "/data/docker-data/volumes/run_im3_log"}
+		CompressFiles(directories, fileName, startTime, endTime)
+	}
 
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"message": "檔案產生失敗"})
@@ -936,7 +940,7 @@ func parseTime(dateString string) (time.Time, error) {
 	return time.Parse("2006/01/02", dateString)
 }
 
-func CompressFiles(directoryPath, zipFilePath string, startTime, endTime time.Time) error {
+func CompressFiles(directories []string, zipFilePath string, startTime, endTime time.Time) error {
 	// Create ZIP file
 	zipFile, err := os.Create(zipFilePath)
 	if err != nil {
@@ -949,51 +953,53 @@ func CompressFiles(directoryPath, zipFilePath string, startTime, endTime time.Ti
 	defer zipWriter.Close()
 
 	// Walk through files in the directory
-	err = filepath.Walk(directoryPath, func(filePath string, fileInfo os.FileInfo, err error) error {
-		if err != nil {
-			return err
-		}
-
-		// Check if the file is a regular file and within the specified time range
-		if !fileInfo.IsDir() && fileInfo.ModTime().After(startTime) && fileInfo.ModTime().Before(endTime) {
-			// Get relative path
-			relativePath, err := filepath.Rel(directoryPath, filePath)
+	for _, directoryPath := range directories {
+		err = filepath.Walk(directoryPath, func(filePath string, fileInfo os.FileInfo, err error) error {
 			if err != nil {
 				return err
 			}
 
-			// Open the file
-			file, err := os.Open(filePath)
-			if err != nil {
-				return err
+			// Check if the file is a regular file and within the specified time range
+			if !fileInfo.IsDir() && fileInfo.ModTime().After(startTime) && fileInfo.ModTime().Before(endTime) {
+				// Get relative path
+				relativePath, err := filepath.Rel(directoryPath, filePath)
+				if err != nil {
+					return err
+				}
+
+				// Open the file
+				file, err := os.Open(filePath)
+				if err != nil {
+					return err
+				}
+				defer file.Close()
+
+				// Create file header with original times
+				fileHeader, err := zip.FileInfoHeader(fileInfo)
+				if err != nil {
+					return err
+				}
+				fileHeader.Name = relativePath
+
+				// Set the modified and accessed times to match the original file
+				fileHeader.Modified = fileInfo.ModTime()
+
+				// Create file in ZIP with the original file header
+				zipFile, err := zipWriter.CreateHeader(fileHeader)
+				if err != nil {
+					return err
+				}
+
+				// Copy file content to ZIP
+				_, err = io.Copy(zipFile, file)
+				if err != nil {
+					return err
+				}
 			}
-			defer file.Close()
 
-			// Create file header with original times
-			fileHeader, err := zip.FileInfoHeader(fileInfo)
-			if err != nil {
-				return err
-			}
-			fileHeader.Name = relativePath
-
-			// Set the modified and accessed times to match the original file
-			fileHeader.Modified = fileInfo.ModTime()
-
-			// Create file in ZIP with the original file header
-			zipFile, err := zipWriter.CreateHeader(fileHeader)
-			if err != nil {
-				return err
-			}
-
-			// Copy file content to ZIP
-			_, err = io.Copy(zipFile, file)
-			if err != nil {
-				return err
-			}
-		}
-
-		return nil
-	})
+			return nil
+		})
+	}
 
 	return err
 }
