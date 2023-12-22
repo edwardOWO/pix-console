@@ -857,10 +857,34 @@ func DownloadFromStune(c *gin.Context) {
 	fileName = strings.ReplaceAll(fileName, "/", "_")
 	fileName += ".zip"
 
-	if Service == "IM" {
-
+	switch Service {
+	case "IM":
 		directories := []string{"/data/docker-data/volumes/run_im_log", "/data/docker-data/volumes/run_im2_log", "/data/docker-data/volumes/run_im3_log"}
-		CompressFiles(directories, fileName, startTime, endTime)
+		err := CompressFiles(directories, fileName, startTime, endTime)
+		if err != nil {
+			fmt.Printf("Error compressing files: %v\n", err)
+		}
+	case "SIP":
+		directories := []string{"/data/docker-data/volumes/run_sorrel_api_log", "/data/docker-data/volumes/run_sorrel_rose_log", "/data/docker-data/volumes/run_sorrel_sbcallinone_log"}
+		err := CompressFiles(directories, fileName, startTime, endTime)
+		if err != nil {
+			fmt.Printf("Error compressing files: %v\n", err)
+		}
+	case "DB":
+		directories := []string{"/var/log/mongodb", "/var/log/cassandra", "/var/log/mysqld.log"}
+		err := CompressFiles(directories, fileName, startTime, endTime)
+		if err != nil {
+			fmt.Printf("Error compressing files: %v\n", err)
+		}
+	case "STUNE":
+		directories := []string{"/data/docker-data/volumes/run_stune_log"}
+		err := CompressFiles(directories, fileName, startTime, endTime)
+		if err != nil {
+			fmt.Printf("Error compressing files: %v\n", err)
+		}
+
+	default:
+		fmt.Println("Unknown service")
 	}
 
 	c.File(fileName)
@@ -899,10 +923,34 @@ func UploadToStune(c *gin.Context) {
 
 	fileName += ".zip"
 
-	if requestPayload.Service == "IM" {
-
+	switch requestPayload.Service {
+	case "IM":
 		directories := []string{"/data/docker-data/volumes/run_im_log", "/data/docker-data/volumes/run_im2_log", "/data/docker-data/volumes/run_im3_log"}
-		CompressFiles(directories, fileName, startTime, endTime)
+		err := CompressFiles(directories, fileName, startTime, endTime)
+		if err != nil {
+			fmt.Printf("Error compressing files: %v\n", err)
+		}
+	case "SIP":
+		directories := []string{"/data/docker-data/volumes/run_sorrel_api_log", "/data/docker-data/volumes/run_sorrel_rose_log", "/data/docker-data/volumes/run_sorrel_sbcallinone_log"}
+		err := CompressFiles(directories, fileName, startTime, endTime)
+		if err != nil {
+			fmt.Printf("Error compressing files: %v\n", err)
+		}
+	case "DB":
+		directories := []string{"/var/log/mongodb", "/var/log/cassandra", "/var/log/mysqld.log"}
+		err := CompressFiles(directories, fileName, startTime, endTime)
+		if err != nil {
+			fmt.Printf("Error compressing files: %v\n", err)
+		}
+	case "STUNE":
+		directories := []string{"/data/docker-data/volumes/run_stune_log"}
+		err := CompressFiles(directories, fileName, startTime, endTime)
+		if err != nil {
+			fmt.Printf("Error compressing files: %v\n", err)
+		}
+
+	default:
+		fmt.Println("Unknown service")
 	}
 
 	if err != nil {
