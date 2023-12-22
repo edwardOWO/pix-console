@@ -1,0 +1,16 @@
+p, admin, *, *
+
+p, readonlyuser, /dashboard, *
+p, readonlyuser, /docker, *
+p, readonlyuser, /index, *
+p, readonlyuser, /docker-compose, *
+p, readonlyuser, /service, *
+p, readonlyuser, /logout, *
+p, readonlyuser, /api/v1/dashboard, *
+p, readonlyuser, /api/v1/docker, *
+p, readonlyuser, /api/v1/index, *
+p, readonlyuser, /api/v1/docker_compose, GET
+p, readonlyuser, /api/v1/service, *
+p, readonlyuser, /api/v1/logout, *
+p, readonlyuser, /api/v1/checkfile, *
+p, readonlyuser, /api/v1/download, GET

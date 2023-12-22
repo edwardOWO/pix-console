@@ -1,0 +1,169 @@
+definitions:
+  v1.FileInfo:
+    properties:
+      isDir:
+        type: boolean
+      modTime:
+        type: string
+      name:
+        type: string
+      size:
+        type: integer
+    type: object
+  v1.MemoryUsage:
+    properties:
+      free:
+        type: string
+      total:
+        type: string
+      used:
+        type: string
+    type: object
+  v1.RequestData:
+    properties:
+      path:
+        type: string
+    type: object
+  v1.ResponseData:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/v1.FileInfo'
+        type: array
+      errmsg:
+        type: string
+      message:
+        type: integer
+    type: object
+host: http://60.199.173.12:8080
+info:
+  contact:
+    name: Edward.wang
+    url: http://www.youtube.com
+  description: PIX API.
+  title: PIX Demo
+  version: "1.0"
+paths:
+  /api/v1/checkfile:
+    post:
+      parameters:
+      - description: JSON请求数据
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/v1.RequestData'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 成功
+          schema:
+            $ref: '#/definitions/v1.ResponseData'
+        "400":
+          description: 請求錯誤
+          schema:
+            type: string
+        "500":
+          description: 內部錯誤
+          schema:
+            type: string
+      security:
+      - BasicAuth: []
+      summary: 取得檔案目錄結構
+  /api/v1/checkmemory:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 成功
+          schema:
+            $ref: '#/definitions/v1.MemoryUsage'
+        "400":
+          description: 請求錯誤
+          schema:
+            type: string
+        "500":
+          description: 內部錯誤
+          schema:
+            type: string
+      security:
+      - BasicAuth: []
+      summary: 取得記憶體使用量
+  /api/v1/download:
+    get:
+      responses:
+        "200":
+          description: 成功
+          schema:
+            type: string
+        "400":
+          description: 請求錯誤
+          schema:
+            type: string
+        "404":
+          description: 檔案未找到
+          schema:
+            type: string
+      security:
+      - BasicAuth: []
+      summary: 下載 Config 檔案
+  /api/v1/startservice:
+    post:
+      parameters:
+      - description: JSON请求数据
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/v1.RequestData'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 成功
+          schema:
+            $ref: '#/definitions/v1.MemoryUsage'
+        "400":
+          description: 請求錯誤
+          schema:
+            type: string
+        "500":
+          description: 內部錯誤
+          schema:
+            type: string
+      security:
+      - BasicAuth: []
+      summary: 啟動服務
+  /api/v1/upload:
+    post:
+      consumes:
+      - multipart/form-data
+      description: 上传文件到指定目录
+      parameters:
+      - description: 上传的文件
+        in: formData
+        name: file
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: 上传文件
+securityDefinitions:
+  BasicAuth:
+    type: basic
+swagger: "2.0"

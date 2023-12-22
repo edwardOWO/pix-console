@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pie Chart Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/static/dashboard.css">
+</head>
+
+<body>
+    <h1>PIX Containers</h1>
+
+    <div class="container-wrapper">
+        <div class="container">
+            <div class="sidebar">
+
+                {{range .links}}
+                <a href="{{.href}}" class="{{.class}}">{{.text}}</a>
+                {{end}}
+            </div>
+        </div>
+
+        <div class="content" id="content">
+            <div id="containerList">
+                <div>
+                    <!-- 第一個圓餅圖 -->
+                    <h1> memorry </h1>
+                    <canvas id="secondMemoryChart" width="100" height="200"></canvas>
+
+                    <br></br>
+                    <canvas id="memoryChart" width="100" height="200"></canvas>
+                    <!-- 第二個圓餅圖 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mock data
+        const memoryData = {
+            total: "1000",
+            used: "400"
+        };
+
+        const secondMemoryData = {
+            total: "1000",
+            used: "400"
+        };
+
+        // Extract values
+        const dataValues = Object.values(memoryData);
+        const secondDataValues = Object.values(secondMemoryData);
+
+        // Create first pie chart
+        const ctx = document.getElementById('memoryChart').getContext('2d');
+        const memoryChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Total', 'Used'],
+                datasets: [{
+                    data: dataValues.map(val => parseFloat(val)),
+                    backgroundColor: ['#00ff00', '#ff0000'],
+                }]
+            },
+        });
+
+        // Create second pie chart
+        const secondCtx = document.getElementById('secondMemoryChart').getContext('2d');
+        const secondMemoryChart = new Chart(secondCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Total', 'Used'],
+                datasets: [{
+                    data: secondDataValues.map(val => parseFloat(val)),
+                    backgroundColor: ['#00ff00', '#ff0000'],
+                }]
+            },
+        });
+    </script>
+
+</body>
+
+</html>

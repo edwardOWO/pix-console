@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker Containers</title>
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+
+<body>
+
+    <h1>PIX Containers</h1>
+
+    <div class="container-wrapper">
+        <div class="container">
+            <div class="sidebar">
+                {{range .links}}
+                <a href="{{.href}}" class="{{.class}}">{{.text}}</a>
+                {{end}}
+            </div>
+        </div>
+
+        <div class="content" id="content">
+            <a href="http://localhost:8080/swagger/index.html">PIX API 介紹</a>
+            <h2>建立檔案範例</h2>
+            <p>點擊下方的按鈕以建立檔案：</p>
+            <button id="createFileButton">建立檔案</button><br>
+
+            <button id="checkfile">檢查檔案</button>
+
+            <button id="checkmemory">檢查Memory</button>
+
+            <button id="startPixCompose">啟動 PIX 服務</button>
+
+            <button id="stopPixCompose">關閉 PIX 服務</button>
+
+            <button id="uploadToStune">上傳到 s3</button>
+
+            
+
+            <p id="outputResult">輸出結果將顯示在這裡</p>
+        </div>
+
+    </div>
+
+    <!-- 引用独立的JavaScript文件 -->
+    <script src="/static/scirpt.js"></script>
+
+</body>
+
+</html>

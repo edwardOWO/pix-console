@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker Compose Viewer</title>
+    <link rel="stylesheet" href="/static/docker-compose.css">
+</head>
+
+<body>
+    <h1>Docker Compose Viewer</h1>
+
+
+    <div class="container-wrapper">
+        <div class="container">
+            <div class="sidebar">
+                {{range .links}}
+                <a href="{{.href}}" class="{{.class}}">{{.text}}</a>
+                {{end}}
+            </div>
+        </div>
+
+        <div class="content" id="content">
+
+            <label for="composeFile">Select docker-compose.yml file:</label>
+            <input type="file" id="composeFile" accept=".yml, .yaml">
+            <button onclick="readFile()">Read File</button>
+            <button onclick="readLocalFile()">Read local File</button>
+
+            <h2>Original Content</h2>
+            <textarea id="originalContent" onscroll="syncScroll('originalContent', 'modifiedContent')"
+                readonly></textarea>
+
+            <h2>Modified Content</h2>
+            <textarea id="modifiedContent" onscroll="syncScroll('modifiedContent', 'originalContent')"
+                readonly></textarea>
+
+            <div id="containerInfo" class="container-info"></div>
+
+            <h2>Download Modified File</h2>
+            <button onclick="downloadFile()">Download File</button>
+
+            <button onclick="uploadFile()">Upload File</button>
+
+        </div>
+
+        <script>
+            let originalContent = '';
+
+            function readFile() {
+                const fileInput = document.getElementById('composeFile');
+                const originalTextarea = document.getElementById('originalContent');
+                const modifiedTextarea = document.getElementById('modifiedContent');
+                const containerInfoDiv = document.getElementById('containerInfo');
+
+                const file = fileInput.files[0];
+
+                if (file) {
+                    const reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        originalContent = e.target.result;
+                        originalTextarea.value = originalContent;
+                        modifiedTextarea.value = originalContent;
+
+                        containerInfoDiv.innerHTML = '';
+
+                        const parsedYAML = jsyaml.load(originalContent);
+                        generateEditInterface(parsedYAML);
+                    };
+
+                    reader.readAsText(file);
+                }
+            }
+
+            function readLocalFile(){
+                const originalTextarea = document.getElementById('originalContent');
+                const modifiedTextarea = document.getElementById('modifiedContent');
+                const containerInfoDiv = document.getElementById('containerInfo');
+
+                // 使用 Fetch API 來發送 GET 請求
+                fetch('/api/v1/docker_compose')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Network response was not ok: ${response.statusText}`);
+                        }
+                        return response.text();
+                    })
+                    .then(originalContent => {
+                        // 將內容顯示在文本區域
+                        originalTextarea.value = originalContent;
+                        modifiedTextarea.value = originalContent;
+
+                        containerInfoDiv.innerHTML = '';
+
+                        // 在這裡你可以執行其他相關的操作，比如解析 YAML 和生成編輯界面
+                        const parsedYAML = jsyaml.load(originalContent);
+                        generateEditInterface(parsedYAML);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching Docker Compose content:', error);
+                        // 在這裡處理錯誤，例如顯示一個錯誤消息給用戶
+                    });
+            }
+
+            function generateEditInterface(parsedYAML) {
+                const containerInfoDiv = document.getElementById('containerInfo');
+
+                if (parsedYAML.services) {
+                    Object.keys(parsedYAML.services).forEach(serviceName => {
+                        const currentImage = parsedYAML.services[serviceName].image;
+
+                        const currentName = serviceName
+                        const editInterface = document.createElement('div');
+                        editInterface.innerHTML = `
+                    <div>
+                        <p style="margin-right: 10px;">${currentName}:</p>
+                        <input class="content" type="text" " value="${currentImage}" readonly>
+                    </div>
+                    <!-- 斷行 -->
+                    <div>
+                        <input class="content" type="text" id="${serviceName}-newImage"  value="${currentImage}">
+                        <button onclick="editContainer('${serviceName}')">Edit Container</button>
+                    </div>
+                    `;
+                        containerInfoDiv.appendChild(editInterface);
+                    });
+                }
+            }
+
+            function editContainer(serviceName) {
+                const modifiedTextarea = document.getElementById('modifiedContent');
+                const newImageInput = document.getElementById(`${serviceName}-newImage`);
+                const newImage = newImageInput.value;
+
+                if (!newImage) {
+                    alert('Please enter a new image.');
+                    return;
+                }
+
+                const parsedYAML = jsyaml.load(modifiedTextarea.value);
+
+                if (parsedYAML.services && parsedYAML.services[serviceName]) {
+                    parsedYAML.services[serviceName].image = newImage;
+                }
+
+                const updatedContent = jsyaml.dump(parsedYAML, { indent: jsyaml.DEFAULT_FULL_SCHEMA.indent });
+
+                modifiedTextarea.value = updatedContent;
+
+                compareAndHighlight();
+
+                showContainerInfo(serviceName, newImage);
+            }
+
+            function compareAndHighlight() {
+                const originalTextarea = document.getElementById('originalContent');
+                const modifiedTextarea = document.getElementById('modifiedContent');
+
+                originalTextarea.className = '';
+                modifiedTextarea.className = '';
+
+                const original = difflib.stringAsLines(originalContent);
+                const modified = difflib.stringAsLines(modifiedTextarea.value);
+
+                const d = new difflib.SequenceMatcher(original, modified);
+                const opcodes = d.get_opcodes();
+
+                for (let i = 0; i < opcodes.length; i++) {
+                    const [tag, i1, i2, j1, j2] = opcodes[i];
+                    const className = (tag === 'replace' ? 'diff-added' : tag === 'delete' ? 'diff-removed' : '');
+
+                    if (className) {
+                        originalTextarea.classList.add(className);
+                        modifiedTextarea.classList.add(className);
+                    }
+                }
+            }
+
+            function showContainerInfo(serviceName, newImage) {
+                const containerInfoDiv = document.getElementById('containerInfo');
+                const containerInfo = document.createElement('div');
+                containerInfo.innerHTML = `<strong>${serviceName}</strong>: ${newImage}`;
+                containerInfoDiv.appendChild(containerInfo);
+            }
+
+            function downloadFile() {
+                const modifiedContent = document.getElementById('modifiedContent').value;
+                const blob = new Blob([modifiedContent], { type: 'text/yaml' });
+                const url = URL.createObjectURL(blob);
+
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'docker-compose-modified.yml';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }
+
+            function uploadFile() {
+                const modifiedContent = document.getElementById('modifiedContent').value;
+
+                // 創建一個 FormData 對象，用於包裝要上傳的數據
+                const formData = new FormData();
+                formData.append('file', new Blob([modifiedContent], { type: 'text/plain' }), 'modified_content.yml');
+
+                // 使用 Fetch API 來發送 POST 請求
+                fetch('/api/v1/upload', {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Network response was not ok: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data); // 成功的回應
+                })
+                .catch(error => {
+                    console.error('Error uploading file:', error);
+                    // 在這裡處理錯誤，例如顯示一個錯誤消息給用戶
+                });
+            }
+            
+
+            function syncScroll(sourceId, targetId) {
+                const sourceTextarea = document.getElementById(sourceId);
+                const targetTextarea = document.getElementById(targetId);
+
+                targetTextarea.scrollTop = sourceTextarea.scrollTop;
+            }
+        </script>
+
+        <script src="/static/js-yaml.min.js"></script>
+</body>
+
+</html>

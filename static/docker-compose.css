@@ -1,0 +1,97 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background-color: #3498db; /* 淺藍色背景 */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #000000;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.container {
+    width: 240px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+
+input {
+    width: 80%;
+    margin-left: 0;
+}
+
+.sidebar {
+    padding: 20px;
+}
+
+.sidebar a {
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #ddd;
+}
+
+.content {
+    flex: 1;
+    margin-left: 20px;
+    max-width: 80%;
+}
+
+#containerList {
+    max-width: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    font-size: 14px;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.upStatus {
+    color: #27ae60;
+}
+
+.downStatus {
+    color: #e74c3c;
+}
+textarea {
+    width: 80%; /* 设置为父容器的宽度 */
+    height: 50vh; /* 设置为视口高度的50% */
+    box-sizing: border-box; /* 让宽度包括边框和内边距 */
+    overflow-y: auto; /* 当内容超过高度时显示垂直滚动条 */
+}

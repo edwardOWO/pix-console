@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker Containers</title>
+    <link rel="stylesheet" href="/static/service.css">
+</head>
+
+<body>
+
+    <h1>PIX Containers</h1>
+
+    <div class="container-wrapper">
+        <div class="container">
+            <div class="sidebar">
+                {{range .links}}
+                <a href="{{.href}}" class="{{.class}}">{{.text}}</a>
+                {{end}}
+            </div>
+        </div>
+        <div class="content" id="content">
+            <div id="containerList">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+			    <th>ActiveState</th>
+                            <th>Servie Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="containerDataBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 定义函数用于获取和显示容器数据
+        function fetchAndDisplayContainers() {
+            fetch("/api/v1/service")
+                .then(response => response.json())
+                .then(data => displayContainers(data))
+                .catch(error => {
+                    console.error("Error fetching data:", error);
+                });
+        }
+
+        // 显示容器数据
+        function displayContainers(containers) {
+            const containerDataBody = document.getElementById('containerDataBody');
+            containerDataBody.innerHTML = '';
+
+            if (containers.length === 0) {
+                containerDataBody.innerHTML = '<tr><td colspan="5">No containers found.</td></tr>';
+            } else {
+                containers.forEach(container => {
+                    containerDataBody.innerHTML += `
+                        <tr>
+                            <td>${container.NAMES}</td>
+                            <td>${container.CREATED}</td>
+                            <td class="${container.STATUS.includes('inactive') || container.STATUS.includes('deactivating') ? 'inactive' : 'active'}">${container.STATUS}</td>
+                        </tr>
+                    `;
+                });
+            }
+        }
+
+        // 初次加载数据
+        fetchAndDisplayContainers();
+
+        // 每15秒自动更新一次数据
+        setInterval(fetchAndDisplayContainers, 5000);
+
+    </script>
+
+</body>
+
+</html>
