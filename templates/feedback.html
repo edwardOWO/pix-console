@@ -200,7 +200,7 @@
       counter+=1
 
 
-      const downloadUrl = "/api/v1/ClusterDownloadFromStune?service="+serviceName+"&startTime="+startDate+"&endTime="+endDate+"&time="+counter;
+      const downloadUrl = "/api/v1/clusterDownloadFromStune?service="+serviceName+"&startTime="+startDate+"&endTime="+endDate+"&time="+counter;
 
       fetch(downloadUrl)
         .then(response => {
