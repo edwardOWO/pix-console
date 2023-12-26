@@ -6,11 +6,26 @@ import (
 	_ "pix-console/docs"
 	v1 "pix-console/v1/api"
 
+	cluster "pix-console/member"
+
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
+	"github.com/hashicorp/memberlist"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 )
+
+var memberCluster cluster.EventDelegate
+
+func init() {
+	conf := memberlist.DefaultLocalConfig()
+	conf.Name = "Node-1"
+	conf.BindPort = 7946
+	conf.AdvertisePort = conf.BindPort
+	node := []string{"192.168.1.104", "192.168.1.107"}
+	memberCluster = cluster.EventDelegate{}
+	go memberCluster.Start(conf, node)
+}
 
 // @contact.name	Edward.wang
 // @contact.url	http://www.youtube.com
