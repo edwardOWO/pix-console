@@ -494,6 +494,7 @@ func LoginHandler(c *gin.Context) {
 		token := generateJWTToken(user.Username)
 		c.SetCookie("jwt", token, 360000, "/", "localhost", false, true)
 		c.SetCookie("jwt", token, 360000, "/", "60.199.173.12", false, true)
+		c.SetCookie("jwt", token, 360000, "/", "192.168.1.104", false, true)
 		c.Redirect(http.StatusSeeOther, "/index")
 	} else {
 		c.Redirect(http.StatusSeeOther, "/?error=InvalidCredentials")
@@ -710,6 +711,19 @@ func ServiceHandler(c *gin.Context) {
 	c.Header("Content-Type", "application/json")
 	// 回傳合併後的結果
 	c.JSON(http.StatusOK, combinedData)
+}
+func ServerHandler(c *gin.Context) {
+
+	//memberCluster.Meta.Region = "5678"
+	memberList := memberCluster.GetMemblist()
+	jsonData, err := json.Marshal(memberList)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Internal Server Error"})
+		return
+	}
+	unescapedJSON := strings.ReplaceAll(string(jsonData), `\"`, `"`)
+	c.Header("Content-Type", "application/json")
+	c.String(http.StatusOK, unescapedJSON)
 }
 
 func ClusterServiceHandler(c *gin.Context) {

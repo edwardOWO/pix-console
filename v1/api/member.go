@@ -1,5 +1,6 @@
-package memberlist
+package v1
 
+// 設定 memberlist
 import (
 	"fmt"
 	"log"
@@ -7,6 +8,8 @@ import (
 	"github.com/hashicorp/memberlist"
 	"github.com/serialx/hashring"
 )
+
+var memberCluster *EventDelegate
 
 type EventDelegate struct {
 	consistent *hashring.HashRing
@@ -46,15 +49,26 @@ func (d *EventDelegate) notifyUpdate() {
 }
 func (d *EventDelegate) GetMemblist() []*memberlist.Node {
 
-	for _, member := range d.node {
-		fmt.Print(member.String())
+	if d.node != nil {
+		for _, member := range d.node {
+			fmt.Print(member.String())
+		}
+		return d.node
+	} else {
+		return nil
 	}
 
-	return d.node
 }
 
-func (d *EventDelegate) Start(conf *memberlist.Config, node []string) {
+func (d *EventDelegate) Start(node []string, setting *EventDelegate, serverName string, serverPort int) {
 
+	// 初始化 member Cluster Cluster
+	memberCluster = setting
+	conf := memberlist.DefaultLocalConfig()
+	conf.Name = serverName
+	conf.BindPort = serverPort
+	conf.AdvertisePort = conf.BindPort
+	*memberCluster = EventDelegate{}
 	conf.Events = &EventDelegate{updateCh: make(chan struct{}, 1)}
 
 	list, err := memberlist.Create(conf)
@@ -62,10 +76,11 @@ func (d *EventDelegate) Start(conf *memberlist.Config, node []string) {
 		log.Fatal(err)
 	}
 
+	// 加入節點
 	list.Join(node)
 
-	run := true
-	for run {
+	// 當結點 加入,更新,刪除時觸發
+	for true {
 		select {
 		case <-conf.Events.(*EventDelegate).updateCh:
 			/*
