@@ -6,18 +6,21 @@ import (
 	"os"
 
 	"pix-console/common"
+	"pix-console/controllers"
 	_ "pix-console/docs"
 
 	v1 "pix-console/controllers"
 
 	"github.com/gin-gonic/gin"
+	"github.com/hashicorp/memberlist"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 // Main manages main golang application
 type Main struct {
-	router *gin.Engine
+	router     *gin.Engine
+	memberlist *memberlist.Memberlist
 }
 
 func (m *Main) initServer() error {
@@ -27,6 +30,10 @@ func (m *Main) initServer() error {
 	if err != nil {
 		return err
 	}
+
+	// 啟動 memberlist 功能,並
+	list, _, _ := controllers.StartMemberlist()
+	m.memberlist = list
 
 	// Initialize mongo database
 	//err = databases.Database.Init()
@@ -60,6 +67,7 @@ func main() {
 		return
 	}
 	c := v1.User{Username: "admin", Password: "password"}
+	c.Memberlist = m.memberlist
 
 	// 載入 HTML 目錄
 	m.router.LoadHTMLGlob("templates/*")
@@ -150,11 +158,14 @@ func main() {
 
 		// Containers 頁面
 		apiV1.GET("/docker", v1.DockerHandler)
-		apiV1.GET("/cluster_docker", v1.ClusterDockerHandler)
+		apiV1.GET("/cluster_docker", c.ClusterDockerHandler)
 
 		// Service 頁面
 		apiV1.GET("/service", v1.ServiceHandler)
-		apiV1.GET("/cluster_service", v1.ClusterServiceHandler)
+		apiV1.GET("/cluster_service", c.ClusterServiceHandler)
+
+		// 取得主機群資訊
+		apiV1.GET("/serverlist", c.ServerlistHandler)
 
 	}
 

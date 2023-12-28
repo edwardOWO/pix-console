@@ -1,9 +1,9 @@
 {
     "serverName": "host1",
+    "serverhost":["192.168.1.104","192.168.1.107"],
     "port": ":8080",
     "enableGinConsoleLog": true,
     "enableGinFileLog": false,
-
     "logFilename": "logs/server.log",
     "logMaxSize": 10,
     "logMaxBackups": 10,
@@ -16,5 +16,7 @@
 
     "authAddr": "http://127.0.0.1:8080",
     "jwtSecretPassword": "2139083219083920038129038",
-    "issuer": "seedotech"
+    "issuer": "seedotech",
+
+    "memberlistPort": 7947
 }

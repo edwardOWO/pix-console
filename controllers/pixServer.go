@@ -16,6 +16,7 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
+	"github.com/hashicorp/memberlist"
 
 	tool "pix-console/StuneTool"
 	"pix-console/common"
@@ -23,9 +24,10 @@ import (
 )
 
 type User struct {
-	utils    utils.Utils
-	Username string
-	Password string
+	utils      utils.Utils
+	Memberlist *memberlist.Memberlist
+	Username   string
+	Password   string
 }
 
 // 設定 jwtkey 密鑰
@@ -416,8 +418,7 @@ func (u *User) LoginHandler(c *gin.Context) {
 	if found {
 		token := u.utils.GenerateJWTToken(user.Username)
 		c.SetCookie("jwt", token, 360000, "/", "localhost", false, true)
-		c.SetCookie("jwt", token, 360000, "/", "60.199.173.12", false, true)
-		c.SetCookie("jwt", token, 360000, "/", "192.168.1.104", false, true)
+		c.SetCookie("jwt", token, 360000, "/", u.Memberlist.LocalNode().Address(), false, true)
 		c.Redirect(http.StatusSeeOther, "/index")
 	} else {
 		c.Redirect(http.StatusSeeOther, "/?error=InvalidCredentials")
@@ -513,17 +514,14 @@ func DockerHandler(c *gin.Context) {
 	c.JSON(http.StatusOK, combinedData)
 }
 
-func ClusterDockerHandler(c *gin.Context) {
-	addresses := []string{
-		"http://192.168.1.104:8080/api/v1/docker",
-		//"http://192.168.70.112:8080/api/v1/docker",
-		//"http://192.168.70.113:8080/api/v1/docker",
-		//"http://localhost:8080/api/v1/service",
-	}
+func (u *User) ClusterDockerHandler(c *gin.Context) {
 
+	node := u.Memberlist.Members()
 	var mergedData []map[string]interface{}
-	for _, address := range addresses {
-		data, _ := getDockerData(address)
+	for _, address := range node {
+
+		apiUrl := fmt.Sprintf("http://%s%s/api/v1/docker", address.Addr, common.Config.Port)
+		data, _ := getDockerData(apiUrl)
 		mergedData = append(mergedData, data...)
 	}
 
@@ -571,8 +569,8 @@ func ServiceHandler(c *gin.Context) {
 	services := []string{"mysqld", "mongod", "cassandra", "pix-compose", "pixd", "pix-onlyoffice", "crond", "rsyslog", "sshd"}
 	var dockerData []ContainerInfo
 	for _, serviceName := range services {
-		cmd := exec.Command("systemctl", "show", "--property=Names,ActiveState,SubState", "--value", "--no-pager", serviceName)
-
+		///cmd := exec.Command("systemctl", "show", "--property=Names,ActiveState,SubState", "--value", "--no-pager", serviceName)
+		cmd := exec.Command("systemctl", "show", "--property=Names,ActiveState,SubState", "--no-pager", serviceName)
 		var stdout, stderr bytes.Buffer
 		cmd.Stdout = &stdout
 		cmd.Stderr = &stderr
@@ -623,22 +621,21 @@ func ServiceHandler(c *gin.Context) {
 	c.JSON(http.StatusOK, combinedData)
 }
 
-func ClusterServiceHandler(c *gin.Context) {
-
-	addresses := []string{
-		"http://192.168.70.104:8080/api/v1/service",
-		//"http://192.168.70.112:8080/api/v1/service",
-		//"http://192.168.70.113:8080/api/v1/service",
-		//"http://localhost:8080/api/v1/service",
-	}
-
+func (u *User) ClusterServiceHandler(c *gin.Context) {
+	node := u.Memberlist.Members()
 	var mergedData []map[string]interface{}
-	for _, address := range addresses {
-		data, _ := getServiceData(address)
+	for _, address := range node {
+
+		apiUrl := fmt.Sprintf("http://%s%s/api/v1/service", address.Addr, common.Config.Port)
+		data, _ := getServiceData(apiUrl)
 		mergedData = append(mergedData, data...)
 	}
-
 	c.JSON(http.StatusOK, mergedData)
+
+}
+func (u *User) ServerlistHandler(c *gin.Context) {
+	memberlistStatus := getMemberlistStatus(u.Memberlist)
+	c.JSON(200, gin.H{"status": "ok", "members": memberlistStatus})
 }
 
 func getServiceData(url string) ([]map[string]interface{}, error) {

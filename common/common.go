@@ -10,7 +10,9 @@ import (
 
 // Configuration stores setting values
 type Configuration struct {
-	ServerName          string `json:"serverName"`
+	ServerName string   `json:"serverName"`
+	ServerHost []string `json:"serverhost"`
+
 	Port                string `json:"port"`
 	EnableGinConsoleLog bool   `json:"enableGinConsoleLog"`
 	EnableGinFileLog    bool   `json:"enableGinFileLog"`
@@ -28,6 +30,7 @@ type Configuration struct {
 	AuthAddr          string `json:"authAddr"`
 	JwtSecretPassword string `json:"jwtSecretPassword"`
 	Issuer            string `json:"issuer"`
+	MemberlistPort    int    `json:"memberlistPort"`
 }
 
 // Config shares the global configuration
