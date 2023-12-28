@@ -27,7 +27,11 @@ import (
 type Server struct {
 	utils      utils.Utils
 	Memberlist *memberlist.Memberlist
+<<<<<<< HEAD
 	UserAcount *models.Users
+=======
+	UserAcount *[]common.User
+>>>>>>> 044537e3c8d13f5010528444723e0a4d2682d9c8
 }
 
 type RequestData struct {
@@ -396,7 +400,11 @@ func (u *Server) LoginHandler(c *gin.Context) {
 	password := c.PostForm("password")
 
 	var found bool
+<<<<<<< HEAD
 	for _, u := range u.UserAcount.Account {
+=======
+	for _, u := range *u.UserAcount {
+>>>>>>> 044537e3c8d13f5010528444723e0a4d2682d9c8
 		if u.Username == username && u.Password == password {
 
 			found = true
@@ -623,7 +631,10 @@ func (u *Server) ClusterServiceHandler(c *gin.Context) {
 
 }
 func (u *Server) ServerlistHandler(c *gin.Context) {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 044537e3c8d13f5010528444723e0a4d2682d9c8
 	memberlistStatus := getMemberlistStatus(u.Memberlist)
 
 	c.JSON(http.StatusOK, memberlistStatus)

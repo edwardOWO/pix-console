@@ -32,6 +32,7 @@ type Configuration struct {
 	JwtSecretPassword string `json:"jwtSecretPassword"`
 	Issuer            string `json:"issuer"`
 	MemberlistPort    int    `json:"memberlistPort"`
+	UserAcount        []User
 }
 
 // Config shares the global configuration
