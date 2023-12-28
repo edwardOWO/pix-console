@@ -67,7 +67,6 @@ func main() {
 	if m.initServer() != nil {
 		return
 	}
-<<<<<<< HEAD
 
 	// 初始化 Server 物件
 	c := v1.Server{}
@@ -78,12 +77,6 @@ func main() {
 	// 將使用者帳號讀進站台
 	c.UserAcount = common.LoadAccountConfig()
 
-=======
-	c := v1.Server{}
-	c.Memberlist = m.memberlist
-
-	c.UserAcount = &common.Config.UserAcount
->>>>>>> 044537e3c8d13f5010528444723e0a4d2682d9c8
 	// 載入 HTML 目錄
 	m.router.LoadHTMLGlob("templates/*")
 
@@ -104,10 +97,7 @@ func main() {
 	// 使用者登入
 	m.router.POST("/login", c.LoginHandler)
 
-<<<<<<< HEAD
 	// 使用者登出
-=======
->>>>>>> 044537e3c8d13f5010528444723e0a4d2682d9c8
 	m.router.GET("/logout", c.LogoutHandler)
 
 	// 驗證系統

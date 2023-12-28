@@ -27,11 +27,7 @@ import (
 type Server struct {
 	utils      utils.Utils
 	Memberlist *memberlist.Memberlist
-<<<<<<< HEAD
 	UserAcount *models.Users
-=======
-	UserAcount *[]common.User
->>>>>>> 044537e3c8d13f5010528444723e0a4d2682d9c8
 }
 
 type RequestData struct {
@@ -400,11 +396,9 @@ func (u *Server) LoginHandler(c *gin.Context) {
 	password := c.PostForm("password")
 
 	var found bool
-<<<<<<< HEAD
+
 	for _, u := range u.UserAcount.Account {
-=======
-	for _, u := range *u.UserAcount {
->>>>>>> 044537e3c8d13f5010528444723e0a4d2682d9c8
+
 		if u.Username == username && u.Password == password {
 
 			found = true
@@ -415,7 +409,7 @@ func (u *Server) LoginHandler(c *gin.Context) {
 	if found {
 		token := u.utils.GenerateJWTToken(username)
 		c.SetCookie("jwt", token, 360000, "/", "localhost", false, true)
-		c.SetCookie("jwt", token, 360000, "/", u.Memberlist.LocalNode().Address(), false, true)
+		c.SetCookie("jwt", token, 360000, "/", u.Memberlist.LocalNode().Addr.String(), false, true)
 		c.Redirect(http.StatusSeeOther, "/index")
 	} else {
 		c.Redirect(http.StatusSeeOther, "/?error=InvalidCredentials")
@@ -439,10 +433,10 @@ func (u *Server) LogoutHandler(c *gin.Context) {
 		// 將 cookie 過期時間設為過去的時間，即立即過期
 		cookie.Expires = time.Now().AddDate(0, 0, -1)
 		cookie.Path = "/"
-		cookie.Domain = "localhost"
+		cookie.Domain = u.Memberlist.LocalNode().Addr.String()
 		cookie.Secure = false // 設為 true 如果你的應用啟用了 HTTPS
 		cookie.HttpOnly = true
-		c.SetCookie("jwt", "", -1, "/", u.Memberlist.LocalNode().Address(), false, true)
+		c.SetCookie("jwt", "", -1, "/", u.Memberlist.LocalNode().Addr.String(), false, true)
 	}
 
 	// 重定向到登入頁面或其他目標頁面
@@ -631,10 +625,6 @@ func (u *Server) ClusterServiceHandler(c *gin.Context) {
 
 }
 func (u *Server) ServerlistHandler(c *gin.Context) {
-<<<<<<< HEAD
-
-=======
->>>>>>> 044537e3c8d13f5010528444723e0a4d2682d9c8
 	memberlistStatus := getMemberlistStatus(u.Memberlist)
 
 	c.JSON(http.StatusOK, memberlistStatus)
