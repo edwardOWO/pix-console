@@ -4,11 +4,12 @@ import (
 	"encoding/json"
 	"os"
 
+	"pix-console/models"
+
 	"github.com/natefinch/lumberjack"
 	log "github.com/sirupsen/logrus"
 )
 
-// Configuration stores setting values
 type Configuration struct {
 	ServerName string   `json:"serverName"`
 	ServerHost []string `json:"serverhost"`
@@ -82,4 +83,20 @@ func LoadConfig() error {
 	log.SetFormatter(&log.JSONFormatter{})
 
 	return nil
+}
+func LoadAccountConfig() *models.Users {
+	// Filename is the path to the json config file
+	file, err := os.Open("config/account.json")
+	if err != nil {
+		return nil
+	}
+
+	pixUsers := new(models.Users)
+	decoder := json.NewDecoder(file)
+	err = decoder.Decode(&pixUsers)
+	if err != nil {
+		return nil
+	}
+
+	return pixUsers
 }

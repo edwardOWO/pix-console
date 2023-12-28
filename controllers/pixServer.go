@@ -20,18 +20,15 @@ import (
 
 	tool "pix-console/StuneTool"
 	"pix-console/common"
+	"pix-console/models"
 	"pix-console/utils"
 )
 
-type User struct {
+type Server struct {
 	utils      utils.Utils
 	Memberlist *memberlist.Memberlist
-	Username   string
-	Password   string
+	UserAcount *models.Users
 }
-
-// 設定 jwtkey 密鑰
-var jwtKey = []byte("sdflkk;lkfds@@31JKKKhdfhkk123*!*&91`2387")
 
 type RequestData struct {
 	Path string `json:"path"`
@@ -360,14 +357,8 @@ func StopPixComposeHandler(c *gin.Context) {
 
 // 使用者名稱和密碼（範例）
 
-var users = []User{
-	{Username: "admin", Password: "password"},
-	{Username: "edward", Password: "password"},
-	{Username: "user1", Password: "password"},
-}
-
 // JWT 驗證
-func (u *User) JWTAuthMiddleware(c *gin.Context) {
+func (u *Server) JWTAuthMiddleware(c *gin.Context) {
 	// Try cookie-based authentication first
 	cookie, err := c.Request.Cookie("jwt")
 
@@ -400,23 +391,21 @@ func (u *User) JWTAuthMiddleware(c *gin.Context) {
 	c.Abort()
 }
 
-func (u *User) LoginHandler(c *gin.Context) {
+func (u *Server) LoginHandler(c *gin.Context) {
 	username := c.PostForm("username")
 	password := c.PostForm("password")
 
-	var user User
 	var found bool
-
-	for _, u := range users {
+	for _, u := range u.UserAcount.Account {
 		if u.Username == username && u.Password == password {
-			user = u
+
 			found = true
 			break
 		}
 	}
 
 	if found {
-		token := u.utils.GenerateJWTToken(user.Username)
+		token := u.utils.GenerateJWTToken(username)
 		c.SetCookie("jwt", token, 360000, "/", "localhost", false, true)
 		c.SetCookie("jwt", token, 360000, "/", u.Memberlist.LocalNode().Address(), false, true)
 		c.Redirect(http.StatusSeeOther, "/index")
@@ -425,8 +414,8 @@ func (u *User) LoginHandler(c *gin.Context) {
 	}
 }
 
-func LogoutHandler(c *gin.Context) {
-	// 假設你的登入資訊保存在 cookie 中
+func (u *Server) LogoutHandler(c *gin.Context) {
+
 	cookie, err := c.Request.Cookie("jwt")
 	if err == nil {
 		// 將 cookie 過期時間設為過去的時間，即立即過期
@@ -445,7 +434,7 @@ func LogoutHandler(c *gin.Context) {
 		cookie.Domain = "localhost"
 		cookie.Secure = false // 設為 true 如果你的應用啟用了 HTTPS
 		cookie.HttpOnly = true
-		c.SetCookie("jwt", "", -1, "/", "60.199.173.12", false, true)
+		c.SetCookie("jwt", "", -1, "/", u.Memberlist.LocalNode().Address(), false, true)
 	}
 
 	// 重定向到登入頁面或其他目標頁面
@@ -514,7 +503,7 @@ func DockerHandler(c *gin.Context) {
 	c.JSON(http.StatusOK, combinedData)
 }
 
-func (u *User) ClusterDockerHandler(c *gin.Context) {
+func (u *Server) ClusterDockerHandler(c *gin.Context) {
 
 	node := u.Memberlist.Members()
 	var mergedData []map[string]interface{}
@@ -621,7 +610,7 @@ func ServiceHandler(c *gin.Context) {
 	c.JSON(http.StatusOK, combinedData)
 }
 
-func (u *User) ClusterServiceHandler(c *gin.Context) {
+func (u *Server) ClusterServiceHandler(c *gin.Context) {
 	node := u.Memberlist.Members()
 	var mergedData []map[string]interface{}
 	for _, address := range node {
@@ -633,9 +622,11 @@ func (u *User) ClusterServiceHandler(c *gin.Context) {
 	c.JSON(http.StatusOK, mergedData)
 
 }
-func (u *User) ServerlistHandler(c *gin.Context) {
+func (u *Server) ServerlistHandler(c *gin.Context) {
+
 	memberlistStatus := getMemberlistStatus(u.Memberlist)
-	c.JSON(200, gin.H{"status": "ok", "members": memberlistStatus})
+
+	c.JSON(http.StatusOK, memberlistStatus)
 }
 
 func getServiceData(url string) ([]map[string]interface{}, error) {

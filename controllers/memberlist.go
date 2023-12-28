@@ -8,30 +8,16 @@ import (
 	"os"
 	"os/signal"
 	"pix-console/common"
+	"pix-console/models"
 	"syscall"
 
 	"github.com/hashicorp/memberlist"
 )
 
-type MyMetaData struct {
-	Region  string `json:"region"`
-	Zone    string `json:"zone"`
-	ShardId uint16 `json:"shard-id"`
-	Weight  uint64 `json:"weight"`
-}
-
-func (m MyMetaData) Bytes() []byte {
-	data, err := json.Marshal(m)
-	if err != nil {
-		return []byte("")
-	}
-	return data
-}
-
 type MyDelegate struct {
 	MsgCh      chan []byte
 	Broadcasts *memberlist.TransmitLimitedQueue
-	Meta       MyMetaData
+	Meta       models.ServerMetaData
 }
 
 func (d *MyDelegate) NotifyMsg(msg []byte) {
@@ -103,8 +89,8 @@ func ParseMyBroadcastMessage(data []byte) (*MyBroadcastMessage, bool) {
 	}
 	return msg, true
 }
-func ParseMyMetaData(data []byte) (MyMetaData, bool) {
-	meta := MyMetaData{}
+func ParseMyMetaData(data []byte) (models.ServerMetaData, bool) {
+	meta := models.ServerMetaData{}
 	if err := json.Unmarshal(data, &meta); err != nil {
 		return meta, false
 	}
@@ -143,7 +129,7 @@ func StartMemberlist() (*memberlist.Memberlist, *MyDelegate, *MyEventDelegate) {
 	msgCh := make(chan []byte)
 
 	d := &MyDelegate{
-		Meta:       MyMetaData{Region: "ap-northeast-1", Zone: "1a", ShardId: 100, Weight: 0},
+		Meta:       models.ServerMetaData{Region: "ap-northeast-1", Zone: "1a", ShardId: 100, Weight: 0},
 		MsgCh:      msgCh,
 		Broadcasts: new(memberlist.TransmitLimitedQueue),
 	}
@@ -186,19 +172,25 @@ func StartMemberlist() (*memberlist.Memberlist, *MyDelegate, *MyEventDelegate) {
 	return list, d, &d2
 }
 func getMemberlistStatus(list *memberlist.Memberlist) []map[string]interface{} {
-	members := make([]map[string]interface{}, 0)
+
+	var hostData []map[string]interface{}
+
 	for _, node := range list.Members() {
 		meta, ok := ParseMyMetaData(node.Meta)
 		if ok {
 			memberInfo := map[string]interface{}{
-				"name":   node.Name,
-				"region": meta.Region,
-				"zone":   meta.Zone,
-				"shard":  meta.ShardId,
-				"weight": meta.Weight,
+				"HOST":      node.Addr,
+				"CONTAINER": meta.Region,
+				"IMAGE":     "example:latest",
+				"COMMAND":   "example-command",
+				"CREATED":   "1 weeks ago",
+				"STATUS":    "UP",
+				"PORTS":     "8080/tcp",
+				"NAMES":     meta.Region,
 			}
-			members = append(members, memberInfo)
+			hostData = append(hostData, memberInfo)
 		}
 	}
-	return members
+
+	return hostData
 }

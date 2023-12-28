@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker Containers</title>
+    <link rel="stylesheet" href="/static/service.css">
+</head>
+
+<body>
+
+    <h1>PIX Containers</h1>
+
+    <div class="container-wrapper">
+        <div class="container">
+            <div class="sidebar">
+                {{range .links}}
+                <a href="{{.href}}" class="{{.class}}">{{.text}}</a>
+                {{end}}
+            </div>
+        </div>
+        <div class="content" id="content">
+            <input type="text" id="hostFilter" oninput="filterContainers()" placeholder="Filter by Host" value="">
+            <input type="text" id="nameFilter" oninput="filterContainers()" placeholder="Filter by Name" value="">
+            <div id="containerList">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Host</th>
+                            <th>Name</th>
+			                <th>ActiveState</th>
+                            <th>Servie Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="containerDataBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function fetchAndDisplayContainers() {
+            fetch("api/v1/serverlist")
+                .then(response => response.json())
+                .then(data => displayContainers(data))
+                .catch(error => {
+                    console.error("Error fetching data:", error);
+                });
+        }
+
+        // 顯示服務數據
+        function displayContainers(containers) {
+            const containerDataBody = document.getElementById('containerDataBody');
+            containerDataBody.innerHTML = '';
+
+            if (containers.length === 0) {
+                containerDataBody.innerHTML = '<tr><td colspan="5">No containers found.</td></tr>';
+            } else {
+                containers.forEach(container => {
+                    containerDataBody.innerHTML += `
+                        <tr>
+                            <td>${container.HOST}</td>
+                            <td>${container.NAMES}</td>
+                            <td>${container.CREATED}</td>
+                            <td class="${container.STATUS.includes('inactive') || container.STATUS.includes('deactivating') ? 'inactive' : 'active'}">${container.STATUS}</td>
+                        </tr>
+                    `;
+                });
+            }
+
+            // 恢复过滤状态
+            filterContainers();
+        }
+
+        // 初次加载数据
+        fetchAndDisplayContainers();
+
+        // 每15秒自动更新一次数据
+        setInterval(fetchAndDisplayContainers, 5000);
+
+        // 添加过滤功能
+        function filterContainers() {
+            const hostFilter = document.getElementById('hostFilter');
+            const nameFilter = document.getElementById('nameFilter');
+
+            const hostFilterValue = hostFilter.value.toLowerCase();
+            const nameFilterValue = nameFilter.value.toLowerCase();
+
+            const rows = document.querySelectorAll('#containerDataBody tr');
+
+            rows.forEach(row => {
+                const hostCell = row.querySelector('td:nth-child(1)');
+                const nameCell = row.querySelector('td:nth-child(2)');
+
+                const hostText = hostCell.textContent.toLowerCase();
+                const nameText = nameCell.textContent.toLowerCase();
+
+                const hostMatch = hostText.includes(hostFilterValue) || hostFilterValue === '';
+                const nameMatch = nameText.includes(nameFilterValue) || nameFilterValue === '';
+
+                if (hostMatch && nameMatch) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            // 保存过滤状态到本地存储
+            localStorage.setItem('hostFilter', hostFilterValue);
+            localStorage.setItem('nameFilter', nameFilterValue);
+        }
+
+        // 恢复过滤状态
+        const storedHostFilter = localStorage.getItem('hostFilter');
+        if (storedHostFilter) {
+            document.getElementById('hostFilter').value = storedHostFilter;
+        }
+
+        const storedNameFilter = localStorage.getItem('nameFilter');
+        if (storedNameFilter) {
+            document.getElementById('nameFilter').value = storedNameFilter;
+        }
+    </script>
+
+</body>
+
+</html>

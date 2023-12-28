@@ -67,8 +67,15 @@ func main() {
 	if m.initServer() != nil {
 		return
 	}
-	c := v1.User{Username: "admin", Password: "password"}
+
+	// 初始化 Server 物件
+	c := v1.Server{}
+
+	// 將 memberlist 賦予站台使用
 	c.Memberlist = m.memberlist
+
+	// 將使用者帳號讀進站台
+	c.UserAcount = common.LoadAccountConfig()
 
 	// 載入 HTML 目錄
 	m.router.LoadHTMLGlob("templates/*")
@@ -87,18 +94,24 @@ func main() {
 		})
 	})
 
+	// 使用者登入
 	m.router.POST("/login", c.LoginHandler)
 
-	m.router.GET("/logout", v1.LogoutHandler)
+	// 使用者登出
+	m.router.GET("/logout", c.LogoutHandler)
 
-	// 驗證
+	// 驗證系統
 	m.router.Use(c.JWTAuthMiddleware)
 
-	// 產生站台連結 template
+	// 在介面上產生站台連結
 	PageLink := view.CreatePageLink()
 
 	m.router.GET("/index", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", PageLink)
+	})
+
+	m.router.GET("/host", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "host.html", PageLink)
 	})
 
 	m.router.GET("/docker", func(c *gin.Context) {

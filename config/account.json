@@ -1,0 +1,12 @@
+{
+    "userAcount": [
+        {
+            "username": "admin",
+            "password": "password"
+        },
+        {
+            "username": "edward",
+            "password": "password2"
+        }
+    ]
+}

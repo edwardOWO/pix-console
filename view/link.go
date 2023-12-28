@@ -15,6 +15,7 @@ func CreatePageLink() gin.H {
 	PageLink := gin.H{
 		"links": []gin.H{
 			{"text": "DashBoard", "href": "/dashboard"},
+			{"text": "Host", "href": "/host"},
 			{"text": "Service", "href": "/service"},
 			{"text": "Containers", "href": "/docker"},
 			{"text": "Setting", "href": "/index"},
