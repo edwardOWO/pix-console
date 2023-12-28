@@ -9,6 +9,10 @@ import (
 )
 
 // Configuration stores setting values
+type User struct {
+	Username string `json:"username"`
+	Password string `json:"password"`
+}
 type Configuration struct {
 	ServerName string   `json:"serverName"`
 	ServerHost []string `json:"serverhost"`
@@ -31,6 +35,7 @@ type Configuration struct {
 	JwtSecretPassword string `json:"jwtSecretPassword"`
 	Issuer            string `json:"issuer"`
 	MemberlistPort    int    `json:"memberlistPort"`
+	UserAcount        []User
 }
 
 // Config shares the global configuration

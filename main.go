@@ -67,9 +67,10 @@ func main() {
 	if m.initServer() != nil {
 		return
 	}
-	c := v1.User{Username: "admin", Password: "password"}
+	c := v1.Server{}
 	c.Memberlist = m.memberlist
 
+	c.UserAcount = &common.Config.UserAcount
 	// 載入 HTML 目錄
 	m.router.LoadHTMLGlob("templates/*")
 
@@ -89,7 +90,7 @@ func main() {
 
 	m.router.POST("/login", c.LoginHandler)
 
-	m.router.GET("/logout", v1.LogoutHandler)
+	m.router.GET("/logout", c.LogoutHandler)
 
 	// 驗證
 	m.router.Use(c.JWTAuthMiddleware)
