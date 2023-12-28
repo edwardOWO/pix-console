@@ -8,6 +8,7 @@ import (
 	"pix-console/common"
 	"pix-console/controllers"
 	_ "pix-console/docs"
+	"pix-console/view"
 
 	v1 "pix-console/controllers"
 
@@ -93,17 +94,8 @@ func main() {
 	// 驗證
 	m.router.Use(c.JWTAuthMiddleware)
 
-	PageLink := gin.H{
-		"links": []gin.H{
-			{"text": "DashBoard", "href": "/dashboard", "class": "dashboard"},
-			{"text": "Containers", "href": "/docker"},
-			{"text": "Setting", "href": "/index"},
-			{"text": "Docker-compose", "href": "/docker-compose"},
-			{"text": "Service", "href": "/service"},
-			{"text": "Feedback", "href": "/feedback"},
-			{"text": "Logout", "href": "/logout"},
-		},
-	}
+	// 產生站台連結 template
+	PageLink := view.CreatePageLink()
 
 	m.router.GET("/index", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", PageLink)
