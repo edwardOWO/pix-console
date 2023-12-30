@@ -148,7 +148,7 @@ func StartMemberlist() (*memberlist.Memberlist, *MyDelegate, *MyEventDelegate) {
 	}
 
 	//local := list.LocalNode()
-	list.Join(common.Config.ServerHost)
+	list.Join(convertServerHostToArray(common.Config.ServerHost))
 
 	go func() {
 		run := true
@@ -171,26 +171,59 @@ func StartMemberlist() (*memberlist.Memberlist, *MyDelegate, *MyEventDelegate) {
 
 	return list, d, &d2
 }
+func convertServerHostToArray(serverHostMap map[string]string) []string {
+	serverHostArray := make([]string, 0, len(serverHostMap))
+	for _, value := range serverHostMap {
+		serverHostArray = append(serverHostArray, value)
+	}
+	return serverHostArray
+}
 func getMemberlistStatus(list *memberlist.Memberlist) []map[string]interface{} {
 
 	var hostData []map[string]interface{}
 
-	for _, node := range list.Members() {
-		meta, ok := ParseMyMetaData(node.Meta)
-		if ok {
-			memberInfo := map[string]interface{}{
-				"HOST":      node.Addr,
-				"CONTAINER": meta.Region,
-				"IMAGE":     "example:latest",
-				"COMMAND":   "example-command",
-				"CREATED":   "1 weeks ago",
-				"STATUS":    "UP",
-				"PORTS":     "8080/tcp",
-				"NAMES":     meta.Region,
+	for ip, hostname := range common.Config.ServerHost {
+
+		Status := "Down"
+		for _, node := range list.Members() {
+
+			if node.Addr.String() == ip {
+				Status = "UP"
 			}
-			hostData = append(hostData, memberInfo)
 		}
+
+		memberInfo := map[string]interface{}{
+			"HOST":      ip,
+			"CONTAINER": hostname,
+			"IMAGE":     "example:latest",
+			"COMMAND":   "example-command",
+			"CREATED":   "1 weeks ago",
+			"STATUS":    Status,
+			"PORTS":     "8080/tcp",
+			"NAMES":     hostname,
+		}
+		hostData = append(hostData, memberInfo)
+
 	}
+
+	/*
+		for _, node := range list.Members() {
+			meta, ok := ParseMyMetaData(node.Meta)
+			if ok {
+				memberInfo := map[string]interface{}{
+					"HOST":      node.Addr,
+					"CONTAINER": meta.Region,
+					"IMAGE":     "example:latest",
+					"COMMAND":   "example-command",
+					"CREATED":   "1 weeks ago",
+					"STATUS":    "UP",
+					"PORTS":     "8080/tcp",
+					"NAMES":     meta.Region,
+				}
+				hostData = append(hostData, memberInfo)
+			}
+		}
+	*/
 
 	return hostData
 }

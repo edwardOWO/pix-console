@@ -11,8 +11,8 @@ import (
 )
 
 type Configuration struct {
-	ServerName string   `json:"serverName"`
-	ServerHost []string `json:"serverhost"`
+	ServerName string            `json:"serverName"`
+	ServerHost map[string]string `json:"serverhost"`
 
 	Port                string `json:"port"`
 	EnableGinConsoleLog bool   `json:"enableGinConsoleLog"`

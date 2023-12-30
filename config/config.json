@@ -1,10 +1,10 @@
 {
     "serverName": "host1",
-    "serverhost": [
-        "192.168.1.104",
-        "192.168.1.107",
-        "192.168.1.119"
-    ],
+    "serverhost": {
+        "192.168.1.104":"host1",
+        "192.168.1.107":"host2",
+        "192.168.1.119":"host3"
+    },
     "port": ":8080",
     "enableGinConsoleLog": true,
     "enableGinFileLog": false,
@@ -19,15 +19,5 @@
     "authAddr": "http://127.0.0.1:8080",
     "jwtSecretPassword": "2139083219083920038129038",
     "issuer": "seedotech",
-    "memberlistPort": 7947,
-    "userAcount": [
-        {
-            "username": "admin",
-            "password": "password"
-        },
-        {
-            "username": "edward",
-            "password": "password2"
-        }
-    ]
+    "memberlistPort": 7947
 }

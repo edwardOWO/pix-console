@@ -29,7 +29,7 @@
                         <tr>
                             <th>Host</th>
                             <th>Name</th>
-			                <th>ActiveState</th>
+                            <th>ActiveState</th>
                             <th>Servie Status</th>
                         </tr>
                     </thead>
@@ -57,15 +57,19 @@
             if (containers.length === 0) {
                 containerDataBody.innerHTML = '<tr><td colspan="5">No containers found.</td></tr>';
             } else {
+                // 对数据进行排序
+                containers.sort((a, b) => a.HOST.localeCompare(b.HOST));
+
+                // 渲染排序后的数据
                 containers.forEach(container => {
                     containerDataBody.innerHTML += `
-                        <tr>
-                            <td>${container.HOST}</td>
-                            <td>${container.NAMES}</td>
-                            <td>${container.CREATED}</td>
-                            <td class="${container.STATUS.includes('inactive') || container.STATUS.includes('deactivating') ? 'inactive' : 'active'}">${container.STATUS}</td>
-                        </tr>
-                    `;
+                <tr>
+                    <td>${container.HOST}</td>
+                    <td>${container.NAMES}</td>
+                    <td>${container.CREATED}</td>
+                    <td class="${container.STATUS.includes('UP') ? 'active' : 'inactive'}">${container.STATUS}</td>
+                </tr>
+            `;
                 });
             }
 

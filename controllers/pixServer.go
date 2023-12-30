@@ -626,8 +626,13 @@ func (u *Server) ClusterServiceHandler(c *gin.Context) {
 }
 func (u *Server) ServerlistHandler(c *gin.Context) {
 	memberlistStatus := getMemberlistStatus(u.Memberlist)
-
 	c.JSON(http.StatusOK, memberlistStatus)
+}
+
+// KeyValuePair 用于存储键值对
+type KeyValuePair struct {
+	Key   string `json:"key"`
+	Value string `json:"value"`
 }
 
 func getServiceData(url string) ([]map[string]interface{}, error) {
