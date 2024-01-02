@@ -173,8 +173,9 @@ func StartMemberlist() (*memberlist.Memberlist, *MyDelegate, *MyEventDelegate) {
 }
 func convertServerHostToArray(serverHostMap map[string]string) []string {
 	serverHostArray := make([]string, 0, len(serverHostMap))
-	for _, value := range serverHostMap {
-		serverHostArray = append(serverHostArray, value)
+	for key, _ := range serverHostMap {
+		fmt.Print(key)
+		serverHostArray = append(serverHostArray, key)
 	}
 	return serverHostArray
 }

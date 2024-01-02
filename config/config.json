@@ -7,7 +7,7 @@
     },
     "port": ":8080",
     "enableGinConsoleLog": true,
-    "enableGinFileLog": false,
+    "enableGinFileLog": true,
     "logFilename": "logs/server.log",
     "logMaxSize": 10,
     "logMaxBackups": 10,
