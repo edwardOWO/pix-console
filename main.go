@@ -2,9 +2,9 @@ package main
 
 import (
 	"io"
+	"log"
 	"net/http"
 	"os"
-
 	"pix-console/common"
 	"pix-console/controllers"
 	_ "pix-console/docs"
@@ -17,6 +17,8 @@ import (
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 )
+
+var logger *log.Logger
 
 // Main manages main golang application
 type Main struct {
@@ -32,8 +34,16 @@ func (m *Main) initServer() error {
 		return err
 	}
 
+	f, err := os.OpenFile("logs/memberlist.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0777)
+	if err != nil {
+		log.Fatalf("open file error=%v", err)
+	}
+	//defer f.Close()
+
+	logger = log.New(f, "###################", log.Ldate|log.Ltime)
+
 	// 啟動 memberlist 功能,並
-	list, _, _ := controllers.StartMemberlist()
+	list, _, _ := controllers.StartMemberlist(logger, f)
 	m.memberlist = list
 
 	// Initialize mongo database
@@ -171,6 +181,9 @@ func main() {
 
 		// 取得主機群資訊
 		apiV1.GET("/serverlist", c.ServerlistHandler)
+
+		// 檢查主機 Port 號
+		apiV1.GET("/monitor", c.MonitorHandler)
 
 	}
 

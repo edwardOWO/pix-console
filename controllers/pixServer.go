@@ -629,6 +629,22 @@ func (u *Server) ServerlistHandler(c *gin.Context) {
 	c.JSON(http.StatusOK, memberlistStatus)
 }
 
+func (u *Server) MonitorHandler(c *gin.Context) {
+
+	status := c.Query("service")
+
+	result, err := strconv.ParseBool(status)
+	if err != nil {
+		c.JSON(http.StatusOK, "Error")
+	} else {
+
+		ports := []int{5222, 133, 7891, 40002}
+		test := u.utils.ListenPortsAndExit(ports, result)
+		c.JSON(http.StatusOK, test)
+	}
+
+}
+
 // KeyValuePair 用于存储键值对
 type KeyValuePair struct {
 	Key   string `json:"key"`

@@ -2,7 +2,11 @@ package utils
 
 import (
 	"fmt"
+	"net"
+	"os"
+	"os/signal"
 	"pix-console/common"
+	"syscall"
 	"time"
 
 	"github.com/casbin/casbin/v2"
@@ -12,6 +16,9 @@ import (
 )
 
 type Utils struct {
+	stopListening chan bool
+	running       bool
+	connCount     map[int]int
 }
 type SdtClaims struct {
 	Name string `json:"name"`
@@ -85,4 +92,90 @@ func (u *Utils) CasbinAuthMiddleware(c *gin.Context, username string) bool {
 	fmt.Printf("%s,%s,%s,%t \n", username, obj, act, status)
 	return status
 
+}
+
+func (u *Utils) handleTCPConnection(conn net.Conn, p int) {
+	defer conn.Close()
+
+	// 处理TCP连接的代码
+	conn.Write([]byte("TCP PASS!!!!"))
+	u.connCount[p]++
+}
+
+func (u *Utils) ListenPortsAndExit(ports []int, start bool) (connMap map[int]int) {
+	if u.running && start {
+		fmt.Println("已經啟動過，不再重複啟動")
+		return u.connCount
+	}
+
+	if !u.running && !start {
+		fmt.Println("沒有啟動，無需停止")
+		return u.connCount
+	}
+
+	// 如果是啟動，則初始化通道和標誌
+	if start {
+		u.connCount = make(map[int]int)
+		u.stopListening = make(chan bool)
+		u.running = true
+	}
+
+	// 如果是停止，則關閉通道並重置標誌
+	if !start {
+		close(u.stopListening)
+		u.running = false
+		return
+	}
+
+	// 啟動監聽多個端口的 goroutine
+	for _, port := range ports {
+		go func(p int) {
+			// 監聽指定的端口
+			var listener net.Listener
+			var err error
+			protocol := "tcp"
+
+			if p < 40000 {
+				protocol = "tcp"
+			}
+
+			address := fmt.Sprintf(":%d", p)
+			listener, err = net.Listen(protocol, address)
+			fmt.Printf("開始監聽端口 %d，協議：%s\n", p, protocol)
+
+			if err != nil {
+				fmt.Printf("無法監聽端口 %d: %s\n", p, err)
+				u.stopListening <- true
+				return
+			}
+			defer listener.Close()
+
+			// 接收信號
+			signalChan := make(chan os.Signal, 1)
+			signal.Notify(signalChan, syscall.SIGINT, syscall.SIGTERM)
+
+			for {
+				// 等待連線
+				conn, err := listener.Accept()
+				if err != nil {
+					fmt.Printf("無法接受連線: %s\n", err)
+					continue
+				}
+
+				// 啟動 goroutine 處理連線
+				go u.handleTCPConnection(conn, p)
+			}
+		}(port)
+	}
+
+	// 等待所有 goroutine 完成
+	for range ports {
+		<-u.stopListening
+	}
+
+	if start {
+		fmt.Println("所有監聽已退出")
+	}
+
+	return u.connCount
 }

@@ -124,7 +124,7 @@ func printMemberlistStatus(list *memberlist.Memberlist) {
 		}
 	}
 }
-func StartMemberlist() (*memberlist.Memberlist, *MyDelegate, *MyEventDelegate) {
+func StartMemberlist(logger *log.Logger, file *os.File) (*memberlist.Memberlist, *MyDelegate, *MyEventDelegate) {
 
 	msgCh := make(chan []byte)
 
@@ -141,6 +141,7 @@ func StartMemberlist() (*memberlist.Memberlist, *MyDelegate, *MyEventDelegate) {
 	conf.AdvertisePort = conf.BindPort
 	conf.Delegate = d
 	conf.Events = &d2
+	conf.Logger = logger
 
 	list, err := memberlist.Create(conf)
 	if err != nil {
@@ -155,8 +156,16 @@ func StartMemberlist() (*memberlist.Memberlist, *MyDelegate, *MyEventDelegate) {
 		for run {
 			select {
 			case data := <-d.MsgCh:
+
 				printMemberlistStatus(list)
 
+				for _, node := range list.Members() {
+					if node.Name == conf.Name {
+						continue // skip self
+					}
+					//log.Printf("send to %s msg: key=%s value=%d", node.Name, "test", "test2")
+					//list.SendReliable(node, []byte("test"))
+				}
 				fmt.Print(string(data))
 				log.Printf("------------------")
 
