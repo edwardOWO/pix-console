@@ -124,7 +124,14 @@ func (u *Utils) ListenPortsAndExit(ports []int, start bool) (connMap map[int]int
 	if !start {
 		close(u.stopListening)
 		u.running = false
-		return
+
+		// 等待所有 goroutine 完成
+		for range ports {
+			<-u.stopListening
+		}
+
+		fmt.Println("所有監聽已退出")
+		return u.connCount
 	}
 
 	// 啟動監聽多個端口的 goroutine

@@ -5,15 +5,15 @@
  - using code:	gin.SetMode(gin.ReleaseMode)
 
 [GIN-debug] Loaded HTML Templates (9): 
-	- 
 	- docker-compose.html
+	- docker.html
 	- feedback.html
 	- index.html
 	- login.html
-	- dashboard.html
-	- docker.html
-	- host.html
 	- service.html
+	- 
+	- dashboard.html
+	- host.html
 
 [GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
 [GIN-debug] HEAD   /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
@@ -50,10 +50,32 @@
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8080
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/01/02 - 08:16:16 | 200 |     197.705µs |   192.168.1.102 | GET      "/api/v1/monitor?service=true"
-[GIN] 2024/01/02 - 08:16:16 | 303 |     768.431µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/01/02 - 08:16:16 | 200 |     662.157µs |   192.168.1.102 | GET      "/"
+[GIN] 2024/01/02 - 10:33:01 | 200 |      194.37µs |   192.168.1.102 | GET      "/api/v1/monitor?service=true"
+[GIN] 2024/01/02 - 10:33:01 | 303 |     230.352µs |   192.168.1.102 | GET      "/favicon.ico"
+[GIN] 2024/01/02 - 10:33:01 | 200 |     468.047µs |   192.168.1.102 | GET      "/"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/01/02 - 08:16:26 | 200 |     239.975µs |   192.168.1.102 | GET      "/api/v1/monitor?service=true"
-[GIN] 2024/01/02 - 08:16:26 | 303 |     252.339µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/01/02 - 08:16:26 | 200 |     646.794µs |   192.168.1.102 | GET      "/"
+[GIN] 2024/01/02 - 10:33:12 | 200 |      341.89µs |   192.168.1.102 | GET      "/api/v1/monitor?service=true"
+[GIN] 2024/01/02 - 10:33:12 | 303 |     210.361µs |   192.168.1.102 | GET      "/favicon.ico"
+[GIN] 2024/01/02 - 10:33:12 | 200 |     624.961µs |   192.168.1.102 | GET      "/"
+[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
+[GIN] 2024/01/02 - 10:33:15 | 200 |     453.553µs |   192.168.1.102 | GET      "/api/v1/monitor?service=false"
+[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
+[GIN] 2024/01/02 - 10:33:15 | 200 | 21.485095095s |   192.168.1.102 | GET      "/api/v1/monitor?service=true"
+[GIN] 2024/01/02 - 10:33:17 | 303 |     195.325µs |   192.168.1.102 | GET      "/favicon.ico"
+[GIN] 2024/01/02 - 10:33:17 | 200 |     775.681µs |   192.168.1.102 | GET      "/"
+[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
+[GIN] 2024/01/02 - 10:33:21 | 200 |     347.741µs |   192.168.1.102 | GET      "/api/v1/monitor?service=false"
+[GIN] 2024/01/02 - 10:33:21 | 303 |     249.089µs |   192.168.1.102 | GET      "/favicon.ico"
+[GIN] 2024/01/02 - 10:33:21 | 200 |     445.728µs |   192.168.1.102 | GET      "/"
+[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
+[GIN] 2024/01/02 - 10:33:32 | 200 |    1.424962ms |   192.168.1.102 | GET      "/api/v1/monitor?service=true"
+[GIN] 2024/01/02 - 10:33:33 | 303 |     167.375µs |   192.168.1.102 | GET      "/favicon.ico"
+[GIN] 2024/01/02 - 10:33:33 | 200 |     625.112µs |   192.168.1.102 | GET      "/"
+[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
+[GIN] 2024/01/02 - 10:33:50 | 200 |     301.422µs |   192.168.1.102 | GET      "/api/v1/monitor?service=true"
+[GIN] 2024/01/02 - 10:33:50 | 303 |     197.939µs |   192.168.1.102 | GET      "/favicon.ico"
+[GIN] 2024/01/02 - 10:33:50 | 200 |     616.807µs |   192.168.1.102 | GET      "/"
+[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
+[GIN] 2024/01/02 - 10:33:54 | 200 |     190.125µs |   192.168.1.102 | GET      "/api/v1/monitor?service=false"
+[GIN] 2024/01/02 - 10:33:55 | 303 |     276.945µs |   192.168.1.102 | GET      "/favicon.ico"
+[GIN] 2024/01/02 - 10:33:55 | 200 |     391.907µs |   192.168.1.102 | GET      "/"
