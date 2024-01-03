@@ -631,17 +631,23 @@ func (u *Server) ServerlistHandler(c *gin.Context) {
 
 func (u *Server) MonitorHandler(c *gin.Context) {
 
-	status := c.Query("service")
+	status := c.Query("status")
+	setting, err := strconv.ParseBool(status)
 
-	result, err := strconv.ParseBool(status)
-	if err != nil {
-		c.JSON(http.StatusOK, "Error")
-	} else {
-
-		ports := []int{5222, 133, 7891, 40002}
-		test := u.utils.ListenPortsAndExit(ports, result)
-		c.JSON(http.StatusOK, test)
+	if err == nil {
+		if setting == true {
+			u.utils.StartServer()
+		} else {
+			u.utils.CloseServer()
+		}
 	}
+	c.JSON(http.StatusOK, u.utils.ConnCount)
+
+}
+func (u *Server) MonitorHandler2(c *gin.Context) {
+
+	u.utils.CloseServer()
+	c.JSON(http.StatusOK, u.utils.ConnCount)
 
 }
 

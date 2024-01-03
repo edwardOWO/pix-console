@@ -1,12 +1,11 @@
 package utils
 
 import (
+	"context"
 	"fmt"
 	"net"
-	"os"
-	"os/signal"
 	"pix-console/common"
-	"syscall"
+	"sync"
 	"time"
 
 	"github.com/casbin/casbin/v2"
@@ -18,7 +17,14 @@ import (
 type Utils struct {
 	stopListening chan bool
 	running       bool
-	connCount     map[int]int
+	ConnCount     map[int]int
+	Status        bool
+	Running       bool
+
+	serverWG     sync.WaitGroup
+	serverClosed bool
+	ctx          context.Context
+	cancel       context.CancelFunc
 }
 type SdtClaims struct {
 	Name string `json:"name"`
@@ -93,96 +99,95 @@ func (u *Utils) CasbinAuthMiddleware(c *gin.Context, username string) bool {
 	return status
 
 }
+func (u *Utils) StartServer() {
 
-func (u *Utils) handleTCPConnection(conn net.Conn, p int) {
-	defer conn.Close()
+	ports := []int{5222, 5269}
 
-	// 处理TCP连接的代码
-	conn.Write([]byte("TCP PASS!!!!"))
-	u.connCount[p]++
+	if u.serverClosed == false {
+		u.ConnCount = make(map[int]int)
+
+		for _, port := range ports {
+			u.ConnCount[port] = 0
+		}
+	} else {
+		fmt.Print("Server Already start")
+		return
+	}
+
+	u.serverClosed = true
+	u.serverWG.Add(len(ports)) // 監聽兩個端口，您可以根據需求調整
+
+	// 建立具有取消功能的上下文
+	u.ctx, u.cancel = context.WithCancel(context.Background())
+
+	for _, port := range ports {
+		listenPort := fmt.Sprintf(":%d", port)
+		go u.listenAndServe(listenPort, port)
+	}
+
+	// 等待 goroutine 完成
+	u.serverWG.Wait()
 }
 
-func (u *Utils) ListenPortsAndExit(ports []int, start bool) (connMap map[int]int) {
-	if u.running && start {
-		fmt.Println("已經啟動過，不再重複啟動")
-		return u.connCount
+func (u *Utils) listenAndServe(addr string, port int) {
+	defer u.serverWG.Done()
+
+	ln, err := net.Listen("tcp", addr)
+	if err != nil {
+		fmt.Printf("啟動伺服器錯誤 (%s): %v\n", addr, err)
+		return
 	}
+	defer ln.Close()
 
-	if !u.running && !start {
-		fmt.Println("沒有啟動，無需停止")
-		return u.connCount
-	}
+	fmt.Printf("伺服器已啟動，正在監聽 %s\n", addr)
 
-	// 如果是啟動，則初始化通道和標誌
-	if start {
-		u.connCount = make(map[int]int)
-		u.stopListening = make(chan bool)
-		u.running = true
-	}
+	for {
+		select {
+		case <-u.ctx.Done():
+			fmt.Printf("伺服器已關閉 (%s) !!!!!!!!!!!!!!\n", addr)
+			return
+		default:
+			ln.(*net.TCPListener).SetDeadline(time.Now().Add(100 * time.Millisecond))
 
-	// 如果是停止，則關閉通道並重置標誌
-	if !start {
-		close(u.stopListening)
-		u.running = false
-
-		// 等待所有 goroutine 完成
-		for range ports {
-			<-u.stopListening
-		}
-
-		fmt.Println("所有監聽已退出")
-		return u.connCount
-	}
-
-	// 啟動監聽多個端口的 goroutine
-	for _, port := range ports {
-		go func(p int) {
-			// 監聽指定的端口
-			var listener net.Listener
-			var err error
-			protocol := "tcp"
-
-			if p < 40000 {
-				protocol = "tcp"
-			}
-
-			address := fmt.Sprintf(":%d", p)
-			listener, err = net.Listen(protocol, address)
-			fmt.Printf("開始監聽端口 %d，協議：%s\n", p, protocol)
+			conn, err := ln.Accept()
 
 			if err != nil {
-				fmt.Printf("無法監聽端口 %d: %s\n", p, err)
-				u.stopListening <- true
-				return
-			}
-			defer listener.Close()
-
-			// 接收信號
-			signalChan := make(chan os.Signal, 1)
-			signal.Notify(signalChan, syscall.SIGINT, syscall.SIGTERM)
-
-			for {
-				// 等待連線
-				conn, err := listener.Accept()
-				if err != nil {
-					fmt.Printf("無法接受連線: %s\n", err)
-					continue
+				// 檢查錯誤是否是由於監聽器被關閉
+				netErr, ok := err.(net.Error)
+				if ok && netErr.Timeout() {
+					continue // 這是非阻塞操作，繼續等待連線
 				}
 
-				// 啟動 goroutine 處理連線
-				go u.handleTCPConnection(conn, p)
+				fmt.Printf("接受連線錯誤 (%s): %v\n", addr, err)
+				continue
 			}
-		}(port)
-	}
 
-	// 等待所有 goroutine 完成
-	for range ports {
-		<-u.stopListening
+			go u.HandleConnection(conn, port)
+		}
 	}
+}
 
-	if start {
-		fmt.Println("所有監聽已退出")
+func (u *Utils) HandleConnection(conn net.Conn, port int) {
+	defer conn.Close()
+	fmt.Printf("來自 %s 的連線已接受\n", conn.RemoteAddr())
+	u.ConnCount[port]++
+	// 檢查上下文的取消
+	select {
+	case <-u.ctx.Done():
+		fmt.Println("伺服器關閉中，終止連線處理。")
+		return
+	default:
+		// 繼續處理連線邏輯
+		// 在這裡處理連接邏輯
 	}
+}
 
-	return u.connCount
+func (u *Utils) CloseServer() {
+
+	if u.serverClosed == true {
+		u.serverClosed = false
+		u.cancel() // Cancel the context to signal the termination
+		u.serverWG.Wait()
+		fmt.Println("Server closed")
+	}
 }

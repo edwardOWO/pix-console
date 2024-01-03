@@ -5,15 +5,15 @@
  - using code:	gin.SetMode(gin.ReleaseMode)
 
 [GIN-debug] Loaded HTML Templates (9): 
-	- docker-compose.html
-	- docker.html
-	- feedback.html
 	- index.html
-	- login.html
 	- service.html
 	- 
-	- dashboard.html
+	- docker-compose.html
+	- feedback.html
 	- host.html
+	- login.html
+	- dashboard.html
+	- docker.html
 
 [GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
 [GIN-debug] HEAD   /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
@@ -46,36 +46,55 @@
 [GIN-debug] GET    /api/v1/cluster_service   --> pix-console/controllers.(*Server).ClusterServiceHandler-fm (4 handlers)
 [GIN-debug] GET    /api/v1/serverlist        --> pix-console/controllers.(*Server).ServerlistHandler-fm (4 handlers)
 [GIN-debug] GET    /api/v1/monitor           --> pix-console/controllers.(*Server).MonitorHandler-fm (4 handlers)
+[GIN-debug] GET    /api/v1/monitor2          --> pix-console/controllers.(*Server).MonitorHandler2-fm (4 handlers)
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8080
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/01/02 - 10:33:01 | 200 |      194.37µs |   192.168.1.102 | GET      "/api/v1/monitor?service=true"
-[GIN] 2024/01/02 - 10:33:01 | 303 |     230.352µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/01/02 - 10:33:01 | 200 |     468.047µs |   192.168.1.102 | GET      "/"
+[GIN] 2024/01/03 - 04:43:08 | 200 | 15.828299612s |   192.168.1.102 | GET      "/api/v1/monitor?status=true"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/01/02 - 10:33:12 | 200 |      341.89µs |   192.168.1.102 | GET      "/api/v1/monitor?service=true"
-[GIN] 2024/01/02 - 10:33:12 | 303 |     210.361µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/01/02 - 10:33:12 | 200 |     624.961µs |   192.168.1.102 | GET      "/"
+[GIN] 2024/01/03 - 04:43:08 | 200 |  4.979065595s |   192.168.1.102 | GET      "/api/v1/monitor?status=false"
+[GIN] 2024/01/03 - 04:43:08 | 303 |     331.676µs |   192.168.1.102 | GET      "/favicon.ico"
+[GIN] 2024/01/03 - 04:43:08 | 200 |    5.112398ms |   192.168.1.102 | GET      "/"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/01/02 - 10:33:15 | 200 |     453.553µs |   192.168.1.102 | GET      "/api/v1/monitor?service=false"
+[GIN] 2024/01/03 - 04:43:29 | 200 |  5.879042818s |   192.168.1.102 | GET      "/api/v1/monitor"
+[GIN] 2024/01/03 - 04:43:29 | 303 |     114.877µs |   192.168.1.102 | GET      "/favicon.ico"
+[GIN] 2024/01/03 - 04:43:29 | 200 |     888.343µs |   192.168.1.102 | GET      "/"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/01/02 - 10:33:15 | 200 | 21.485095095s |   192.168.1.102 | GET      "/api/v1/monitor?service=true"
-[GIN] 2024/01/02 - 10:33:17 | 303 |     195.325µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/01/02 - 10:33:17 | 200 |     775.681µs |   192.168.1.102 | GET      "/"
+[GIN] 2024/01/03 - 04:43:37 | 200 |     203.603µs |   192.168.1.102 | GET      "/api/v1/monitor"
+[GIN] 2024/01/03 - 04:43:37 | 303 |     168.131µs |   192.168.1.102 | GET      "/favicon.ico"
+[GIN] 2024/01/03 - 04:43:37 | 200 |     491.506µs |   192.168.1.102 | GET      "/"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/01/02 - 10:33:21 | 200 |     347.741µs |   192.168.1.102 | GET      "/api/v1/monitor?service=false"
-[GIN] 2024/01/02 - 10:33:21 | 303 |     249.089µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/01/02 - 10:33:21 | 200 |     445.728µs |   192.168.1.102 | GET      "/"
+[GIN] 2024/01/03 - 04:43:38 | 200 |     260.508µs |   192.168.1.102 | GET      "/api/v1/monitor"
+[GIN] 2024/01/03 - 04:43:38 | 303 |     147.793µs |   192.168.1.102 | GET      "/favicon.ico"
+[GIN] 2024/01/03 - 04:43:38 | 200 |     577.778µs |   192.168.1.102 | GET      "/"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/01/02 - 10:33:32 | 200 |    1.424962ms |   192.168.1.102 | GET      "/api/v1/monitor?service=true"
-[GIN] 2024/01/02 - 10:33:33 | 303 |     167.375µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/01/02 - 10:33:33 | 200 |     625.112µs |   192.168.1.102 | GET      "/"
+[GIN] 2024/01/03 - 04:43:41 | 200 |     248.718µs |   192.168.1.102 | GET      "/api/v1/monitor"
+[GIN] 2024/01/03 - 04:43:41 | 303 |     100.909µs |   192.168.1.102 | GET      "/favicon.ico"
+[GIN] 2024/01/03 - 04:43:41 | 200 |    1.467373ms |   192.168.1.102 | GET      "/"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/01/02 - 10:33:50 | 200 |     301.422µs |   192.168.1.102 | GET      "/api/v1/monitor?service=true"
-[GIN] 2024/01/02 - 10:33:50 | 303 |     197.939µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/01/02 - 10:33:50 | 200 |     616.807µs |   192.168.1.102 | GET      "/"
+[GIN] 2024/01/03 - 04:43:43 | 200 |     173.781µs |   192.168.1.102 | GET      "/api/v1/monitor"
+[GIN] 2024/01/03 - 04:43:43 | 303 |     159.419µs |   192.168.1.102 | GET      "/favicon.ico"
+[GIN] 2024/01/03 - 04:43:43 | 200 |     621.052µs |   192.168.1.102 | GET      "/"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/01/02 - 10:33:54 | 200 |     190.125µs |   192.168.1.102 | GET      "/api/v1/monitor?service=false"
-[GIN] 2024/01/02 - 10:33:55 | 303 |     276.945µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/01/02 - 10:33:55 | 200 |     391.907µs |   192.168.1.102 | GET      "/"
+[GIN] 2024/01/03 - 04:43:47 | 200 |     258.386µs |   192.168.1.102 | GET      "/api/v1/monitor"
+[GIN] 2024/01/03 - 04:43:47 | 303 |     183.182µs |   192.168.1.102 | GET      "/favicon.ico"
+[GIN] 2024/01/03 - 04:43:47 | 200 |    1.377539ms |   192.168.1.102 | GET      "/"
+[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
+[GIN] 2024/01/03 - 04:44:29 | 200 |     240.599µs |   192.168.1.102 | GET      "/api/v1/monitor?status=true"
+[GIN] 2024/01/03 - 04:44:29 | 303 |     151.723µs |   192.168.1.102 | GET      "/favicon.ico"
+[GIN] 2024/01/03 - 04:44:29 | 200 |     436.572µs |   192.168.1.102 | GET      "/"
+[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
+[GIN] 2024/01/03 - 04:44:35 | 200 |       306.3µs |   192.168.1.102 | GET      "/api/v1/monitor"
+[GIN] 2024/01/03 - 04:44:36 | 303 |     258.697µs |   192.168.1.102 | GET      "/favicon.ico"
+[GIN] 2024/01/03 - 04:44:36 | 200 |     1.31685ms |   192.168.1.102 | GET      "/"
+[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
+[GIN] 2024/01/03 - 04:44:42 | 200 |     150.935µs |   192.168.1.102 | GET      "/api/v1/monitor"
+[GIN] 2024/01/03 - 04:44:42 | 303 |     237.029µs |   192.168.1.102 | GET      "/favicon.ico"
+[GIN] 2024/01/03 - 04:44:42 | 200 |     588.568µs |   192.168.1.102 | GET      "/"
+[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
+[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
+[GIN] 2024/01/03 - 04:44:52 | 200 |  120.726709ms |   192.168.1.102 | GET      "/api/v1/monitor?status=false"
+[GIN] 2024/01/03 - 04:44:52 | 200 | 43.154531094s |   192.168.1.102 | GET      "/api/v1/monitor?status=true"
+[GIN] 2024/01/03 - 04:44:52 | 303 |     207.475µs |   192.168.1.102 | GET      "/favicon.ico"
+[GIN] 2024/01/03 - 04:44:52 | 200 |     625.124µs |   192.168.1.102 | GET      "/"

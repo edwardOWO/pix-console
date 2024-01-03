@@ -184,6 +184,7 @@ func main() {
 
 		// 檢查主機 Port 號
 		apiV1.GET("/monitor", c.MonitorHandler)
+		apiV1.GET("/monitor2", c.MonitorHandler2)
 
 	}
 
