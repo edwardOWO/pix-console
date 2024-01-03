@@ -4,27 +4,37 @@ import (
 	"context"
 	"fmt"
 	"net"
+	"os"
+	"os/signal"
 	"pix-console/common"
 	"sync"
+	"syscall"
 	"time"
 
 	"github.com/casbin/casbin/v2"
 	"github.com/dgrijalva/jwt-go"
 	jwt_lib "github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
+	"github.com/google/gopacket"
+	"github.com/google/gopacket/layers"
+	"github.com/google/gopacket/pcap"
 )
 
 type Utils struct {
+	mu            sync.Mutex
 	stopListening chan bool
 	running       bool
 	ConnCount     map[int]int
+	UdpPackets    map[int]int
 	Status        bool
 	Running       bool
+	interrupt     chan os.Signal
+	serverWG      sync.WaitGroup
+	serverClosed  bool
+	ctx           context.Context
+	cancel        context.CancelFunc
 
-	serverWG     sync.WaitGroup
-	serverClosed bool
-	ctx          context.Context
-	cancel       context.CancelFunc
+	closeSignal chan struct{}
 }
 type SdtClaims struct {
 	Name string `json:"name"`
@@ -190,4 +200,87 @@ func (u *Utils) CloseServer() {
 		u.serverWG.Wait()
 		fmt.Println("Server closed")
 	}
+}
+
+// CaptureUDPPackets 在指定的端口范围内捕获 UDP 数据包
+func (u *Utils) CaptureUDPPackets(device string, startPort, endPort int, timeout time.Duration) (map[int]int, error) {
+
+	if u.serverClosed == true {
+
+		u.mu.Lock()
+		defer u.mu.Unlock()
+
+		// 创建地图的副本进行返回
+		test := make(map[int]int)
+		for key, value := range u.UdpPackets {
+			test[key] = value
+		}
+
+		return test, nil
+	}
+
+	u.serverClosed = true
+	handle, err := pcap.OpenLive(device, 1600, true, pcap.BlockForever)
+	if err != nil {
+		return nil, err
+	}
+	defer handle.Close()
+
+	filter := fmt.Sprintf("udp portrange %d-%d", startPort, endPort)
+	err = handle.SetBPFFilter(filter)
+	if err != nil {
+		return nil, err
+	}
+
+	packetSource := gopacket.NewPacketSource(handle, handle.LinkType())
+
+	// 创建一个信号通道，以便在收到中断信号时优雅地关闭程序
+	u.interrupt = make(chan os.Signal, 1)
+	signal.Notify(u.interrupt, os.Interrupt, syscall.SIGTERM)
+
+	// 创建map来存储UDP端口号和相应的数据包信息
+
+	u.UdpPackets = make(map[int]int)
+
+	// := time.NewTimer(timeout)
+
+	for {
+		select {
+		case packet := <-packetSource.Packets():
+			// 在这里处理数据包，可以输出或进一步处理
+			transportLayer := packet.TransportLayer()
+			if transportLayer != nil && transportLayer.LayerType() == layers.LayerTypeUDP {
+				udp, ok := transportLayer.(*layers.UDP)
+				if !ok {
+					// 类型断言失败，无法获取UDP层
+					fmt.Println("Failed to assert UDP layer")
+					continue
+				}
+
+				port := int(udp.DstPort)
+
+				// 将数据包存储在map中
+
+				if port > 40000 && port < 60000 {
+					u.mu.Lock()
+					u.UdpPackets[port] += 1
+					u.mu.Unlock()
+				}
+
+				// 输出端口号和数据包信息
+				//fmt.Printf("Received UDP packet on port %d, port)
+			}
+		case <-u.interrupt:
+			fmt.Println("Received interrupt, stopping...")
+			return u.UdpPackets, nil
+			//case <-timeoutTimer.C:
+			//	fmt.Println("Timeout reached, stopping...")
+			//	return udpPackets, nil
+		}
+	}
+}
+func (u *Utils) CloseUDPPackets() {
+	close(u.interrupt)
+	u.serverClosed = false
+	return
 }

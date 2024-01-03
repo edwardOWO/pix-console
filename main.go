@@ -124,6 +124,10 @@ func main() {
 		c.HTML(http.StatusOK, "host.html", PageLink)
 	})
 
+	m.router.GET("/check", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "check.html", PageLink)
+	})
+
 	m.router.GET("/docker", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "docker.html", PageLink)
 	})

@@ -646,8 +646,20 @@ func (u *Server) MonitorHandler(c *gin.Context) {
 }
 func (u *Server) MonitorHandler2(c *gin.Context) {
 
-	u.utils.CloseServer()
-	c.JSON(http.StatusOK, u.utils.ConnCount)
+	status := c.Query("status")
+	setting, err := strconv.ParseBool(status)
+
+	if err == nil {
+		if setting == true {
+			portRangeStart := 40000
+			portRangeEnd := 60000
+			device := "enp0s3"
+			test, _ := u.utils.CaptureUDPPackets(device, portRangeStart, portRangeEnd, 50000000000000)
+			c.JSON(http.StatusOK, test)
+		} else {
+			u.utils.CloseUDPPackets()
+		}
+	}
 
 }
 

@@ -128,7 +128,24 @@ document.getElementById("uploadToStune").addEventListener("click", function () {
 });
 
 
-
+document.getElementById("recordPort").addEventListener("click", function() {
+    // 发起GET请求以获取内存信息
+    fetch("/api/v1/monitor2?status=true")
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                // 将错误消息输出到 outputResult 段落元素
+                document.getElementById("outputResult").textContent = "出现错误：" + data.error;
+            } else {
+                // 将结果输出到 outputResult 段落元素
+                document.getElementById("outputResult").textContent = JSON.stringify(data, null, 2);
+            }
+        })
+        .catch(error => {
+            // 将错误消息输出到 outputResult 段落元素
+            document.getElementById("outputResult").textContent = "发生错误：" + error;
+        });
+});
 
 
 
