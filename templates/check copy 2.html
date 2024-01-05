@@ -19,8 +19,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 20px;
-            /* 在容器之間添加一些間距 */
+            margin-bottom: 20px; /* 在容器之間添加一些間距 */
         }
     </style>
 </head>
@@ -64,37 +63,13 @@
                 var labels = Object.keys(data);
                 var values = Object.values(data);
 
-                // 过滤标签，仅保留在指定范围内的值
-                labels = labels.filter(label => label >= 40000 && label <= 60000);
-
-                // 将数据点压缩为 100 个点
-                var compressedLabels = [];
-                var compressedValues = [];
-
-                var groupSize = 1000;
-                var threshold = 900;
-
-                for (var i = 0; i < labels.length; i += groupSize) {
-                    var groupLabels = labels.slice(i, i + groupSize);
-                    var groupValues = values.slice(i, i + groupSize);
-
-                    // 判断该组中值大于 1 的数量是否超过阈值
-                    var countGreaterThanOne = groupValues.filter(value => value >= 1).length;
-
-                    // 如果超过阈值，则将该组的标签设为起始标签，值设为 1
-                    if (countGreaterThanOne > threshold) {
-                        compressedLabels.push(groupLabels[0]);
-                        compressedValues.push(1);
-                    }
-                }
-
                 monitorChart = new Chart(monitorCtx, {
                     type: 'line',
                     data: {
-                        labels: compressedLabels,
+                        labels: labels,
                         datasets: [{
                             label: 'Monitor Data',
-                            data: compressedValues,
+                            data: values,
                             borderColor: 'green',
                             borderWidth: 2,
                             fill: false
@@ -106,8 +81,8 @@
                                 title: {
                                     display: true,
                                     text: 'X-Axis (Key)',
-                                    color: 'red',
-                                },
+                                    color: 'black',
+                                }
                             },
                             y: {
                                 beginAtZero: true,
@@ -141,7 +116,6 @@
 
                 var labels = Object.keys(data);
                 var values = Object.values(data);
-                labels = labels.filter(label => label >= 1 && label <= 6000);
 
                 combinedChart = new Chart(combinedCtx, {
                     type: 'bar',
@@ -172,7 +146,7 @@
                                     display: true,
                                     text: 'X-Axis (Key)',
                                     color: 'black',
-                                },
+                                }
                             },
                             y: [
                                 {

@@ -187,9 +187,10 @@ func main() {
 		apiV1.GET("/serverlist", c.ServerlistHandler)
 
 		// 檢查主機 Port 號
-		apiV1.GET("/monitor", c.MonitorHandler)
-		apiV1.GET("/monitor2", c.MonitorHandler2)
-
+		apiV1.POST("/monitor", c.MonitorHandler)
+		//apiV1.GET("/monitor2", c.MonitorHandler2)
+		apiV1.POST("/monitor2", c.MonitorHandler2)
+		apiV1.GET("/monitor2", c.GetMonitorHandler2)
 	}
 
 	m.router.Run(common.Config.Port)

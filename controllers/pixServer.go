@@ -651,16 +651,22 @@ func (u *Server) MonitorHandler2(c *gin.Context) {
 
 	if err == nil {
 		if setting == true {
-			portRangeStart := 40000
+			portRangeStart := 0
 			portRangeEnd := 60000
 			device := "enp0s3"
-			test, _ := u.utils.CaptureUDPPackets(device, portRangeStart, portRangeEnd, 50000000000000)
-			c.JSON(http.StatusOK, test)
+			captureResult, _ := u.utils.CaptureUDPPackets(device, portRangeStart, portRangeEnd, 50000000000000)
+			c.JSON(http.StatusOK, captureResult)
 		} else {
 			u.utils.CloseUDPPackets()
+
 		}
 	}
+	c.JSON(http.StatusOK, "ok")
+}
 
+func (u *Server) GetMonitorHandler2(c *gin.Context) {
+
+	c.JSON(http.StatusOK, u.utils.GetCaptureResult())
 }
 
 // KeyValuePair 用于存储键值对

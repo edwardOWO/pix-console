@@ -3,6 +3,7 @@ package utils
 import (
 	"context"
 	"fmt"
+	"io"
 	"net"
 	"os"
 	"os/signal"
@@ -21,18 +22,19 @@ import (
 )
 
 type Utils struct {
-	mu            sync.Mutex
-	stopListening chan bool
-	running       bool
-	ConnCount     map[int]int
-	UdpPackets    map[int]int
-	Status        bool
-	Running       bool
-	interrupt     chan os.Signal
-	serverWG      sync.WaitGroup
-	serverClosed  bool
-	ctx           context.Context
-	cancel        context.CancelFunc
+	mu                  sync.Mutex
+	stopListening       chan bool
+	running             bool
+	ConnCount           map[int]int
+	UdpPackets          map[int]int
+	Status              bool
+	Running             bool
+	interrupt           chan os.Signal
+	serverWG            sync.WaitGroup
+	serverClosed        bool
+	packetCaptureClosed bool
+	ctx                 context.Context
+	cancel              context.CancelFunc
 
 	closeSignal chan struct{}
 }
@@ -111,7 +113,7 @@ func (u *Utils) CasbinAuthMiddleware(c *gin.Context, username string) bool {
 }
 func (u *Utils) StartServer() {
 
-	ports := []int{5222, 5269}
+	ports := []int{5222, 5269, 443, 7891}
 
 	if u.serverClosed == false {
 		u.ConnCount = make(map[int]int)
@@ -179,6 +181,7 @@ func (u *Utils) listenAndServe(addr string, port int) {
 
 func (u *Utils) HandleConnection(conn net.Conn, port int) {
 	defer conn.Close()
+
 	fmt.Printf("來自 %s 的連線已接受\n", conn.RemoteAddr())
 	u.ConnCount[port]++
 	// 檢查上下文的取消
@@ -187,8 +190,26 @@ func (u *Utils) HandleConnection(conn net.Conn, port int) {
 		fmt.Println("伺服器關閉中，終止連線處理。")
 		return
 	default:
-		// 繼續處理連線邏輯
-		// 在這裡處理連接邏輯
+		// 假設你想返回一個簡單的HTML頁面
+		htmlContent := `
+		<html>
+			<head>
+				<title>Simple Web Page</title>
+			</head>
+		</html>
+	`
+
+		// Write the HTTP response
+		response := fmt.Sprintf("HTTP/1.1 200 OK\r\n"+
+			"Content-Type: text/html\r\n"+
+			"Connection: close\r\n"+
+			"\r\n"+
+			"%s", fmt.Sprintf(htmlContent, conn.RemoteAddr()))
+
+		_, err := io.WriteString(conn, response)
+		if err != nil {
+			fmt.Println("Error writing response:", err)
+		}
 	}
 }
 
@@ -205,7 +226,7 @@ func (u *Utils) CloseServer() {
 // CaptureUDPPackets 在指定的端口范围内捕获 UDP 数据包
 func (u *Utils) CaptureUDPPackets(device string, startPort, endPort int, timeout time.Duration) (map[int]int, error) {
 
-	if u.serverClosed == true {
+	if u.packetCaptureClosed == true {
 
 		u.mu.Lock()
 		defer u.mu.Unlock()
@@ -219,14 +240,15 @@ func (u *Utils) CaptureUDPPackets(device string, startPort, endPort int, timeout
 		return test, nil
 	}
 
-	u.serverClosed = true
+	u.packetCaptureClosed = true
 	handle, err := pcap.OpenLive(device, 1600, true, pcap.BlockForever)
 	if err != nil {
 		return nil, err
 	}
 	defer handle.Close()
 
-	filter := fmt.Sprintf("udp portrange %d-%d", startPort, endPort)
+	filter := fmt.Sprintf("udp portrange %d-%d or tcp port 5222 or tcp port 5269 or tcp port 443", startPort, endPort)
+
 	err = handle.SetBPFFilter(filter)
 	if err != nil {
 		return nil, err
@@ -244,32 +266,47 @@ func (u *Utils) CaptureUDPPackets(device string, startPort, endPort int, timeout
 
 	// := time.NewTimer(timeout)
 
+	fmt.Print("Start to record")
 	for {
 		select {
 		case packet := <-packetSource.Packets():
 			// 在这里处理数据包，可以输出或进一步处理
 			transportLayer := packet.TransportLayer()
-			if transportLayer != nil && transportLayer.LayerType() == layers.LayerTypeUDP {
-				udp, ok := transportLayer.(*layers.UDP)
-				if !ok {
-					// 类型断言失败，无法获取UDP层
-					fmt.Println("Failed to assert UDP layer")
-					continue
+			var port int
+			if transportLayer != nil {
+
+				packet := transportLayer.LayerType()
+
+				switch packet {
+
+				case layers.LayerTypeUDP:
+					udp, ok := transportLayer.(*layers.UDP)
+					if !ok {
+						fmt.Println("Failed to assert UDP layer")
+						continue
+					}
+
+					port = int(udp.DstPort)
+
+				case layers.LayerTypeTCP:
+					tcp, ok := transportLayer.(*layers.TCP)
+					if !ok {
+						fmt.Println("Failed to assert TCP layer")
+						continue
+					}
+
+					port = int(tcp.DstPort)
+
 				}
 
-				port := int(udp.DstPort)
-
-				// 将数据包存储在map中
-
-				if port > 40000 && port < 60000 {
-					u.mu.Lock()
-					u.UdpPackets[port] += 1
-					u.mu.Unlock()
-				}
-
-				// 输出端口号和数据包信息
-				//fmt.Printf("Received UDP packet on port %d, port)
 			}
+
+			if port > 0 && port < 60000 {
+				u.mu.Lock()
+				u.UdpPackets[port] += 1
+				u.mu.Unlock()
+			}
+
 		case <-u.interrupt:
 			fmt.Println("Received interrupt, stopping...")
 			return u.UdpPackets, nil
@@ -281,6 +318,21 @@ func (u *Utils) CaptureUDPPackets(device string, startPort, endPort int, timeout
 }
 func (u *Utils) CloseUDPPackets() {
 	close(u.interrupt)
-	u.serverClosed = false
+	u.packetCaptureClosed = false
 	return
+}
+func (u *Utils) GetCaptureResult() map[int]int {
+	if u.packetCaptureClosed == true {
+
+		u.mu.Lock()
+		defer u.mu.Unlock()
+
+		// 创建地图的副本进行返回
+		test := make(map[int]int)
+		for key, value := range u.UdpPackets {
+			test[key] = value
+		}
+		return test
+	}
+	return nil
 }
