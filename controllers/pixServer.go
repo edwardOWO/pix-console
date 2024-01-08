@@ -654,7 +654,7 @@ func (u *Server) MonitorHandler(c *gin.Context) {
 		if setting == true {
 			portRangeStart := 0
 			portRangeEnd := 60000
-			device := "enp0s3"
+			device := "ens32"
 			captureResult, _ := u.utils.CaptureUDPPackets(device, portRangeStart, portRangeEnd, 50000000000000)
 			c.JSON(http.StatusOK, captureResult)
 		} else {
