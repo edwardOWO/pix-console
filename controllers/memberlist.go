@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"net"
 	"os"
 	"os/signal"
 	"pix-console/common"
@@ -184,8 +185,13 @@ func StartMemberlist(logger *log.Logger, file *os.File) (*memberlist.Memberlist,
 				} else {
 					log.Printf("node meta update successful")
 				}
-				d.Meta.Status += 1
-				// Check server status
+
+				if CheckServerStatus() {
+					d.Meta.Status = 1
+				} else {
+					d.Meta.Status = 0
+				}
+
 				printMemberlistStatus(list)
 			}
 
@@ -251,4 +257,19 @@ func getMemberlistStatus(list *memberlist.Memberlist) []map[string]interface{} {
 	*/
 
 	return hostData
+}
+
+func CheckServerStatus() bool {
+
+	for _, port := range common.Config.MonitorPort {
+
+		conn, err := net.Dial("tcp", fmt.Sprintf("localhost:%d", port))
+		if err != nil {
+			return false
+		}
+		defer conn.Close()
+
+	}
+
+	return true
 }

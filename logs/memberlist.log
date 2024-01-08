@@ -90,3 +90,274 @@
 ###################2024/01/07 22:05:13 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
 ###################2024/01/07 22:05:26 [DEBUG] memberlist: Stream connection from=192.168.1.107:54032
 ###################2024/01/07 22:05:28 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:11:03 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.104:7947
+###################2024/01/07 22:11:03 [DEBUG] memberlist: Stream connection from=192.168.1.104:34808
+###################2024/01/07 22:11:03 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.107:7947
+###################2024/01/07 22:11:04 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/01/07 22:11:13 [DEBUG] memberlist: Stream connection from=192.168.1.107:54120
+###################2024/01/07 22:11:26 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:11:28 [DEBUG] memberlist: Stream connection from=192.168.1.107:54122
+###################2024/01/07 22:11:41 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:11:43 [DEBUG] memberlist: Stream connection from=192.168.1.107:54124
+###################2024/01/07 22:11:56 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:11:58 [DEBUG] memberlist: Stream connection from=192.168.1.107:54126
+###################2024/01/07 22:12:11 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:12:13 [DEBUG] memberlist: Stream connection from=192.168.1.107:54128
+###################2024/01/07 22:12:26 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:12:28 [DEBUG] memberlist: Stream connection from=192.168.1.107:54130
+###################2024/01/07 22:12:41 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:12:43 [DEBUG] memberlist: Stream connection from=192.168.1.107:54132
+###################2024/01/07 22:12:56 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:12:58 [DEBUG] memberlist: Stream connection from=192.168.1.107:54134
+###################2024/01/07 22:13:11 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:13:13 [DEBUG] memberlist: Stream connection from=192.168.1.107:54136
+###################2024/01/07 22:13:28 [DEBUG] memberlist: Stream connection from=192.168.1.107:54138
+###################2024/01/07 22:13:41 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:13:43 [DEBUG] memberlist: Stream connection from=192.168.1.107:54140
+###################2024/01/07 22:13:56 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:13:58 [DEBUG] memberlist: Stream connection from=192.168.1.107:54142
+###################2024/01/07 22:14:11 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:14:13 [DEBUG] memberlist: Stream connection from=192.168.1.107:54144
+###################2024/01/07 22:14:26 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:14:28 [DEBUG] memberlist: Stream connection from=192.168.1.107:54146
+###################2024/01/07 22:14:41 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:14:43 [DEBUG] memberlist: Stream connection from=192.168.1.107:54148
+###################2024/01/07 22:14:56 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:14:58 [DEBUG] memberlist: Stream connection from=192.168.1.107:54150
+###################2024/01/07 22:15:11 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:15:13 [DEBUG] memberlist: Stream connection from=192.168.1.107:54152
+###################2024/01/07 22:15:26 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:15:28 [DEBUG] memberlist: Stream connection from=192.168.1.107:54154
+###################2024/01/07 22:15:41 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:15:43 [DEBUG] memberlist: Stream connection from=192.168.1.107:54156
+###################2024/01/07 22:15:56 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:15:58 [DEBUG] memberlist: Stream connection from=192.168.1.107:54158
+###################2024/01/07 22:16:11 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:16:13 [DEBUG] memberlist: Stream connection from=192.168.1.107:54160
+###################2024/01/07 22:16:26 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:16:28 [DEBUG] memberlist: Stream connection from=192.168.1.107:54162
+###################2024/01/07 22:16:41 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:16:43 [DEBUG] memberlist: Stream connection from=192.168.1.107:54164
+###################2024/01/07 22:16:56 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:16:58 [DEBUG] memberlist: Stream connection from=192.168.1.107:54166
+###################2024/01/07 22:17:11 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:17:13 [DEBUG] memberlist: Stream connection from=192.168.1.107:54168
+###################2024/01/07 22:17:26 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:17:28 [DEBUG] memberlist: Stream connection from=192.168.1.107:54170
+###################2024/01/07 22:17:41 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:17:43 [DEBUG] memberlist: Stream connection from=192.168.1.107:54172
+###################2024/01/07 22:17:56 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:17:58 [DEBUG] memberlist: Stream connection from=192.168.1.107:54174
+###################2024/01/07 22:18:11 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:18:13 [DEBUG] memberlist: Stream connection from=192.168.1.107:54176
+###################2024/01/07 22:18:26 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:18:28 [DEBUG] memberlist: Stream connection from=192.168.1.107:54178
+###################2024/01/07 22:18:41 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:18:43 [DEBUG] memberlist: Stream connection from=192.168.1.107:54180
+###################2024/01/07 22:18:56 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:18:58 [DEBUG] memberlist: Stream connection from=192.168.1.107:54182
+###################2024/01/07 22:19:11 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:19:13 [DEBUG] memberlist: Stream connection from=192.168.1.107:54184
+###################2024/01/07 22:19:26 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:19:28 [DEBUG] memberlist: Stream connection from=192.168.1.107:54186
+###################2024/01/07 22:19:41 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:19:43 [DEBUG] memberlist: Stream connection from=192.168.1.107:54188
+###################2024/01/07 22:19:56 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:19:59 [DEBUG] memberlist: Stream connection from=192.168.1.107:54190
+###################2024/01/07 22:20:11 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:20:14 [DEBUG] memberlist: Stream connection from=192.168.1.107:54192
+###################2024/01/07 22:20:26 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:20:29 [DEBUG] memberlist: Stream connection from=192.168.1.107:54194
+###################2024/01/07 22:20:41 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:20:44 [DEBUG] memberlist: Stream connection from=192.168.1.107:54196
+###################2024/01/07 22:20:57 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:20:59 [DEBUG] memberlist: Stream connection from=192.168.1.107:54198
+###################2024/01/07 22:21:12 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:21:14 [DEBUG] memberlist: Stream connection from=192.168.1.107:54200
+###################2024/01/07 22:21:27 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:21:29 [DEBUG] memberlist: Stream connection from=192.168.1.107:54202
+###################2024/01/07 22:21:42 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:21:44 [DEBUG] memberlist: Stream connection from=192.168.1.107:54204
+###################2024/01/07 22:21:57 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:21:59 [DEBUG] memberlist: Stream connection from=192.168.1.107:54206
+###################2024/01/07 22:22:12 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:22:14 [DEBUG] memberlist: Stream connection from=192.168.1.107:54208
+###################2024/01/07 22:22:27 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:22:29 [DEBUG] memberlist: Stream connection from=192.168.1.107:54210
+###################2024/01/07 22:22:42 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:22:44 [DEBUG] memberlist: Stream connection from=192.168.1.107:54212
+###################2024/01/07 22:22:57 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:22:59 [DEBUG] memberlist: Stream connection from=192.168.1.107:54214
+###################2024/01/07 22:23:12 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:23:14 [DEBUG] memberlist: Stream connection from=192.168.1.107:54216
+###################2024/01/07 22:23:27 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:23:29 [DEBUG] memberlist: Stream connection from=192.168.1.107:54218
+###################2024/01/07 22:23:42 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:23:44 [DEBUG] memberlist: Stream connection from=192.168.1.107:54220
+###################2024/01/07 22:23:57 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:23:59 [DEBUG] memberlist: Stream connection from=192.168.1.107:54222
+###################2024/01/07 22:24:12 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:24:14 [DEBUG] memberlist: Stream connection from=192.168.1.107:54224
+###################2024/01/07 22:24:27 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:24:29 [DEBUG] memberlist: Stream connection from=192.168.1.107:54226
+###################2024/01/07 22:24:42 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:24:44 [DEBUG] memberlist: Stream connection from=192.168.1.107:54228
+###################2024/01/07 22:24:57 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:24:59 [DEBUG] memberlist: Stream connection from=192.168.1.107:54230
+###################2024/01/07 22:25:12 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:25:14 [DEBUG] memberlist: Stream connection from=192.168.1.107:54232
+###################2024/01/07 22:25:27 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:25:29 [DEBUG] memberlist: Stream connection from=192.168.1.107:54234
+###################2024/01/07 22:25:42 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:25:44 [DEBUG] memberlist: Stream connection from=192.168.1.107:54236
+###################2024/01/07 22:25:57 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:25:59 [DEBUG] memberlist: Stream connection from=192.168.1.107:54238
+###################2024/01/07 22:26:12 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:26:14 [DEBUG] memberlist: Stream connection from=192.168.1.107:54240
+###################2024/01/07 22:26:27 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:26:29 [DEBUG] memberlist: Stream connection from=192.168.1.107:54242
+###################2024/01/07 22:26:42 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:26:44 [DEBUG] memberlist: Stream connection from=192.168.1.107:54244
+###################2024/01/07 22:26:57 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:26:59 [DEBUG] memberlist: Stream connection from=192.168.1.107:54246
+###################2024/01/07 22:27:12 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:27:14 [DEBUG] memberlist: Stream connection from=192.168.1.107:54248
+###################2024/01/07 22:27:27 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:27:29 [DEBUG] memberlist: Stream connection from=192.168.1.107:54250
+###################2024/01/07 22:27:42 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:27:44 [DEBUG] memberlist: Stream connection from=192.168.1.107:54252
+###################2024/01/07 22:27:57 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:27:59 [DEBUG] memberlist: Stream connection from=192.168.1.107:54254
+###################2024/01/07 22:28:12 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:28:14 [DEBUG] memberlist: Stream connection from=192.168.1.107:54256
+###################2024/01/07 22:28:27 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:28:29 [DEBUG] memberlist: Stream connection from=192.168.1.107:54258
+###################2024/01/07 22:28:42 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:28:44 [DEBUG] memberlist: Stream connection from=192.168.1.107:54260
+###################2024/01/07 22:31:57 [DEBUG] memberlist: Stream connection from=192.168.1.104:34956
+###################2024/01/07 22:31:57 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.104:7947
+###################2024/01/07 22:31:57 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.107:7947
+###################2024/01/07 22:31:58 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/01/07 22:31:59 [DEBUG] memberlist: Stream connection from=192.168.1.107:54266
+###################2024/01/07 22:32:13 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:32:14 [DEBUG] memberlist: Stream connection from=192.168.1.107:54268
+###################2024/01/07 22:32:28 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:32:29 [DEBUG] memberlist: Stream connection from=192.168.1.107:54270
+###################2024/01/07 22:32:43 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:32:44 [DEBUG] memberlist: Stream connection from=192.168.1.107:54272
+###################2024/01/07 22:32:58 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:32:59 [DEBUG] memberlist: Stream connection from=192.168.1.107:54274
+###################2024/01/07 22:33:13 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:33:14 [DEBUG] memberlist: Stream connection from=192.168.1.107:54276
+###################2024/01/07 22:33:28 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:33:29 [DEBUG] memberlist: Stream connection from=192.168.1.107:54278
+###################2024/01/07 22:33:43 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:33:44 [DEBUG] memberlist: Stream connection from=192.168.1.107:54280
+###################2024/01/07 22:33:58 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:33:59 [DEBUG] memberlist: Stream connection from=192.168.1.107:54282
+###################2024/01/07 22:34:13 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:34:14 [DEBUG] memberlist: Stream connection from=192.168.1.107:54284
+###################2024/01/07 22:34:28 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:34:29 [DEBUG] memberlist: Stream connection from=192.168.1.107:54286
+###################2024/01/07 22:34:43 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:34:44 [DEBUG] memberlist: Stream connection from=192.168.1.107:54288
+###################2024/01/07 22:34:58 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:34:59 [DEBUG] memberlist: Stream connection from=192.168.1.107:54290
+###################2024/01/07 22:35:13 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:35:14 [DEBUG] memberlist: Stream connection from=192.168.1.107:54292
+###################2024/01/07 22:35:28 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:35:29 [DEBUG] memberlist: Stream connection from=192.168.1.107:54294
+###################2024/01/07 22:35:43 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:35:44 [DEBUG] memberlist: Stream connection from=192.168.1.107:54296
+###################2024/01/07 22:35:58 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:35:59 [DEBUG] memberlist: Stream connection from=192.168.1.107:54298
+###################2024/01/07 22:36:13 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:36:14 [DEBUG] memberlist: Stream connection from=192.168.1.107:54300
+###################2024/01/07 22:36:28 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:36:29 [DEBUG] memberlist: Stream connection from=192.168.1.107:54302
+###################2024/01/07 22:36:43 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:36:44 [DEBUG] memberlist: Stream connection from=192.168.1.107:54304
+###################2024/01/07 22:36:58 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:36:59 [DEBUG] memberlist: Stream connection from=192.168.1.107:54306
+###################2024/01/07 22:37:13 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:37:14 [DEBUG] memberlist: Stream connection from=192.168.1.107:54308
+###################2024/01/07 22:37:28 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:37:29 [DEBUG] memberlist: Stream connection from=192.168.1.107:54310
+###################2024/01/07 22:37:43 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:37:44 [DEBUG] memberlist: Stream connection from=192.168.1.107:54312
+###################2024/01/07 22:37:58 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:37:59 [DEBUG] memberlist: Stream connection from=192.168.1.107:54314
+###################2024/01/07 22:38:13 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:38:14 [DEBUG] memberlist: Stream connection from=192.168.1.107:54316
+###################2024/01/07 22:38:29 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.104:7947
+###################2024/01/07 22:38:29 [DEBUG] memberlist: Stream connection from=192.168.1.104:35314
+###################2024/01/07 22:38:29 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.107:7947
+###################2024/01/07 22:38:29 [WARN] memberlist: Refuting a suspect message (from: host1)
+###################2024/01/07 22:38:29 [DEBUG] memberlist: Stream connection from=192.168.1.107:54320
+###################2024/01/07 22:38:30 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/01/07 22:38:44 [DEBUG] memberlist: Stream connection from=192.168.1.107:54322
+###################2024/01/07 22:38:57 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:38:59 [DEBUG] memberlist: Stream connection from=192.168.1.107:54324
+###################2024/01/07 22:39:12 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:39:14 [DEBUG] memberlist: Stream connection from=192.168.1.107:54326
+###################2024/01/07 22:39:31 [DEBUG] memberlist: Stream connection from=192.168.1.107:54330
+###################2024/01/07 22:39:31 [DEBUG] memberlist: Stream connection from=192.168.1.107:54328
+###################2024/01/07 22:39:31 [DEBUG] memberlist: Stream connection from=192.168.1.107:54332
+###################2024/01/07 22:39:31 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/01/07 22:39:31 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:39:39 [DEBUG] memberlist: Failed UDP ping: host2 (timeout reached)
+###################2024/01/07 22:39:39 [INFO] memberlist: Suspect host2 has failed, no acks received
+###################2024/01/07 22:39:39 [DEBUG] memberlist: Stream connection from=192.168.1.107:54336
+###################2024/01/07 22:39:39 [DEBUG] memberlist: Stream connection from=192.168.1.107:54334
+###################2024/01/07 22:39:39 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/01/07 22:39:45 [DEBUG] memberlist: Stream connection from=192.168.1.107:54338
+###################2024/01/07 22:39:49 [DEBUG] memberlist: Stream connection from=192.168.1.104:35384
+###################2024/01/07 22:39:49 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.104:7947
+###################2024/01/07 22:39:49 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.107:7947
+###################2024/01/07 22:39:49 [WARN] memberlist: Refuting a suspect message (from: host1)
+###################2024/01/07 22:39:50 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/01/07 22:40:00 [DEBUG] memberlist: Stream connection from=192.168.1.107:54342
+###################2024/01/07 22:40:14 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:40:15 [DEBUG] memberlist: Stream connection from=192.168.1.107:54344
+###################2024/01/07 22:40:29 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:40:30 [DEBUG] memberlist: Stream connection from=192.168.1.107:54346
+###################2024/01/07 22:40:45 [DEBUG] memberlist: Stream connection from=192.168.1.107:54348
+###################2024/01/07 22:40:45 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:41:00 [DEBUG] memberlist: Stream connection from=192.168.1.107:54350
+###################2024/01/07 22:41:00 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:41:15 [DEBUG] memberlist: Stream connection from=192.168.1.107:54352
+###################2024/01/07 22:41:15 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:41:30 [DEBUG] memberlist: Stream connection from=192.168.1.107:54354
+###################2024/01/07 22:41:30 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:41:45 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:41:45 [DEBUG] memberlist: Stream connection from=192.168.1.107:54356
+###################2024/01/07 22:42:00 [DEBUG] memberlist: Stream connection from=192.168.1.107:54358
+###################2024/01/07 22:42:00 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:42:15 [DEBUG] memberlist: Stream connection from=192.168.1.107:54360
+###################2024/01/07 22:42:15 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:42:30 [DEBUG] memberlist: Stream connection from=192.168.1.107:54362
+###################2024/01/07 22:42:30 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:42:45 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:42:45 [DEBUG] memberlist: Stream connection from=192.168.1.107:54364
+###################2024/01/07 22:43:00 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:43:00 [DEBUG] memberlist: Stream connection from=192.168.1.107:54366
+###################2024/01/07 22:43:15 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:43:15 [DEBUG] memberlist: Stream connection from=192.168.1.107:54368
+###################2024/01/07 22:43:30 [DEBUG] memberlist: Stream connection from=192.168.1.107:54370
+###################2024/01/07 22:43:30 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:43:45 [DEBUG] memberlist: Stream connection from=192.168.1.107:54372
+###################2024/01/07 22:43:45 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:44:00 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:44:00 [DEBUG] memberlist: Stream connection from=192.168.1.107:54374
+###################2024/01/07 22:44:15 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:44:15 [DEBUG] memberlist: Stream connection from=192.168.1.107:54376
+###################2024/01/07 22:44:30 [DEBUG] memberlist: Stream connection from=192.168.1.107:54378
+###################2024/01/07 22:44:30 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:44:45 [DEBUG] memberlist: Stream connection from=192.168.1.107:54380
+###################2024/01/07 22:44:45 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:45:00 [DEBUG] memberlist: Stream connection from=192.168.1.107:54382
+###################2024/01/07 22:45:00 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:45:15 [DEBUG] memberlist: Stream connection from=192.168.1.107:54384
+###################2024/01/07 22:45:15 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:45:30 [DEBUG] memberlist: Stream connection from=192.168.1.107:54386
+###################2024/01/07 22:45:30 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
