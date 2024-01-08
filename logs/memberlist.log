@@ -361,3 +361,7 @@
 ###################2024/01/07 22:45:15 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
 ###################2024/01/07 22:45:30 [DEBUG] memberlist: Stream connection from=192.168.1.107:54386
 ###################2024/01/07 22:45:30 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.107:7947
+###################2024/01/07 22:49:31 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.104:7947
+###################2024/01/07 22:49:31 [DEBUG] memberlist: Stream connection from=192.168.1.104:59542
+###################2024/01/07 22:49:31 [DEBUG] memberlist: Failed to join 192.168.1.107:7947: dial tcp 192.168.1.107:7947: connect: connection refused
+###################2024/01/07 22:49:32 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
