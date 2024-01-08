@@ -7,6 +7,7 @@ type ServerMetaData struct {
 	Zone    string `json:"zone"`
 	ShardId uint16 `json:"shard-id"`
 	Weight  uint64 `json:"weight"`
+	Status  uint64 `json:"Status"`
 }
 
 func (m ServerMetaData) Bytes() []byte {

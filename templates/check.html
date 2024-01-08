@@ -50,7 +50,18 @@
             <canvas id="combinedChart" width="600" height="400"></canvas>
         </div>
 
+        <button id="StartListen">開啟 listen port</button>
+
+        <button id="StopListen">關閉 listen port</button>
+
+        <button id="recordPort">開始側錄封包</button>
+
+        <button id="StoprecordPort">停止側錄封包</button>
+
+
+
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="/static/scirpt.js"></script>
         <script>
             var monitorCtx = document.getElementById('monitorChart').getContext('2d');
             var combinedCtx = document.getElementById('combinedChart').getContext('2d');
@@ -141,7 +152,7 @@
 
                 var labels = Object.keys(data);
                 var values = Object.values(data);
-                labels = labels.filter(label => label >= 1 && label <= 6000);
+                labels = labels.filter(label => label >= 1 && label <= 10000);
 
                 combinedChart = new Chart(combinedCtx, {
                     type: 'bar',
@@ -150,7 +161,7 @@
                         datasets: [{
                             label: 'Bar Chart Data',
                             data: values,
-                            backgroundColor: 'blue',
+                            backgroundColor: 'red',
                             borderColor: 'black',
                             borderWidth: 2,
                             yAxisID: 'bar-y-axis'
@@ -217,7 +228,7 @@
 
             function fetchDataAndUpdateCharts() {
                 $.ajax({
-                    url: '/api/v1/monitor2?status=true',
+                    url: '/api/v1/getpacket?status=true',
                     type: 'GET',
                     dataType: 'json',
                     success: function (data) {
@@ -232,6 +243,114 @@
 
             fetchDataAndUpdateCharts();
             setInterval(fetchDataAndUpdateCharts, 3000);
+
+            document.getElementById("recordPort").addEventListener("click", function () {
+                // 發起POST請求以獲取內存信息
+                fetch("/api/v1/getpacket?status=true", {
+                    method: 'POST', // 將請求方法改為POST
+                    headers: {
+                        'Content-Type': 'application/json', // 指定請求頭為JSON格式
+                        // 在這裡可以添加其他請求頭信息
+                    },
+                    // 如果需要發送數據，可以在這裡添加請求體
+                    // body: JSON.stringify({ key: 'value' })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.error) {
+                            // 將錯誤消息輸出到 outputResult 段落元素
+                            document.getElementById("outputResult").textContent = "出現錯誤：" + data.error;
+                        } else {
+                            // 將結果輸出到 outputResult 段落元素
+                            document.getElementById("outputResult").textContent = JSON.stringify(data, null, 2);
+                        }
+                    })
+                    .catch(error => {
+                        // 將錯誤消息輸出到 outputResult 段落元素
+                        document.getElementById("outputResult").textContent = "發生錯誤：" + error;
+                    });
+            });
+
+            document.getElementById("StoprecordPort").addEventListener("click", function () {
+                // 發起POST請求以獲取內存信息
+                fetch("/api/v1/getpacket?status=false", {
+                    method: 'POST', // 將請求方法改為POST
+                    headers: {
+                        'Content-Type': 'application/json', // 指定請求頭為JSON格式
+                        // 在這裡可以添加其他請求頭信息
+                    },
+                    // 如果需要發送數據，可以在這裡添加請求體
+                    // body: JSON.stringify({ key: 'value' })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.error) {
+                            // 將錯誤消息輸出到 outputResult 段落元素
+                            document.getElementById("outputResult").textContent = "出現錯誤：" + data.error;
+                        } else {
+                            // 將結果輸出到 outputResult 段落元素
+                            document.getElementById("outputResult").textContent = JSON.stringify(data, null, 2);
+                        }
+                    })
+                    .catch(error => {
+                        // 將錯誤消息輸出到 outputResult 段落元素
+                        document.getElementById("outputResult").textContent = "發生錯誤：" + error;
+                    });
+            });
+
+
+            document.getElementById("StartListen").addEventListener("click", function () {
+                // 發起POST請求以獲取內存信息
+                fetch("/api/v1/listen?status=true", {
+                    method: 'POST', // 將請求方法改為POST
+                    headers: {
+                        'Content-Type': 'application/json', // 指定請求頭為JSON格式
+                        // 在這裡可以添加其他請求頭信息
+                    },
+                    // 如果需要發送數據，可以在這裡添加請求體
+                    // body: JSON.stringify({ key: 'value' })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.error) {
+                            // 將錯誤消息輸出到 outputResult 段落元素
+                            document.getElementById("outputResult").textContent = "出現錯誤：" + data.error;
+                        } else {
+                            // 將結果輸出到 outputResult 段落元素
+                            document.getElementById("outputResult").textContent = JSON.stringify(data, null, 2);
+                        }
+                    })
+                    .catch(error => {
+                        // 將錯誤消息輸出到 outputResult 段落元素
+                        document.getElementById("outputResult").textContent = "發生錯誤：" + error;
+                    });
+            });
+            document.getElementById("StopListen").addEventListener("click", function () {
+                // 發起POST請求以獲取內存信息
+                fetch("/api/v1/listen?status=false", {
+                    method: 'POST', // 將請求方法改為POST
+                    headers: {
+                        'Content-Type': 'application/json', // 指定請求頭為JSON格式
+                        // 在這裡可以添加其他請求頭信息
+                    },
+                    // 如果需要發送數據，可以在這裡添加請求體
+                    // body: JSON.stringify({ key: 'value' })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.error) {
+                            // 將錯誤消息輸出到 outputResult 段落元素
+                            document.getElementById("outputResult").textContent = "出現錯誤：" + data.error;
+                        } else {
+                            // 將結果輸出到 outputResult 段落元素
+                            document.getElementById("outputResult").textContent = JSON.stringify(data, null, 2);
+                        }
+                    })
+                    .catch(error => {
+                        // 將錯誤消息輸出到 outputResult 段落元素
+                        document.getElementById("outputResult").textContent = "發生錯誤：" + error;
+                    });
+            });
         </script>
     </div>
 

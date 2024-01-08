@@ -113,7 +113,7 @@ func (u *Utils) CasbinAuthMiddleware(c *gin.Context, username string) bool {
 }
 func (u *Utils) StartServer() {
 
-	ports := []int{5222, 5269, 443, 7891}
+	ports := common.Config.MonitorPort
 
 	if u.serverClosed == false {
 		u.ConnCount = make(map[int]int)
@@ -247,7 +247,9 @@ func (u *Utils) CaptureUDPPackets(device string, startPort, endPort int, timeout
 	}
 	defer handle.Close()
 
-	filter := fmt.Sprintf("udp portrange %d-%d or tcp port 5222 or tcp port 5269 or tcp port 443", startPort, endPort)
+	//filter := fmt.Sprintf("udp portrange %d-%d or tcp port 5222 or tcp port 5269 or tcp port 443 or tcp port 7891 or tcp port 7891", startPort, endPort)
+
+	filter := fmt.Sprintf("udp portrange %d-%d or tcp", startPort, endPort)
 
 	err = handle.SetBPFFilter(filter)
 	if err != nil {
@@ -322,12 +324,11 @@ func (u *Utils) CloseUDPPackets() {
 	return
 }
 func (u *Utils) GetCaptureResult() map[int]int {
+
 	if u.packetCaptureClosed == true {
 
 		u.mu.Lock()
 		defer u.mu.Unlock()
-
-		// 创建地图的副本进行返回
 		test := make(map[int]int)
 		for key, value := range u.UdpPackets {
 			test[key] = value

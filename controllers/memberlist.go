@@ -10,6 +10,7 @@ import (
 	"pix-console/common"
 	"pix-console/models"
 	"syscall"
+	"time"
 
 	"github.com/hashicorp/memberlist"
 )
@@ -114,12 +115,13 @@ func printMemberlistStatus(list *memberlist.Memberlist) {
 		meta, ok := ParseMyMetaData(node.Meta)
 		if ok {
 			log.Printf(
-				"%s region: %s, zone: %s, shard: %d, weight: %d",
+				"%s region: %s, zone: %s, shard: %d, weight: %d, status: %d",
 				node.Name,
 				meta.Region,
 				meta.Zone,
 				meta.ShardId,
 				meta.Weight,
+				meta.Status,
 			)
 		}
 	}
@@ -151,13 +153,15 @@ func StartMemberlist(logger *log.Logger, file *os.File) (*memberlist.Memberlist,
 	//local := list.LocalNode()
 	list.Join(convertServerHostToArray(common.Config.ServerHost))
 
+	tick := time.NewTicker(5 * time.Second)
+
 	go func() {
 		run := true
 		for run {
 			select {
 			case data := <-d.MsgCh:
 
-				printMemberlistStatus(list)
+				//printMemberlistStatus(list)
 
 				for _, node := range list.Members() {
 					if node.Name == conf.Name {
@@ -173,7 +177,18 @@ func StartMemberlist(logger *log.Logger, file *os.File) (*memberlist.Memberlist,
 				fmt.Print("cluster status update")
 				continue
 
+			case <-tick.C:
+				d.Meta.Weight += 1
+				if err := list.UpdateNode(1 * time.Second); err != nil {
+					log.Printf("node meta update failure")
+				} else {
+					log.Printf("node meta update successful")
+				}
+				d.Meta.Status += 1
+				// Check server status
+				printMemberlistStatus(list)
 			}
+
 		}
 		log.Printf("bye.")
 	}()

@@ -133,7 +133,7 @@ document.getElementById("uploadToStune").addEventListener("click", function () {
 
 document.getElementById("recordPort").addEventListener("click", function () {
     // 發起POST請求以獲取內存信息
-    fetch("/api/v1/monitor2?status=true", {
+    fetch("/api/v1/getpacket?status=true", {
         method: 'POST', // 將請求方法改為POST
         headers: {
             'Content-Type': 'application/json', // 指定請求頭為JSON格式
@@ -160,7 +160,7 @@ document.getElementById("recordPort").addEventListener("click", function () {
 
 document.getElementById("StoprecordPort").addEventListener("click", function () {
     // 發起POST請求以獲取內存信息
-    fetch("/api/v1/monitor2?status=false", {
+    fetch("/api/v1/getpacket?status=false", {
         method: 'POST', // 將請求方法改為POST
         headers: {
             'Content-Type': 'application/json', // 指定請求頭為JSON格式
@@ -188,7 +188,7 @@ document.getElementById("StoprecordPort").addEventListener("click", function () 
 
 document.getElementById("StartListen").addEventListener("click", function () {
     // 發起POST請求以獲取內存信息
-    fetch("/api/v1/monitor?status=true", {
+    fetch("/api/v1/listen?status=true", {
         method: 'POST', // 將請求方法改為POST
         headers: {
             'Content-Type': 'application/json', // 指定請求頭為JSON格式
@@ -214,7 +214,7 @@ document.getElementById("StartListen").addEventListener("click", function () {
 });
 document.getElementById("StopListen").addEventListener("click", function () {
     // 發起POST請求以獲取內存信息
-    fetch("/api/v1/monitor?status=false", {
+    fetch("/api/v1/listen?status=false", {
         method: 'POST', // 將請求方法改為POST
         headers: {
             'Content-Type': 'application/json', // 指定請求頭為JSON格式

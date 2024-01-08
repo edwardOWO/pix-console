@@ -629,7 +629,7 @@ func (u *Server) ServerlistHandler(c *gin.Context) {
 	c.JSON(http.StatusOK, memberlistStatus)
 }
 
-func (u *Server) MonitorHandler(c *gin.Context) {
+func (u *Server) MoniotrListenPort(c *gin.Context) {
 
 	status := c.Query("status")
 	setting, err := strconv.ParseBool(status)
@@ -644,7 +644,7 @@ func (u *Server) MonitorHandler(c *gin.Context) {
 	c.JSON(http.StatusOK, u.utils.ConnCount)
 
 }
-func (u *Server) MonitorHandler2(c *gin.Context) {
+func (u *Server) MonitorHandler(c *gin.Context) {
 
 	status := c.Query("status")
 	setting, err := strconv.ParseBool(status)
@@ -664,7 +664,7 @@ func (u *Server) MonitorHandler2(c *gin.Context) {
 	c.JSON(http.StatusOK, "ok")
 }
 
-func (u *Server) GetMonitorHandler2(c *gin.Context) {
+func (u *Server) GetMonitorHandler(c *gin.Context) {
 
 	c.JSON(http.StatusOK, u.utils.GetCaptureResult())
 }
