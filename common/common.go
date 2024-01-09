@@ -11,12 +11,12 @@ import (
 )
 
 type Configuration struct {
-	ServerName string            `json:"serverName"`
-	ServerHost map[string]string `json:"serverhost"`
-
-	Port                string `json:"port"`
-	EnableGinConsoleLog bool   `json:"enableGinConsoleLog"`
-	EnableGinFileLog    bool   `json:"enableGinFileLog"`
+	ServerName          string            `json:"serverName"`
+	ServerHost          map[string]string `json:"serverhost"`
+	ExtDomain           string            `json:"extDomain"`
+	Port                string            `json:"port"`
+	EnableGinConsoleLog bool              `json:"enableGinConsoleLog"`
+	EnableGinFileLog    bool              `json:"enableGinFileLog"`
 
 	LogFilename   string `json:"logFilename"`
 	LogMaxSize    int    `json:"logMaxSize"`

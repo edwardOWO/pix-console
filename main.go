@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io"
 	"log"
 	"net/http"
@@ -31,6 +32,7 @@ func (m *Main) initServer() error {
 	// Load config file
 	err = common.LoadConfig()
 	if err != nil {
+		fmt.Print(err.Error())
 		return err
 	}
 

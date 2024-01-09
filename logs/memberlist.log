@@ -397,3 +397,87 @@
 ###################2024/01/09 02:52:46 [ERR] memberlist: Received invalid msgType (71) from=127.0.0.1:59196
 ###################2024/01/09 02:52:46 [DEBUG] memberlist: Stream connection from=127.0.0.1:59212
 ###################2024/01/09 02:52:46 [ERR] memberlist: Received invalid msgType (71) from=127.0.0.1:59212
+###################2024/01/09 03:03:27 [DEBUG] memberlist: Failed to join 192.168.1.104:7947: dial tcp 192.168.1.104:7947: i/o timeout
+###################2024/01/09 03:03:28 [DEBUG] memberlist: Failed to join 192.168.1.107:7947: dial tcp 192.168.1.107:7947: i/o timeout
+###################2024/01/09 03:03:29 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/01/09 03:10:06 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/01/09 03:10:07 [DEBUG] memberlist: Failed to join 192.168.1.104:7947: dial tcp 192.168.1.104:7947: i/o timeout
+###################2024/01/09 03:10:07 [DEBUG] memberlist: Stream connection from=127.0.0.1:52764
+###################2024/01/09 03:10:07 [DEBUG] memberlist: Stream connection from=127.0.0.1:52772
+###################2024/01/09 03:10:07 [ERR] memberlist: Received invalid msgType (71) from=127.0.0.1:52772
+###################2024/01/09 03:10:08 [DEBUG] memberlist: Failed to join 192.168.1.107:7947: dial tcp 192.168.1.107:7947: i/o timeout
+###################2024/01/09 03:10:08 [ERR] memberlist: failed to receive and remove the stream label header: read tcp 127.0.0.1:7947->127.0.0.1:52764: i/o timeout from=<unknown address>
+###################2024/01/09 03:10:08 [DEBUG] memberlist: Stream connection from=127.0.0.1:52782
+###################2024/01/09 03:10:08 [DEBUG] memberlist: Stream connection from=127.0.0.1:52798
+###################2024/01/09 03:10:08 [ERR] memberlist: Received invalid msgType (71) from=127.0.0.1:52798
+###################2024/01/09 03:10:08 [ERR] memberlist: Received invalid msgType (71) from=127.0.0.1:52782
+###################2024/01/09 03:10:08 [DEBUG] memberlist: Stream connection from=127.0.0.1:52810
+###################2024/01/09 03:10:08 [ERR] memberlist: Received invalid msgType (71) from=127.0.0.1:52810
+###################2024/01/09 03:13:56 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/01/09 03:13:57 [DEBUG] memberlist: Stream connection from=127.0.0.1:37754
+###################2024/01/09 03:13:57 [DEBUG] memberlist: Stream connection from=127.0.0.1:37760
+###################2024/01/09 03:13:57 [ERR] memberlist: Received invalid msgType (71) from=127.0.0.1:37760
+###################2024/01/09 03:13:57 [DEBUG] memberlist: Failed to join 192.168.1.104:7947: dial tcp 192.168.1.104:7947: i/o timeout
+###################2024/01/09 03:13:58 [ERR] memberlist: failed to receive and remove the stream label header: read tcp 127.0.0.1:7947->127.0.0.1:37754: i/o timeout from=<unknown address>
+###################2024/01/09 03:13:58 [DEBUG] memberlist: Stream connection from=127.0.0.1:37772
+###################2024/01/09 03:13:58 [ERR] memberlist: Received invalid msgType (71) from=127.0.0.1:37772
+###################2024/01/09 03:13:58 [DEBUG] memberlist: Stream connection from=127.0.0.1:37784
+###################2024/01/09 03:13:58 [ERR] memberlist: Received invalid msgType (71) from=127.0.0.1:37784
+###################2024/01/09 03:13:58 [DEBUG] memberlist: Stream connection from=127.0.0.1:37786
+###################2024/01/09 03:13:58 [ERR] memberlist: Received invalid msgType (71) from=127.0.0.1:37786
+###################2024/01/09 03:13:58 [DEBUG] memberlist: Failed to join 192.168.1.107:7947: dial tcp 192.168.1.107:7947: i/o timeout
+###################2024/01/09 03:14:32 [DEBUG] memberlist: Failed to join 192.168.1.104:7947: dial tcp 192.168.1.104:7947: i/o timeout
+###################2024/01/09 03:14:33 [DEBUG] memberlist: Failed to join 192.168.1.107:7947: dial tcp 192.168.1.107:7947: i/o timeout
+###################2024/01/09 03:14:34 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/01/09 03:14:35 [DEBUG] memberlist: Stream connection from=127.0.0.1:38186
+###################2024/01/09 03:14:35 [ERR] memberlist: Received invalid msgType (71) from=127.0.0.1:38186
+###################2024/01/09 03:14:35 [DEBUG] memberlist: Stream connection from=127.0.0.1:38192
+###################2024/01/09 03:14:36 [ERR] memberlist: failed to receive and remove the stream label header: read tcp 127.0.0.1:7947->127.0.0.1:38192: i/o timeout from=<unknown address>
+###################2024/01/09 03:14:36 [DEBUG] memberlist: Stream connection from=127.0.0.1:60576
+###################2024/01/09 03:14:36 [ERR] memberlist: Received invalid msgType (71) from=127.0.0.1:60576
+###################2024/01/09 03:14:36 [DEBUG] memberlist: Stream connection from=127.0.0.1:60592
+###################2024/01/09 03:14:36 [ERR] memberlist: Received invalid msgType (71) from=127.0.0.1:60592
+###################2024/01/09 03:15:45 [DEBUG] memberlist: Failed to join 192.168.1.107:7947: dial tcp 192.168.1.107:7947: i/o timeout
+###################2024/01/09 03:15:46 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/01/09 03:15:47 [DEBUG] memberlist: Failed to join 192.168.1.104:7947: dial tcp 192.168.1.104:7947: i/o timeout
+###################2024/01/09 03:15:50 [DEBUG] memberlist: Stream connection from=127.0.0.1:35498
+###################2024/01/09 03:15:50 [ERR] memberlist: Received invalid msgType (71) from=127.0.0.1:35498
+###################2024/01/09 03:15:50 [DEBUG] memberlist: Stream connection from=127.0.0.1:35506
+###################2024/01/09 03:15:50 [ERR] memberlist: Received invalid msgType (71) from=127.0.0.1:35506
+###################2024/01/09 03:15:50 [DEBUG] memberlist: Stream connection from=127.0.0.1:35510
+###################2024/01/09 03:15:50 [ERR] memberlist: Received invalid msgType (71) from=127.0.0.1:35510
+###################2024/01/09 03:15:51 [DEBUG] memberlist: Stream connection from=127.0.0.1:35516
+###################2024/01/09 03:15:51 [ERR] memberlist: Received invalid msgType (71) from=127.0.0.1:35516
+###################2024/01/09 03:15:51 [DEBUG] memberlist: Stream connection from=127.0.0.1:35526
+###################2024/01/09 03:15:52 [ERR] memberlist: failed to receive and remove the stream label header: read tcp 127.0.0.1:7947->127.0.0.1:35526: i/o timeout from=<unknown address>
+###################2024/01/09 03:42:22 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/01/09 03:42:23 [DEBUG] memberlist: Failed to join 192.168.1.104:7947: dial tcp 192.168.1.104:7947: i/o timeout
+###################2024/01/09 03:42:24 [DEBUG] memberlist: Failed to join 192.168.1.107:7947: dial tcp 192.168.1.107:7947: i/o timeout
+###################2024/01/09 06:00:36 [DEBUG] memberlist: Failed to join 192.168.1.104:7947: dial tcp 192.168.1.104:7947: i/o timeout
+###################2024/01/09 06:00:37 [DEBUG] memberlist: Failed to join 192.168.1.107:7947: dial tcp 192.168.1.107:7947: i/o timeout
+###################2024/01/09 06:00:38 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/01/09 06:00:39 [DEBUG] memberlist: Stream connection from=127.0.0.1:59022
+###################2024/01/09 06:00:39 [ERR] memberlist: Received invalid msgType (71) from=127.0.0.1:59022
+###################2024/01/09 06:00:39 [DEBUG] memberlist: Stream connection from=127.0.0.1:59026
+###################2024/01/09 06:00:40 [ERR] memberlist: failed to receive and remove the stream label header: read tcp 127.0.0.1:7947->127.0.0.1:59026: i/o timeout from=<unknown address>
+###################2024/01/09 06:00:40 [DEBUG] memberlist: Stream connection from=127.0.0.1:59042
+###################2024/01/09 06:00:40 [ERR] memberlist: Received invalid msgType (71) from=127.0.0.1:59042
+###################2024/01/09 06:00:40 [DEBUG] memberlist: Stream connection from=127.0.0.1:59046
+###################2024/01/09 06:00:40 [ERR] memberlist: Received invalid msgType (71) from=127.0.0.1:59046
+###################2024/01/09 06:00:45 [DEBUG] memberlist: Stream connection from=127.0.0.1:44146
+###################2024/01/09 06:00:45 [DEBUG] memberlist: Stream connection from=127.0.0.1:44162
+###################2024/01/09 06:00:45 [ERR] memberlist: Received invalid msgType (71) from=127.0.0.1:44162
+###################2024/01/09 06:00:46 [ERR] memberlist: failed to receive and remove the stream label header: read tcp 127.0.0.1:7947->127.0.0.1:44146: i/o timeout from=<unknown address>
+###################2024/01/09 06:01:16 [DEBUG] memberlist: Stream connection from=127.0.0.1:48680
+###################2024/01/09 06:01:16 [DEBUG] memberlist: Stream connection from=127.0.0.1:48696
+###################2024/01/09 06:01:16 [ERR] memberlist: Received invalid msgType (71) from=127.0.0.1:48696
+###################2024/01/09 06:01:17 [ERR] memberlist: failed to receive and remove the stream label header: read tcp 127.0.0.1:7947->127.0.0.1:48680: i/o timeout from=<unknown address>
+###################2024/01/09 06:01:51 [DEBUG] memberlist: Failed to join 192.168.1.104:7947: dial tcp 192.168.1.104:7947: i/o timeout
+###################2024/01/09 06:01:52 [DEBUG] memberlist: Failed to join 192.168.1.107:7947: dial tcp 192.168.1.107:7947: i/o timeout
+###################2024/01/09 06:01:53 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/01/09 06:02:16 [DEBUG] memberlist: Stream connection from=127.0.0.1:58852
+###################2024/01/09 06:02:16 [DEBUG] memberlist: Stream connection from=127.0.0.1:58864
+###################2024/01/09 06:02:16 [ERR] memberlist: Received invalid msgType (71) from=127.0.0.1:58864
+###################2024/01/09 06:02:16 [ERR] memberlist: Received invalid msgType (71) from=127.0.0.1:58852
+###################2024/01/09 06:02:16 [DEBUG] memberlist: Stream connection from=127.0.0.1:58866
+###################2024/01/09 06:02:16 [ERR] memberlist: Received invalid msgType (71) from=127.0.0.1:58866
