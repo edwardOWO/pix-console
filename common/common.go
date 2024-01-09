@@ -33,6 +33,7 @@ type Configuration struct {
 	Issuer            string `json:"issuer"`
 	MemberlistPort    int    `json:"memberlistPort"`
 	MonitorPort       []int  `json:"monitorPort"`
+	NetworkDevice     string `json:"networkDevice"`
 }
 
 // Config shares the global configuration
