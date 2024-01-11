@@ -238,3 +238,86 @@ document.getElementById("StopListen").addEventListener("click", function () {
             document.getElementById("outputResult").textContent = "發生錯誤：" + error;
         });
 });
+
+
+document.getElementById("StopListen").addEventListener("click", function () {
+    // 發起POST請求以獲取內存信息
+    fetch("/api/v1/listen?status=false", {
+        method: 'POST', // 將請求方法改為POST
+        headers: {
+            'Content-Type': 'application/json', // 指定請求頭為JSON格式
+            // 在這裡可以添加其他請求頭信息
+        },
+        // 如果需要發送數據，可以在這裡添加請求體
+        // body: JSON.stringify({ key: 'value' })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                // 將錯誤消息輸出到 outputResult 段落元素
+                document.getElementById("outputResult").textContent = "出現錯誤：" + data.error;
+            } else {
+                // 將結果輸出到 outputResult 段落元素
+                document.getElementById("outputResult").textContent = JSON.stringify(data, null, 2);
+            }
+        })
+        .catch(error => {
+            // 將錯誤消息輸出到 outputResult 段落元素
+            document.getElementById("outputResult").textContent = "發生錯誤：" + error;
+        });
+});
+
+
+document.getElementById("UpdateServer").addEventListener("click", function () {
+    // 發起POST請求以獲取內存信息
+    fetch("/api/v1/updateServer", {
+        method: 'POST', // 將請求方法改為POST
+        headers: {
+            'Content-Type': 'application/json', // 指定請求頭為JSON格式
+            // 在這裡可以添加其他請求頭信息
+        },
+        // 如果需要發送數據，可以在這裡添加請求體
+        // body: JSON.stringify({ key: 'value' })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                // 將錯誤消息輸出到 outputResult 段落元素
+                document.getElementById("outputResult").textContent = "出現錯誤：" + data.error;
+            } else {
+                // 將結果輸出到 outputResult 段落元素
+                document.getElementById("outputResult").textContent = JSON.stringify(data, null, 2);
+            }
+        })
+        .catch(error => {
+            // 將錯誤消息輸出到 outputResult 段落元素
+            document.getElementById("outputResult").textContent = "發生錯誤：" + error;
+        });
+});
+
+document.getElementById("UpdateDocker").addEventListener("click", function () {
+    // 發起POST請求以獲取內存信息
+    fetch("/api/v1/updateDocker", {
+        method: 'POST', // 將請求方法改為POST
+        headers: {
+            'Content-Type': 'application/json', // 指定請求頭為JSON格式
+            // 在這裡可以添加其他請求頭信息
+        },
+        // 如果需要發送數據，可以在這裡添加請求體
+        // body: JSON.stringify({ key: 'value' })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                // 將錯誤消息輸出到 outputResult 段落元素
+                document.getElementById("outputResult").textContent = "出現錯誤：" + data.error;
+            } else {
+                // 將結果輸出到 outputResult 段落元素
+                document.getElementById("outputResult").textContent = JSON.stringify(data, null, 2);
+            }
+        })
+        .catch(error => {
+            // 將錯誤消息輸出到 outputResult 段落元素
+            document.getElementById("outputResult").textContent = "發生錯誤：" + error;
+        });
+});

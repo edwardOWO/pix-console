@@ -116,7 +116,7 @@ func printMemberlistStatus(list *memberlist.Memberlist) {
 		meta, ok := ParseMyMetaData(node.Meta)
 		if ok {
 			fmt.Printf(
-				"%s region: %s, zone: %s, shard: %d, weight: %d, ServerStatus: %d, ServiceVersion: %s,ServiceStatus: %d,ServerName: %s",
+				"%s region: %s, zone: %s, shard: %d, weight: %d, ServerStatus: %d, ServiceVersion: %s,ServiceStatus: %d,ServerName: %s\n",
 				node.Name,
 				meta.Region,
 				meta.Zone,
@@ -175,24 +175,25 @@ func StartMemberlist(logger *log.Logger, file *os.File) (*memberlist.Memberlist,
 					//log.Printf("send to %s msg: key=%s value=%d", node.Name, "test", "test2")
 					//list.SendReliable(node, []byte("test"))
 				}*/
-				if UpdateServer() {
-					if err := list.UpdateNode(1 * time.Second); err != nil {
-						log.Printf("Update Success")
-					} else {
-						log.Printf("Update Failue")
+				/*
+					if UpdateDocker() {
+						if err := list.UpdateNode(1 * time.Second); err != nil {
+							log.Printf("Update Success")
+						} else {
+							log.Printf("Update Failue")
+						}
 					}
-				}
-
+				*/
 			case _ = <-d2.UpdateCh:
-				fmt.Print("cluster status update")
+				fmt.Print("cluster status update\n")
 				continue
 
 			case <-tick.C:
 				d.Meta.Weight += 1
 				if err := list.UpdateNode(1 * time.Second); err != nil {
-					fmt.Printf("node meta update failure")
+					fmt.Printf("node meta update failure\n")
 				} else {
-					fmt.Printf("node meta update successful")
+					fmt.Printf("node meta update successful\n")
 				}
 
 				if CheckServerStatus() {

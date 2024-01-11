@@ -6,36 +6,36 @@ import (
 
 // 更新 docker-compose 檔案
 func backupService() bool {
-	fmt.Print("update Docker Compose")
+	fmt.Print("update Docker Compose\n")
 	return true
 }
 
 // 更新 docker-compose 檔案
 func updateDockerCompose() bool {
-	fmt.Print("update Docker Compose")
+	fmt.Print("update Docker Compose\n")
 	return true
 }
 
 // 更新 Image
 func pullImage() bool {
-	fmt.Print("PullImage")
+	fmt.Print("PullImage\n")
 	return true
 }
 
 // 重啟服務
 func restartService() bool {
-	fmt.Print("RestartService")
+	fmt.Print("RestartService\n")
 	return true
 }
 
 // 檢查服務
 func checkService() bool {
-	fmt.Print("CheckService")
+	fmt.Print("CheckService\n")
 	return true
 }
 
 // 升級伺服器
-func UpdateServer() bool {
+func UpdateDocker() bool {
 	if !backupService() {
 		return false
 	}

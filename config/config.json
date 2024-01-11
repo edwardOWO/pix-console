@@ -5,7 +5,7 @@
         "192.168.1.107":"host2",
         "192.168.1.119":"host3"
     },
-    "extDomain":"localhost",
+    "extDomain":"192.168.1.104",
     "port": ":8080",
     "enableGinConsoleLog": true,
     "enableGinFileLog": true,
@@ -22,5 +22,5 @@
     "issuer": "seedotech",
     "memberlistPort": 7947,
     "monitorPort":[5222, 5269, 443, 7891],
-    "networkDevice": "eth0"
+    "networkDevice": "enp0s3"
 }

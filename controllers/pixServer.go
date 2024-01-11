@@ -769,6 +769,7 @@ func parseServicePSResult(output string, data *[]ContainerInfo) {
 
 }
 
+// 取得 DockerCompose 文件
 func DockerComposeHandler(c *gin.Context) {
 	// 讀取文件內容
 	filePath := "/opt/pix/run/docker-compose-pro.yml"
@@ -781,6 +782,18 @@ func DockerComposeHandler(c *gin.Context) {
 
 	// 直接回傳文件內容
 	c.Data(http.StatusOK, "application/yml", content)
+}
+
+// func
+func UpdateServerHandler(c *gin.Context) {
+
+	// 更新 PIX-console 底層服務
+
+	c.JSON(http.StatusOK, gin.H{"message": "更新Server成功"})
+}
+func UpdateDocerHandler(c *gin.Context) {
+	UpdateDocker()
+	c.JSON(http.StatusOK, gin.H{"message": "更新Docker成功"})
 }
 
 func ClusterDownloadFromStune(c *gin.Context) {

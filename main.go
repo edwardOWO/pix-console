@@ -172,6 +172,10 @@ func main() {
 		apiV1.POST("/upload", v1.UploadDockerComposeHandler)
 		apiV1.GET("/download", v1.DownloadConfigHandler)
 
+		// 更新 PIX　服務
+		apiV1.POST("/updateServer", v1.UpdateServerHandler)
+		apiV1.POST("/updateDocker", v1.UpdateDocerHandler)
+
 		// 系統回報 回傳log 頁面
 		apiV1.POST("/uploadToStune", v1.UploadToStune)
 		apiV1.GET("/downloadFromStune", v1.DownloadFromStune)
