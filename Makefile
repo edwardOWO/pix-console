@@ -23,5 +23,9 @@ upload:
 	cp -rp config $(TARGET_DIR)
 	cp -rp rbac $(TARGET_DIR)
 	cp pix-console $(TARGET_DIR)
-	tar cvf pix-console.tar $(TARGET_DIR)
-    ./stune-tool upload pix-console edward
+	rpmbuild -bb pix-console.spec
+	./stune-tool upload /root/rpmbuild/RPMS/x86_64/pix-console-0.2-1.x86_64.rpm edward
+
+package:
+	rpmbuild -bb pix-console.spec
+	
