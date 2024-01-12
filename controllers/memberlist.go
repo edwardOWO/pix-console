@@ -157,7 +157,7 @@ func StartMemberlist(logger *log.Logger, file *os.File) (*memberlist.Memberlist,
 	//local := list.LocalNode()
 	list.Join(convertServerHostToArray(common.Config.ServerHost))
 
-	tick := time.NewTicker(5 * time.Second)
+	tick := time.NewTicker(30 * time.Second)
 
 	go func() {
 		run := true
@@ -185,15 +185,15 @@ func StartMemberlist(logger *log.Logger, file *os.File) (*memberlist.Memberlist,
 					}
 				*/
 			case _ = <-d2.UpdateCh:
-				fmt.Print("cluster status update\n")
+				//fmt.Print("cluster status update\n")
 				continue
 
 			case <-tick.C:
 				d.Meta.Weight += 1
 				if err := list.UpdateNode(1 * time.Second); err != nil {
-					fmt.Printf("node meta update failure\n")
+					//fmt.Printf("node meta update failure\n")
 				} else {
-					fmt.Printf("node meta update successful\n")
+					//fmt.Printf("node meta update successful\n")
 				}
 
 				if CheckServerStatus() {
@@ -226,17 +226,19 @@ func getMemberlistStatus(list *memberlist.Memberlist) []map[string]interface{} {
 	for ip, hostname := range common.Config.ServerHost {
 
 		Status := "Down"
+		Version := "Unknown"
 		for _, node := range list.Members() {
 
 			if node.Addr.String() == ip {
 				Status = "UP"
+				Version = common.Config.Version
 			}
 		}
 
 		memberInfo := map[string]interface{}{
 			"HOST":      ip,
 			"CONTAINER": hostname,
-			"IMAGE":     "example:latest",
+			"IMAGE":     Version,
 			"COMMAND":   "example-command",
 			"CREATED":   "1 weeks ago",
 			"STATUS":    Status,

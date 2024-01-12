@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"archive/zip"
+	"bufio"
 	"bytes"
 	"encoding/json"
 	"fmt"
@@ -557,7 +558,6 @@ func getDockerData(url string) ([]map[string]interface{}, error) {
 }
 
 func ServiceHandler(c *gin.Context) {
-
 	services := []string{"mysqld", "mongod", "cassandra", "pix-compose", "pixd", "pix-onlyoffice", "crond", "rsyslog", "sshd"}
 	var dockerData []ContainerInfo
 	for _, serviceName := range services {
@@ -787,10 +787,84 @@ func DockerComposeHandler(c *gin.Context) {
 // func
 func UpdateServerHandler(c *gin.Context) {
 
-	// 更新 PIX-console 底層服務
+	// 開始更新 Server
+	fmt.Printf("@@@@@@@@@Start Update Server@@@@@@@@@")
 
-	c.JSON(http.StatusOK, gin.H{"message": "更新Server成功"})
+	patchServer("pix-console-0.3-11.x86_64.rpm")
+
+	// 重啟服務
+	fmt.Printf("@@@@@@@@@Restart Service@@@@@@@@@")
+	command := exec.Command("systemctl", "restart", "pix-console")
+	// 設置標準輸出和標準錯誤輸出
+	command.Stdout = os.Stdout
+	command.Stderr = os.Stderr
+	// 執行命令
+	err := command.Run()
+	if err != nil {
+		fmt.Printf("命令執行出錯: %s\n", err.Error())
+		return
+	}
 }
+func patchServer(patchVersion string) {
+
+	stunConfig := tool.StuneSetting{
+		ClientID:     "pixCollector",
+		ClientSecret: "(5vBX1Tu@DDPs0Om1Cfm",
+		AuthURL:      "https://auth.tw.juiker.net",
+		BrandID:      "juiker",
+		Scope:        "tw:stune:basic",
+	}
+
+	err := tool.StuneDownload(stunConfig.GetAccessToken(), "version.txt", "edward")
+	if err != nil {
+		fmt.Print(err.Error())
+		return
+	}
+
+	version := LoadVersion()
+
+	err = tool.StuneDownload(stunConfig.GetAccessToken(), version, "edward")
+	if err != nil {
+		fmt.Print(err.Error())
+		return
+	}
+
+	command := exec.Command("rpm", "-Uvh", version)
+	var stdout, stderr bytes.Buffer
+	command.Stdout = &stdout
+	command.Stderr = &stderr
+
+	err = command.Run()
+	if err != nil {
+		fmt.Print(stderr.String())
+		return
+	}
+
+}
+func LoadVersion() string {
+	// 打開文件，第二個參數是打開模式，這裡使用只讀模式
+	file, err := os.Open("version.txt")
+	if err != nil {
+		fmt.Println("無法打開文件:", err)
+		return ""
+	}
+	defer file.Close() // 確保在函數結束時關閉文件
+
+	// 使用bufio.NewReader來讀取文件
+	reader := bufio.NewReader(file)
+
+	// 逐行讀取文件內容
+	line, err := reader.ReadString('\n')
+	if err != nil {
+		fmt.Println("讀取文件時發生錯誤:", err)
+		return ""
+	}
+
+	line = strings.TrimRight(line, "\n")
+
+	return line
+}
+
 func UpdateDocerHandler(c *gin.Context) {
 	UpdateDocker()
 	c.JSON(http.StatusOK, gin.H{"message": "更新Docker成功"})

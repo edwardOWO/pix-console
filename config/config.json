@@ -1,7 +1,7 @@
 {
-    "serverName": "host1",
+    "serverName": "host1###",
     "serverhost": {
-        "192.168.1.104":"host1",
+        "192.168.1.104":"host1###",
         "192.168.1.107":"host2",
         "192.168.1.119":"host3"
     },
@@ -22,5 +22,6 @@
     "issuer": "seedotech",
     "memberlistPort": 7947,
     "monitorPort":[5222, 5269, 443, 7891],
-    "networkDevice": "enp0s3"
+    "networkDevice": "enp0s3",
+    "version": ""
 }

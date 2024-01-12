@@ -1,8 +1,8 @@
 # Some metadata required by an RPM package
 Name: pix-console
 Summary: pix config service
-Version: 0.2
-Release: 1
+Version: 0.3
+Release: 31
 License: MIT
 
 %description
@@ -10,7 +10,6 @@ PIX　Config Service
 
 
 %install
-
 # copy the executable to buildroot.
 mkdir -p %{buildroot}/opt/pix-console
 cp -rpdf /tmp/pix-console/* %{buildroot}/opt/pix-console
@@ -34,6 +33,11 @@ StandardError=syslog
 SyslogIdentifier=%n
 EOF
 
+%post
+systemctl daemon-reload
+
 %files
 /opt/pix-console/*
 /etc/systemd/system/pix-console.service
+
+%config(noreplace) /opt/pix-console/config

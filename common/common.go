@@ -1,8 +1,11 @@
 package common
 
 import (
+	"bytes"
 	"encoding/json"
+	"fmt"
 	"os"
+	"os/exec"
 
 	"pix-console/models"
 
@@ -34,6 +37,7 @@ type Configuration struct {
 	MemberlistPort    int    `json:"memberlistPort"`
 	MonitorPort       []int  `json:"monitorPort"`
 	NetworkDevice     string `json:"networkDevice"`
+	Version           string `json:"version"`
 }
 
 // Config shares the global configuration
@@ -59,6 +63,7 @@ const (
 
 // LoadConfig loads configuration from the config file
 func LoadConfig() error {
+
 	// Filename is the path to the json config file
 	file, err := os.Open("config/config.json")
 	if err != nil {
@@ -84,6 +89,9 @@ func LoadConfig() error {
 	// log.SetFormatter(&log.TextFormatter{})
 	log.SetFormatter(&log.JSONFormatter{})
 
+	// 取得當前主機版本號
+	Config.Version = GetVersion()
+
 	return nil
 }
 func LoadAccountConfig() *models.Users {
@@ -101,4 +109,17 @@ func LoadAccountConfig() *models.Users {
 	}
 
 	return pixUsers
+}
+func GetVersion() string {
+	cmd := exec.Command("sh", "-c", "rpm -qa | grep pix-console")
+	var out bytes.Buffer
+	cmd.Stdout = &out
+	err := cmd.Run()
+	if err != nil {
+		fmt.Println("取得伺服器版本失敗:", err)
+		return ""
+	}
+	result := out.String()
+	fmt.Println("伺服器版本: ", result)
+	return result
 }

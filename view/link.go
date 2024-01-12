@@ -1,6 +1,8 @@
 package view
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+)
 
 type Link struct {
 	Text string `json:"text"`
@@ -12,6 +14,7 @@ type PageLinkStruct struct {
 }
 
 func CreatePageLink() gin.H {
+
 	PageLink := gin.H{
 		"links": []gin.H{
 			{"text": "DashBoard", "href": "/dashboard"},

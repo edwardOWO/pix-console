@@ -50,9 +50,7 @@ var (
 )
 
 func init() {
-
 	rule, err := casbin.NewEnforcer("/opt/pix-console/rbac/model.conf", "/opt/pix-console/rbac/policy.csv")
-	//rule, err := casbin.NewEnforcer("./rbac/model.conf", "./rbac/policy.csv")
 	e = rule
 	if err != nil {
 		panic(err)

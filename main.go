@@ -28,6 +28,7 @@ type Main struct {
 }
 
 func (m *Main) initServer() error {
+
 	var err error
 	// Load config file
 	err = common.LoadConfig()

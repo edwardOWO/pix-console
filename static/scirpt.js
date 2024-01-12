@@ -287,6 +287,7 @@ document.getElementById("UpdateServer").addEventListener("click", function () {
             } else {
                 // 將結果輸出到 outputResult 段落元素
                 document.getElementById("outputResult").textContent = JSON.stringify(data, null, 2);
+                location.reload();
             }
         })
         .catch(error => {
