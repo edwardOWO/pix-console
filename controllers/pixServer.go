@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"os"
 	"os/exec"
@@ -18,6 +19,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/hashicorp/memberlist"
+	"gopkg.in/yaml.v2"
 
 	tool "pix-console/StuneTool"
 	"pix-console/common"
@@ -790,7 +792,7 @@ func UpdateServerHandler(c *gin.Context) {
 	// 開始更新 Server
 	fmt.Printf("@@@@@@@@@Start Update Server@@@@@@@@@")
 
-	patchServer("pix-console-0.3-11.x86_64.rpm")
+	patchServer()
 
 	// 重啟服務
 	fmt.Printf("@@@@@@@@@Restart Service@@@@@@@@@")
@@ -805,7 +807,7 @@ func UpdateServerHandler(c *gin.Context) {
 		return
 	}
 }
-func patchServer(patchVersion string) {
+func patchServer() {
 
 	stunConfig := tool.StuneSetting{
 		ClientID:     "pixCollector",
@@ -866,10 +868,101 @@ func LoadVersion() string {
 }
 
 func UpdateDocerHandler(c *gin.Context) {
-	UpdateDocker()
-	c.JSON(http.StatusOK, gin.H{"message": "更新Docker成功"})
-}
 
+	var containerInfo models.ServerInfo
+	// 打開 Docker Compose 文件
+	file, err := os.Open("docker-compose.yml")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer file.Close()
+
+	// 讀取文件內容
+	content, err := io.ReadAll(file)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	var data map[string]interface{}
+	err = yaml.Unmarshal(content, &data)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// 提取並打印 services 部分
+	services, ok := data["services"].(map[interface{}]interface{})
+	if !ok {
+		log.Fatal("Services section not found")
+	}
+
+	fmt.Println("Services:")
+	for serviceName, service := range services {
+		// 提取並打印每個服務的 image 屬性
+		image, ok := service.(map[interface{}]interface{})["image"]
+		if !ok {
+			log.Printf("Image not found for service %v\n", serviceName)
+			continue
+		}
+
+		imageStr := fmt.Sprintf("%v", image)
+		parts := strings.Split(imageStr, ":")
+		if len(parts) != 2 {
+			log.Printf("Invalid image format for service %v: %v\n", serviceName, imageStr)
+			continue
+		}
+		imageName := parts[0]
+		imageTag := parts[1]
+
+		test := models.Image{
+			ServiceName: fmt.Sprintf("%v", serviceName),
+			ImageName:   imageName,
+			ImageTag:    imageTag,
+		}
+
+		containerInfo.ContainerInfo = append(containerInfo.ContainerInfo, test)
+	}
+
+	// 將結構寫入 JSON 檔案
+	err = writeJSONToFile(containerInfo, "output.json")
+	if err != nil {
+		fmt.Println("Error writing to file:", err)
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"message": containerInfo})
+}
+func printFields(data interface{}, prefix string) {
+	switch v := data.(type) {
+	case map[interface{}]interface{}:
+		// 對映，遞迴處理
+		for key, value := range v {
+			newPrefix := fmt.Sprintf("%s%s.", prefix, key)
+			printFields(value, newPrefix)
+		}
+	case []interface{}:
+		// 陣列，遞迴處理
+		for i, value := range v {
+			newPrefix := fmt.Sprintf("%s%d.", prefix, i)
+			printFields(value, newPrefix)
+		}
+	default:
+		// 印出非對映、非陣列的值
+		fmt.Printf("%s: %v\n", prefix, v)
+	}
+}
+func writeJSONToFile(data interface{}, filename string) error {
+	jsonData, err := json.MarshalIndent(data, "", "    ")
+	if err != nil {
+		return err
+	}
+
+	err = ioutil.WriteFile(filename, jsonData, 0644)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
 func ClusterDownloadFromStune(c *gin.Context) {
 
 	Service := c.Query("service")

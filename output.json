@@ -1,0 +1,54 @@
+{
+    "containerinfo": [
+        {
+            "servicename": "sorrel_rose",
+            "imagename": "harbor.tw.juiker.net/sorrel/rose",
+            "imagetag": "2.2.0"
+        },
+        {
+            "servicename": "sorrel_api",
+            "imagename": "harbor.tw.juiker.net/sorrel/api",
+            "imagetag": "2.2.0"
+        },
+        {
+            "servicename": "api",
+            "imagename": "harbor.tw.juiker.net/haunter/pix-v2",
+            "imagetag": "20230612"
+        },
+        {
+            "servicename": "nginx",
+            "imagename": "harbor.tw.juiker.net/library/nginx",
+            "imagetag": "test2"
+        },
+        {
+            "servicename": "minio",
+            "imagename": "harbor.tw.juiker.net/library/minio",
+            "imagetag": "RELEASE.2019-02-26T19-51-46Z"
+        },
+        {
+            "servicename": "im",
+            "imagename": "harbor.tw.juiker.net/iris/iris",
+            "imagetag": "TBB"
+        },
+        {
+            "servicename": "stune",
+            "imagename": "harbor.tw.juiker.net/scoke/scoke",
+            "imagetag": "PRO-8c807fcf610614184f6605408ce8d773bf7da24e"
+        },
+        {
+            "servicename": "dockerhost",
+            "imagename": "harbor.tw.juiker.net/library/docker-host",
+            "imagetag": "2.5.4"
+        },
+        {
+            "servicename": "sorrel_sbcallinone",
+            "imagename": "harbor.tw.juiker.net/sorrel/sbcallinone",
+            "imagetag": "2.2.1"
+        },
+        {
+            "servicename": "web",
+            "imagename": "harbor.tw.juiker.net/rib/rib-server",
+            "imagetag": "TFN-latest"
+        }
+    ]
+}

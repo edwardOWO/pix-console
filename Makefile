@@ -26,6 +26,7 @@ clean:
 	rm -f pix-console.tar
 	rm -f logs/*
 	rm -rf pix-console*.rpm
+	rm __debug_*
 
 # 清理目標檔案
 upload:
