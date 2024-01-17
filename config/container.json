@@ -2,64 +2,76 @@
     "commitmessage": "",
     "containerinfo": [
         {
-            "updatetime": "2024-01-17 02:02:42",
+            "updatetime": "2024-01-17 04:39:37",
             "servicename": "dockerhost",
             "imagename": "harbor.tw.juiker.net/library/docker-host",
             "imagetag": "2.5.4"
         },
         {
-            "updatetime": "2024-01-17 02:02:42",
-            "servicename": "minio",
-            "imagename": "harbor.tw.juiker.net/library/minio",
-            "imagetag": "RELEASE.2019-02-26T19-51-46Z"
-        },
-        {
-            "updatetime": "2024-01-17 02:02:42",
-            "servicename": "web",
-            "imagename": "harbor.tw.juiker.net/rib/rib-server",
-            "imagetag": "TFN-latest"
-        },
-        {
-            "updatetime": "2024-01-17 02:02:42",
-            "servicename": "api",
-            "imagename": "harbor.tw.juiker.net/haunter/pix-v2",
-            "imagetag": "20230612"
-        },
-        {
-            "updatetime": "2024-01-17 02:02:42",
+            "updatetime": "2024-01-17 04:39:37",
             "servicename": "im",
             "imagename": "harbor.tw.juiker.net/iris/iris",
-            "imagetag": "TBB153"
+            "imagetag": "pix-v2-master-7d4942f8"
         },
         {
-            "updatetime": "2024-01-17 02:02:42",
+            "updatetime": "2024-01-17 04:39:37",
+            "servicename": "im2",
+            "imagename": "harbor.tw.juiker.net/iris/iris",
+            "imagetag": "pix-v2-master-7d4942f8"
+        },
+        {
+            "updatetime": "2024-01-17 04:39:37",
+            "servicename": "im3",
+            "imagename": "harbor.tw.juiker.net/iris/iris",
+            "imagetag": "pix-v2-master-7d4942f8"
+        },
+        {
+            "updatetime": "2024-01-17 04:39:37",
             "servicename": "nginx",
             "imagename": "harbor.tw.juiker.net/library/nginx",
             "imagetag": "test2"
         },
         {
-            "updatetime": "2024-01-17 02:02:42",
+            "updatetime": "2024-01-17 04:39:37",
             "servicename": "sorrel_api",
             "imagename": "harbor.tw.juiker.net/sorrel/api",
-            "imagetag": "2.2.0"
+            "imagetag": "2.2.3"
         },
         {
-            "updatetime": "2024-01-17 02:02:42",
-            "servicename": "sorrel_rose",
-            "imagename": "harbor.tw.juiker.net/sorrel/rose",
-            "imagetag": "2.2.0"
-        },
-        {
-            "updatetime": "2024-01-17 02:02:42",
+            "updatetime": "2024-01-17 04:39:37",
             "servicename": "sorrel_sbcallinone",
             "imagename": "harbor.tw.juiker.net/sorrel/sbcallinone",
-            "imagetag": "2.2.1"
+            "imagetag": "2.2.2"
         },
         {
-            "updatetime": "2024-01-17 02:02:42",
+            "updatetime": "2024-01-17 04:39:37",
+            "servicename": "web",
+            "imagename": "harbor.tw.juiker.net/rib/rib-server",
+            "imagetag": "TFN-latest"
+        },
+        {
+            "updatetime": "2024-01-17 04:39:37",
+            "servicename": "api",
+            "imagename": "harbor.tw.juiker.net/haunter/pix-v2",
+            "imagetag": "20230612"
+        },
+        {
+            "updatetime": "2024-01-17 04:39:37",
+            "servicename": "sorrel_rose",
+            "imagename": "harbor.tw.juiker.net/sorrel/rose",
+            "imagetag": "2.2.2"
+        },
+        {
+            "updatetime": "2024-01-17 04:39:37",
             "servicename": "stune",
             "imagename": "harbor.tw.juiker.net/scoke/scoke",
-            "imagetag": "PRO-8c807fcf610614184f6605408ce8d773bf7da24e"
+            "imagetag": "PRO-50a545f3a8a7a1d120e86fc5671d07737c52f917"
+        },
+        {
+            "updatetime": "2024-01-17 04:39:37",
+            "servicename": "minio",
+            "imagename": "harbor.tw.juiker.net/library/minio",
+            "imagetag": "latest"
         }
     ]
 }

@@ -67,7 +67,7 @@ func updateDockerCompose() (bool, error) {
 
 		service, exists := services[containerInfo.ServiceName].(map[interface{}]interface{})
 		if !exists {
-
+			continue
 		}
 
 		service["image"] = containerInfo.ImageName + ":" + containerInfo.ImageTag // Replace with the desired image and tag
@@ -90,13 +90,49 @@ func updateDockerCompose() (bool, error) {
 
 // 更新 Image
 func pullImage() bool {
-	fmt.Print("PullImage\n")
+
+	fmt.Print("RestartService\n")
+
+	// 設置標準輸出和標準錯誤輸出
+	command := exec.Command("docker-compose", "-f", "/opt/pix/run/docker-compose-pro.yml", "pull")
+	// 設置標準輸出和標準錯誤輸出
+	command.Stdout = os.Stdout
+	command.Stderr = os.Stderr
+	// 執行命令
+	err := command.Run()
+	if err != nil {
+		fmt.Printf("命令執行出錯: %s\n", err.Error())
+		return false
+	}
 	return true
 }
 
 // 重啟服務
 func restartService() bool {
 	fmt.Print("RestartService\n")
+
+	// 設置標準輸出和標準錯誤輸出
+	command := exec.Command("systemctl", "stop", "pix-compose")
+	// 設置標準輸出和標準錯誤輸出
+	command.Stdout = os.Stdout
+	command.Stderr = os.Stderr
+	// 執行命令
+	err := command.Run()
+	if err != nil {
+		fmt.Printf("命令執行出錯: %s\n", err.Error())
+		return false
+	}
+
+	command = exec.Command("systemctl", "start", "pix-compose")
+	// 設置標準輸出和標準錯誤輸出
+	command.Stdout = os.Stdout
+	command.Stderr = os.Stderr
+	// 執行命令
+	err = command.Run()
+	if err != nil {
+		fmt.Printf("命令執行出錯: %s\n", err.Error())
+		return false
+	}
 	return true
 }
 
@@ -305,6 +341,7 @@ func commitDockerfile(commit string) models.ServerInfo {
 	now := time.Now()
 	formattedTime := now.Format("2006-01-02 15:04:05")
 	for serviceName, service := range services {
+
 		// 提取並打印每個服務的 image 屬性
 		image, ok := service.(map[interface{}]interface{})["image"]
 		if !ok {
@@ -321,14 +358,24 @@ func commitDockerfile(commit string) models.ServerInfo {
 		imageName := parts[0]
 		imageTag := parts[1]
 
-		test := models.Image{
+		container := models.Image{
 			UpdateTime:  formattedTime,
 			ServiceName: fmt.Sprintf("%v", serviceName),
 			ImageName:   imageName,
 			ImageTag:    imageTag,
 		}
 
-		containerInfo.ContainerInfo = append(containerInfo.ContainerInfo, test)
+		if strings.HasPrefix(fmt.Sprintf("%v", serviceName), "im") {
+			container.ServiceName = "im"
+			containerInfo.ContainerInfo = append(containerInfo.ContainerInfo, container)
+			container.ServiceName = "im2"
+			containerInfo.ContainerInfo = append(containerInfo.ContainerInfo, container)
+			container.ServiceName = "im3"
+			containerInfo.ContainerInfo = append(containerInfo.ContainerInfo, container)
+		} else {
+			containerInfo.ContainerInfo = append(containerInfo.ContainerInfo, container)
+		}
+
 	}
 
 	// 將結構寫入 JSON 檔案

@@ -1,9 +1,11 @@
 TARGET_DIR := /tmp/pix-console
-VERSION := 0.3
-RELEASE := 31
-STUNE_DIR := TBB
+VERSION := 0.4
+RELEASE := 4
+STUNE_DIR := edward
 
 # 產生執行檔
+prepare:
+	
 build:
 	go build
 	sed -i 's/^Version: .*/Version: $(VERSION)/' pix-console.spec
