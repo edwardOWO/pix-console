@@ -175,7 +175,8 @@ func main() {
 
 		// 更新 PIX　服務
 		apiV1.POST("/updateServer", v1.UpdateServerHandler)
-		apiV1.POST("/updateDocker", v1.UpdateDocerHandler)
+		apiV1.POST("/commitContainer", v1.CommitContainerHandler)
+		apiV1.POST("/updateContainer", v1.UpdateContainerHandler)
 
 		// 系統回報 回傳log 頁面
 		apiV1.POST("/uploadToStune", v1.UploadToStune)

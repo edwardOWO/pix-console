@@ -202,7 +202,7 @@ func StartMemberlist(logger *log.Logger, file *os.File) (*memberlist.Memberlist,
 					d.Meta.ServerStatus = 0
 				}
 
-				printMemberlistStatus(list)
+				//printMemberlistStatus(list)
 			}
 
 		}

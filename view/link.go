@@ -22,7 +22,7 @@ func CreatePageLink() gin.H {
 			{"text": "Service", "href": "/service"},
 			{"text": "Containers", "href": "/docker"},
 			{"text": "Setting", "href": "/index"},
-			{"text": "Docker-compose", "href": "/docker-compose"},
+			{"text": "Commit", "href": "/docker-compose"},
 			{"text": "Feedback", "href": "/feedback"},
 			{"text": "Check", "href": "/check"},
 			{"text": "Logout", "href": "/logout"},

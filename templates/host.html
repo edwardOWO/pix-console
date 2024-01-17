@@ -84,7 +84,7 @@
         document.getElementById("UpdateDocker").addEventListener("click", function () {
             // 發起POST請求以獲取內存信息
             alert("服務開始更新")
-            fetch("/api/v1/updateDocker", {
+            fetch("/api/v1/updateContainer", {
                 method: 'POST', // 將請求方法改為POST
                 headers: {
                     'Content-Type': 'application/json', // 指定請求頭為JSON格式

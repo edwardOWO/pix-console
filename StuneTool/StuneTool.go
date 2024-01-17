@@ -93,6 +93,11 @@ func StuneUpload(token string, localFilePath string, remotePath string) error {
 	method := "POST"
 
 	contentType := getContentType(localFilePath)
+
+	if contentType == "text/plain; charset=utf-8" {
+		contentType = "text/plain"
+	}
+
 	fmt.Printf("Content Type: %s\n", contentType)
 
 	fileSize := getFileSize(localFilePath)
