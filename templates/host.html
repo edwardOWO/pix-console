@@ -96,32 +96,13 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data.error) {
-                        // 將錯誤消息輸出到 outputResult 段落元素
-                        document.getElementById("outputResult").textContent = "出現錯誤：" + data.error;
+                        alert("解析錯誤")
                     } else {
-                        // 將結果輸出到 outputResult 段落元素
-                        //document.getElementById("outputResult").textContent = JSON.stringify(data, null, 2);
-                        // 假設 data.message.containerinfo 是從服務器返回的數據
-                        const containerInfoArray = data.message.containerinfo;
-
-                        // 構建合併的字串
-                        let combinedString = '';
-
-                        // 遍歷 containerInfoArray，處理每個對象
-                        containerInfoArray.forEach(container => {
-                            combinedString += `
-                            Service: ${container.servicename}
-                            Name: ${container.imagename}
-                            Tag: ${container.imagetag}
-                            <br>
-                        `;
-                        });
-                        document.getElementById("outputResult").innerHTML = combinedString;
+                        alert(data.message)
                     }
                 })
                 .catch(error => {
-                    // 將錯誤消息輸出到 outputResult 段落元素
-                    document.getElementById("outputResult").textContent = "發生錯誤：" + error;
+                    alert("異常")
                 });
         });
 

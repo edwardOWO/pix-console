@@ -3,8 +3,10 @@ package controllers
 import (
 	"bufio"
 	"bytes"
+	"encoding/json"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
@@ -26,9 +28,64 @@ func backupService() bool {
 }
 
 // 更新 docker-compose 檔案
-func updateDockerCompose() bool {
-	fmt.Print("update Docker Compose\n")
-	return true
+func updateDockerCompose() (bool, error) {
+
+	filePath := "container.json"
+	jsonData, err := ioutil.ReadFile(filePath)
+	if err != nil {
+		fmt.Println("Error reading file:", err)
+		return false, err
+	}
+	var containerInfo models.ServerInfo
+	err = json.Unmarshal(jsonData, &containerInfo)
+	if err != nil {
+		fmt.Println("Error unmarshaling JSON:", err)
+		return false, err
+	}
+
+	// Read the contents of the file
+	filePath = "/opt/pix/run/docker-compose-pro.yml"
+	yamlData, err := ioutil.ReadFile(filePath)
+	if err != nil {
+		fmt.Println("Error reading file:", err)
+
+	}
+
+	var data map[string]interface{}
+	err = yaml.Unmarshal(yamlData, &data)
+	if err != nil {
+		fmt.Print(err.Error())
+	}
+
+	// 提取並打印 services 部分
+	services, ok := data["services"].(map[interface{}]interface{})
+	if !ok {
+		fmt.Print("not get services")
+	}
+
+	for _, containerInfo := range containerInfo.ContainerInfo {
+
+		service, exists := services[containerInfo.ServiceName].(map[interface{}]interface{})
+		if !exists {
+
+		}
+
+		service["image"] = containerInfo.ImageName + ":" + containerInfo.ImageTag // Replace with the desired image and tag
+
+	}
+
+	// Marshal the modified data back to YAML
+	updatedYAMLData, err := yaml.Marshal(&data)
+	if err != nil {
+		fmt.Print(err.Error())
+	}
+
+	// Write the updated content back to the file
+	err = ioutil.WriteFile(filePath, updatedYAMLData, 0644)
+	if err != nil {
+		fmt.Print(err.Error())
+	}
+	return true, nil
 }
 
 // 更新 Image
@@ -48,7 +105,7 @@ func checkService() bool {
 	fmt.Print("CheckService\n")
 	return true
 }
-func getlatestVersion() bool {
+func getlatestVersion() (bool, error) {
 	stunConfig := tool.StuneSetting{
 		ClientID:     "pixCollector",
 		ClientSecret: "(5vBX1Tu@DDPs0Om1Cfm",
@@ -57,12 +114,12 @@ func getlatestVersion() bool {
 		Scope:        "tw:stune:basic",
 	}
 
-	err := tool.StuneDownload(stunConfig.GetAccessToken(), "container.txt", "edward")
+	err := tool.StuneDownload(stunConfig.GetAccessToken(), "container.json", "edward")
 	if err != nil {
 		fmt.Print(err.Error())
-		return false
+		return false, err
 	}
-	return true
+	return true, nil
 }
 
 // 升級伺服器
@@ -74,13 +131,17 @@ func UpdateContainerHandler(c *gin.Context) {
 		return
 	}
 
-	if !getlatestVersion() {
-		c.JSON(http.StatusOK, gin.H{"message": "error"})
+	status, err := getlatestVersion()
+
+	if !status {
+		c.JSON(http.StatusOK, gin.H{"message": err.Error()})
 		return
 	}
 
-	if !updateDockerCompose() {
-		c.JSON(http.StatusOK, gin.H{"message": "error"})
+	status, err = updateDockerCompose()
+
+	if !status {
+		c.JSON(http.StatusOK, gin.H{"message": err.Error()})
 		return
 	}
 	if !pullImage() {
@@ -203,7 +264,7 @@ func CommitContainerHandler(c *gin.Context) {
 		Scope:        "tw:stune:basic",
 	}
 
-	err := tool.StuneUpload(stunConfig.GetAccessToken(), "config/container.txt", "edward")
+	err := tool.StuneUpload(stunConfig.GetAccessToken(), "config/container.json", "edward")
 	if err != nil {
 		fmt.Print(err.Error())
 		return
@@ -217,7 +278,7 @@ func commitDockerfile(commit string) models.ServerInfo {
 
 	containerInfo.CommitMessage = commit
 
-	file, err := os.Open("docker-compose.yml")
+	file, err := os.Open("/opt/pix/run/docker-compose-pro.yml")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -271,7 +332,7 @@ func commitDockerfile(commit string) models.ServerInfo {
 	}
 
 	// 將結構寫入 JSON 檔案
-	err = writeJSONToFile(containerInfo, "config/container.txt")
+	err = writeJSONToFile(containerInfo, "config/container.json")
 	if err != nil {
 		fmt.Println("Error writing to file:", err)
 		return containerInfo
