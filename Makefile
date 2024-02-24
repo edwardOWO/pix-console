@@ -1,16 +1,21 @@
 TARGET_DIR := /tmp/pix-console
-VERSION := 0.4
-RELEASE := 6
+VERSION := 0.6
+RELEASE := 13
 STUNE_DIR := edward
 
 # 產生執行檔
 prepare:
+	wget https://golang.org/dl/go1.21.2.linux-amd64.tar.gz
+	tar -C /usr/local -xzf go1.21.2.linux-amd64.tar.gz
+	rm go1.21.2*
+	echo 'export PATH=$$PATH:/usr/local/go/bin' >> ~/.bashrc
+	source ~/.bashrc
 	cd release-tool && go build -o stune-tool
 	cp release-tool/stune-tool ./
-	sudo sudo apt-get install libpcap-dev -y
-	sudo sudo apt-get install rpm -y
+	dnf --enablerepo=powertools install libpcap-devel -y
+	sudo yum install rpm -y
 build:
-	go build
+	GOOS=linux GOARCH=amd64 CGO_ENABLED=1 go build
 	sed -i 's/^Version: .*/Version: $(VERSION)/' pix-console.spec
 	sed -i 's/^Release: .*/Release: $(RELEASE)/' pix-console.spec
 	rm -rf $(TARGET_DIR)
@@ -26,6 +31,7 @@ build:
 
 # 清理目標檔案
 clean:
+	rm stune-tool 
 	rm -rf $(TARGET_DIR)
 	rm -f pix-console
 	rm -f pix-console.tar

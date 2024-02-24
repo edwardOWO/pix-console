@@ -1,8 +1,0 @@
-###################2024/01/22 20:41:57 [DEBUG] memberlist: Stream connection from=192.168.1.109:41306
-###################2024/01/22 20:41:57 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
-###################2024/01/22 20:41:58 [DEBUG] memberlist: Failed to join 192.168.1.107:7947: dial tcp 192.168.1.107:7947: i/o timeout
-###################2024/01/22 20:41:59 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
-###################2024/01/22 22:43:45 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
-###################2024/01/22 22:43:45 [DEBUG] memberlist: Stream connection from=192.168.1.109:41660
-###################2024/01/22 22:43:46 [DEBUG] memberlist: Failed to join 192.168.1.107:7947: dial tcp 192.168.1.107:7947: i/o timeout
-###################2024/01/22 22:43:47 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout

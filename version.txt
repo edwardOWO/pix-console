@@ -1,1 +1,1 @@
-pix-console-0.4-6.x86_64.rpm
+pix-console-0.6-13.x86_64.rpm
