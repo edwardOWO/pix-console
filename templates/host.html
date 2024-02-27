@@ -37,6 +37,8 @@
                             <th>Name</th>
                             <th>ActiveState</th>
                             <th>Servie Status</th>
+                            <th>System Update</th>
+                            <th>service Update</th>
                         </tr>
                     </thead>
                     <tbody id="containerDataBody"></tbody>
@@ -44,40 +46,12 @@
             </div>
             <div id="outputResult"></div>
         </div>
-        
+
     </div>
     <script>
 
 
-        document.getElementById("UpdateServer").addEventListener("click", function () {
-            // 發起POST請求以獲取內存信息
-            alert("系統開始更新,登出中")
-            window.location.href = "/";
-            fetch("/api/v1/updateServer", {
-                method: 'POST', // 將請求方法改為POST
-                headers: {
-                    'Content-Type': 'application/json', // 指定請求頭為JSON格式
-                    // 在這裡可以添加其他請求頭信息
-                },
-                // 如果需要發送數據，可以在這裡添加請求體
-                // body: JSON.stringify({ key: 'value' })
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.error) {
-                        // 將錯誤消息輸出到 outputResult 段落元素
-                        document.getElementById("outputResult").textContent = "出現錯誤：" + data.error;
-                    } else {
-                        // 將結果輸出到 outputResult 段落元素
-                        document.getElementById("outputResult").textContent = JSON.stringify(data, null, 2);
-                        location.reload();
-                    }
-                })
-                .catch(error => {
-                    // 將錯誤消息輸出到 outputResult 段落元素
-                    document.getElementById("outputResult").textContent = "發生錯誤：" + error;
-                });
-        });
+
 
 
 
@@ -108,6 +82,36 @@
 
 
 
+        function test(host) {
+            // 發起POST請求以獲取內存信息
+            alert(host)
+            alert("系統開始更新,登出中")
+            window.location.href = "/";
+            fetch("/api/v1/cluster_updateServer", {
+                method: 'POST', // 將請求方法改為POST
+                headers: {
+                    'Content-Type': 'application/json', // 指定請求頭為JSON格式
+                    // 在這裡可以添加其他請求頭信息
+                },
+                // 如果需要發送數據，可以在這裡添加請求體
+                body: JSON.stringify({ updatehost: host })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        // 將錯誤消息輸出到 outputResult 段落元素
+                        document.getElementById("outputResult").textContent = "出現錯誤：" + data.error;
+                    } else {
+                        // 將結果輸出到 outputResult 段落元素
+                        document.getElementById("outputResult").textContent = JSON.stringify(data, null, 2);
+                        location.reload();
+                    }
+                })
+                .catch(error => {
+                    // 將錯誤消息輸出到 outputResult 段落元素
+                    document.getElementById("outputResult").textContent = "發生錯誤：" + error;
+                });
+        }
 
         function fetchAndDisplayContainers() {
             fetch("api/v1/serverlist")
@@ -131,6 +135,7 @@
 
                 // 渲染排序后的数据
                 containers.forEach(container => {
+                    host=container.HOST
                     containerDataBody.innerHTML += `
                 <tr>
                     <td>${container.HOST}</td>
@@ -138,6 +143,8 @@
                     <td>${container.NAMES}</td>
                     <td>${container.CREATED}</td>
                     <td class="${container.STATUS.includes('UP') ? 'active' : 'inactive'}">${container.STATUS}</td>
+                    <td><button onclick="test('${host}')">系統更新</button></td>
+                    <td><button id="UpdateDocker">服務更新</button></td>
                 </tr>
             `;
                 });
@@ -151,7 +158,7 @@
         fetchAndDisplayContainers();
 
         // 每15秒自动更新一次数据
-        setInterval(fetchAndDisplayContainers, 5000);
+        setInterval(fetchAndDisplayContainers, 30000);
 
         // 添加过滤功能
         function filterContainers() {
@@ -195,6 +202,36 @@
         if (storedNameFilter) {
             document.getElementById('nameFilter').value = storedNameFilter;
         }
+
+        document.getElementById("UpdateServer").addEventListener("click", function () {
+            // 發起POST請求以獲取內存信息
+            alert("系統開始更新,登出中")
+            window.location.href = "/";
+            fetch("/api/v1/cluster_updateServer", {
+                method: 'POST', // 將請求方法改為POST
+                headers: {
+                    'Content-Type': 'application/json', // 指定請求頭為JSON格式
+                    // 在這裡可以添加其他請求頭信息
+                },
+                // 如果需要發送數據，可以在這裡添加請求體
+                body: JSON.stringify({ updatehost: "192.168.1.114" })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        // 將錯誤消息輸出到 outputResult 段落元素
+                        document.getElementById("outputResult").textContent = "出現錯誤：" + data.error;
+                    } else {
+                        // 將結果輸出到 outputResult 段落元素
+                        document.getElementById("outputResult").textContent = JSON.stringify(data, null, 2);
+                        location.reload();
+                    }
+                })
+                .catch(error => {
+                    // 將錯誤消息輸出到 outputResult 段落元素
+                    document.getElementById("outputResult").textContent = "發生錯誤：" + error;
+                });
+        });
     </script>
 
 </body>

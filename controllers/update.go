@@ -11,6 +11,7 @@ import (
 	"net/http"
 	"os"
 	"os/exec"
+	"pix-console/common"
 	"pix-console/models"
 	"strings"
 	"time"
@@ -215,6 +216,41 @@ func UpdateServerHandler(c *gin.Context) {
 		fmt.Printf("命令執行出錯: %s\n", err.Error())
 		return
 	}
+}
+
+func ClusterUpdateServerHandler(c *gin.Context) {
+
+	// 定義一個結構體來映射 JSON 中的屬性
+	var requestData struct {
+		UpdateHost string `json:"updatehost"`
+	}
+
+	// 使用 BindJSON 方法將 JSON 參數綁定到 requestData
+	if err := c.BindJSON(&requestData); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	apiUrl := fmt.Sprintf("http://%s%s/api/v1/updateServer", requestData.UpdateHost, common.Config.Port)
+	client := &http.Client{
+		Timeout: time.Second * 10, // 設定超時時間為 5 秒
+	}
+
+	req, err := http.NewRequest("POST", apiUrl, nil)
+	if err != nil {
+		fmt.Print(err.Error())
+	}
+
+	// 添加 Bearer Token 到標頭
+	req.Header.Set("Authorization", "Bearer "+"sdklkkfkj!2323dfj92083DKKD2**!*@#&&#!(#&1-9dfg,mzx//v)")
+
+	response, err := client.Do(req)
+	if err != nil {
+		fmt.Print(err.Error())
+	}
+	defer response.Body.Close()
+
+	//c.JSON(http.StatusOK, mergedData)
 }
 func patchServer() {
 

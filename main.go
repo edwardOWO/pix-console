@@ -114,7 +114,7 @@ func main() {
 	m.router.GET("/logout", c.LogoutHandler)
 
 	// 驗證系統
-	m.router.Use(c.JWTAuthMiddleware)
+	//m.router.Use(c.JWTAuthMiddleware)
 
 	// 在介面上產生站台連結
 	PageLink := view.CreatePageLink()
@@ -175,8 +175,10 @@ func main() {
 
 		// 更新 PIX　服務
 		apiV1.POST("/updateServer", v1.UpdateServerHandler)
+		apiV1.POST("/cluster_updateServer", v1.ClusterUpdateServerHandler)
 		apiV1.POST("/commitContainer", v1.CommitContainerHandler)
 		apiV1.POST("/updateContainer", v1.UpdateContainerHandler)
+		apiV1.POST("/cluster_updateContainer", v1.UpdateContainerHandler)
 
 		// 系統回報 回傳log 頁面
 		apiV1.POST("/uploadToStune", v1.UploadToStune)
