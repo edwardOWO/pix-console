@@ -31,7 +31,7 @@ func backupService() bool {
 // 更新 docker-compose 檔案
 func updateDockerCompose() (bool, error) {
 
-	filePath := "container.json"
+	filePath := "config/container.json"
 	jsonData, err := ioutil.ReadFile(filePath)
 	if err != nil {
 		fmt.Println("Error reading file:", err)
@@ -151,7 +151,7 @@ func getlatestVersion() (bool, error) {
 		Scope:        "tw:stune:basic",
 	}
 
-	err := tool.StuneDownload(stunConfig.GetAccessToken(), "container.json", "edward")
+	err := tool.StuneDownload(stunConfig.GetAccessToken(), "config/container.json", "edward")
 	if err != nil {
 		fmt.Print(err.Error())
 		return false, err
@@ -235,7 +235,7 @@ func ClusterUpdateContainerHandler(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Internal Server Error"})
 		return
 	} else {
-		c.JSON(http.StatusOK, string(body))
+		c.JSON(http.StatusOK, "更新主機: "+requestData.UpdateHost+"更新結果: "+string(body))
 	}
 
 	response.Body.Close()

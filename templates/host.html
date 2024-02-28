@@ -80,8 +80,7 @@
         });
         function UpdateService(host) {
             // 發起POST請求以獲取內存信息
-            alert(host)
-            alert("應用服務開始更新")
+            alert(host + " 主機應用服務開始更新")
 
             fetch("/api/v1/cluster_updateContainer", {
                 method: 'POST', // 將請求方法改為POST
@@ -99,7 +98,6 @@
                         alert(data.error)
                         console.log(data.error)
                     } else {
-                        // 將結果輸出到 outputResult 段落元素
                         alert(JSON.stringify(data, null, 2));
                         console.log(JSON.stringify(data, null, 2))
                         //location.reload();

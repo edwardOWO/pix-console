@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Docker Compose Viewer</title>
+    <title>Commit</title>
     <link rel="stylesheet" href="/static/docker-compose.css">
 </head>
 
 <body>
-    <h1>Docker Compose Viewer</h1>
+    <h1>Commit</h1>
 
 
     <div class="container-wrapper">
@@ -23,14 +23,14 @@
 
         <div class="content" id="content">
 
-            <label for="composeFile">選取設定檔案路徑(docker-compose.yml)</label>
-            <input type="file" id="composeFile" accept=".yml, .yaml">
-            <button onclick="readFile()">從檔案匯入</button>
-            <button onclick="readLocalFile()">重新讀取 docker-compose</button>
-            <h2>Download Modified File</h2>
-            <button onclick="downloadFile()">下載DockerCompose</button>
-            <button onclick="uploadFile()">Upload File</button>
-            <button onclick="commit()">commit</button>
+            <label for="composeFile"></label>
+            <!--<input type="file" id="composeFile" accept=".yml, .yaml">-->
+
+            <!--<button onclick="readLocalFile()">刷新當前設定</button>-->
+            <button onclick="downloadFile()">備份 </button>
+            <!--<button onclick="readFile()">匯入</button>-->
+            <button onclick="uploadFile()">提交 </button>
+            <button onclick="commit()">上傳 </button>
 
             <h2>Original Content</h2>
             <textarea id="originalContent" onscroll="syncScroll('originalContent', 'modifiedContent')"
@@ -72,6 +72,9 @@
                     };
 
                     reader.readAsText(file);
+                    alert("匯入成功")
+                } else {
+                    alert("沒有匯入檔案")
                 }
             }
 
@@ -249,6 +252,7 @@
                     })
                     .then(data => {
                         console.log(data); // 成功的回應
+                        alert("配置已更新")
                     })
                     .catch(error => {
                         console.error('Error uploading file:', error);
@@ -259,8 +263,14 @@
             function commit() {
 
                 const userInput = window.prompt("輸入更新資訊:", "");
+
+                if (userInput === null) {
+                    console.log("取消上傳");
+                    return
+                }
+
                 // 發起POST請求以獲取內存信息
-                alert("服務開始更新")
+                alert("開始上傳")
                 fetch("/api/v1/commitContainer", {
                     method: 'POST', // 將請求方法改為POST
                     headers: {
@@ -294,9 +304,10 @@
                         `;
                             });
                             //document.getElementById("outputResult").innerHTML = combinedString;
+                            alert("更新成功")
                             alert(combinedString)
                         }
-                        
+
                     })
                     .catch(error => {
                         // 將錯誤消息輸出到 outputResult 段落元素
