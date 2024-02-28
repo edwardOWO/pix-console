@@ -1,5 +1,5 @@
 TARGET_DIR := /tmp/pix-console
-VERSION := 20240227
+VERSION := 20240228
 RELEASE := 2
 STUNE_DIR := edward
 

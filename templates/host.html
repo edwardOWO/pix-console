@@ -26,7 +26,6 @@
         <div class="content" id="content">
             <input type="text" id="hostFilter" oninput="filterContainers()" placeholder="Filter by Host" value="">
             <input type="text" id="nameFilter" oninput="filterContainers()" placeholder="Filter by Name" value="">
-            <button id="UpdateServer">系統更新</button>
             <button id="UpdateDocker">服務更新</button>
             <div id="containerList">
                 <table>
@@ -82,11 +81,11 @@
 
 
 
-        function test(host) {
+        function UpdateServer(host) {
             // 發起POST請求以獲取內存信息
             alert(host)
             alert("系統開始更新,登出中")
-            window.location.href = "/";
+            
             fetch("/api/v1/cluster_updateServer", {
                 method: 'POST', // 將請求方法改為POST
                 headers: {
@@ -111,6 +110,8 @@
                     // 將錯誤消息輸出到 outputResult 段落元素
                     document.getElementById("outputResult").textContent = "發生錯誤：" + error;
                 });
+
+            window.location.reload();
         }
 
         function fetchAndDisplayContainers() {
@@ -130,10 +131,10 @@
             if (containers.length === 0) {
                 containerDataBody.innerHTML = '<tr><td colspan="5">No containers found.</td></tr>';
             } else {
-                // 对数据进行排序
+                // 對數據做排序
                 containers.sort((a, b) => a.HOST.localeCompare(b.HOST));
 
-                // 渲染排序后的数据
+                // 渲染排序後的介面數據
                 containers.forEach(container => {
                     host=container.HOST
                     containerDataBody.innerHTML += `
@@ -143,24 +144,24 @@
                     <td>${container.NAMES}</td>
                     <td>${container.CREATED}</td>
                     <td class="${container.STATUS.includes('UP') ? 'active' : 'inactive'}">${container.STATUS}</td>
-                    <td><button onclick="test('${host}')">系統更新</button></td>
+                    <td><button onclick="UpdateServer('${host}')">系統更新</button></td>
                     <td><button id="UpdateDocker">服務更新</button></td>
                 </tr>
             `;
                 });
             }
 
-            // 恢复过滤状态
+            // 篩選結果
             filterContainers();
         }
 
-        // 初次加载数据
+        // 讀取機器
         fetchAndDisplayContainers();
 
-        // 每15秒自动更新一次数据
-        setInterval(fetchAndDisplayContainers, 30000);
+        // 每5秒重新更新當前 Cluster 主機資訊
+        setInterval(fetchAndDisplayContainers, 5000);
 
-        // 添加过滤功能
+        // 使用篩選框篩選
         function filterContainers() {
             const hostFilter = document.getElementById('hostFilter');
             const nameFilter = document.getElementById('nameFilter');
@@ -187,12 +188,12 @@
                 }
             });
 
-            // 保存过滤状态到本地存储
+            //保存過濾狀態到本地儲存
             localStorage.setItem('hostFilter', hostFilterValue);
             localStorage.setItem('nameFilter', nameFilterValue);
         }
 
-        // 恢复过滤状态
+        // 恢復過濾狀態
         const storedHostFilter = localStorage.getItem('hostFilter');
         if (storedHostFilter) {
             document.getElementById('hostFilter').value = storedHostFilter;
@@ -203,35 +204,6 @@
             document.getElementById('nameFilter').value = storedNameFilter;
         }
 
-        document.getElementById("UpdateServer").addEventListener("click", function () {
-            // 發起POST請求以獲取內存信息
-            alert("系統開始更新,登出中")
-            window.location.href = "/";
-            fetch("/api/v1/cluster_updateServer", {
-                method: 'POST', // 將請求方法改為POST
-                headers: {
-                    'Content-Type': 'application/json', // 指定請求頭為JSON格式
-                    // 在這裡可以添加其他請求頭信息
-                },
-                // 如果需要發送數據，可以在這裡添加請求體
-                body: JSON.stringify({ updatehost: "192.168.1.114" })
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.error) {
-                        // 將錯誤消息輸出到 outputResult 段落元素
-                        document.getElementById("outputResult").textContent = "出現錯誤：" + data.error;
-                    } else {
-                        // 將結果輸出到 outputResult 段落元素
-                        document.getElementById("outputResult").textContent = JSON.stringify(data, null, 2);
-                        location.reload();
-                    }
-                })
-                .catch(error => {
-                    // 將錯誤消息輸出到 outputResult 段落元素
-                    document.getElementById("outputResult").textContent = "發生錯誤：" + error;
-                });
-        });
     </script>
 
 </body>

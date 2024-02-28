@@ -1,7 +1,7 @@
 # Some metadata required by an RPM package
 Name: pix-console
 Summary: pix config service
-Version: 20240227
+Version: 20240228
 Release: 2
 License: MIT
 

@@ -111,10 +111,23 @@ func wait_signal(cancel context.CancelFunc) {
 	}
 }
 
-func printMemberlistStatus(list *memberlist.Memberlist) {
+func printMemberlistStatus(list *memberlist.Memberlist, logger *log.Logger) {
 	for _, node := range list.Members() {
 		meta, ok := ParseMyMetaData(node.Meta)
 		if ok {
+
+			logger.Printf(
+				"%s region: %s, zone: %s, shard: %d, weight: %d, ServerStatus: %d, ServiceVersion: %s,ServiceStatus: %d,ServerName: %s\n",
+				node.Name,
+				meta.Region,
+				meta.Zone,
+				meta.ShardId,
+				meta.Weight,
+				meta.ServerStatus,
+				meta.ServiceVersion,
+				meta.ServiceStatus,
+				meta.ServerName,
+			)
 			fmt.Printf(
 				"%s region: %s, zone: %s, shard: %d, weight: %d, ServerStatus: %d, ServiceVersion: %s,ServiceStatus: %d,ServerName: %s\n",
 				node.Name,
@@ -135,7 +148,7 @@ func StartMemberlist(logger *log.Logger, file *os.File) (*memberlist.Memberlist,
 	msgCh := make(chan []byte)
 
 	d := &MyDelegate{
-		Meta:       models.ServerMetaData{Region: "ap-northeast-1", Zone: "1a", ShardId: 100, Weight: 0},
+		Meta:       models.ServerMetaData{Region: "ap-northeast-1", Zone: "1a", ShardId: 100, Weight: 0, ServiceVersion: common.Config.Version},
 		MsgCh:      msgCh,
 		Broadcasts: new(memberlist.TransmitLimitedQueue),
 	}
@@ -202,7 +215,8 @@ func StartMemberlist(logger *log.Logger, file *os.File) (*memberlist.Memberlist,
 					d.Meta.ServerStatus = 0
 				}
 
-				//printMemberlistStatus(list)
+				printMemberlistStatus(list, logger)
+
 			}
 
 		}
@@ -231,7 +245,14 @@ func getMemberlistStatus(list *memberlist.Memberlist) []map[string]interface{} {
 
 			if node.Addr.String() == ip {
 				Status = "UP"
-				Version = common.Config.Version
+				meta, ok := ParseMyMetaData(node.Meta)
+				if ok {
+					Version = string(meta.ServiceVersion)
+					if Version == "" {
+						Version = "Unknown"
+					}
+				}
+
 			}
 		}
 

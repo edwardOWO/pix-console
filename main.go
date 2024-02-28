@@ -48,7 +48,7 @@ func (m *Main) initServer() error {
 	// 啟動 memberlist 功能,並
 	list, _, _ := controllers.StartMemberlist(logger, f)
 	m.memberlist = list
-
+	logger.Printf("PIX-Console Version: " + common.Config.Version)
 	// Initialize mongo database
 	//err = databases.Database.Init()
 	//if err != nil {
@@ -114,7 +114,7 @@ func main() {
 	m.router.GET("/logout", c.LogoutHandler)
 
 	// 驗證系統
-	//m.router.Use(c.JWTAuthMiddleware)
+	m.router.Use(c.JWTAuthMiddleware)
 
 	// 在介面上產生站台連結
 	PageLink := view.CreatePageLink()
