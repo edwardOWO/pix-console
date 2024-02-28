@@ -178,23 +178,67 @@ func UpdateContainerHandler(c *gin.Context) {
 	status, err = updateDockerCompose()
 
 	if !status {
-		c.JSON(http.StatusOK, gin.H{"message": err.Error()})
+		c.JSON(http.StatusOK, gin.H{"message": "update Docker Compose Error" + err.Error()})
 		return
 	}
 	if !pullImage() {
-		c.JSON(http.StatusOK, gin.H{"message": "error"})
+		c.JSON(http.StatusOK, gin.H{"message": "pull image error"})
 		return
 	}
 	if !restartService() {
-		c.JSON(http.StatusOK, gin.H{"message": "error"})
+		c.JSON(http.StatusOK, gin.H{"message": "restart service error"})
 		return
 	}
 	if !checkService() {
-		c.JSON(http.StatusOK, gin.H{"message": "error"})
+		c.JSON(http.StatusOK, gin.H{"message": "check service error"})
 		return
 	}
 
 	c.JSON(http.StatusOK, gin.H{"message": "更新成功"})
+
+}
+
+func ClusterUpdateContainerHandler(c *gin.Context) {
+
+	// 定義一個結構體來映射 JSON 中的屬性
+	var requestData struct {
+		UpdateHost string `json:"updatehost"`
+	}
+
+	// 使用 BindJSON 方法將 JSON 參數綁定到 requestData
+	if err := c.BindJSON(&requestData); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	apiUrl := fmt.Sprintf("http://%s%s/api/v1/updateContainer", requestData.UpdateHost, common.Config.Port)
+	client := &http.Client{
+		Timeout: time.Second * 120, // 設定超時時間為 5 秒
+	}
+
+	req, err := http.NewRequest("POST", apiUrl, nil)
+	if err != nil {
+		fmt.Print(err.Error())
+	}
+
+	// 添加 Bearer Token 到標頭
+	req.Header.Set("Authorization", "Bearer "+"sdklkkfkj!2323dfj92083DKKD2**!*@#&&#!(#&1-9dfg,mzx//v)")
+
+	response, err := client.Do(req)
+	if err != nil {
+		fmt.Print(err.Error())
+	}
+
+	body, err := ioutil.ReadAll(response.Body)
+	if err != nil {
+		fmt.Println(err.Error())
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Internal Server Error"})
+		return
+	} else {
+		c.JSON(http.StatusOK, string(body))
+	}
+
+	response.Body.Close()
 
 }
 func UpdateServerHandler(c *gin.Context) {

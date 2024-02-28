@@ -178,7 +178,7 @@ func main() {
 		apiV1.POST("/cluster_updateServer", v1.ClusterUpdateServerHandler)
 		apiV1.POST("/commitContainer", v1.CommitContainerHandler)
 		apiV1.POST("/updateContainer", v1.UpdateContainerHandler)
-		apiV1.POST("/cluster_updateContainer", v1.UpdateContainerHandler)
+		apiV1.POST("/cluster_updateContainer", v1.ClusterUpdateContainerHandler)
 
 		// 系統回報 回傳log 頁面
 		apiV1.POST("/uploadToStune", v1.UploadToStune)

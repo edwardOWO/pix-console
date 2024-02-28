@@ -1,0 +1,954 @@
+###################2024/02/28 13:40:56 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
+###################2024/02/28 13:40:56 [DEBUG] memberlist: Stream connection from=192.168.1.109:37182
+###################2024/02/28 13:40:56 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.103:7947
+###################2024/02/28 13:40:56 [WARN] memberlist: Refuting a suspect message (from: host1)
+###################2024/02/28 13:40:57 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/02/28 13:40:57 PIX-Console Version: pix-console-20240228-2.x86_64
+###################2024/02/28 13:41:11 [DEBUG] memberlist: Stream connection from=192.168.1.103:37760
+###################2024/02/28 13:41:15 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:41:26 [DEBUG] memberlist: Stream connection from=192.168.1.103:34174
+###################2024/02/28 13:41:27 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 1, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:41:27 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 432, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:41:30 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:41:47 [DEBUG] memberlist: Stream connection from=192.168.1.103:49508
+###################2024/02/28 13:41:47 [DEBUG] memberlist: Stream connection from=192.168.1.103:49496
+###################2024/02/28 13:41:47 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/02/28 13:41:47 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:42:05 [DEBUG] memberlist: Stream connection from=192.168.1.103:45954
+###################2024/02/28 13:42:05 [DEBUG] memberlist: Stream connection from=192.168.1.103:45950
+###################2024/02/28 13:42:05 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:42:05 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 2, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:42:05 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 433, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:42:11 [DEBUG] memberlist: Stream connection from=192.168.1.103:53558
+###################2024/02/28 13:42:20 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:42:26 [DEBUG] memberlist: Stream connection from=192.168.1.103:33572
+###################2024/02/28 13:42:27 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 3, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:42:27 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 434, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:42:35 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:42:41 [DEBUG] memberlist: Stream connection from=192.168.1.103:42740
+###################2024/02/28 13:42:50 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:42:56 [DEBUG] memberlist: Stream connection from=192.168.1.103:51390
+###################2024/02/28 13:42:57 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 4, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:42:57 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 435, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:43:05 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:43:11 [DEBUG] memberlist: Stream connection from=192.168.1.103:46808
+###################2024/02/28 13:43:20 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:43:26 [DEBUG] memberlist: Stream connection from=192.168.1.103:57500
+###################2024/02/28 13:43:27 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 5, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:43:27 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 436, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:43:35 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:43:41 [DEBUG] memberlist: Stream connection from=192.168.1.103:58228
+###################2024/02/28 13:43:53 [DEBUG] memberlist: Stream connection from=192.168.1.103:51432
+###################2024/02/28 13:43:53 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/02/28 13:43:53 [DEBUG] memberlist: Stream connection from=192.168.1.103:51424
+###################2024/02/28 13:43:53 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:44:16 [DEBUG] memberlist: Stream connection from=192.168.1.103:60704
+###################2024/02/28 13:44:16 [DEBUG] memberlist: Stream connection from=192.168.1.103:60694
+###################2024/02/28 13:44:16 [DEBUG] memberlist: Stream connection from=192.168.1.103:60708
+###################2024/02/28 13:44:26 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:44:26 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 6, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:44:26 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 438, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:44:47 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 7, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:44:47 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 438, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:44:59 [DEBUG] memberlist: Stream connection from=192.168.1.103:57912
+###################2024/02/28 13:44:59 [DEBUG] memberlist: Stream connection from=192.168.1.103:57920
+###################2024/02/28 13:44:59 [DEBUG] memberlist: Stream connection from=192.168.1.103:52902
+###################2024/02/28 13:44:59 [DEBUG] memberlist: Stream connection from=192.168.1.103:50186
+###################2024/02/28 13:44:59 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 8, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:44:59 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 439, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:45:00 [DEBUG] memberlist: Stream connection from=192.168.1.103:52904
+###################2024/02/28 13:45:00 [DEBUG] memberlist: Failed UDP ping: host2 (timeout reached)
+###################2024/02/28 13:45:01 [DEBUG] memberlist: Stream connection from=192.168.1.103:52908
+###################2024/02/28 13:45:03 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:45:05 [DEBUG] memberlist: Stream connection from=192.168.1.103:60094
+###################2024/02/28 13:45:11 [DEBUG] memberlist: Stream connection from=192.168.1.103:60100
+###################2024/02/28 13:45:18 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:45:26 [DEBUG] memberlist: Stream connection from=192.168.1.103:38532
+###################2024/02/28 13:45:27 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 9, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:45:27 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 440, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:45:33 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:45:41 [DEBUG] memberlist: Stream connection from=192.168.1.103:50434
+###################2024/02/28 13:45:48 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:45:55 [DEBUG] memberlist: Stream connection from=192.168.1.103:42026
+###################2024/02/28 13:45:55 [DEBUG] memberlist: Stream connection from=192.168.1.103:42012
+###################2024/02/28 13:45:55 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/02/28 13:45:56 [DEBUG] memberlist: Stream connection from=192.168.1.103:39460
+###################2024/02/28 13:46:05 [DEBUG] memberlist: Stream connection from=192.168.1.103:39472
+###################2024/02/28 13:46:05 [DEBUG] memberlist: Stream connection from=192.168.1.103:39468
+###################2024/02/28 13:46:05 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:46:05 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/02/28 13:46:08 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 10, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:46:08 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 441, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:46:09 [DEBUG] memberlist: Failed UDP ping: host2 (timeout reached)
+###################2024/02/28 13:46:11 [DEBUG] memberlist: Stream connection from=192.168.1.103:52574
+###################2024/02/28 13:46:11 [DEBUG] memberlist: Stream connection from=192.168.1.103:52560
+###################2024/02/28 13:46:12 [DEBUG] memberlist: Failed UDP ping: host2 (timeout reached)
+###################2024/02/28 13:46:12 [INFO] memberlist: Suspect host2 has failed, no acks received
+###################2024/02/28 13:46:16 [DEBUG] memberlist: Stream connection from=192.168.1.103:52590
+###################2024/02/28 13:46:16 [INFO] memberlist: Marking host2 as failed, suspect timeout reached (0 peer confirmations)
+###################2024/02/28 13:46:17 [DEBUG] memberlist: Stream connection from=192.168.1.103:54500
+###################2024/02/28 13:46:22 [DEBUG] memberlist: Stream connection from=192.168.1.103:54518
+###################2024/02/28 13:46:25 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/02/28 13:46:25 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:46:25 [DEBUG] memberlist: Stream connection from=192.168.1.103:54508
+###################2024/02/28 13:46:26 [DEBUG] memberlist: Stream connection from=192.168.1.103:53164
+###################2024/02/28 13:46:27 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 11, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:46:27 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 442, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:46:40 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:46:41 [DEBUG] memberlist: Stream connection from=192.168.1.103:38954
+###################2024/02/28 13:46:55 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:46:56 [DEBUG] memberlist: Stream connection from=192.168.1.103:33940
+###################2024/02/28 13:46:57 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 12, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:46:57 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 443, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:47:10 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:47:11 [DEBUG] memberlist: Stream connection from=192.168.1.103:59888
+###################2024/02/28 13:47:25 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:47:26 [DEBUG] memberlist: Stream connection from=192.168.1.103:36492
+###################2024/02/28 13:47:27 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 444, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:47:27 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 13, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:47:40 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:47:41 [DEBUG] memberlist: Stream connection from=192.168.1.103:53968
+###################2024/02/28 13:47:55 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:47:56 [DEBUG] memberlist: Stream connection from=192.168.1.103:59480
+###################2024/02/28 13:47:57 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 14, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:47:57 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 445, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:48:09 [DEBUG] memberlist: Stream connection from=192.168.1.103:33432
+###################2024/02/28 13:48:09 [DEBUG] memberlist: Stream connection from=192.168.1.103:33428
+###################2024/02/28 13:48:09 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/02/28 13:48:11 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:48:14 [DEBUG] memberlist: Failed UDP ping: host2 (timeout reached)
+###################2024/02/28 13:48:14 [INFO] memberlist: Suspect host2 has failed, no acks received
+###################2024/02/28 13:48:14 [DEBUG] memberlist: Stream connection from=192.168.1.103:41018
+###################2024/02/28 13:48:14 [DEBUG] memberlist: Stream connection from=192.168.1.103:33448
+###################2024/02/28 13:48:14 [DEBUG] memberlist: Stream connection from=192.168.1.103:41020
+###################2024/02/28 13:48:14 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/02/28 13:48:14 [ERR] memberlist: Push/Pull with host2 failed: write tcp 192.168.1.109:53626->192.168.1.103:7947: i/o timeout
+###################2024/02/28 13:48:17 [DEBUG] memberlist: Failed UDP ping: host2 (timeout reached)
+###################2024/02/28 13:48:17 [DEBUG] memberlist: Stream connection from=192.168.1.103:41034
+###################2024/02/28 13:48:18 [ERR] memberlist: Failed fallback TCP ping: EOF
+###################2024/02/28 13:48:18 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/02/28 13:48:27 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 446, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:48:27 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 15, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:48:27 [DEBUG] memberlist: Stream connection from=192.168.1.103:46764
+###################2024/02/28 13:48:29 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:48:42 [DEBUG] memberlist: Stream connection from=192.168.1.103:35466
+###################2024/02/28 13:48:44 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:48:57 [DEBUG] memberlist: Stream connection from=192.168.1.103:49332
+###################2024/02/28 13:48:57 [DEBUG] memberlist: Stream connection from=192.168.1.103:49322
+###################2024/02/28 13:48:57 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 16, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:48:57 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 447, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:48:57 [DEBUG] memberlist: Stream connection from=192.168.1.103:49344
+###################2024/02/28 13:48:59 [DEBUG] memberlist: Failed UDP ping: host2 (timeout reached)
+###################2024/02/28 13:48:59 [DEBUG] memberlist: Stream connection from=192.168.1.103:49346
+###################2024/02/28 13:49:01 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:49:02 [DEBUG] memberlist: Failed UDP ping: host2 (timeout reached)
+###################2024/02/28 13:49:02 [INFO] memberlist: Suspect host2 has failed, no acks received
+###################2024/02/28 13:49:02 [DEBUG] memberlist: Stream connection from=192.168.1.103:49354
+###################2024/02/28 13:49:02 [ERR] memberlist: Push/Pull with host2 failed: read tcp 192.168.1.109:53652->192.168.1.103:7947: read: connection reset by peer
+###################2024/02/28 13:49:12 [DEBUG] memberlist: Stream connection from=192.168.1.103:49290
+###################2024/02/28 13:49:17 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:49:28 [DEBUG] memberlist: Stream connection from=192.168.1.103:38358
+###################2024/02/28 13:49:28 [DEBUG] memberlist: Stream connection from=192.168.1.103:38354
+###################2024/02/28 13:49:28 [DEBUG] memberlist: Stream connection from=192.168.1.103:38372
+###################2024/02/28 13:49:28 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 17, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:49:28 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 448, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:49:30 [DEBUG] memberlist: Stream connection from=192.168.1.103:38382
+###################2024/02/28 13:49:31 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/02/28 13:49:34 [DEBUG] memberlist: Stream connection from=192.168.1.103:38386
+###################2024/02/28 13:49:34 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:49:35 [DEBUG] memberlist: Stream connection from=192.168.1.103:34954
+###################2024/02/28 13:49:43 [DEBUG] memberlist: Stream connection from=192.168.1.103:34956
+###################2024/02/28 13:49:49 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:49:57 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 18, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:49:57 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 449, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:49:58 [DEBUG] memberlist: Stream connection from=192.168.1.103:35002
+###################2024/02/28 13:50:04 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:50:13 [DEBUG] memberlist: Stream connection from=192.168.1.103:37408
+###################2024/02/28 13:50:19 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:50:27 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 19, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:50:27 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 450, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:50:28 [DEBUG] memberlist: Stream connection from=192.168.1.103:46272
+###################2024/02/28 13:50:34 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:50:43 [DEBUG] memberlist: Stream connection from=192.168.1.103:41936
+###################2024/02/28 13:50:49 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:50:57 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 20, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:50:57 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 451, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:50:58 [DEBUG] memberlist: Stream connection from=192.168.1.103:58728
+###################2024/02/28 13:51:04 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:51:13 [DEBUG] memberlist: Stream connection from=192.168.1.103:55326
+###################2024/02/28 13:51:19 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:51:24 [DEBUG] memberlist: Stream connection from=192.168.1.103:38454
+###################2024/02/28 13:51:24 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/02/28 13:51:25 [DEBUG] memberlist: Stream connection from=192.168.1.103:49168
+###################2024/02/28 13:51:28 [DEBUG] memberlist: Stream connection from=192.168.1.103:49184
+###################2024/02/28 13:51:28 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 21, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:51:28 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 452, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:51:29 [DEBUG] memberlist: Stream connection from=192.168.1.103:49192
+###################2024/02/28 13:51:29 [DEBUG] memberlist: Stream connection from=192.168.1.103:49190
+###################2024/02/28 13:51:30 [ERR] memberlist: Failed to push local state: write tcp 192.168.1.109:7947->192.168.1.103:49190: i/o timeout from=192.168.1.103:49190
+###################2024/02/28 13:51:34 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:51:44 [DEBUG] memberlist: Stream connection from=192.168.1.103:49710
+###################2024/02/28 13:51:49 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:51:57 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 22, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:51:57 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 453, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:51:59 [DEBUG] memberlist: Stream connection from=192.168.1.103:38424
+###################2024/02/28 13:52:04 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:52:14 [DEBUG] memberlist: Stream connection from=192.168.1.103:59454
+###################2024/02/28 13:52:19 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:52:26 [DEBUG] memberlist: Got bind error: Failed to start TCP listener on "0.0.0.0" port 7947: listen tcp 0.0.0.0:7947: bind: address already in use
+###################2024/02/28 13:53:32 [DEBUG] memberlist: Got bind error: Failed to start TCP listener on "0.0.0.0" port 7947: listen tcp 0.0.0.0:7947: bind: address already in use
+###################2024/02/28 13:53:56 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
+###################2024/02/28 13:53:56 [DEBUG] memberlist: Stream connection from=192.168.1.109:37468
+###################2024/02/28 13:53:56 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.103:7947
+###################2024/02/28 13:53:56 [WARN] memberlist: Refuting a suspect message (from: host1)
+###################2024/02/28 13:53:57 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/02/28 13:53:57 PIX-Console Version: pix-console-20240228-2.x86_64
+###################2024/02/28 13:53:59 [DEBUG] memberlist: Stream connection from=192.168.1.103:39278
+###################2024/02/28 13:54:14 [DEBUG] memberlist: Stream connection from=192.168.1.103:59548
+###################2024/02/28 13:54:22 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/02/28 13:54:22 [DEBUG] memberlist: Stream connection from=192.168.1.103:59556
+###################2024/02/28 13:54:22 [DEBUG] memberlist: Stream connection from=192.168.1.103:59570
+###################2024/02/28 13:54:23 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:54:32 [DEBUG] memberlist: Stream connection from=192.168.1.103:54916
+###################2024/02/28 13:54:33 [DEBUG] memberlist: Stream connection from=192.168.1.103:54912
+###################2024/02/28 13:54:33 [DEBUG] memberlist: Stream connection from=192.168.1.103:54920
+###################2024/02/28 13:54:33 [ERR] memberlist: Failed to send ack: write tcp 192.168.1.109:7947->192.168.1.103:54916: i/o timeout from=192.168.1.103:54916
+###################2024/02/28 13:54:33 [DEBUG] memberlist: Failed UDP ping: host2 (timeout reached)
+###################2024/02/28 13:54:33 [INFO] memberlist: Suspect host2 has failed, no acks received
+###################2024/02/28 13:54:33 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 1, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:54:33 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 458, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:54:37 [DEBUG] memberlist: Stream connection from=192.168.1.103:60092
+###################2024/02/28 13:54:38 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:54:44 [DEBUG] memberlist: Stream connection from=192.168.1.103:36568
+###################2024/02/28 13:54:53 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:54:55 [DEBUG] memberlist: Stream connection from=192.168.1.103:37502
+###################2024/02/28 13:54:55 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/02/28 13:54:58 [DEBUG] memberlist: Stream connection from=192.168.1.103:37504
+###################2024/02/28 13:55:00 [DEBUG] memberlist: Stream connection from=192.168.1.103:37512
+###################2024/02/28 13:55:00 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 2, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:55:00 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 459, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:55:03 [DEBUG] memberlist: Stream connection from=192.168.1.103:37526
+###################2024/02/28 13:55:03 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/02/28 13:55:22 [DEBUG] memberlist: Stream connection from=192.168.1.103:38934
+###################2024/02/28 13:55:22 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:55:27 [ERR] memberlist: Push/Pull with host2 failed: read tcp 192.168.1.109:53782->192.168.1.103:7947: i/o timeout
+###################2024/02/28 13:55:27 [DEBUG] memberlist: Stream connection from=192.168.1.103:56288
+###################2024/02/28 13:55:27 [DEBUG] memberlist: Stream connection from=192.168.1.103:56440
+###################2024/02/28 13:55:27 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 460, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:55:27 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 3, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:55:30 [DEBUG] memberlist: Stream connection from=192.168.1.103:56296
+###################2024/02/28 13:55:42 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:55:45 [DEBUG] memberlist: Stream connection from=192.168.1.103:48062
+###################2024/02/28 13:55:57 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:55:57 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 461, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:55:57 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 4, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:56:00 [DEBUG] memberlist: Stream connection from=192.168.1.103:34512
+###################2024/02/28 13:56:12 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:56:15 [DEBUG] memberlist: Stream connection from=192.168.1.103:34088
+###################2024/02/28 13:56:27 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:56:27 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 462, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:56:27 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 5, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:56:30 [DEBUG] memberlist: Stream connection from=192.168.1.103:50166
+###################2024/02/28 13:56:35 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
+###################2024/02/28 13:56:35 [DEBUG] memberlist: Stream connection from=192.168.1.109:37524
+###################2024/02/28 13:56:35 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.103:7947
+###################2024/02/28 13:56:35 [WARN] memberlist: Refuting a suspect message (from: host1)
+###################2024/02/28 13:56:35 [DEBUG] memberlist: Stream connection from=192.168.1.103:35468
+###################2024/02/28 13:56:36 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/02/28 13:56:36 PIX-Console Version: pix-console-20240228-2.x86_64
+###################2024/02/28 13:56:46 [DEBUG] memberlist: Stream connection from=192.168.1.103:36884
+###################2024/02/28 13:56:46 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/02/28 13:56:46 [DEBUG] memberlist: Stream connection from=192.168.1.103:36876
+###################2024/02/28 13:56:47 [DEBUG] memberlist: Stream connection from=192.168.1.103:36892
+###################2024/02/28 13:56:48 [DEBUG] memberlist: Stream connection from=192.168.1.103:36894
+###################2024/02/28 13:56:48 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/02/28 13:56:49 [ERR] memberlist: Failed to send ack: write tcp 192.168.1.109:7947->192.168.1.103:36892: i/o timeout from=192.168.1.103:36892
+###################2024/02/28 13:56:52 [DEBUG] memberlist: Stream connection from=192.168.1.103:36910
+###################2024/02/28 13:56:53 [DEBUG] memberlist: Stream connection from=192.168.1.103:36916
+###################2024/02/28 13:56:54 [DEBUG] memberlist: Failed UDP ping: host2 (timeout reached)
+###################2024/02/28 13:56:54 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/02/28 13:57:01 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:57:01 [INFO] memberlist: Suspect host2 has failed, no acks received
+###################2024/02/28 13:57:11 [INFO] memberlist: Marking host2 as failed, suspect timeout reached (0 peer confirmations)
+###################2024/02/28 13:57:11 [DEBUG] memberlist: Stream connection from=192.168.1.103:54526
+###################2024/02/28 13:57:11 [INFO] memberlist: Suspect host2 has failed, no acks received
+###################2024/02/28 13:57:11 [DEBUG] memberlist: Stream connection from=192.168.1.103:58208
+###################2024/02/28 13:57:11 [DEBUG] memberlist: Stream connection from=192.168.1.103:54524
+###################2024/02/28 13:57:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 1, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:57:15 [DEBUG] memberlist: Stream connection from=192.168.1.103:35746
+###################2024/02/28 13:57:26 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:57:55 [DEBUG] memberlist: Stream connection from=192.168.1.103:43470
+###################2024/02/28 13:57:55 [DEBUG] memberlist: Stream connection from=192.168.1.103:43466
+###################2024/02/28 13:58:39 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
+###################2024/02/28 13:58:39 [DEBUG] memberlist: Stream connection from=192.168.1.109:37550
+###################2024/02/28 13:58:39 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.103:7947
+###################2024/02/28 13:58:40 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/02/28 13:58:40 PIX-Console Version: pix-console-20240228-2.x86_64
+###################2024/02/28 13:58:45 [DEBUG] memberlist: Stream connection from=192.168.1.103:60844
+###################2024/02/28 13:58:52 [DEBUG] memberlist: Stream connection from=192.168.1.103:60858
+###################2024/02/28 13:58:52 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/02/28 13:58:56 [DEBUG] memberlist: Stream connection from=192.168.1.103:51144
+###################2024/02/28 13:58:56 [DEBUG] memberlist: Stream connection from=192.168.1.103:51156
+###################2024/02/28 13:58:56 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/02/28 13:59:12 [INFO] memberlist: Suspect host2 has failed, no acks received
+###################2024/02/28 13:59:12 [ERR] memberlist: Failed to send ack: write tcp 192.168.1.109:7947->192.168.1.103:51144: i/o timeout from=192.168.1.103:51144
+###################2024/02/28 13:59:12 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:59:12 [ERR] memberlist: Failed to send ack: write tcp 192.168.1.109:7947->192.168.1.103:51156: i/o timeout from=192.168.1.103:51156
+###################2024/02/28 13:59:12 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 1, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:59:12 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 467, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:59:15 [DEBUG] memberlist: Stream connection from=192.168.1.103:46708
+###################2024/02/28 13:59:27 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:59:30 [DEBUG] memberlist: Stream connection from=192.168.1.103:38098
+###################2024/02/28 13:59:40 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 468, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:59:40 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 2, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 13:59:42 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 13:59:45 [DEBUG] memberlist: Stream connection from=192.168.1.103:59532
+###################2024/02/28 13:59:57 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:00:00 [DEBUG] memberlist: Stream connection from=192.168.1.103:36674
+###################2024/02/28 14:00:10 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 3, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:00:10 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 469, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:00:12 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:00:15 [DEBUG] memberlist: Stream connection from=192.168.1.103:41600
+###################2024/02/28 14:00:27 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:00:30 [DEBUG] memberlist: Stream connection from=192.168.1.103:49836
+###################2024/02/28 14:00:40 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 470, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:00:40 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 4, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:00:43 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:00:45 [DEBUG] memberlist: Stream connection from=192.168.1.103:50702
+###################2024/02/28 14:00:58 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:01:00 [DEBUG] memberlist: Stream connection from=192.168.1.103:56484
+###################2024/02/28 14:01:10 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 471, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:01:10 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 5, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:01:13 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:01:15 [DEBUG] memberlist: Stream connection from=192.168.1.103:57064
+###################2024/02/28 14:01:28 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:01:30 [DEBUG] memberlist: Stream connection from=192.168.1.103:56640
+###################2024/02/28 14:01:40 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 6, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:01:40 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 472, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:01:43 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:01:45 [DEBUG] memberlist: Stream connection from=192.168.1.103:50230
+###################2024/02/28 14:01:58 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:02:00 [DEBUG] memberlist: Stream connection from=192.168.1.103:51942
+###################2024/02/28 14:02:10 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 7, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:02:10 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 473, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:02:13 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:02:15 [DEBUG] memberlist: Stream connection from=192.168.1.103:59266
+###################2024/02/28 14:02:28 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:02:30 [DEBUG] memberlist: Stream connection from=192.168.1.103:52828
+###################2024/02/28 14:02:40 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 8, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:02:40 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 474, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:02:43 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:02:45 [DEBUG] memberlist: Stream connection from=192.168.1.103:45460
+###################2024/02/28 14:02:58 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:03:00 [DEBUG] memberlist: Stream connection from=192.168.1.103:52160
+###################2024/02/28 14:03:10 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 9, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:03:10 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 475, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:03:13 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:03:15 [DEBUG] memberlist: Stream connection from=192.168.1.103:54360
+###################2024/02/28 14:03:28 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:03:30 [DEBUG] memberlist: Stream connection from=192.168.1.103:47012
+###################2024/02/28 14:03:40 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 476, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:03:40 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 10, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:03:43 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:03:45 [DEBUG] memberlist: Stream connection from=192.168.1.103:56462
+###################2024/02/28 14:03:58 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:04:00 [DEBUG] memberlist: Stream connection from=192.168.1.103:32792
+###################2024/02/28 14:04:10 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 11, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:04:10 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 477, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:04:13 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:04:15 [DEBUG] memberlist: Stream connection from=192.168.1.103:60680
+###################2024/02/28 14:04:28 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:04:30 [DEBUG] memberlist: Stream connection from=192.168.1.103:60846
+###################2024/02/28 14:04:40 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 478, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:04:40 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 12, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:04:43 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:04:45 [DEBUG] memberlist: Stream connection from=192.168.1.103:47652
+###################2024/02/28 14:04:58 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:05:00 [DEBUG] memberlist: Stream connection from=192.168.1.103:55596
+###################2024/02/28 14:05:10 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 479, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:05:10 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 13, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:05:13 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:05:15 [DEBUG] memberlist: Stream connection from=192.168.1.103:59418
+###################2024/02/28 14:05:28 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:05:30 [DEBUG] memberlist: Stream connection from=192.168.1.103:44514
+###################2024/02/28 14:05:40 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 14, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:05:40 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 480, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:05:43 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:05:45 [DEBUG] memberlist: Stream connection from=192.168.1.103:40596
+###################2024/02/28 14:05:58 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:06:00 [DEBUG] memberlist: Stream connection from=192.168.1.103:46950
+###################2024/02/28 14:06:10 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 15, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:06:10 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 481, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:06:13 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:06:15 [DEBUG] memberlist: Stream connection from=192.168.1.103:56134
+###################2024/02/28 14:06:29 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
+###################2024/02/28 14:06:29 [DEBUG] memberlist: Stream connection from=192.168.1.109:37686
+###################2024/02/28 14:06:29 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.103:7947
+###################2024/02/28 14:06:29 [WARN] memberlist: Refuting a suspect message (from: host1)
+###################2024/02/28 14:06:30 [DEBUG] memberlist: Stream connection from=192.168.1.103:39048
+###################2024/02/28 14:06:30 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/02/28 14:06:30 PIX-Console Version: pix-console-20240228-2.x86_64
+###################2024/02/28 14:06:38 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
+###################2024/02/28 14:06:38 [DEBUG] memberlist: Stream connection from=192.168.1.109:37694
+###################2024/02/28 14:06:38 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.103:7947
+###################2024/02/28 14:06:38 [WARN] memberlist: Refuting a suspect message (from: host1)
+###################2024/02/28 14:06:39 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/02/28 14:06:39 PIX-Console Version: pix-console-20240228-2.x86_64
+###################2024/02/28 14:06:45 [DEBUG] memberlist: Stream connection from=192.168.1.103:39110
+###################2024/02/28 14:06:51 [DEBUG] memberlist: Stream connection from=192.168.1.103:39128
+###################2024/02/28 14:06:51 [DEBUG] memberlist: Stream connection from=192.168.1.103:39124
+###################2024/02/28 14:06:51 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/02/28 14:07:00 [DEBUG] memberlist: Stream connection from=192.168.1.103:34062
+###################2024/02/28 14:07:11 [DEBUG] memberlist: Stream connection from=192.168.1.103:57598
+###################2024/02/28 14:07:11 [DEBUG] memberlist: Stream connection from=192.168.1.103:34064
+###################2024/02/28 14:07:11 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:07:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 1, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:07:11 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 483, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:07:15 [DEBUG] memberlist: Stream connection from=192.168.1.103:55128
+###################2024/02/28 14:07:26 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:07:30 [DEBUG] memberlist: Stream connection from=192.168.1.103:46602
+###################2024/02/28 14:07:37 [DEBUG] memberlist: Stream connection from=192.168.1.103:38246
+###################2024/02/28 14:07:37 [DEBUG] memberlist: Stream connection from=192.168.1.103:46608
+###################2024/02/28 14:07:37 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/02/28 14:07:39 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 2, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:07:39 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 484, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:07:41 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:07:45 [DEBUG] memberlist: Stream connection from=192.168.1.103:35138
+###################2024/02/28 14:07:56 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:08:04 [DEBUG] memberlist: Stream connection from=192.168.1.103:38666
+###################2024/02/28 14:08:04 [DEBUG] memberlist: Stream connection from=192.168.1.103:38654
+###################2024/02/28 14:08:04 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/02/28 14:08:04 [DEBUG] memberlist: Stream connection from=192.168.1.103:38672
+###################2024/02/28 14:08:09 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 3, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:08:09 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 485, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:08:11 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:08:16 [DEBUG] memberlist: Stream connection from=192.168.1.103:51620
+###################2024/02/28 14:08:25 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
+###################2024/02/28 14:08:25 [DEBUG] memberlist: Stream connection from=192.168.1.109:37724
+###################2024/02/28 14:08:25 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.103:7947
+###################2024/02/28 14:08:25 [WARN] memberlist: Refuting a suspect message (from: host1)
+###################2024/02/28 14:08:26 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/02/28 14:08:26 PIX-Console Version: pix-console-20240228-2.x86_64
+###################2024/02/28 14:08:31 [DEBUG] memberlist: Stream connection from=192.168.1.103:54218
+###################2024/02/28 14:08:46 [DEBUG] memberlist: Stream connection from=192.168.1.103:38660
+###################2024/02/28 14:08:46 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:08:56 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 487, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:08:56 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 1, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:09:01 [DEBUG] memberlist: Stream connection from=192.168.1.103:44966
+###################2024/02/28 14:09:01 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:09:16 [DEBUG] memberlist: Stream connection from=192.168.1.103:36682
+###################2024/02/28 14:09:16 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:09:26 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 488, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:09:26 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 2, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:09:31 [DEBUG] memberlist: Stream connection from=192.168.1.103:35018
+###################2024/02/28 14:09:32 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:09:46 [DEBUG] memberlist: Stream connection from=192.168.1.103:43436
+###################2024/02/28 14:09:47 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:09:56 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 489, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:09:56 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 3, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:10:01 [DEBUG] memberlist: Stream connection from=192.168.1.103:34422
+###################2024/02/28 14:10:02 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:10:17 [DEBUG] memberlist: Stream connection from=192.168.1.103:58952
+###################2024/02/28 14:10:17 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:10:17 [WARN] memberlist: Refuting a suspect message (from: host1)
+###################2024/02/28 14:10:26 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 490, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:10:26 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 4, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:10:32 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
+###################2024/02/28 14:10:32 [DEBUG] memberlist: Stream connection from=192.168.1.109:37764
+###################2024/02/28 14:10:32 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.103:7947
+###################2024/02/28 14:10:32 [WARN] memberlist: Refuting a suspect message (from: host1)
+###################2024/02/28 14:10:33 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/02/28 14:10:33 PIX-Console Version: pix-console-20240228-2.x86_64
+###################2024/02/28 14:10:42 [DEBUG] memberlist: Stream connection from=192.168.1.103:38160
+###################2024/02/28 14:10:42 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/02/28 14:10:46 [DEBUG] memberlist: Stream connection from=192.168.1.103:58154
+###################2024/02/28 14:10:49 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:11:01 [DEBUG] memberlist: Stream connection from=192.168.1.103:38472
+###################2024/02/28 14:11:03 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 491, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:11:03 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 1, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:11:04 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:11:16 [DEBUG] memberlist: Stream connection from=192.168.1.103:38908
+###################2024/02/28 14:11:19 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:11:31 [DEBUG] memberlist: Stream connection from=192.168.1.103:60640
+###################2024/02/28 14:11:34 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 2, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:11:34 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 492, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:11:34 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:11:46 [DEBUG] memberlist: Stream connection from=192.168.1.103:57214
+###################2024/02/28 14:11:49 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:12:01 [DEBUG] memberlist: Stream connection from=192.168.1.103:37638
+###################2024/02/28 14:12:04 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 3, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:12:04 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 493, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:12:04 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:12:16 [DEBUG] memberlist: Stream connection from=192.168.1.103:54064
+###################2024/02/28 14:12:19 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:12:31 [DEBUG] memberlist: Stream connection from=192.168.1.103:37522
+###################2024/02/28 14:12:34 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 4, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:12:34 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 494, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:12:34 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:12:46 [DEBUG] memberlist: Stream connection from=192.168.1.103:60082
+###################2024/02/28 14:12:49 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:13:01 [DEBUG] memberlist: Stream connection from=192.168.1.103:46746
+###################2024/02/28 14:13:04 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 5, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:13:04 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 495, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:13:04 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:13:16 [DEBUG] memberlist: Stream connection from=192.168.1.103:53882
+###################2024/02/28 14:13:19 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:13:31 [DEBUG] memberlist: Stream connection from=192.168.1.103:34092
+###################2024/02/28 14:13:34 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 496, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:13:34 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 6, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:13:34 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:13:46 [DEBUG] memberlist: Stream connection from=192.168.1.103:54012
+###################2024/02/28 14:14:01 [DEBUG] memberlist: Stream connection from=192.168.1.103:43502
+###################2024/02/28 14:14:04 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 497, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:14:04 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 7, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:14:04 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:14:16 [DEBUG] memberlist: Stream connection from=192.168.1.103:51808
+###################2024/02/28 14:14:21 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.103:7947
+###################2024/02/28 14:14:21 [WARN] memberlist: Refuting a suspect message (from: host1)
+###################2024/02/28 14:14:22 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/02/28 14:14:22 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
+###################2024/02/28 14:14:22 [DEBUG] memberlist: Stream connection from=192.168.1.109:37830
+###################2024/02/28 14:14:22 PIX-Console Version: pix-console-20240228-2.x86_64
+###################2024/02/28 14:14:39 [DEBUG] memberlist: Stream connection from=192.168.1.103:60444
+###################2024/02/28 14:14:39 [DEBUG] memberlist: Stream connection from=192.168.1.103:60442
+###################2024/02/28 14:14:39 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/02/28 14:14:39 [DEBUG] memberlist: Stream connection from=192.168.1.103:60024
+###################2024/02/28 14:14:39 [DEBUG] memberlist: Stream connection from=192.168.1.103:60012
+###################2024/02/28 14:14:39 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:14:45 [DEBUG] memberlist: Stream connection from=192.168.1.103:48132
+###################2024/02/28 14:14:45 [DEBUG] memberlist: Stream connection from=192.168.1.103:60030
+###################2024/02/28 14:14:45 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/02/28 14:14:53 [DEBUG] memberlist: Stream connection from=192.168.1.103:48140
+###################2024/02/28 14:14:53 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 1, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:14:53 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 499, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:14:54 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:15:02 [DEBUG] memberlist: Stream connection from=192.168.1.103:43710
+###################2024/02/28 14:15:09 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:15:23 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
+###################2024/02/28 14:15:23 [DEBUG] memberlist: Stream connection from=192.168.1.109:37858
+###################2024/02/28 14:15:23 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.103:7947
+###################2024/02/28 14:15:23 [WARN] memberlist: Refuting a suspect message (from: host1)
+###################2024/02/28 14:15:24 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/02/28 14:15:24 PIX-Console Version: pix-console-20240228-2.x86_64
+###################2024/02/28 14:15:42 [DEBUG] memberlist: Stream connection from=192.168.1.103:41052
+###################2024/02/28 14:15:42 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/02/28 14:15:42 [DEBUG] memberlist: Stream connection from=192.168.1.103:41046
+###################2024/02/28 14:15:46 [DEBUG] memberlist: Stream connection from=192.168.1.103:52804
+###################2024/02/28 14:15:46 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/02/28 14:15:47 [DEBUG] memberlist: Stream connection from=192.168.1.103:60986
+###################2024/02/28 14:15:54 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 501, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:15:54 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 1, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:15:57 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:16:02 [DEBUG] memberlist: Stream connection from=192.168.1.103:58078
+###################2024/02/28 14:16:12 [DEBUG] memberlist: Stream connection from=192.168.1.103:36954
+###################2024/02/28 14:16:12 [DEBUG] memberlist: Stream connection from=192.168.1.103:36938
+###################2024/02/28 14:16:12 [WARN] memberlist: Refuting a suspect message (from: host2)
+###################2024/02/28 14:16:12 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:16:17 [DEBUG] memberlist: Stream connection from=192.168.1.103:51496
+###################2024/02/28 14:16:24 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 502, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:16:24 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 2, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:16:27 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:16:32 [DEBUG] memberlist: Stream connection from=192.168.1.103:50510
+###################2024/02/28 14:16:42 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:16:47 [DEBUG] memberlist: Stream connection from=192.168.1.103:47006
+###################2024/02/28 14:16:54 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 3, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:16:54 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 503, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:16:57 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:17:02 [DEBUG] memberlist: Stream connection from=192.168.1.103:40712
+###################2024/02/28 14:17:12 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:17:17 [DEBUG] memberlist: Stream connection from=192.168.1.103:41140
+###################2024/02/28 14:17:24 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 4, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:17:24 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 504, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:17:27 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:17:32 [DEBUG] memberlist: Stream connection from=192.168.1.103:59514
+###################2024/02/28 14:17:42 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:17:47 [DEBUG] memberlist: Stream connection from=192.168.1.103:34118
+###################2024/02/28 14:17:54 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 505, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:17:54 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 5, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:18:02 [DEBUG] memberlist: Stream connection from=192.168.1.103:51784
+###################2024/02/28 14:18:12 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:18:17 [DEBUG] memberlist: Stream connection from=192.168.1.103:45778
+###################2024/02/28 14:18:24 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 6, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:18:24 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 506, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:18:27 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:18:32 [DEBUG] memberlist: Stream connection from=192.168.1.103:33004
+###################2024/02/28 14:18:42 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:18:54 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 507, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:18:54 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 7, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:18:57 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:19:02 [DEBUG] memberlist: Stream connection from=192.168.1.103:50630
+###################2024/02/28 14:19:12 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:19:17 [DEBUG] memberlist: Stream connection from=192.168.1.103:33786
+###################2024/02/28 14:19:24 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 8, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:19:24 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 508, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:19:28 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:19:32 [DEBUG] memberlist: Stream connection from=192.168.1.103:42288
+###################2024/02/28 14:19:43 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:19:47 [DEBUG] memberlist: Stream connection from=192.168.1.103:41366
+###################2024/02/28 14:19:54 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 509, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:19:54 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 9, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:19:58 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:20:02 [DEBUG] memberlist: Stream connection from=192.168.1.103:42674
+###################2024/02/28 14:20:13 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:20:17 [DEBUG] memberlist: Stream connection from=192.168.1.103:33240
+###################2024/02/28 14:20:24 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 10, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:20:24 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 510, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:20:28 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:20:32 [DEBUG] memberlist: Stream connection from=192.168.1.103:54188
+###################2024/02/28 14:20:43 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:20:47 [DEBUG] memberlist: Stream connection from=192.168.1.103:58710
+###################2024/02/28 14:20:54 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 511, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:20:54 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 11, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:20:58 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:21:02 [DEBUG] memberlist: Stream connection from=192.168.1.103:47708
+###################2024/02/28 14:21:13 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:21:17 [DEBUG] memberlist: Stream connection from=192.168.1.103:48630
+###################2024/02/28 14:21:24 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 12, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:21:24 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 512, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:21:28 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:21:32 [DEBUG] memberlist: Stream connection from=192.168.1.103:49078
+###################2024/02/28 14:21:47 [DEBUG] memberlist: Stream connection from=192.168.1.103:53986
+###################2024/02/28 14:21:54 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 513, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:21:54 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 13, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:21:58 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:22:02 [DEBUG] memberlist: Stream connection from=192.168.1.103:35376
+###################2024/02/28 14:22:13 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:22:17 [DEBUG] memberlist: Stream connection from=192.168.1.103:37616
+###################2024/02/28 14:22:24 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 14, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:22:24 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 514, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:22:28 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:22:32 [DEBUG] memberlist: Stream connection from=192.168.1.103:50400
+###################2024/02/28 14:22:43 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:22:47 [DEBUG] memberlist: Stream connection from=192.168.1.103:36238
+###################2024/02/28 14:22:54 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 15, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:22:54 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 515, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:22:58 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:23:02 [DEBUG] memberlist: Stream connection from=192.168.1.103:39478
+###################2024/02/28 14:23:13 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:23:17 [DEBUG] memberlist: Stream connection from=192.168.1.103:39404
+###################2024/02/28 14:23:24 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 16, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:23:24 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 516, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:23:28 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:23:32 [DEBUG] memberlist: Stream connection from=192.168.1.103:49708
+###################2024/02/28 14:23:43 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:23:47 [DEBUG] memberlist: Stream connection from=192.168.1.103:56090
+###################2024/02/28 14:23:54 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 517, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:23:54 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 17, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:23:58 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:24:02 [DEBUG] memberlist: Stream connection from=192.168.1.103:51902
+###################2024/02/28 14:24:13 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:24:17 [DEBUG] memberlist: Stream connection from=192.168.1.103:50430
+###################2024/02/28 14:24:24 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 18, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:24:24 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 518, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:24:28 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:24:32 [DEBUG] memberlist: Stream connection from=192.168.1.103:39480
+###################2024/02/28 14:24:43 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:24:47 [DEBUG] memberlist: Stream connection from=192.168.1.103:57598
+###################2024/02/28 14:24:54 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 519, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:24:54 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 19, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:24:58 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:25:02 [DEBUG] memberlist: Stream connection from=192.168.1.103:47766
+###################2024/02/28 14:25:13 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:25:17 [DEBUG] memberlist: Stream connection from=192.168.1.103:44298
+###################2024/02/28 14:25:24 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 20, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:25:24 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 520, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:25:28 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:25:32 [DEBUG] memberlist: Stream connection from=192.168.1.103:55808
+###################2024/02/28 14:25:43 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:25:47 [DEBUG] memberlist: Stream connection from=192.168.1.103:39148
+###################2024/02/28 14:25:54 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 21, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:25:54 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 521, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:25:58 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:26:02 [DEBUG] memberlist: Stream connection from=192.168.1.103:51788
+###################2024/02/28 14:26:13 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:26:17 [DEBUG] memberlist: Stream connection from=192.168.1.103:33816
+###################2024/02/28 14:26:24 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 522, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:26:24 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 22, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:26:28 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:26:32 [DEBUG] memberlist: Stream connection from=192.168.1.103:36490
+###################2024/02/28 14:26:43 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:26:47 [DEBUG] memberlist: Stream connection from=192.168.1.103:50508
+###################2024/02/28 14:26:54 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 23, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:26:54 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 523, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:26:58 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:27:02 [DEBUG] memberlist: Stream connection from=192.168.1.103:38100
+###################2024/02/28 14:27:13 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:27:17 [DEBUG] memberlist: Stream connection from=192.168.1.103:37492
+###################2024/02/28 14:27:24 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 524, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:27:24 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 24, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:27:28 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:27:32 [DEBUG] memberlist: Stream connection from=192.168.1.103:37700
+###################2024/02/28 14:27:43 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:27:47 [DEBUG] memberlist: Stream connection from=192.168.1.103:42174
+###################2024/02/28 14:27:54 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 25, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:27:54 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 525, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:27:58 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:28:02 [DEBUG] memberlist: Stream connection from=192.168.1.103:56684
+###################2024/02/28 14:28:13 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:28:17 [DEBUG] memberlist: Stream connection from=192.168.1.103:35728
+###################2024/02/28 14:28:24 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 26, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:28:24 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 526, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:28:28 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:28:32 [DEBUG] memberlist: Stream connection from=192.168.1.103:33136
+###################2024/02/28 14:28:43 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:28:47 [DEBUG] memberlist: Stream connection from=192.168.1.103:58828
+###################2024/02/28 14:28:54 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 527, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:28:54 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 27, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:28:58 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:29:02 [DEBUG] memberlist: Stream connection from=192.168.1.103:58380
+###################2024/02/28 14:29:13 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:29:17 [DEBUG] memberlist: Stream connection from=192.168.1.103:44646
+###################2024/02/28 14:29:24 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 28, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:29:24 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 528, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:29:28 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:29:32 [DEBUG] memberlist: Stream connection from=192.168.1.103:60554
+###################2024/02/28 14:29:43 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:29:47 [DEBUG] memberlist: Stream connection from=192.168.1.103:59372
+###################2024/02/28 14:29:54 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 529, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:29:54 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 29, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:29:58 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:30:02 [DEBUG] memberlist: Stream connection from=192.168.1.103:34952
+###################2024/02/28 14:30:13 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:30:17 [DEBUG] memberlist: Stream connection from=192.168.1.103:46614
+###################2024/02/28 14:30:24 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 530, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:30:24 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 30, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:30:28 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:30:32 [DEBUG] memberlist: Stream connection from=192.168.1.103:52278
+###################2024/02/28 14:30:43 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:30:47 [DEBUG] memberlist: Stream connection from=192.168.1.103:53194
+###################2024/02/28 14:30:54 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 31, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:30:54 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 531, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:30:58 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:31:02 [DEBUG] memberlist: Stream connection from=192.168.1.103:56124
+###################2024/02/28 14:31:13 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:31:17 [DEBUG] memberlist: Stream connection from=192.168.1.103:42848
+###################2024/02/28 14:31:24 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 32, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:31:24 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 532, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:31:28 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:31:32 [DEBUG] memberlist: Stream connection from=192.168.1.103:41192
+###################2024/02/28 14:31:43 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:31:47 [DEBUG] memberlist: Stream connection from=192.168.1.103:49864
+###################2024/02/28 14:31:54 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 33, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:31:54 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 533, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:31:58 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:32:02 [DEBUG] memberlist: Stream connection from=192.168.1.103:49812
+###################2024/02/28 14:32:13 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:32:17 [DEBUG] memberlist: Stream connection from=192.168.1.103:45462
+###################2024/02/28 14:32:24 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 34, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:32:24 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 534, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:32:28 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:32:32 [DEBUG] memberlist: Stream connection from=192.168.1.103:39586
+###################2024/02/28 14:32:45 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
+###################2024/02/28 14:32:45 [DEBUG] memberlist: Stream connection from=192.168.1.109:38258
+###################2024/02/28 14:32:45 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.103:7947
+###################2024/02/28 14:32:45 [WARN] memberlist: Refuting a suspect message (from: host1)
+###################2024/02/28 14:32:46 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/02/28 14:32:46 PIX-Console Version: pix-console-20240228-2.x86_64
+###################2024/02/28 14:32:47 [DEBUG] memberlist: Stream connection from=192.168.1.103:52962
+###################2024/02/28 14:33:00 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:33:02 [DEBUG] memberlist: Stream connection from=192.168.1.103:59488
+###################2024/02/28 14:33:15 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:33:17 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 536, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:33:17 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 1, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:33:17 [DEBUG] memberlist: Stream connection from=192.168.1.103:53422
+###################2024/02/28 14:33:31 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:33:32 [DEBUG] memberlist: Stream connection from=192.168.1.103:36610
+###################2024/02/28 14:33:46 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:33:47 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 2, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:33:47 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 537, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:33:47 [DEBUG] memberlist: Stream connection from=192.168.1.103:35030
+###################2024/02/28 14:34:01 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:34:02 [DEBUG] memberlist: Stream connection from=192.168.1.103:35810
+###################2024/02/28 14:34:16 [DEBUG] memberlist: Initiating push/pull sync with: host2 192.168.1.103:7947
+###################2024/02/28 14:34:17 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 3, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:34:17 host2 region: ap-northeast-1, zone: 1a, shard: 100, weight: 538, ServerStatus: 0, ServiceVersion: pix-console-20240228-2.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/02/28 14:34:17 [DEBUG] memberlist: Stream connection from=192.168.1.103:33028
