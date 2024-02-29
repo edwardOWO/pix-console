@@ -70,7 +70,7 @@
         <table class="table table-bordered mt-3">
           <thead class="thead-custom">
             <tr>
-              <th scope="col">按下時間</th>
+              <!--<th scope="col">按下時間</th>-->
             </tr>
           </thead>
           <tbody id="logTableBody"></tbody>
@@ -160,24 +160,28 @@
             var messageValue = data.message;
 
             // 新增一行到表格
-            var logTableBody = document.getElementById('logTableBody');
-            var newRow = logTableBody.insertRow();
-            var cell = newRow.insertCell(0);
-            cell.innerText = messageValue;
+            //var logTableBody = document.getElementById('logTableBody');
+            //var newRow = logTableBody.insertRow();
+            //var cell = newRow.insertCell(0);
+            //cell.innerText = messageValue;
+
+
+            loadingSpinner = document.getElementById("loadingSpinner");
+            loadingSpinner.style.display = "none";
 
 
 
-            var a = document.createElement('a');
-            var url = window.URL.createObjectURL(blob);
-            a.href = url;
-            a.download = 'filename'; // 您可以指定下載的文件名稱
-            document.body.appendChild(a);
-            a.click();
-            window.URL.revokeObjectURL(url);
+            //var a = document.createElement('a');
+            //var url = window.URL.createObjectURL(blob);
+            //a.href = url;
+            //a.download = 'filename'; // 您可以指定下載的文件名稱
+            //document.body.appendChild(a);
+            //a.click();
+            //window.URL.revokeObjectURL(url);
           }
         })
         .catch(error => {
-          alert(error)
+          //alert(error)
           // 將錯誤消息輸出到 outputResult 段落元素
           //document.getElementById("outputResult").textContent = "發生錯誤：" + error;
         });
@@ -188,6 +192,8 @@
     }
     let counter = 0;
     function donwloadLog() {
+      var loadingSpinner = document.getElementById('loadingSpinner');
+      loadingSpinner.style.display = '';
 
       inputValue = $('input[name="daterange"]').val();
       var dateRangeArray = inputValue.split(' - ');
@@ -226,6 +232,9 @@
           link.click();
           // 删除链接元素
           document.body.removeChild(link);
+
+          var loadingSpinner = document.getElementById('loadingSpinner');
+          loadingSpinner.style.display = 'none';
         })
         .catch(error => {
           console.error('Fetch error:', error);
