@@ -464,6 +464,7 @@ type ContainerInfo struct {
 	Status      string `json:"STATUS"`
 	Ports       string `json:"PORTS"`
 	Names       string `json:"NAMES"`
+	ExtEndPoint string `json:"ExtEndPoint"`
 }
 
 func DockerHandler(c *gin.Context) {
@@ -744,6 +745,7 @@ func parseDockerPSResult(output string, data *[]ContainerInfo) {
 		if len(fields) > 6 {
 			containerInfo := ContainerInfo{
 				Host:        common.Config.ServerName,
+				ExtEndPoint: common.Config.ExtDomain,
 				ContainerID: fields[0],
 				Image:       fields[1],
 				Command:     fields[2],
@@ -765,6 +767,7 @@ func parseServicePSResult(output string, data *[]ContainerInfo) {
 
 	containerInfo := ContainerInfo{
 		Host:        common.Config.ServerName,
+		ExtEndPoint: common.Config.ExtDomain,
 		ContainerID: "test",
 		Image:       "mongod",
 		Command:     "test",

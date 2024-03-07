@@ -31,9 +31,9 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Host</th>
+                            <th>Host IP</th>
                             <th>Version</th>
-                            <th>Name</th>
+                            <th>Host Name</th>
                             <th>ActiveState</th>
                             <th>Service Status</th>
                             <th>System Update</th>
@@ -58,10 +58,10 @@
                 alert("WebSocket is already connected.");
                 return;
             }
-
+            
             //const path = document.getElementById("pathInput").value;
-            path="logs/gin.log"
-            ws = new WebSocket("ws://"+exthost+":8080/ws?path=" + path);
+            path = "pix-console"
+            ws = new WebSocket("ws://" + exthost + ":8080/ws?path=" + path);
 
             ws.onopen = function () {
                 console.log("WebSocket connected.");
@@ -70,6 +70,7 @@
             ws.onmessage = function (event) {
                 if (!newWindow || newWindow.closed) {
                     newWindow = window.open("", "LogWindow", "width=600,height=400");
+                    newWindow.document.title = path;
                     if (!newWindow) {
                         alert("Pop-up blocked! Please enable pop-ups for this site.");
                         return;
@@ -226,7 +227,7 @@
                 // 渲染排序後的介面數據
                 containers.forEach(container => {
                     host = container.HOST
-                    exthost=container.EXTENDPOINT
+                    exthost = container.EXTENDPOINT
                     containerDataBody.innerHTML += `
                 <tr>
                     <td>${container.HOST}</td>

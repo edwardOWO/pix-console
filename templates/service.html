@@ -27,10 +27,11 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Host</th>
-                            <th>Name</th>
-			                <th>ActiveState</th>
+                            <th>HostName</th>
+                            <th>ServiceName</th>
+                            <th>ActiveState</th>
                             <th>Servie Status</th>
+                            <th>ServiceLogs</th>
                         </tr>
                     </thead>
                     <tbody id="containerDataBody"></tbody>
@@ -40,6 +41,65 @@
     </div>
 
     <script>
+
+
+        let ws;
+        let newWindow;
+
+        function connectWebSocket(exthost,path) {
+
+            alert("擷取"+path+"日誌")
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                alert("WebSocket is already connected.");
+                return;
+            }
+            ws = new WebSocket("ws://" + exthost + ":8080/ws?path=" + path);
+
+            ws.onopen = function () {
+                console.log("WebSocket connected.");
+            };
+
+            ws.onmessage = function (event) {
+                if (!newWindow || newWindow.closed) {
+                    newWindow = window.open("", "LogWindow", "width=600,height=400");
+                    newWindow.document.title = path;
+                    if (!newWindow) {
+                        alert("Pop-up blocked! Please enable pop-ups for this site.");
+                        return;
+                    }
+                    newWindow.addEventListener('beforeunload', function () {
+                        if (ws && ws.readyState === WebSocket.OPEN) {
+                            ws.close();
+                        }
+                    });
+                }
+
+                const logs = newWindow.document.createElement("pre");
+                logs.textContent += event.data; // Use += to append new log data
+                logs.scrollTop = logs.scrollHeight;
+                newWindow.document.body.appendChild(logs);
+                newWindow.scrollTo(0, newWindow.document.body.scrollHeight);
+            };
+
+            ws.onclose = function () {
+                console.log("WebSocket closed.");
+                if (newWindow && !newWindow.closed) {
+                    newWindow.close();
+                }
+            };
+
+            ws.onerror = function () {
+                console.error("WebSocket error occurred.");
+                if (newWindow && !newWindow.closed) {
+                    newWindow.close();
+                }
+            };
+        }
+
+
+
+
+
         function fetchAndDisplayContainers() {
             fetch("api/v1/cluster_service")
                 .then(response => response.json())
@@ -58,12 +118,19 @@
                 containerDataBody.innerHTML = '<tr><td colspan="5">No containers found.</td></tr>';
             } else {
                 containers.forEach(container => {
+
+
+                    // 移除使用者不需要看的東西
+                    container.NAMES = container.NAMES.replace("Names=", "");
+                    container.CREATED = container.CREATED.replace("SubState=", "");
+                    container.STATUS = container.STATUS.replace("ActiveState=", "");
                     containerDataBody.innerHTML += `
                         <tr>
                             <td>${container.HOST}</td>
                             <td>${container.NAMES}</td>
-                            <td>${container.CREATED}</td>
                             <td class="${container.STATUS.includes('inactive') || container.STATUS.includes('deactivating') ? 'inactive' : 'active'}">${container.STATUS}</td>
+                            <td class="${container.CREATED.includes('dead') || container.CREATED.includes('dead') ? 'inactive' : 'active'}">${container.CREATED}</td>
+                            <td><button onclick="connectWebSocket('${container.ExtEndPoint}','${container.NAMES}')">系統日誌</button></td>
                         </tr>
                     `;
                 });

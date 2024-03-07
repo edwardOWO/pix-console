@@ -5,19 +5,19 @@
  - using code:	gin.SetMode(gin.ReleaseMode)
 
 [GIN-debug] Loaded HTML Templates (13): 
-	- 
-	- host.html
-	- logs.html
 	- check copy 2.html
 	- feedback.html
+	- index.html
+	- logs.html
+	- service.html
 	- check copy.html
+	- docker-compose.html
+	- host.html
+	- 
 	- check.html
 	- dashboard.html
-	- docker-compose.html
 	- docker.html
-	- index.html
 	- login.html
-	- service.html
 
 [GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
 [GIN-debug] HEAD   /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
@@ -64,1467 +64,257 @@
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8080
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:00:11 | 200 |     764.973µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:27:05 | 200 |    2.469129ms |   192.168.1.102 | GET      "/docker"
+[GIN] 2024/03/07 - 11:27:05 | 303 |     413.615µs |   192.168.1.102 | GET      "/favicon.ico"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:00:13 | 200 |     304.282µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:00:13 | 303 |     187.923µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:00:13 | 200 |     892.746µs |   192.168.1.102 | GET      "/"
+[GIN] 2024/03/07 - 11:27:05 | 200 |   26.245697ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:00:17 | 200 |     559.958µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:27:05 | 200 |   28.001591ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
+[GIN] 2024/03/07 - 11:27:05 | 200 |    1.260292ms |   192.168.1.102 | GET      "/"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:00:22 | 200 |     346.149µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:27:06 | 200 |    2.249896ms |   192.168.1.102 | GET      "/docker"
+[GIN] 2024/03/07 - 11:27:06 | 303 |     392.977µs |   192.168.1.102 | GET      "/favicon.ico"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:00:27 | 200 |     286.651µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:27:06 | 200 |    18.45726ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:00:33 | 200 |    2.815741ms |   192.168.1.102 | GET      "/host"
+[GIN] 2024/03/07 - 11:27:06 | 200 |   19.430189ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
+[GIN] 2024/03/07 - 11:27:06 | 200 |     619.893µs |   192.168.1.102 | GET      "/"
+[GIN] 2024/03/07 - 11:27:09 | 303 |     135.545µs |   192.168.1.102 | GET      "/path"
+[GIN] 2024/03/07 - 11:27:09 | 200 |     359.909µs |   192.168.1.102 | GET      "/"
+[GIN] 2024/03/07 - 11:27:09 | 303 |     192.598µs |   192.168.1.102 | GET      "/favicon.ico"
+[GIN] 2024/03/07 - 11:27:09 | 200 |    1.335252ms |   192.168.1.102 | GET      "/"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:00:33 | 200 |    1.188567ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:00:33 | 303 |     201.773µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:00:33 | 200 |    1.373905ms |   192.168.1.102 | GET      "/"
+[GIN] 2024/03/07 - 11:27:11 | 200 |   22.046968ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:00:34 | 200 |    1.895064ms |   192.168.1.102 | GET      "/host"
+[GIN] 2024/03/07 - 11:27:11 | 200 |   22.868753ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:00:34 | 200 |     349.929µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:00:34 | 303 |     169.476µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:00:34 | 200 |     552.502µs |   192.168.1.102 | GET      "/"
+[GIN] 2024/03/07 - 11:27:17 | 200 |   18.082282ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:00:35 | 200 |    1.524943ms |   192.168.1.102 | GET      "/host"
+[GIN] 2024/03/07 - 11:27:17 | 200 |   19.054701ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:00:35 | 200 |     398.649µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:00:35 | 303 |     281.792µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:00:35 | 200 |    1.013562ms |   192.168.1.102 | GET      "/"
+[GIN] 2024/03/07 - 11:27:22 | 200 |   30.252722ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:00:35 | 200 |    1.450285ms |   192.168.1.102 | GET      "/host"
+[GIN] 2024/03/07 - 11:27:22 | 200 |    31.27528ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:00:36 | 200 |     371.908µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:00:36 | 303 |     249.641µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:00:36 | 200 |    1.137879ms |   192.168.1.102 | GET      "/"
+[GIN] 2024/03/07 - 11:27:25 | 200 |    1.034865ms |   192.168.1.102 | GET      "/docker"
+[GIN] 2024/03/07 - 11:27:25 | 200 | 15.978322504s |   192.168.1.102 | GET      "/ws?container_name=upbeat_liskov"
+[GIN] 2024/03/07 - 11:27:25 | 303 |     229.691µs |   192.168.1.102 | GET      "/favicon.ico"
+[GIN] 2024/03/07 - 11:27:25 | 200 |    1.751628ms |   192.168.1.102 | GET      "/"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:00:36 | 200 |    2.112977ms |   192.168.1.102 | GET      "/host"
-[GIN] 2024/03/07 - 07:00:36 | 303 |     208.255µs |   192.168.1.102 | GET      "/favicon.ico"
+[GIN] 2024/03/07 - 11:27:25 | 200 |   20.550924ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:00:36 | 200 |     417.906µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:00:36 | 200 |     989.655µs |   192.168.1.102 | GET      "/"
+[GIN] 2024/03/07 - 11:27:25 | 200 |   21.822017ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
+[GIN] 2024/03/07 - 11:27:28 | 303 |     267.572µs |   192.168.1.102 | GET      "/path"
+[GIN] 2024/03/07 - 11:27:28 | 200 |     1.07878ms |   192.168.1.102 | GET      "/"
+[GIN] 2024/03/07 - 11:27:28 | 303 |     213.045µs |   192.168.1.102 | GET      "/favicon.ico"
+[GIN] 2024/03/07 - 11:27:28 | 200 |     916.881µs |   192.168.1.102 | GET      "/"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:00:42 | 200 |     246.327µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:27:30 | 200 |   17.044195ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:00:47 | 200 |     601.433µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:27:30 | 200 |    17.86414ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:00:52 | 200 |     393.462µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:27:35 | 200 |   17.346756ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:00:58 | 200 |     398.294µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:27:35 | 200 |   18.431125ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:01:03 | 200 |     623.737µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:27:41 | 200 |   19.097342ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:01:09 | 200 |     234.782µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:27:41 | 200 |   20.098061ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:01:14 | 200 |     362.484µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:27:46 | 200 |   18.380946ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:01:20 | 200 |     584.116µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:27:46 | 200 |   19.248764ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:01:25 | 200 |     302.273µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:27:46 | 200 |    2.213688ms |   192.168.1.102 | GET      "/docker"
+[GIN] 2024/03/07 - 11:27:46 | 200 | 18.487547231s |   192.168.1.102 | GET      "/ws?container_name=upbeat_liskov"
+[GIN] 2024/03/07 - 11:27:46 | 303 |     483.639µs |   192.168.1.102 | GET      "/favicon.ico"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:01:30 | 200 |     267.959µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:27:46 | 200 |   22.620815ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:01:36 | 200 |     790.946µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:27:46 | 200 |   23.876202ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
+[GIN] 2024/03/07 - 11:27:46 | 200 |    1.113154ms |   192.168.1.102 | GET      "/"
+[GIN] 2024/03/07 - 11:27:50 | 303 |     147.505µs |   192.168.1.102 | GET      "/LogWindow"
+[GIN] 2024/03/07 - 11:27:50 | 200 |     921.566µs |   192.168.1.102 | GET      "/"
+[GIN] 2024/03/07 - 11:27:50 | 303 |      170.99µs |   192.168.1.102 | GET      "/favicon.ico"
+[GIN] 2024/03/07 - 11:27:50 | 200 |     970.378µs |   192.168.1.102 | GET      "/"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:01:41 | 200 |     276.658µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:27:52 | 200 |   21.887856ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:01:47 | 200 |     351.825µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:27:52 | 200 |   22.697925ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
+[GIN] 2024/03/07 - 11:27:56 | 200 |   5.84785536s |   192.168.1.102 | GET      "/ws?container_name=upbeat_liskov"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:01:52 | 200 |     250.523µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:27:57 | 200 |   18.458884ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:01:57 | 200 |     261.419µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:27:57 | 200 |   19.546827ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:02:03 | 200 |     296.435µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:28:03 | 200 |   22.881354ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:02:08 | 200 |     275.854µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:28:03 | 200 |   24.436373ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:02:15 | 200 |     367.163µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:28:08 | 200 |   30.214117ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:02:20 | 200 |     352.752µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:28:08 | 200 |   31.207236ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:02:26 | 200 |     244.065µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:28:08 | 200 |    1.535975ms |   192.168.1.102 | GET      "/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:02:31 | 200 |       234.2µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:28:08 | 200 |   21.366476ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:02:36 | 200 |     326.839µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:28:08 | 200 |   22.216123ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
+[GIN] 2024/03/07 - 11:28:08 | 303 |     231.109µs |   192.168.1.102 | GET      "/favicon.ico"
+[GIN] 2024/03/07 - 11:28:08 | 200 |     732.189µs |   192.168.1.102 | GET      "/"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:02:42 | 200 |     319.034µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:28:14 | 200 |   18.710975ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:02:47 | 200 |    1.452954ms |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:28:14 | 200 |   19.690664ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:02:53 | 200 |      341.15µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:28:19 | 200 |   17.301859ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:02:58 | 200 |     380.226µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:28:19 | 200 |   18.400656ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:03:03 | 200 |     389.492µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:28:24 | 200 |   17.716706ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:03:09 | 200 |     548.322µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:28:24 | 200 |   18.425888ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
+[GIN] 2024/03/07 - 11:28:29 | 200 | 17.362087815s |   192.168.1.102 | GET      "/ws?container_name=upbeat_liskov"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:03:14 | 200 |     277.732µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:28:30 | 200 |   21.772258ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:03:53 | 200 |     340.791µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:28:30 | 200 |   22.448384ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:03:54 | 200 |    1.691688ms |   192.168.1.102 | GET      "/host"
-[GIN] 2024/03/07 - 07:03:54 | 303 |     285.652µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:03:54 | 200 |     792.833µs |   192.168.1.102 | GET      "/"
+[GIN] 2024/03/07 - 11:28:35 | 200 |   30.368173ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:03:54 | 200 |     328.988µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:28:35 | 200 |   31.045027ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:03:55 | 200 |    1.524684ms |   192.168.1.102 | GET      "/host"
+[GIN] 2024/03/07 - 11:28:38 | 200 |    1.241368ms |   192.168.1.102 | GET      "/docker"
+[GIN] 2024/03/07 - 11:28:38 | 303 |     381.576µs |   192.168.1.102 | GET      "/favicon.ico"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:03:55 | 200 |     370.477µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:03:55 | 303 |     217.837µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:03:55 | 200 |     575.943µs |   192.168.1.102 | GET      "/"
+[GIN] 2024/03/07 - 11:28:38 | 200 |    21.69423ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:04:01 | 200 |     375.926µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:04:04 | 200 |  5.160242666s |   192.168.1.102 | GET      "/ws?path=logs/gin.log"
+[GIN] 2024/03/07 - 11:28:38 | 200 |    22.83717ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
+[GIN] 2024/03/07 - 11:28:38 | 200 |     525.084µs |   192.168.1.102 | GET      "/"
+[GIN] 2024/03/07 - 11:28:43 | 303 |     273.403µs |   192.168.1.102 | GET      "/test"
+[GIN] 2024/03/07 - 11:28:43 | 200 |     382.352µs |   192.168.1.102 | GET      "/"
+[GIN] 2024/03/07 - 11:28:43 | 303 |     302.878µs |   192.168.1.102 | GET      "/favicon.ico"
+[GIN] 2024/03/07 - 11:28:43 | 200 |     904.988µs |   192.168.1.102 | GET      "/"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:04:06 | 200 |    1.870659ms |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:28:44 | 200 |   22.697475ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:04:12 | 200 |     257.497µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:28:44 | 200 |   23.663312ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:04:17 | 200 |     266.854µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:28:49 | 200 |   18.918883ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:04:22 | 200 |     287.572µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:28:49 | 200 |   20.237145ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:04:28 | 200 |     340.385µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:28:54 | 200 |   21.775201ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:04:33 | 200 |     201.876µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:28:54 | 200 |   23.230312ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:04:39 | 200 |     248.004µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:28:57 | 200 |    1.758542ms |   192.168.1.102 | GET      "/docker"
+[GIN] 2024/03/07 - 11:28:57 | 200 |  14.65558752s |   192.168.1.102 | GET      "/ws?container_name=upbeat_liskov"
+[GIN] 2024/03/07 - 11:28:57 | 303 |     172.211µs |   192.168.1.102 | GET      "/favicon.ico"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:04:44 | 200 |     258.882µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:04:50 | 200 |     657.299µs |   192.168.1.102 | GET      "/"
-[GIN] 2024/03/07 - 07:04:50 | 200 |    6.375514ms |   192.168.1.102 | GET      "/static/login.css"
-[GIN] 2024/03/07 - 07:04:50 | 200 |    6.710255ms |   192.168.1.102 | GET      "/static/bootstrap/jquery-3.3.1.slim.min.js"
-[GIN] 2024/03/07 - 07:04:50 | 200 |     131.811µs |   192.168.1.102 | GET      "/static/bootstrap/popper.min.js"
-[GIN] 2024/03/07 - 07:04:50 | 200 |     143.029µs |   192.168.1.102 | GET      "/static/bootstrap/bootstrap.min.js"
-[GIN] 2024/03/07 - 07:04:50 | 200 |   12.357941ms |   192.168.1.102 | GET      "/static/resource/christopher-burns-Kj2SaNHG-hg-unsplash-min.jpg"
-[GIN] 2024/03/07 - 07:04:51 | 303 |      52.127µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:04:51 | 200 |      436.21µs |   192.168.1.102 | GET      "/"
-[GIN] 2024/03/07 - 07:05:19 | 303 |     154.183µs |   192.168.1.102 | POST     "/login"
+[GIN] 2024/03/07 - 11:28:57 | 200 |   20.148002ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:19 | 200 |      691.03µs |   192.168.1.102 | GET      "/index"
-[GIN] 2024/03/07 - 07:05:19 | 200 |      89.348µs |   192.168.1.102 | GET      "/static/index.css"
-[GIN] 2024/03/07 - 07:05:19 | 200 |      182.26µs |   192.168.1.102 | GET      "/static/scirpt.js"
-[GIN] 2024/03/07 - 07:05:19 | 303 |     155.148µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:05:19 | 200 |     466.786µs |   192.168.1.102 | GET      "/"
+[GIN] 2024/03/07 - 11:28:57 | 200 |      21.313ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
+[GIN] 2024/03/07 - 11:28:57 | 200 |     787.194µs |   192.168.1.102 | GET      "/"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:21 | 200 |    1.811643ms |   192.168.1.102 | GET      "/host"
-[GIN] 2024/03/07 - 07:05:21 | 200 |      82.141µs |   192.168.1.102 | GET      "/static/service.css"
+[GIN] 2024/03/07 - 11:29:03 | 200 |   20.202515ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:21 | 200 |     367.714µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:05:21 | 303 |     347.911µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:05:21 | 200 |     328.146µs |   192.168.1.102 | GET      "/"
+[GIN] 2024/03/07 - 11:29:03 | 200 |   21.247675ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:26 | 200 |     313.731µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:29:08 | 200 |   19.281575ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:30 | 200 |    2.311524ms |   192.168.1.102 | GET      "/host"
+[GIN] 2024/03/07 - 11:29:08 | 200 |   20.370116ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:30 | 200 |     280.919µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:05:30 | 303 |     229.141µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:05:30 | 200 |     663.361µs |   192.168.1.102 | GET      "/"
+[GIN] 2024/03/07 - 11:29:14 | 200 |   20.696761ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:32 | 200 |     249.008µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:29:14 | 200 |    21.60313ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
+[GIN] 2024/03/07 - 11:29:16 | 200 | 15.863197888s |   192.168.1.102 | GET      "/ws?container_name=upbeat_liskov"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:35 | 200 |    1.370576ms |   192.168.1.102 | GET      "/host"
+[GIN] 2024/03/07 - 11:29:19 | 200 |   21.632083ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:35 | 200 |     229.977µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:05:35 | 303 |     129.896µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:05:35 | 200 |     400.076µs |   192.168.1.102 | GET      "/"
+[GIN] 2024/03/07 - 11:29:19 | 200 |   22.442309ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:36 | 200 |     2.08471ms |   192.168.1.102 | GET      "/host"
+[GIN] 2024/03/07 - 11:29:24 | 200 |   21.841029ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:36 | 200 |     299.652µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:05:36 | 303 |     124.631µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:05:36 | 200 |    1.055078ms |   192.168.1.102 | GET      "/"
+[GIN] 2024/03/07 - 11:29:24 | 200 |    22.55172ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:36 | 200 |     2.35254ms |   192.168.1.102 | GET      "/host"
+[GIN] 2024/03/07 - 11:29:30 | 200 |   30.513628ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:36 | 200 |      243.33µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:05:36 | 303 |     190.427µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:05:36 | 200 |     869.561µs |   192.168.1.102 | GET      "/"
+[GIN] 2024/03/07 - 11:29:30 | 200 |   31.411591ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:36 | 200 |    2.362831ms |   192.168.1.102 | GET      "/host"
+[GIN] 2024/03/07 - 11:29:35 | 200 |   18.230342ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:36 | 200 |       373.6µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:05:36 | 303 |     276.553µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:05:36 | 200 |    1.282756ms |   192.168.1.102 | GET      "/"
+[GIN] 2024/03/07 - 11:29:35 | 200 |   19.165693ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:36 | 200 |     2.02401ms |   192.168.1.102 | GET      "/host"
+[GIN] 2024/03/07 - 11:29:41 | 200 |   17.846428ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:36 | 200 |      469.49µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:05:36 | 303 |     300.748µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:05:36 | 200 |     596.581µs |   192.168.1.102 | GET      "/"
+[GIN] 2024/03/07 - 11:29:41 | 200 |   18.576692ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:37 | 200 |     2.81056ms |   192.168.1.102 | GET      "/host"
+[GIN] 2024/03/07 - 11:29:46 | 200 |    20.02507ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:37 | 200 |     288.585µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:05:37 | 303 |     173.506µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:05:37 | 200 |     957.952µs |   192.168.1.102 | GET      "/"
+[GIN] 2024/03/07 - 11:29:46 | 200 |   21.223672ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:37 | 200 |    1.822906ms |   192.168.1.102 | GET      "/host"
+[GIN] 2024/03/07 - 11:29:52 | 200 |   19.467992ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:37 | 200 |     343.692µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:05:37 | 303 |     253.101µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:05:37 | 200 |    1.059458ms |   192.168.1.102 | GET      "/"
+[GIN] 2024/03/07 - 11:29:52 | 200 |   20.334076ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:37 | 200 |    2.021372ms |   192.168.1.102 | GET      "/host"
+[GIN] 2024/03/07 - 11:29:57 | 200 |   27.183672ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:37 | 200 |     392.289µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:05:37 | 303 |     164.712µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:05:37 | 200 |     501.932µs |   192.168.1.102 | GET      "/"
+[GIN] 2024/03/07 - 11:29:57 | 200 |   27.945045ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:37 | 200 |     1.03594ms |   192.168.1.102 | GET      "/host"
+[GIN] 2024/03/07 - 11:30:02 | 200 |   18.910317ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:37 | 200 |     339.629µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:05:37 | 303 |     288.127µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:05:37 | 200 |    1.449623ms |   192.168.1.102 | GET      "/"
+[GIN] 2024/03/07 - 11:30:02 | 200 |   19.619346ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:37 | 200 |     355.816µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:30:08 | 200 |   18.471013ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:43 | 200 |     363.503µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:30:08 | 200 |   19.332767ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:43 | 200 |     366.077µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:30:13 | 200 |   19.577351ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:48 | 200 |     296.064µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:30:13 | 200 |   20.483115ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:48 | 200 |     184.318µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:30:19 | 200 |   20.139032ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:53 | 200 |     305.325µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:30:19 | 200 |   21.051966ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:54 | 200 |     273.297µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:30:24 | 200 |   18.840871ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:59 | 200 |     395.137µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:30:24 | 200 |   19.655452ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:05:59 | 200 |     276.703µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:05:59 | 200 |  36.89805992s |   192.168.1.102 | GET      "/ws?path=logs/gin.log"
+[GIN] 2024/03/07 - 11:30:30 | 200 |     36.3123ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:06:04 | 200 |     300.883µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:30:30 | 200 |   39.038052ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:06:04 | 200 |     320.558µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:30:35 | 200 |     18.3215ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:06:10 | 200 |     316.754µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:30:35 | 200 |   19.396669ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:06:10 | 200 |      389.64µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:30:40 | 200 |   38.331748ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:06:15 | 200 |     328.144µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:30:40 | 200 |   41.006595ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:06:15 | 200 |     427.796µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:30:45 | 200 |    1.364891ms |   192.168.1.102 | GET      "/docker"
+[GIN] 2024/03/07 - 11:30:45 | 303 |     186.161µs |   192.168.1.102 | GET      "/favicon.ico"
+[GIN] 2024/03/07 - 11:30:45 | 200 |    1.512856ms |   192.168.1.102 | GET      "/"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:06:20 | 200 |     491.414µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:30:45 | 200 |   24.221204ms |   192.168.1.109 | GET      "/api/v1/docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:06:21 | 200 |     365.118µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:30:45 | 200 |   25.017051ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:06:26 | 200 |      335.91µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:30:46 | 200 |    1.073578ms |   192.168.1.102 | GET      "/service"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:06:26 | 200 |     213.485µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:30:46 | 200 |   43.193717ms |   192.168.1.109 | GET      "/api/v1/service"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:06:31 | 200 |      371.23µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:30:46 | 200 |   44.111635ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
+[GIN] 2024/03/07 - 11:30:46 | 303 |     116.718µs |   192.168.1.102 | GET      "/favicon.ico"
+[GIN] 2024/03/07 - 11:30:46 | 200 |     432.134µs |   192.168.1.102 | GET      "/"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:06:31 | 200 |     311.135µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:30:51 | 200 |   37.788623ms |   192.168.1.109 | GET      "/api/v1/service"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:06:37 | 200 |     256.178µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:30:51 | 200 |   40.908699ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
+[GIN] 2024/03/07 - 11:30:55 | 200 |  4.495048171s |   192.168.1.102 | GET      "/ws?path=crond.service"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:06:42 | 200 |     289.477µs |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:30:57 | 200 |   41.003536ms |   192.168.1.109 | GET      "/api/v1/service"
 [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:06:48 | 200 |     263.644µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:06:53 | 200 |     314.081µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:06:58 | 200 |     242.483µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:07:04 | 200 |     291.129µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:07:09 | 200 |     263.165µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:07:09 | 200 |     274.816µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:07:15 | 200 |     285.687µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:07:20 | 200 |     266.716µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:07:25 | 200 |     445.907µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:07:31 | 200 |     294.377µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:07:36 | 200 |     307.866µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:07:42 | 200 |     471.466µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:07:47 | 200 |     437.858µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:07:53 | 200 |     346.342µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:07:54 | 200 |    2.307986ms |   192.168.1.102 | GET      "/host"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:07:54 | 200 |     327.418µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:07:54 | 303 |     273.138µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:07:54 | 200 |     629.242µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:07:55 | 200 |    1.666291ms |   192.168.1.102 | GET      "/service"
-[GIN] 2024/03/07 - 07:07:55 | 303 |     183.962µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:07:55 | 200 |     578.763µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:07:55 | 200 |   41.208783ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:07:55 | 200 |   42.849068ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:07:57 | 200 |     819.739µs |   192.168.1.102 | GET      "/docker"
-[GIN] 2024/03/07 - 07:07:57 | 200 |     120.387µs |   192.168.1.102 | GET      "/static/docker.css"
-[GIN] 2024/03/07 - 07:07:57 | 303 |     395.492µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:07:57 | 200 |     675.828µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:07:57 | 200 |   18.874567ms |   192.168.1.109 | GET      "/api/v1/docker"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:07:57 | 200 |   19.923956ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:07:59 | 200 |     674.085µs |   192.168.1.102 | GET      "/service"
-[GIN] 2024/03/07 - 07:07:59 | 303 |     189.702µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:07:59 | 200 |     666.469µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:07:59 | 200 |   52.729177ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:07:59 | 200 |    53.94429ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:04 | 200 |   34.605401ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:04 | 200 |   35.636064ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:06 | 200 |     994.807µs |   192.168.1.102 | GET      "/service"
-[GIN] 2024/03/07 - 07:08:06 | 303 |     124.006µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:08:06 | 200 |      707.09µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:06 | 200 |    37.83401ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:06 | 200 |   38.819951ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:08 | 200 |    1.579356ms |   192.168.1.102 | GET      "/host"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:08 | 200 |     225.997µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:08:08 | 303 |     212.844µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:08:08 | 200 |      18.501ms |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:09 | 200 |    2.002845ms |   192.168.1.102 | GET      "/service"
-[GIN] 2024/03/07 - 07:08:09 | 303 |     321.584µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:08:09 | 200 |     676.695µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:09 | 200 |    37.40426ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:09 | 200 |   38.391044ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:14 | 200 |   44.613812ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:14 | 200 |   45.301597ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:14 | 200 |     271.584µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:19 | 200 |    42.95095ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:19 | 200 |   43.697546ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:25 | 200 |   34.938993ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:25 | 200 |   35.767117ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:26 | 200 |    2.209533ms |   192.168.1.102 | GET      "/host"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:26 | 200 |     264.209µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:08:26 | 303 |     288.138µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:08:26 | 200 |     454.181µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:27 | 200 |     721.033µs |   192.168.1.102 | GET      "/service"
-[GIN] 2024/03/07 - 07:08:27 | 303 |     124.441µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:08:27 | 200 |    1.405677ms |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:27 | 200 |   35.096644ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:27 | 200 |   36.181609ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:32 | 200 |   51.716814ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:32 | 200 |   53.273297ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:38 | 200 |   34.650547ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:38 | 200 |   35.984742ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:44 | 200 |   34.938062ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:44 | 200 |   35.736449ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:49 | 200 |   48.774993ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:49 | 200 |   51.567774ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:55 | 200 |   35.498409ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:08:55 | 200 |   37.411429ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:09:00 | 200 |   33.515444ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:09:00 | 200 |   35.196494ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:09:05 | 200 |    33.93824ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:09:05 | 200 |   34.899203ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:09:11 | 200 |   37.978477ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:09:11 | 200 |   39.897656ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:09:16 | 200 |   33.167955ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:09:16 | 200 |   34.786411ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:09:19 | 200 |     257.679µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:09:22 | 200 |   35.752577ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:09:22 | 200 |   36.606361ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:09:27 | 200 |   39.687267ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:09:27 | 200 |   40.369295ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:09:32 | 200 |   31.831437ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:09:32 | 200 |   32.848677ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:09:37 | 200 |    42.75646ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:09:37 | 200 |   43.866382ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:09:43 | 200 |   33.147583ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:09:43 | 200 |    33.93317ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:09:48 | 200 |   39.824554ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:09:48 | 200 |   41.984408ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:09:54 | 200 |   32.883487ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:09:54 | 200 |   33.907298ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:09:59 | 200 |   41.128469ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:09:59 | 200 |   43.385801ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:05 | 200 |   78.944534ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:05 | 200 |   82.218483ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:10 | 200 |   36.268631ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:10 | 200 |   37.063467ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:15 | 200 |   46.030803ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:15 | 200 |   48.682111ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:21 | 200 |   34.881703ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:21 | 200 |    35.69976ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:24 | 200 |     400.155µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:26 | 200 |   39.420348ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:26 | 200 |   42.914724ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:32 | 200 |   44.816499ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:32 | 200 |   47.980333ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:37 | 200 |    1.259226ms |   192.168.1.102 | GET      "/host"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:37 | 200 |     248.846µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:10:37 | 303 |     123.181µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:10:37 | 200 |    1.179766ms |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:39 | 200 |     749.645µs |   192.168.1.102 | GET      "/service"
-[GIN] 2024/03/07 - 07:10:39 | 303 |     211.451µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:10:39 | 200 |     520.125µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:39 | 200 |   47.284125ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:39 | 200 |   48.122291ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:39 | 200 |     779.706µs |   192.168.1.102 | GET      "/docker"
-[GIN] 2024/03/07 - 07:10:39 | 303 |     171.071µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:10:39 | 200 |     889.845µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:39 | 200 |   16.654787ms |   192.168.1.109 | GET      "/api/v1/docker"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:39 | 200 |   17.521992ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:40 | 200 |    1.876187ms |   192.168.1.102 | GET      "/index"
-[GIN] 2024/03/07 - 07:10:40 | 303 |     166.188µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:10:40 | 200 |     659.846µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:41 | 200 |    1.555086ms |   192.168.1.102 | GET      "/docker-compose"
-[GIN] 2024/03/07 - 07:10:41 | 200 |       81.24µs |   192.168.1.102 | GET      "/static/docker-compose.css"
-[GIN] 2024/03/07 - 07:10:41 | 200 |     160.656µs |   192.168.1.102 | GET      "/static/js-yaml.min.js"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:41 | 200 |     574.067µs |   192.168.1.102 | GET      "/api/v1/docker_compose"
-[GIN] 2024/03/07 - 07:10:41 | 303 |     191.045µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:10:41 | 200 |     158.086µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:42 | 200 |    1.303626ms |   192.168.1.102 | GET      "/logs"
-[GIN] 2024/03/07 - 07:10:42 | 404 |      55.392µs |   192.168.1.102 | GET      "/static/script.js"
-[GIN] 2024/03/07 - 07:10:42 | 303 |      137.38µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:10:42 | 200 |     661.203µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:43 | 200 |    1.827477ms |   192.168.1.102 | GET      "/check"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:43 | 200 |     256.597µs |   192.168.1.102 | GET      "/api/v1/getpacket?status=true"
-[GIN] 2024/03/07 - 07:10:43 | 303 |     238.678µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:10:43 | 200 |     792.088µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:44 | 200 |    1.525953ms |   192.168.1.102 | GET      "/feedback"
-[GIN] 2024/03/07 - 07:10:44 | 200 |      77.117µs |   192.168.1.102 | GET      "/static/feedback.css"
-[GIN] 2024/03/07 - 07:10:45 | 303 |     146.506µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:10:45 | 200 |     711.859µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:46 | 200 |     673.793µs |   192.168.1.102 | GET      "/service"
-[GIN] 2024/03/07 - 07:10:46 | 303 |     103.551µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:10:46 | 200 |    1.494828ms |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:46 | 200 |   36.248009ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:46 | 200 |   37.100164ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:46 | 200 |    1.025586ms |   192.168.1.102 | GET      "/host"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:46 | 200 |     395.268µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:10:46 | 303 |     202.569µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:10:46 | 200 |     765.928µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:47 | 200 |     709.689µs |   192.168.1.102 | GET      "/service"
-[GIN] 2024/03/07 - 07:10:47 | 303 |      238.16µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:10:47 | 200 |     605.949µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:47 | 200 |   37.721787ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:47 | 200 |   38.473194ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:48 | 200 |     934.606µs |   192.168.1.102 | GET      "/docker"
-[GIN] 2024/03/07 - 07:10:48 | 303 |      297.31µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:10:48 | 200 |    1.050234ms |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:48 | 200 |   21.880384ms |   192.168.1.109 | GET      "/api/v1/docker"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:48 | 200 |   22.755989ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:49 | 200 |    2.064895ms |   192.168.1.102 | GET      "/index"
-[GIN] 2024/03/07 - 07:10:49 | 303 |      149.69µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:10:49 | 200 |    1.056462ms |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:49 | 200 |    1.705046ms |   192.168.1.102 | GET      "/docker-compose"
-[GIN] 2024/03/07 - 07:10:49 | 303 |      165.83µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:49 | 200 |    9.806409ms |   192.168.1.102 | GET      "/api/v1/docker_compose"
-[GIN] 2024/03/07 - 07:10:49 | 200 |    2.048213ms |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:51 | 200 |    2.295325ms |   192.168.1.102 | GET      "/host"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:51 | 200 |     283.331µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:10:51 | 303 |     306.442µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:10:51 | 200 |      861.33µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:52 | 200 |    2.228421ms |   192.168.1.102 | GET      "/service"
-[GIN] 2024/03/07 - 07:10:52 | 303 |     275.646µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:10:52 | 200 |    1.139117ms |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:52 | 200 |   37.323304ms |   192.168.1.109 | GET      "/api/v1/service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:52 | 200 |   38.180572ms |   192.168.1.102 | GET      "/api/v1/cluster_service"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:54 | 200 |     1.77728ms |   192.168.1.102 | GET      "/host"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:10:54 | 200 |     385.012µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:10:54 | 303 |     236.086µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:10:54 | 200 |    1.423521ms |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:00 | 200 |     385.378µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:11:02 | 200 |  5.543159924s |   192.168.1.102 | GET      "/ws?path=logs/gin.log"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:05 | 200 |     292.262µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:05 | 200 |    1.470414ms |   192.168.1.102 | GET      "/host"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:05 | 200 |     233.346µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:11:05 | 303 |     121.485µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:11:05 | 200 |    3.952381ms |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:07 | 200 |     868.715µs |   192.168.1.102 | GET      "/docker"
-[GIN] 2024/03/07 - 07:11:07 | 303 |     294.635µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:11:07 | 200 |     740.232µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:07 | 200 |    17.88805ms |   192.168.1.109 | GET      "/api/v1/docker"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:07 | 200 |   18.748599ms |   192.168.1.102 | GET      "/api/v1/cluster_docker"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:09 | 200 |     811.864µs |   192.168.1.102 | GET      "/host"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:09 | 200 |      254.05µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:11:09 | 303 |     205.259µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:11:09 | 200 |      398.42µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:14 | 200 |     298.033µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:11:18 | 200 |  5.367885771s |   192.168.1.102 | GET      "/ws?path=logs/gin.log"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:20 | 200 |     356.253µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:25 | 200 |     237.122µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:29 | 200 |      1.5975ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:30 | 200 |       286.9µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:35 | 200 |    2.050105ms |   192.168.1.102 | GET      "/host"
-[GIN] 2024/03/07 - 07:11:35 | 200 | 17.011062231s |   192.168.1.102 | GET      "/ws?path=logs/gin.log"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:35 | 200 |     280.326µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:11:35 | 303 |     316.666µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:11:35 | 200 |     447.486µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:37 | 200 |    1.974834ms |   192.168.1.102 | GET      "/host"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:37 | 200 |     346.469µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:11:37 | 303 |     177.779µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:11:37 | 200 |     8.50708ms |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:37 | 200 |    1.093287ms |   192.168.1.102 | GET      "/host"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:37 | 200 |     323.888µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:11:37 | 303 |     247.438µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:11:37 | 200 |    1.240831ms |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:37 | 200 |     912.265µs |   192.168.1.102 | GET      "/host"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:37 | 200 |     239.244µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:11:37 | 303 |     363.253µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:11:37 | 200 |     698.941µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:38 | 200 |    1.914241ms |   192.168.1.102 | GET      "/host"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:38 | 200 |     283.058µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:11:38 | 303 |     234.831µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:11:38 | 200 |     348.131µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:38 | 200 |    1.961945ms |   192.168.1.102 | GET      "/host"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:38 | 200 |       330.2µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:11:38 | 303 |     149.101µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:11:38 | 200 |     767.173µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:38 | 200 |     842.032µs |   192.168.1.102 | GET      "/host"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:38 | 200 |     403.187µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:11:38 | 303 |     248.065µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:11:38 | 200 |     515.597µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:38 | 200 |    2.000854ms |   192.168.1.102 | GET      "/host"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:38 | 200 |     194.555µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:11:38 | 303 |      140.88µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:11:38 | 200 |     315.418µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:38 | 200 |    1.460441ms |   192.168.1.102 | GET      "/host"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:38 | 200 |     297.272µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:11:38 | 303 |     224.741µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:11:38 | 200 |     363.013µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:39 | 200 |    2.645999ms |   192.168.1.102 | GET      "/host"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:39 | 200 |     303.567µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:11:39 | 303 |     139.092µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:11:39 | 200 |     349.715µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:39 | 200 |    1.794608ms |   192.168.1.102 | GET      "/host"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:39 | 200 |     353.472µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:11:39 | 303 |     185.954µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:11:39 | 200 |    1.356868ms |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:44 | 200 |     247.691µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:46 | 200 |     903.479µs |   192.168.1.102 | GET      "/index"
-[GIN] 2024/03/07 - 07:11:46 | 303 |     177.556µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:11:46 | 200 |     200.017µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:49 | 200 |    1.634224ms |   192.168.1.102 | GET      "/host"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:49 | 200 |     402.207µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:11:49 | 303 |     203.204µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:11:49 | 200 |     488.277µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:49 | 200 |    1.482515ms |   192.168.1.102 | GET      "/host"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:49 | 200 |     297.117µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:11:49 | 303 |     232.095µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:11:49 | 200 |    15.82999ms |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:49 | 200 |    1.579997ms |   192.168.1.102 | GET      "/host"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:49 | 303 |      160.31µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:11:49 | 200 |     324.535µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:11:49 | 200 |     749.325µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:50 | 200 |    2.314034ms |   192.168.1.102 | GET      "/host"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:50 | 200 |     451.277µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:11:50 | 303 |     195.563µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:11:50 | 200 |     163.248µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:50 | 200 |    1.806255ms |   192.168.1.102 | GET      "/host"
-[GIN] 2024/03/07 - 07:11:50 | 303 |      89.298µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:50 | 200 |     885.489µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:11:50 | 200 |     325.041µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:50 | 200 |     417.388µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:50 | 200 |    2.453955ms |   192.168.1.102 | GET      "/host"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:50 | 200 |     366.902µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:11:50 | 303 |     139.211µs |   192.168.1.102 | GET      "/favicon.ico"
-[GIN] 2024/03/07 - 07:11:50 | 200 |     939.039µs |   192.168.1.102 | GET      "/"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:55 | 200 |     329.756µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:11:56 | 200 |    1.106092ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:12:01 | 200 |     225.223µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:12:01 | 200 |     262.186µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:12:06 | 200 |     306.768µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:12:06 | 200 |     343.479µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN] 2024/03/07 - 07:12:09 | 200 | 28.196822067s |   192.168.1.102 | GET      "/ws?path=logs/gin.log"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:12:12 | 200 |     320.849µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:12:12 | 200 |     917.375µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:12:17 | 200 |     259.425µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:12:17 | 200 |    1.685214ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:12:22 | 200 |     354.717µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:12:23 | 200 |     400.553µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:12:28 | 200 |     279.265µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:12:28 | 200 |    2.159805ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:12:33 | 200 |     274.142µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:12:34 | 200 |     1.45762ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:12:34 | 200 |     353.994µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:12:39 | 200 |     277.282µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:12:39 | 200 |    1.465948ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:12:44 | 200 |     224.556µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:12:44 | 200 |    1.467623ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:12:50 | 200 |     319.025µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:12:50 | 200 |     355.205µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:12:55 | 200 |     554.609µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:13:01 | 200 |     194.233µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:13:06 | 200 |     282.231µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:13:11 | 200 |     220.479µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:13:17 | 200 |     1.92223ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:13:22 | 200 |    1.380659ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:13:28 | 200 |    2.948405ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:13:33 | 200 |    1.571556ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:13:39 | 200 |    1.926322ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:13:39 | 200 |     317.937µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:13:39 | 200 |      305.92µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:13:44 | 200 |    1.752862ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:13:49 | 200 |     727.406µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:13:55 | 200 |     332.759µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:14:00 | 200 |    1.598653ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:14:06 | 200 |     235.999µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:14:11 | 200 |     294.307µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:14:16 | 200 |    1.392942ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:14:22 | 200 |     390.626µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:14:27 | 200 |    2.530403ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:14:33 | 200 |     369.422µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:14:38 | 200 |     596.277µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:14:44 | 200 |     353.977µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:14:44 | 200 |     425.021µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:14:44 | 200 |     293.726µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:14:49 | 200 |     505.025µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:14:54 | 200 |     275.508µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:15:00 | 200 |     439.606µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:15:05 | 200 |     264.526µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:15:11 | 200 |     301.229µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:15:16 | 200 |    2.001152ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:15:21 | 200 |    1.391528ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:15:27 | 200 |     351.465µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:15:32 | 200 |     440.963µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:15:38 | 200 |     244.758µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:15:43 | 200 |    1.356899ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:15:49 | 200 |    1.681871ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:15:49 | 200 |     283.664µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:15:49 | 200 |     271.071µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:15:54 | 200 |      561.36µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:15:59 | 200 |     305.044µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:16:05 | 200 |    1.617308ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:16:10 | 200 |    1.657435ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:16:16 | 200 |     314.573µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:16:21 | 200 |     347.377µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:16:26 | 200 |    1.195261ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:16:32 | 200 |     290.699µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:16:37 | 200 |    1.557465ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:16:43 | 200 |    2.020258ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:16:48 | 200 |    1.209037ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:16:54 | 200 |     1.43194ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:16:54 | 200 |     386.455µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:16:54 | 200 |     391.178µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:16:59 | 200 |     337.494µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:17:04 | 200 |     320.772µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:17:10 | 200 |     258.563µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:17:15 | 200 |     371.726µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:17:21 | 200 |      467.94µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:17:26 | 200 |     255.779µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:17:31 | 200 |    1.937818ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:17:37 | 200 |    1.297787ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:17:42 | 200 |    1.855546ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:17:48 | 200 |    1.597136ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:17:53 | 200 |    1.175814ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:17:59 | 200 |     1.76447ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:17:59 | 200 |     480.689µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:17:59 | 200 |     356.708µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:18:04 | 200 |    1.521009ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:18:09 | 200 |     389.695µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:18:15 | 200 |    1.880345ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:18:20 | 200 |     299.355µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:18:26 | 200 |     1.37679ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:18:31 | 200 |    1.769448ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:18:36 | 200 |     318.597µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:18:42 | 200 |     263.559µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:18:47 | 200 |    1.023071ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:18:53 | 200 |    1.285022ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:18:58 | 200 |    1.595711ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:19:04 | 200 |     395.329µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:19:04 | 200 |     265.394µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:19:04 | 200 |     377.579µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:19:09 | 200 |    2.383598ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:19:14 | 200 |     293.332µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:19:20 | 200 |     253.768µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:19:25 | 200 |     251.509µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:19:31 | 200 |    1.884136ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:19:36 | 200 |    1.132817ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:19:41 | 200 |    1.407956ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:19:47 | 200 |    1.893031ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:19:52 | 200 |     251.019µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:19:58 | 200 |    1.523899ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:20:03 | 200 |    2.017774ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:20:09 | 200 |    1.529789ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:20:09 | 200 |         141ns |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:20:09 | 200 |     216.276µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:20:14 | 200 |    1.792122ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:20:19 | 200 |      575.43µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:20:25 | 200 |    1.401695ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:20:30 | 200 |     337.094µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:20:36 | 200 |    1.234908ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:20:41 | 200 |     628.376µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:20:46 | 200 |    2.275151ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:20:52 | 200 |    1.142937ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:20:57 | 200 |     487.476µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:21:03 | 200 |     292.164µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:21:08 | 200 |     201.449µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:21:14 | 200 |     241.278µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:21:14 | 200 |      314.64µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:21:14 | 200 |     450.406µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:21:19 | 200 |    1.829137ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:21:24 | 200 |     560.434µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:21:30 | 200 |     291.171µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:21:35 | 200 |     663.833µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:21:41 | 200 |    1.592004ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:21:46 | 200 |     1.75671ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:21:51 | 200 |    1.618674ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:21:57 | 200 |     331.681µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:22:02 | 200 |    1.646224ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:22:08 | 200 |      308.85µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:22:13 | 200 |      252.04µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:22:19 | 200 |    1.911654ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:22:19 | 200 |     311.137µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:22:19 | 200 |     302.193µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:22:24 | 200 |     278.002µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:22:29 | 200 |    1.466999ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:22:35 | 200 |     567.266µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:22:40 | 200 |    1.740342ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:22:46 | 200 |    1.818937ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:22:51 | 200 |     774.476µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:22:57 | 200 |     412.952µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:23:03 | 200 |     352.807µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:23:08 | 200 |     300.006µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:23:14 | 200 |     344.814µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:23:19 | 200 |     352.539µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:23:24 | 200 |     336.992µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:23:24 | 200 |      286.37µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:23:24 | 200 |     450.705µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:23:30 | 200 |     272.363µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:23:35 | 200 |     268.791µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:23:41 | 200 |     192.124µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:23:46 | 200 |     311.136µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:23:51 | 200 |     529.957µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:23:57 | 200 |     435.585µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:24:02 | 200 |     257.738µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:24:29 | 200 |     326.279µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:24:29 | 200 |     333.465µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:24:29 | 200 |     346.061µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:25:34 | 200 |     364.953µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:25:34 | 200 |      271.89µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:25:34 | 200 |     279.159µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:26:39 | 200 |     277.679µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:26:39 | 200 |     200.082µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:26:39 | 200 |     216.119µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:27:44 | 200 |      304.87µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:27:44 | 200 |     244.198µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:27:44 | 200 |     232.806µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:28:49 | 200 |     278.085µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:28:49 | 200 |     397.309µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:28:49 | 200 |     334.367µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:29:54 | 200 |     343.007µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:29:54 | 200 |     319.029µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:29:54 | 200 |     226.604µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:30:59 | 200 |     353.725µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:30:59 | 200 |     284.326µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:30:59 | 200 |     399.459µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:32:04 | 200 |      345.02µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:32:04 | 200 |     240.776µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:32:04 | 200 |     238.421µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:33:09 | 200 |     342.655µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:33:09 | 200 |     305.423µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:33:09 | 200 |     325.973µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:34:14 | 200 |     550.472µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:34:14 | 200 |     468.248µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:34:14 | 200 |     530.287µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:35:19 | 200 |      259.62µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:35:19 | 200 |     247.003µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:35:19 | 200 |     272.266µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:36:24 | 200 |     338.571µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:36:24 | 200 |     239.321µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:36:24 | 200 |     419.499µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:37:29 | 200 |     370.781µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:37:29 | 200 |     308.695µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:37:29 | 200 |     303.938µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:38:34 | 200 |     439.553µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:38:34 | 200 |     312.453µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:38:34 | 200 |     229.454µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:39:39 | 200 |     318.827µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:39:39 | 200 |     259.929µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:39:39 | 200 |     278.447µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:40:44 | 200 |     278.725µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:40:44 | 200 |     349.642µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:40:44 | 200 |     309.283µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:41:49 | 200 |      357.19µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:41:49 | 200 |     267.905µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:41:49 | 200 |      298.54µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:42:54 | 200 |     304.364µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:42:54 | 200 |     325.051µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:42:54 | 200 |     319.318µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:43:59 | 200 |     278.485µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:43:59 | 200 |     288.714µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:43:59 | 200 |     351.647µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:45:04 | 200 |     229.703µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:45:04 | 200 |     343.585µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:45:04 | 200 |     311.125µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:45:54 | 200 |     300.596µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:45:58 | 200 |     364.801µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:46:03 | 200 |     748.809µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:46:09 | 200 |     464.563µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:46:09 | 200 |     301.316µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:46:09 | 200 |     280.653µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:46:14 | 200 |    1.492023ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:46:19 | 200 |     806.099µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:46:25 | 200 |     491.971µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:46:30 | 200 |     285.246µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:46:36 | 200 |     252.135µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:46:41 | 200 |    1.339591ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:46:46 | 200 |    2.693969ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:46:52 | 200 |    1.613436ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:46:57 | 200 |    1.545641ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:47:03 | 200 |    1.636083ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:47:08 | 200 |    1.598214ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:47:14 | 200 |     618.497µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:47:14 | 200 |      297.37µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:47:14 | 200 |     486.919µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:47:19 | 200 |    1.214527ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:47:24 | 200 |     352.791µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:47:30 | 200 |     708.337µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:47:35 | 200 |    1.156395ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:47:41 | 200 |    1.332288ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:47:46 | 200 |    2.704298ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:47:51 | 200 |     231.258µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:47:57 | 200 |    1.906031ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:48:02 | 200 |     1.89378ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:48:08 | 200 |     308.385µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:48:13 | 200 |     428.373µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:48:19 | 200 |    1.622884ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:48:19 | 200 |     271.282µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:48:19 | 200 |     283.821µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:48:24 | 200 |    1.489129ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:48:29 | 200 |    1.607962ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:48:35 | 200 |    1.671156ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:48:40 | 200 |    1.717279ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:48:46 | 200 |    1.463891ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:48:51 | 200 |    1.460308ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:48:56 | 200 |    1.408034ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:49:02 | 200 |    1.593293ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:49:07 | 200 |     412.807µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:49:13 | 200 |     245.061µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:49:18 | 200 |    1.060592ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:49:24 | 200 |     225.397µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:49:24 | 200 |     217.827µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:49:24 | 200 |     227.272µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:49:29 | 200 |    1.318325ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:49:34 | 200 |    5.124111ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:49:40 | 200 |    1.212285ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:49:45 | 200 |    1.500334ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:49:51 | 200 |    1.897448ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:49:56 | 200 |    1.715285ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:50:01 | 200 |    1.252282ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:50:07 | 200 |    1.527615ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:50:12 | 200 |     1.14542ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:50:18 | 200 |    1.169844ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:50:23 | 200 |    1.251881ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:50:29 | 200 |     359.671µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:50:29 | 200 |     342.551µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:50:29 | 200 |     259.809µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:50:34 | 200 |    1.402235ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:50:39 | 200 |     269.945µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:50:45 | 200 |     401.393µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:50:50 | 200 |     367.143µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:50:56 | 200 |    1.758854ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:51:01 | 200 |    1.747979ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:51:06 | 200 |    1.451284ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:51:12 | 200 |     407.251µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:51:17 | 200 |     311.656µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:51:23 | 200 |     496.321µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:51:28 | 200 |    2.601435ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:51:34 | 200 |    1.369616ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:51:34 | 200 |     370.246µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:51:34 | 200 |     296.814µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:51:39 | 200 |     1.47105ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:51:44 | 200 |    1.338816ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:51:50 | 200 |    2.019998ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:51:55 | 200 |    1.668857ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:52:01 | 200 |     510.295µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:52:06 | 200 |     224.461µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:52:11 | 200 |    1.544596ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:52:17 | 200 |     404.108µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:52:22 | 200 |     652.746µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:52:28 | 200 |     274.847µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:52:33 | 200 |    1.395088ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:52:39 | 200 |     308.012µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:52:39 | 200 |     207.208µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:52:39 | 200 |     313.357µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:52:44 | 200 |     285.488µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:52:49 | 200 |    1.781325ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:52:55 | 200 |    1.462872ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:53:00 | 200 |     2.10319ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:53:06 | 200 |    2.499498ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:53:11 | 200 |    1.269786ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:53:16 | 200 |    1.685038ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:53:22 | 200 |     211.966µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:53:27 | 200 |    1.387647ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:53:33 | 200 |     294.144µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:53:38 | 200 |    1.692064ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:53:44 | 200 |    1.926104ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:53:44 | 200 |     325.307µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:53:44 | 200 |     242.887µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:53:49 | 200 |    2.314907ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:53:54 | 200 |     824.547µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:54:00 | 200 |     271.494µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:54:05 | 200 |    1.994337ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:54:11 | 200 |     267.047µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:54:16 | 200 |     570.228µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:54:21 | 200 |     454.349µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:54:27 | 200 |     210.211µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:54:32 | 200 |    1.518579ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:54:38 | 200 |     329.865µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:54:43 | 200 |    1.401147ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:54:49 | 200 |    1.375619ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:54:49 | 200 |     361.645µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:54:49 | 200 |     366.074µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:54:54 | 200 |      423.03µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:54:59 | 200 |    2.039251ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:55:05 | 200 |    1.406936ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:55:10 | 200 |    1.784745ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:55:16 | 200 |     222.847µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:55:21 | 200 |    1.183816ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:55:26 | 200 |     432.727µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:55:32 | 200 |     314.408µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:55:37 | 200 |    1.723517ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:55:43 | 200 |     919.203µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:55:48 | 200 |    1.034234ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:55:54 | 200 |    1.566183ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:55:54 | 200 |     234.695µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:55:54 | 200 |      348.16µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:55:59 | 200 |    1.280102ms |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:56:04 | 200 |     672.009µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:56:10 | 200 |     221.304µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:56:15 | 200 |     855.531µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:56:21 | 200 |     438.478µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:56:26 | 200 |     674.318µs |   192.168.1.102 | GET      "/api/v1/serverlist"
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
-[GIN] 2024/03/07 - 07:56:31 | 200 |    1.827987ms |   192.168.1.102 | GET      "/api/v1/serverlist"
+[GIN] 2024/03/07 - 11:30:57 | 200 |   42.195407ms |   192.168.1.102 | GET      "/api/v1/cluster_service"

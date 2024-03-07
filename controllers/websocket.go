@@ -26,9 +26,17 @@ func (u *Server) LogsHandler(c *gin.Context) {
 	defer conn.Close()
 
 	path := c.Query("path")
-	fmt.Println("Received parameter:", path)
 
-	cmd := exec.Command("tail", "-f", path)
+	container_name := c.Query("container_name")
+
+	cmd := exec.Command("")
+	if path != "" {
+		cmd = exec.Command("journalctl", "-u", path, "-f")
+
+	} else if container_name != "" {
+		cmd = exec.Command("docker", "logs", "--tail", "10", "-f", container_name)
+	}
+
 	stdout, err := cmd.StdoutPipe()
 	if err != nil {
 		fmt.Println("Error creating stdout pipe:", err)
