@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker Containers</title>
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+
+<body>
+
+    <h1>PIX Containers</h1>
+
+    <div class="container-wrapper">
+        <div class="container">
+            <div class="sidebar">
+                {{range .links}}
+                <a href="{{.href}}" class="{{.class}}">{{.text}}</a>
+                {{end}}
+            </div>
+        </div>
+
+        <div class="content" id="content">
+            <div>
+                <input type="text" id="pathInput" placeholder="Enter log path">
+                <button onclick="connectWebSocket()">Connect</button>
+                <button onclick="clearLogs()">Clear</button>
+            </div>
+            <pre id="logs"></pre>
+        </div>
+    </div>
+
+    <!-- 引用独立的JavaScript文件 -->
+    <script src="/static/script.js"></script>
+    <script>
+        let ws;
+
+        function connectWebSocket() {
+            const path = document.getElementById("pathInput").value;
+            ws = new WebSocket("ws://localhost:8080/ws?path=" + path);
+            ws.onmessage = function (event) {
+                const logs = document.getElementById("logs");
+                logs.textContent += event.data;
+                logs.scrollTop = logs.scrollHeight;
+            };
+        }
+
+        function clearLogs() {
+            document.getElementById("logs").textContent = "";
+            if (ws) {
+                ws.close();
+            }
+        }
+    </script>
+
+</body>
+
+</html>

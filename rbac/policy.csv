@@ -1,5 +1,6 @@
 p, admin, *, *
 
+p, readonlyuser, /ws, *
 p, readonlyuser, /dashboard, *
 p, readonlyuser, /docker, *
 p, readonlyuser, /index, *

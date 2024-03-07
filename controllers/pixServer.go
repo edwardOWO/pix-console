@@ -357,8 +357,14 @@ func StopPixComposeHandler(c *gin.Context) {
 
 // 使用者名稱和密碼（範例）
 
+// WebSocket 驗證
+func (u *Server) WebSocketAuthMiddleware(c *gin.Context) {
+
+}
+
 // JWT 驗證
 func (u *Server) JWTAuthMiddleware(c *gin.Context) {
+
 	// Try cookie-based authentication first
 	cookie, err := c.Request.Cookie("jwt")
 
@@ -376,10 +382,17 @@ func (u *Server) JWTAuthMiddleware(c *gin.Context) {
 
 	// 開始驗證
 	jwtClaims, status := u.utils.AuthJWTToken(bearerToken)
+
 	if status == true {
 		if u.utils.CasbinAuthMiddleware(c, jwtClaims["username"].(string)) {
 			c.Next()
 		}
+
+	}
+
+	if c.Request.URL.Path == "/ws" {
+		c.Next()
+		return
 	}
 
 	// 全通的 Tokken 只要是這組就直接放行

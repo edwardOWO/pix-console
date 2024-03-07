@@ -107,17 +107,26 @@ func main() {
 		})
 	})
 
+	// 設定 ws
+
 	// 使用者登入
 	m.router.POST("/login", c.LoginHandler)
 
 	// 使用者登出
 	m.router.GET("/logout", c.LogoutHandler)
 
+	m.router.Use(c.WebSocketAuthMiddleware)
 	// 驗證系統
 	m.router.Use(c.JWTAuthMiddleware)
 
+	m.router.GET("/ws", c.LogsHandler)
+
 	// 在介面上產生站台連結
 	PageLink := view.CreatePageLink()
+
+	m.router.GET("/logs", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "logs.html", PageLink)
+	})
 
 	m.router.GET("/index", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", PageLink)
