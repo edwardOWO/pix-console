@@ -11,6 +11,7 @@ type ServerMetaData struct {
 	ServiceStatus  uint64 `json:"service-status"`
 	ServerName     string `json:"servername"`
 	ServiceVersion string `json:"serviceversion"`
+	ExtEndPoint    string `json:"extenpoint"`
 }
 
 func (m ServerMetaData) Bytes() []byte {

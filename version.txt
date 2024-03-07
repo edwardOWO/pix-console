@@ -1,1 +1,1 @@
-pix-console-20240229-1.x86_64.rpm
+pix-console-20240307-1.x86_64.rpm

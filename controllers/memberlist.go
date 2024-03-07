@@ -148,7 +148,7 @@ func StartMemberlist(logger *log.Logger, file *os.File) (*memberlist.Memberlist,
 	msgCh := make(chan []byte)
 
 	d := &MyDelegate{
-		Meta:       models.ServerMetaData{Region: "ap-northeast-1", Zone: "1a", ShardId: 100, Weight: 0, ServiceVersion: common.Config.Version},
+		Meta:       models.ServerMetaData{Region: "ap-northeast-1", Zone: "1a", ShardId: 100, Weight: 0, ServiceVersion: common.Config.Version, ExtEndPoint: common.Config.ExtDomain},
 		MsgCh:      msgCh,
 		Broadcasts: new(memberlist.TransmitLimitedQueue),
 	}
@@ -241,6 +241,7 @@ func getMemberlistStatus(list *memberlist.Memberlist) []map[string]interface{} {
 
 		Status := "Down"
 		Version := "Unknown"
+		ExtEndPoint := "Unknown"
 		for _, node := range list.Members() {
 
 			if node.Addr.String() == ip {
@@ -251,20 +252,25 @@ func getMemberlistStatus(list *memberlist.Memberlist) []map[string]interface{} {
 					if Version == "" {
 						Version = "Unknown"
 					}
+					ExtEndPoint = string(meta.ExtEndPoint)
+					if ExtEndPoint == "" {
+						ExtEndPoint = "Unknown"
+					}
 				}
 
 			}
 		}
 
 		memberInfo := map[string]interface{}{
-			"HOST":      ip,
-			"CONTAINER": hostname,
-			"IMAGE":     Version,
-			"COMMAND":   "example-command",
-			"CREATED":   "1 weeks ago",
-			"STATUS":    Status,
-			"PORTS":     "8080/tcp",
-			"NAMES":     hostname,
+			"HOST":        ip,
+			"CONTAINER":   hostname,
+			"IMAGE":       Version,
+			"COMMAND":     "example-command",
+			"CREATED":     "1 weeks ago",
+			"STATUS":      Status,
+			"PORTS":       "8080/tcp",
+			"NAMES":       hostname,
+			"EXTENDPOINT": ExtEndPoint,
 		}
 		hostData = append(hostData, memberInfo)
 
