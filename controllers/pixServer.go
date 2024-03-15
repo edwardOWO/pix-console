@@ -831,19 +831,22 @@ func writeJSONToFile(data interface{}, filename string) error {
 
 	return nil
 }
-func ClusterDownloadFromStune(c *gin.Context) {
-
+func (u *Server) ClusterDownloadFromStune(c *gin.Context) {
 	Service := c.Query("service")
 	StartTime := c.Query("startTime")
 	EndTime := c.Query("endTime")
 
-	addresses := []string{
-		"http://192.168.70.111:8080/api/v1/downloadFromStune?service=" + Service + "&startTime=" + StartTime + "&endTime=" + EndTime + "&time=1",
-		"http://192.168.70.112:8080/api/v1/downloadFromStune?service=" + Service + "&startTime=" + StartTime + "&endTime=" + EndTime + "&time=1",
-		"http://192.168.70.113:8080/api/v1/downloadFromStune?service=" + Service + "&startTime=" + StartTime + "&endTime=" + EndTime + "&time=1",
-	}
+	node := u.Memberlist.Members()
 
-	zipFilename := "/tmp/test.zip"
+	// 创建临时文件夹用于存放 ZIP 文件和临时文件
+	tmpDir, err := ioutil.TempDir("", "temp")
+	if err != nil {
+		c.String(http.StatusInternalServerError, fmt.Sprintf("Error creating temporary directory: %s", err))
+		return
+	}
+	defer os.RemoveAll(tmpDir) // 删除临时文件夹
+
+	zipFilename := filepath.Join(tmpDir, "test.zip") // 使用临时文件夹作为存放 ZIP 文件的路径
 	zipFile, err := os.Create(zipFilename)
 	if err != nil {
 		c.String(http.StatusInternalServerError, fmt.Sprintf("Error creating zip file: %s", err))
@@ -852,20 +855,39 @@ func ClusterDownloadFromStune(c *gin.Context) {
 	defer zipFile.Close()
 
 	zipWriter := zip.NewWriter(zipFile)
+	defer zipWriter.Close() // 确保在函数结束时关闭 ZIP Writer
 
 	var test = 1
-	for _, address := range addresses {
-		getLog(address, "/tmp/"+strconv.Itoa(test)+".zip")
+	for _, address := range node {
+		apiUrl := fmt.Sprintf("http://%s%s/api/v1/downloadFromStune?service=%s&startTime=%s&endTime=%s&time=1", address.Addr, common.Config.Port, Service, StartTime, EndTime)
+		tmpFilename := filepath.Join(tmpDir, strconv.Itoa(test)+".zip") // 临时文件路径
+		getLog(apiUrl, tmpFilename)                                     // 下载文件并保存到临时文件中
 
-		// Add file to zip
-		err := addFileToZip(zipWriter, "/tmp/"+strconv.Itoa(test)+".zip")
+		// 添加临时文件到 ZIP 文件
+		err := addFileToZip(zipWriter, tmpFilename)
 		if err != nil {
 			continue
 		}
-		test += 1
+		test++
 	}
+
+	// 刷新 ZIP 文件
+	err = zipWriter.Flush()
+	if err != nil {
+		c.String(http.StatusInternalServerError, fmt.Sprintf("Error flushing zip file: %s", err))
+		return
+	}
+	err = zipWriter.Close()
+	if err != nil {
+		c.String(http.StatusInternalServerError, fmt.Sprintf("Error closing zip writer: %s", err))
+		return
+	}
+	zipFile.Close()
+
+	// 设置响应头，告诉浏览器以附件形式下载 ZIP 文件
 	c.Header("Content-Disposition", "attachment; filename=test.zip")
-	c.File("/tmp/test.zip")
+	// 发送 ZIP 文件给客户端
+	c.File(zipFilename)
 }
 
 func addFileToZip(zipWriter *zip.Writer, filename string) error {
@@ -903,6 +925,7 @@ func addFileToZip(zipWriter *zip.Writer, filename string) error {
 
 	return nil
 }
+
 func getLog(url string, filename string) error {
 	client := &http.Client{
 		Timeout: time.Second * 5, // 設定超時時間為 5 秒

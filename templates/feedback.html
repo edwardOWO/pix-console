@@ -2,102 +2,55 @@
 <html lang="en">
 
 <head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VM 管理</title>
-
-  <!-- 引入最新版本的 jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
-  <!-- 引入 Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
-  <!-- 引入 Moment.js -->
+  <title>Docker Containers</title>
+  <link rel="stylesheet" href="/static/service.css">
   <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 
-  <!-- 引入 Date Range Picker CSS -->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
-  <!-- 引入 Date Range Picker JavaScript -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
-  <!-- 引入自定義的 CSS -->
-  <link rel="stylesheet" href="/static/feedback.css">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-  <style>
-    /* 新增的樣式 */
-    #daterange {
-      z-index: 9999;
-      /* 設定較高的 z-index */
-    }
-  </style>
 </head>
 
 <body>
+
   <h1>PIX Containers</h1>
 
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-2">
-        <div class="sidebar">
-          {{range .links}}
-          <a href="{{.href}}" class="{{.class}}">{{.text}}</a>
-          {{end}}
-        </div>
-      </div>
-
-      <div class="col-md-4 main-content">
-        <div class="controls">
-          <label for="daterange">選擇日期範圍：</label>
-          <input type="text" name="daterange" id="daterange" />
-
-          <label for="selectLog">選擇 Log 類型：</label>
-          <select id="selectLog">
-            <option>IM</option>
-            <option>SIP</option>
-            <option>DB</option>
-            <option>STUNE</option>
-          </select>
-
-          <button type="button" class="btn btn-success" id="downloadBtn">下載系統Log</button>
-          <button type="button" class="btn btn-primary" id="uploadBtn">回傳系統Log</button>
-          <div class="spinner-border text-primary" role="status" id="loadingSpinner" style="display: none;">
-            <span class="sr-only">Loading...</span>
-          </div>
-        </div>
-
-        <!-- 新增的表格 -->
-        <table class="table table-bordered mt-3">
-          <thead class="thead-custom">
-            <tr>
-              <!--<th scope="col">按下時間</th>-->
-            </tr>
-          </thead>
-          <tbody id="logTableBody"></tbody>
-        </table>
+  <div class="container-wrapper">
+    <div class="container">
+      <div class="sidebar">
+        {{range .links}}
+        <a href="{{.href}}" class="{{.class}}">{{.text}}</a>
+        {{end}}
       </div>
     </div>
+    <div class="content" id="content">
+
+      <label for="date-range">選擇日期範圍：</label>
+      <input type="text" id="date-range" placeholder="Select Date Range">
+
+      <label for="selectLog">選擇 Log 類型：</label>
+      <select id="selectLog">
+        <option>IM</option>
+        <option>SIP</option>
+        <option>DB</option>
+        <option>STUNE</option>
+      </select>
+
+      <button type="button" class="btn btn-success" id="downloadBtn">下載系統Log</button>
+      <button type="button" class="btn btn-primary" id="uploadBtn">回傳系統Log</button>
+    </div>
+
   </div>
 
   <script type="text/javascript">
-    $(function () {
-      // 獲取當前時間
-      var currentDateTime = moment().format('YYYY/MM/DD h:mm A');
-
-      $('#daterange').val(currentDateTime);
-      // 將當前時間設定到日期區間的 value 屬性中
-      $('input[name="daterange"]').daterangepicker({
-        timePicker: true,
-        timePickerIncrement: 30,
-        locale: {
-          format: 'YYYY/MM/DD'
-        },
-        maxSpan: {
-          days: 7
-        }
-      });
-    });
-
     var uploadBtn = document.getElementById('uploadBtn');
 
     // 添加點擊事件監聽器
@@ -107,36 +60,17 @@
       uploadLog();
     });
 
-
-
     var downloadBtn = document.getElementById('downloadBtn');
 
     // 添加點擊事件監聽器
     downloadBtn.addEventListener('click', function () {
-      // 在這裡執行您的功能
-      // 例如，呼叫一個名為 uploadLog 的函數
-      donwloadLog();
+      if (!checkDateRange()) {
+        downloadLog();
+      }
     });
-
-
-
-
 
     // 模擬上傳 Log 的函數
     function uploadLog() {
-      var loadingSpinner = document.getElementById('loadingSpinner');
-      loadingSpinner.style.display = '';
-      // 發起POST請求以獲取內存信息
-
-      inputValue = $('input[name="daterange"]').val();
-      var dateRangeArray = inputValue.split(' - ');
-
-      // 取得 startTime 和 endTime
-      var startDate = dateRangeArray[0];
-      var endDate = dateRangeArray[1];
-      serviceName = $('#selectLog').val();
-
-
       fetch("/api/v1/uploadToStune", {
         method: 'POST', // 將請求方法改為POST
         headers: {
@@ -149,35 +83,12 @@
         .then(response => response.json())
         .then(data => {
           if (data.error) {
-            // 將錯誤消息輸出到 outputResult 段落元素
-            //document.getElementById("outputResult").textContent = "出現錯誤：" + data.error;
             alert(data.error)
           } else {
-            // 將結果輸出到 outputResult 段落元素
-            //document.getElementById("outputResult").textContent = JSON.stringify(data, null, 2);
             alert(data.message)
-            // 取得 message 欄位的值
             var messageValue = data.message;
-
-            // 新增一行到表格
-            //var logTableBody = document.getElementById('logTableBody');
-            //var newRow = logTableBody.insertRow();
-            //var cell = newRow.insertCell(0);
-            //cell.innerText = messageValue;
-
-
             loadingSpinner = document.getElementById("loadingSpinner");
             loadingSpinner.style.display = "none";
-
-
-
-            //var a = document.createElement('a');
-            //var url = window.URL.createObjectURL(blob);
-            //a.href = url;
-            //a.download = 'filename'; // 您可以指定下載的文件名稱
-            //document.body.appendChild(a);
-            //a.click();
-            //window.URL.revokeObjectURL(url);
           }
         })
         .catch(error => {
@@ -187,26 +98,18 @@
         });
 
       // 在這裡執行您想要的上傳 Log 的操作
-
-
     }
-    let counter = 0;
-    function donwloadLog() {
-      var loadingSpinner = document.getElementById('loadingSpinner');
-      loadingSpinner.style.display = '';
 
-      inputValue = $('input[name="daterange"]').val();
-      var dateRangeArray = inputValue.split(' - ');
+    function downloadLog() {
+      // 取得 Service Name
+      var counter = 0
+      var serviceName = document.getElementById("selectLog").value;
+      var dateRangeString = document.getElementById("date-range").value;
+      var dates = dateRangeString.split(" - ");
+      var startDate = dates[0];
+      var endDate = dates[1];
 
-      // 取得 startTime 和 endTime
-      var startDate = dateRangeArray[0];
-      var endDate = dateRangeArray[1];
-      serviceName = $('#selectLog').val();
-
-      counter+=1
-
-
-      const downloadUrl = "/api/v1/clusterDownloadFromStune?service="+serviceName+"&startTime="+startDate+"&endTime="+endDate+"&time="+counter;
+      const downloadUrl = "/api/v1/clusterDownloadFromStune?service=" + serviceName + "&startTime=" + startDate + "&endTime=" + endDate + "&time=" + counter;
 
       fetch(downloadUrl)
         .then(response => {
@@ -225,7 +128,7 @@
           // 创建一个Blob URL，并将其分配给链接的href属性
           link.href = window.URL.createObjectURL(blob);
           // 设置链接的下载属性，指定下载文件的名称
-          link.download = serviceName+"_"+startDate+"_"+endDate+".zip"; // 使用实际文件的正确扩展名
+          link.download = serviceName + "_" + startDate + "_" + endDate + ".zip"; // 使用实际文件的正确扩展名
           // 将链接元素添加到文档中
           document.body.appendChild(link);
           // 模拟用户点击链接来触发下载
@@ -241,6 +144,77 @@
         });
     }
   </script>
+
+  <script>
+    // Initialize datepicker
+    let picker = null; // 將 picker 變量設置為全局以在後續的操作中訪問
+
+    const dateRangeInput = document.getElementById('date-range');
+
+    // Set date format
+    const dateFormat = 'YYYY/MM/DD';
+
+    // 初始化 datepicker
+    function initDatePicker() {
+      picker = new Litepicker({
+        element: dateRangeInput,
+        format: dateFormat,
+        singleMode: false,
+        allowRepick: true,
+        numberOfColumns: 2,
+        numberOfMonths: 1,
+        maxDate: moment().add(7, 'days'),
+        onSelect: function (start, end) {
+          const diffTime = Math.abs(end.getTime() - start.getTime());
+          const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+          if (diffDays > 7) {
+            // 如果選擇的日期範圍大於7天，則將結束日期設置為開始日期後的7天
+            end.setDate(start.getDate() + 7);
+            picker.setDateRange(start, end); // 更新日期範圍
+          }
+          dateRangeInput.value = start.format(dateFormat) + ' - ' + end.format(dateFormat);
+          showDateRange(); // 在選擇後顯示日期範圍
+        }
+      });
+    }
+
+    dateRangeInput.addEventListener('focus', function () {
+      // 清除先前的選擇
+      if (picker !== null) {
+        picker.destroy(); // 刪除之前的 Litepicker 實例
+      }
+      dateRangeInput.value = ''; // 清空日期範圍輸入框
+      initDatePicker(); // 初始化新的 Litepicker 實例
+      picker.show(); // 顯示新的 datepicker
+    });
+
+    // 初始化 datepicker
+    initDatePicker();
+
+    // 在時間選擇器選擇完畢後顯示所選日期範圍
+    function showDateRange() {
+      const dateRangeInput = document.getElementById('date-range');
+      alert(dateRangeInput.value);
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+
+  <script>
+    function checkDateRange() {
+      const dateRangeInput = document.getElementById('date-range');
+      const dateRange = dateRangeInput.value.split(' - ');
+      const startDate = moment(dateRange[0], 'YYYY/MM/DD');
+      const endDate = moment(dateRange[1], 'YYYY/MM/DD');
+      const diffDays = endDate.diff(startDate, 'days');
+
+      if (diffDays > 7) {
+        alert('日期範圍超過七天，請重新選擇。');
+        return true; // 返回 true 表示超过七天
+      }
+      return false; // 返回 false 表示未超过七天
+    }
+  </script>
+
 </body>
 
 </html>
