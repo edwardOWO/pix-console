@@ -52,53 +52,67 @@
 
         function connectWebSocket(exthost, path) {
 
-            alert("擷取" + path + "日誌")
-            if (ws && ws.readyState === WebSocket.OPEN) {
-                alert("WebSocket is already connected.");
-                return;
-            }
-            ws = new WebSocket("ws://" + exthost + ":8080/ws?container_name=" + path);
-
-            ws.onopen = function () {
-                console.log("WebSocket connected.");
-            };
-
-            ws.onmessage = function (event) {
-                if (!newWindow || newWindow.closed) {
-                    newWindow = window.open("","LogWindow", "width=600,height=400");
-                    newWindow.document.title = path;
-                    if (!newWindow) {
-                        alert("Pop-up blocked! Please enable pop-ups for this site.");
+            fetch("api/v1/getjwt")
+                .then(response => response.json())
+                .then(data => {
+                    const jwtToken = data.token.Value;
+                    // 這裡你可以對 JWT token 做你需要的處理，例如將其存儲在本地存儲或者使用它來向後端進行授權等操作
+                    console.log("JWT Token:", jwtToken);
+                    alert("JWT Token:", jwtToken);
+                    alert("擷取" + path + "日誌")
+                    if (ws && ws.readyState === WebSocket.OPEN) {
+                        alert("WebSocket is already connected.");
                         return;
                     }
-                    newWindow.addEventListener('beforeunload', function () {
-                        if (ws && ws.readyState === WebSocket.OPEN) {
-                            ws.close();
+                    ws = new WebSocket("ws://" + exthost + ":8080/ws" + "?container_name=" + encodeURIComponent(path) + "&jwt=" + encodeURIComponent(jwtToken));
+
+                    ws.onopen = function () {
+                        console.log("WebSocket connected.");
+                    };
+
+                    ws.onmessage = function (event) {
+                        if (!newWindow || newWindow.closed) {
+                            newWindow = window.open("", "LogWindow", "width=600,height=400");
+                            newWindow.document.title = path;
+                            if (!newWindow) {
+                                alert("Pop-up blocked! Please enable pop-ups for this site.");
+                                return;
+                            }
+                            newWindow.addEventListener('beforeunload', function () {
+                                if (ws && ws.readyState === WebSocket.OPEN) {
+                                    ws.close();
+                                }
+                            });
                         }
-                    });
-                }
 
-                const logs = newWindow.document.createElement("pre");
-                logs.textContent += event.data; // Use += to append new log data
-                logs.scrollTop = logs.scrollHeight;
-                newWindow.document.body.appendChild(logs);
-                newWindow.scrollTo(0, newWindow.document.body.scrollHeight);
-            };
+                        const logs = newWindow.document.createElement("pre");
+                        logs.textContent += event.data; // Use += to append new log data
+                        logs.scrollTop = logs.scrollHeight;
+                        newWindow.document.body.appendChild(logs);
+                        newWindow.scrollTo(0, newWindow.document.body.scrollHeight);
+                    };
 
-            ws.onclose = function () {
-                console.log("WebSocket closed.");
-                if (newWindow && !newWindow.closed) {
-                    newWindow.close();
-                }
-            };
+                    ws.onclose = function () {
+                        console.log("WebSocket closed.");
+                        if (newWindow && !newWindow.closed) {
+                            newWindow.close();
+                        }
+                    };
 
-            ws.onerror = function () {
-                console.error("WebSocket error occurred.");
-                if (newWindow && !newWindow.closed) {
-                    newWindow.close();
-                }
-            };
+                    ws.onerror = function () {
+                        console.error("WebSocket error occurred.");
+                        if (newWindow && !newWindow.closed) {
+                            newWindow.close();
+                        }
+                    };
+                })
+                .catch(error => {
+                    console.error("Error fetching data:", error);
+                });
+
         }
+
+
 
 
         // 定义函数用于获取和显示容器数据

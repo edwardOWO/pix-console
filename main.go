@@ -209,6 +209,9 @@ func main() {
 		apiV1.POST("/listen", c.MoniotrListenPort)
 		apiV1.POST("/getpacket", c.MonitorHandler)
 		apiV1.GET("/getpacket", c.GetMonitorHandler)
+
+		// 取得 jwttoken
+		apiV1.GET("/getjwt", c.GetJwt)
 	}
 
 	m.router.Run(common.Config.Port)

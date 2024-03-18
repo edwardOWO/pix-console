@@ -685,6 +685,18 @@ func (u *Server) GetMonitorHandler(c *gin.Context) {
 	c.JSON(http.StatusOK, u.utils.GetCaptureResult())
 }
 
+func (u *Server) GetJwt(c *gin.Context) {
+
+	cookie, err := c.Request.Cookie("jwt")
+
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Can't get cookie"})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"token": cookie})
+}
+
 // KeyValuePair 用于存储键值对
 type KeyValuePair struct {
 	Key   string `json:"key"`

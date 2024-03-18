@@ -27,6 +27,17 @@ func (u *Server) LogsHandler(c *gin.Context) {
 
 	path := c.Query("path")
 
+	jwt := c.Query("jwt")
+
+	jwtClaims, status := u.utils.AuthJWTToken(jwt)
+
+	if status {
+		if !u.utils.CasbinAuthMiddleware(c, jwtClaims["username"].(string)) {
+			return
+		}
+
+	}
+
 	container_name := c.Query("container_name")
 
 	cmd := exec.Command("")
