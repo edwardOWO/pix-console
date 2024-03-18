@@ -1,0 +1,77 @@
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] Loaded HTML Templates (13): 
+	- check.html
+	- dashboard.html
+	- docker.html
+	- service.html
+	- check copy.html
+	- logs.html
+	- 
+	- check copy 2.html
+	- host.html
+	- index.html
+	- docker-compose.html
+	- feedback.html
+	- login.html
+
+[GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /                         --> main.main.func1 (3 handlers)
+[GIN-debug] POST   /login                    --> pix-console/controllers.(*Server).LoginHandler-fm (3 handlers)
+[GIN-debug] GET    /logout                   --> pix-console/controllers.(*Server).LogoutHandler-fm (3 handlers)
+[GIN-debug] GET    /ws                       --> pix-console/controllers.(*Server).LogsHandler-fm (5 handlers)
+[GIN-debug] GET    /logs                     --> main.main.func2 (5 handlers)
+[GIN-debug] GET    /index                    --> main.main.func3 (5 handlers)
+[GIN-debug] GET    /host                     --> main.main.func4 (5 handlers)
+[GIN-debug] GET    /check                    --> main.main.func5 (5 handlers)
+[GIN-debug] GET    /docker                   --> main.main.func6 (5 handlers)
+[GIN-debug] GET    /service                  --> main.main.func7 (5 handlers)
+[GIN-debug] GET    /dashboard                --> main.main.func8 (5 handlers)
+[GIN-debug] GET    /docker-compose           --> main.main.func9 (5 handlers)
+[GIN-debug] GET    /feedback                 --> main.main.func10 (5 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (5 handlers)
+[GIN-debug] GET    /api/v1/createfile        --> pix-console/controllers.CreateFileHandler (5 handlers)
+[GIN-debug] POST   /api/v1/checkfile         --> pix-console/controllers.CheckFileHandler (5 handlers)
+[GIN-debug] GET    /api/v1/checkmemory       --> pix-console/controllers.CheckMemoryHandler (5 handlers)
+[GIN-debug] POST   /api/v1/startservice      --> pix-console/controllers.StartServiceHandler (5 handlers)
+[GIN-debug] POST   /api/v1/start_pix_compose --> pix-console/controllers.StartPixComposeHandler (5 handlers)
+[GIN-debug] POST   /api/v1/stop_pix_compose  --> pix-console/controllers.StopPixComposeHandler (5 handlers)
+[GIN-debug] GET    /api/v1/docker_compose    --> pix-console/controllers.DockerComposeHandler (5 handlers)
+[GIN-debug] POST   /api/v1/upload            --> pix-console/controllers.UploadDockerComposeHandler (5 handlers)
+[GIN-debug] GET    /api/v1/download          --> pix-console/controllers.DownloadConfigHandler (5 handlers)
+[GIN-debug] POST   /api/v1/updateServer      --> pix-console/controllers.UpdateServerHandler (5 handlers)
+[GIN-debug] POST   /api/v1/cluster_updateServer --> pix-console/controllers.ClusterUpdateServerHandler (5 handlers)
+[GIN-debug] POST   /api/v1/commitContainer   --> pix-console/controllers.CommitContainerHandler (5 handlers)
+[GIN-debug] POST   /api/v1/updateContainer   --> pix-console/controllers.UpdateContainerHandler (5 handlers)
+[GIN-debug] POST   /api/v1/cluster_updateContainer --> pix-console/controllers.ClusterUpdateContainerHandler (5 handlers)
+[GIN-debug] POST   /api/v1/uploadToStune     --> pix-console/controllers.(*Server).UploadToStune-fm (5 handlers)
+[GIN-debug] GET    /api/v1/downloadFromStune --> pix-console/controllers.DownloadFromStune (5 handlers)
+[GIN-debug] GET    /api/v1/clusterDownloadFromStune --> pix-console/controllers.(*Server).ClusterDownloadFromStune-fm (5 handlers)
+[GIN-debug] GET    /api/v1/docker            --> pix-console/controllers.DockerHandler (5 handlers)
+[GIN-debug] GET    /api/v1/cluster_docker    --> pix-console/controllers.(*Server).ClusterDockerHandler-fm (5 handlers)
+[GIN-debug] GET    /api/v1/service           --> pix-console/controllers.ServiceHandler (5 handlers)
+[GIN-debug] GET    /api/v1/cluster_service   --> pix-console/controllers.(*Server).ClusterServiceHandler-fm (5 handlers)
+[GIN-debug] GET    /api/v1/serverlist        --> pix-console/controllers.(*Server).ServerlistHandler-fm (5 handlers)
+[GIN-debug] POST   /api/v1/listen            --> pix-console/controllers.(*Server).MoniotrListenPort-fm (5 handlers)
+[GIN-debug] POST   /api/v1/getpacket         --> pix-console/controllers.(*Server).MonitorHandler-fm (5 handlers)
+[GIN-debug] GET    /api/v1/getpacket         --> pix-console/controllers.(*Server).GetMonitorHandler-fm (5 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8080
+[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
+[GIN] 2024/03/18 - 00:24:42 | 200 |  1.419117471s |   192.168.1.109 | GET      "/api/v1/downloadFromStune?service=IM&startTime=2024/03/18&endTime=2024/03/19&time=1"
+[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
+[GIN] 2024/03/18 - 00:24:56 | 200 | 30.600607079s |   192.168.1.102 | POST     "/api/v1/uploadToStune"
+[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
+[GIN] 2024/03/18 - 00:25:43 | 200 |    1.144154ms |   192.168.1.102 | GET      "/feedback"
+[GIN] 2024/03/18 - 00:25:43 | 303 |     316.125µs |   192.168.1.102 | GET      "/favicon.ico"
+[GIN] 2024/03/18 - 00:25:43 | 200 |    1.359759ms |   192.168.1.102 | GET      "/"
+[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
+[GIN] 2024/03/18 - 00:25:54 | 200 |     327.195µs |   192.168.1.109 | GET      "/api/v1/downloadFromStune?service=IM&startTime=2024/03/17&endTime=2024/03/19&time=1"
+[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 200 with 303
+[GIN] 2024/03/18 - 00:25:54 | 200 |  763.663769ms |   192.168.1.102 | POST     "/api/v1/uploadToStune"

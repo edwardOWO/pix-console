@@ -42,6 +42,7 @@
         <option>SIP</option>
         <option>DB</option>
         <option>STUNE</option>
+        <option>PIX</option>
       </select>
 
       <button type="button" class="btn btn-success" id="downloadBtn">下載系統Log</button>
@@ -71,6 +72,15 @@
 
     // 模擬上傳 Log 的函數
     function uploadLog() {
+
+      var serviceName = document.getElementById("selectLog").value;
+      var dateRangeString = document.getElementById("date-range").value;
+      var dates = dateRangeString.split(" - ");
+      var startDate = dates[0];
+      var endDate = dates[1];
+
+
+
       fetch("/api/v1/uploadToStune", {
         method: 'POST', // 將請求方法改為POST
         headers: {

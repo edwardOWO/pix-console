@@ -190,7 +190,7 @@ func main() {
 		apiV1.POST("/cluster_updateContainer", v1.ClusterUpdateContainerHandler)
 
 		// 系統回報 回傳log 頁面
-		apiV1.POST("/uploadToStune", v1.UploadToStune)
+		apiV1.POST("/uploadToStune", c.UploadToStune)
 		apiV1.GET("/downloadFromStune", v1.DownloadFromStune)
 		apiV1.GET("/clusterDownloadFromStune", c.ClusterDownloadFromStune)
 

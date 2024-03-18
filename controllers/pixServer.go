@@ -486,36 +486,38 @@ func DockerHandler(c *gin.Context) {
 
 	// 手動硬編碼的資料
 
-	hardcodedData := []ContainerInfo{
-		{
-			Host:        common.Config.ServerName,
-			ContainerID: "12345abcde67",
-			Image:       "example:latest",
-			Command:     "example-command",
-			Created:     "2 weeks ago",
-			Status:      "Up 2 weeks",
-			Ports:       "8080/tcp",
-			Names:       "example_container",
-		},
-		{
-			Host:        common.Config.ServerName,
-			ContainerID: "12345abcde6711",
-			Image:       "example:latest",
-			Command:     "example-command",
-			Created:     "1 weeks ago",
-			Status:      "Up 2 weeks",
-			Ports:       "8080/tcp",
-			Names:       "example_container",
-		},
-		// 其他手動編碼的資料...
-	}
+	/*
+		hardcodedData := []ContainerInfo{
+			{
+				Host:        common.Config.ServerName,
+				ContainerID: "12345abcde67",
+				Image:       "example:latest",
+				Command:     "example-command",
+				Created:     "2 weeks ago",
+				Status:      "Up 2 weeks",
+				Ports:       "8080/tcp",
+				Names:       "example_container",
+			},
+			{
+				Host:        common.Config.ServerName,
+				ContainerID: "12345abcde6711",
+				Image:       "example:latest",
+				Command:     "example-command",
+				Created:     "1 weeks ago",
+				Status:      "Up 2 weeks",
+				Ports:       "8080/tcp",
+				Names:       "example_container",
+			},
+			// 其他手動編碼的資料...
+		}
+	*/
 
-	combinedData := append(hardcodedData, dockerData...)
+	// combinedData := append(hardcodedData, dockerData...)
 
 	// 設定回應標頭
 	c.Header("Content-Type", "application/json")
 	// 回傳合併後的結果
-	c.JSON(http.StatusOK, combinedData)
+	c.JSON(http.StatusOK, dockerData)
 }
 
 func (u *Server) ClusterDockerHandler(c *gin.Context) {
@@ -590,38 +592,40 @@ func ServiceHandler(c *gin.Context) {
 	}
 
 	// 合併兩個資料集
-	var combinedData []ContainerInfo
+	/*
+		var combinedData []ContainerInfo
 
-	hardcodedData := []ContainerInfo{
-		{
-			Host:        common.Config.ServerName,
-			ContainerID: "12345abcde67",
-			Image:       "example:latest",
-			Command:     "example-command",
-			Created:     "2 weeks ago",
-			Status:      "Up 2 weeks",
-			Ports:       "8080/tcp",
-			Names:       "example_container",
-		},
-		{
-			Host:        common.Config.ServerName,
-			ContainerID: "12345abcde6711",
-			Image:       "example:latest",
-			Command:     "example-command",
-			Created:     "1 weeks ago",
-			Status:      "Up 2 weeks",
-			Ports:       "8080/tcp",
-			Names:       "example1234_container",
-		},
-		// 其他手動編碼的資料...
-	}
+		hardcodedData := []ContainerInfo{
+			{
+				Host:        common.Config.ServerName,
+				ContainerID: "12345abcde67",
+				Image:       "example:latest",
+				Command:     "example-command",
+				Created:     "2 weeks ago",
+				Status:      "Up 2 weeks",
+				Ports:       "8080/tcp",
+				Names:       "example_container",
+			},
+			{
+				Host:        common.Config.ServerName,
+				ContainerID: "12345abcde6711",
+				Image:       "example:latest",
+				Command:     "example-command",
+				Created:     "1 weeks ago",
+				Status:      "Up 2 weeks",
+				Ports:       "8080/tcp",
+				Names:       "example1234_container",
+			},
+			// 其他手動編碼的資料...
+		}
+	*/
 
-	combinedData = append(combinedData, dockerData...)
-	combinedData = append(combinedData, hardcodedData...)
+	// combinedData = append(combinedData, dockerData...)
+	// combinedData = append(combinedData, hardcodedData...)
 	// 設定回應標頭
 	c.Header("Content-Type", "application/json")
 	// 回傳合併後的結果
-	c.JSON(http.StatusOK, combinedData)
+	c.JSON(http.StatusOK, dockerData)
 }
 
 func (u *Server) ClusterServiceHandler(c *gin.Context) {
@@ -838,15 +842,15 @@ func (u *Server) ClusterDownloadFromStune(c *gin.Context) {
 
 	node := u.Memberlist.Members()
 
-	// 创建临时文件夹用于存放 ZIP 文件和临时文件
+	// 創建臨時文件夾用於存放 ZIP 文件和臨時文件
 	tmpDir, err := ioutil.TempDir("", "temp")
 	if err != nil {
 		c.String(http.StatusInternalServerError, fmt.Sprintf("Error creating temporary directory: %s", err))
 		return
 	}
-	defer os.RemoveAll(tmpDir) // 删除临时文件夹
+	defer os.RemoveAll(tmpDir) // 刪除臨時文件夾
 
-	zipFilename := filepath.Join(tmpDir, "test.zip") // 使用临时文件夹作为存放 ZIP 文件的路径
+	zipFilename := filepath.Join(tmpDir, "test.zip") // 使用臨時文件夾作用存放 ZIP 文件的路徑
 	zipFile, err := os.Create(zipFilename)
 	if err != nil {
 		c.String(http.StatusInternalServerError, fmt.Sprintf("Error creating zip file: %s", err))
@@ -855,15 +859,17 @@ func (u *Server) ClusterDownloadFromStune(c *gin.Context) {
 	defer zipFile.Close()
 
 	zipWriter := zip.NewWriter(zipFile)
-	defer zipWriter.Close() // 确保在函数结束时关闭 ZIP Writer
+	defer zipWriter.Close() // 確保在函數結束時關閉 ZIP Writer
 
 	var test = 1
+
 	for _, address := range node {
 		apiUrl := fmt.Sprintf("http://%s%s/api/v1/downloadFromStune?service=%s&startTime=%s&endTime=%s&time=1", address.Addr, common.Config.Port, Service, StartTime, EndTime)
-		tmpFilename := filepath.Join(tmpDir, strconv.Itoa(test)+".zip") // 临时文件路径
-		getLog(apiUrl, tmpFilename)                                     // 下载文件并保存到临时文件中
 
-		// 添加临时文件到 ZIP 文件
+		tmpFilename := filepath.Join(tmpDir, address.Name+".zip") // 臨時文件路徑
+		getLog(apiUrl, tmpFilename)                               // 下載文件並保存在臨時路徑
+
+		// 添加臨時文件到 ZIP 文件
 		err := addFileToZip(zipWriter, tmpFilename)
 		if err != nil {
 			continue
@@ -884,9 +890,10 @@ func (u *Server) ClusterDownloadFromStune(c *gin.Context) {
 	}
 	zipFile.Close()
 
-	// 设置响应头，告诉浏览器以附件形式下载 ZIP 文件
+	// 設置檔頭,提供瀏覽器以 ZIP 格式下載文件
 	c.Header("Content-Disposition", "attachment; filename=test.zip")
-	// 发送 ZIP 文件给客户端
+
+	// 發送 ZIP 文件給客戶端
 	c.File(zipFilename)
 }
 
@@ -1002,13 +1009,19 @@ func DownloadFromStune(c *gin.Context) {
 			fmt.Printf("Error compressing files: %v\n", err)
 		}
 	case "DB":
-		directories := []string{"/var/log/mongodb", "/var/log/cassandra", "/var/log/mysqld.log"}
+		directories := []string{"/var/log/redis", "/var/log/mongodb", "/var/log/cassandra", "/var/log/mysqld.log"}
 		err := CompressFiles(directories, fileName, startTime, endTime)
 		if err != nil {
 			fmt.Printf("Error compressing files: %v\n", err)
 		}
 	case "STUNE":
 		directories := []string{"/data/docker-data/volumes/run_stune_log"}
+		err := CompressFiles(directories, fileName, startTime, endTime)
+		if err != nil {
+			fmt.Printf("Error compressing files: %v\n", err)
+		}
+	case "PIX":
+		directories := []string{"/var/log/pix"}
 		err := CompressFiles(directories, fileName, startTime, endTime)
 		if err != nil {
 			fmt.Printf("Error compressing files: %v\n", err)
@@ -1021,7 +1034,7 @@ func DownloadFromStune(c *gin.Context) {
 	c.File(fileName)
 }
 
-func UploadToStune(c *gin.Context) {
+func (u *Server) UploadToStune(c *gin.Context) {
 
 	var requestPayload struct {
 		// 定義結構體的字段，以匹配 JSON 中的屬性
@@ -1036,54 +1049,62 @@ func UploadToStune(c *gin.Context) {
 		return
 	}
 
-	fileName := requestPayload.Service + "_" + requestPayload.StartTime + "_" + requestPayload.EndTime
+	Service := requestPayload.Service
+	StartTime := requestPayload.StartTime
+	EndTime := requestPayload.EndTime
 
-	startTime, err := parseTime(requestPayload.StartTime)
+	node := u.Memberlist.Members()
+
+	// 創建臨時文件夾用於存放 ZIP 文件和臨時文件
+	tmpDir, err := ioutil.TempDir("", "temp")
 	if err != nil {
-		fmt.Println("無法解析起始日期:", err)
+		c.String(http.StatusInternalServerError, fmt.Sprintf("Error creating temporary directory: %s", err))
 		return
 	}
+	defer os.RemoveAll(tmpDir) // 刪除臨時文件夾
 
-	endTime, err := parseTime(requestPayload.EndTime)
+	LOG_NAME := Service + "_" + StartTime + "_" + EndTime
+	LOG_NAME = strings.Replace(LOG_NAME, "/", "_", -1)
+
+	zipFilename := filepath.Join(tmpDir, LOG_NAME+".zip") // 使用臨時文件夾作用存放 ZIP 文件的路徑
+	zipFile, err := os.Create(zipFilename)
 	if err != nil {
-		fmt.Println("無法解析結束日期:", err)
+		c.String(http.StatusInternalServerError, fmt.Sprintf("Error creating zip file: %s", err))
 		return
 	}
+	defer zipFile.Close()
 
-	fileName = strings.ReplaceAll(fileName, "/", "_")
+	zipWriter := zip.NewWriter(zipFile)
+	defer zipWriter.Close() // 確保在函數結束時關閉 ZIP Writer
 
-	fileName += ".zip"
+	var test = 1
 
-	switch requestPayload.Service {
-	case "IM":
-		directories := []string{"/data/docker-data/volumes/run_im_log", "/data/docker-data/volumes/run_im2_log", "/data/docker-data/volumes/run_im3_log"}
-		err := CompressFiles(directories, fileName, startTime, endTime)
-		if err != nil {
-			fmt.Printf("Error compressing files: %v\n", err)
-		}
-	case "SIP":
-		directories := []string{"/data/docker-data/volumes/run_sorrel_api_log", "/data/docker-data/volumes/run_sorrel_rose_log", "/data/docker-data/volumes/run_sorrel_sbcallinone_log"}
-		err := CompressFiles(directories, fileName, startTime, endTime)
-		if err != nil {
-			fmt.Printf("Error compressing files: %v\n", err)
-		}
-	case "DB":
-		directories := []string{"/var/log/mongodb", "/var/log/cassandra", "/var/log/mysqld.log"}
-		err := CompressFiles(directories, fileName, startTime, endTime)
-		if err != nil {
-			fmt.Printf("Error compressing files: %v\n", err)
-		}
-	case "STUNE":
-		directories := []string{"/data/docker-data/volumes/run_stune_log"}
-		err := CompressFiles(directories, fileName, startTime, endTime)
-		if err != nil {
-			fmt.Printf("Error compressing files: %v\n", err)
-		}
+	for _, address := range node {
+		apiUrl := fmt.Sprintf("http://%s%s/api/v1/downloadFromStune?service=%s&startTime=%s&endTime=%s&time=1", address.Addr, common.Config.Port, Service, StartTime, EndTime)
 
-	default:
-		fmt.Println("Unknown service")
+		tmpFilename := filepath.Join(tmpDir, address.Name+".zip") // 臨時文件路徑
+		getLog(apiUrl, tmpFilename)                               // 下載文件並保存在臨時路徑
+
+		// 添加臨時文件到 ZIP 文件
+		err := addFileToZip(zipWriter, tmpFilename)
+		if err != nil {
+			continue
+		}
+		test++
 	}
 
+	// 刷新 ZIP 文件
+	err = zipWriter.Flush()
+	if err != nil {
+		c.String(http.StatusInternalServerError, fmt.Sprintf("Error flushing zip file: %s", err))
+		return
+	}
+	err = zipWriter.Close()
+	if err != nil {
+		c.String(http.StatusInternalServerError, fmt.Sprintf("Error closing zip writer: %s", err))
+		return
+	}
+	zipFile.Close()
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"message": "檔案產生失敗"})
 		return
@@ -1097,21 +1118,13 @@ func UploadToStune(c *gin.Context) {
 		Scope:        "tw:stune:basic",
 	}
 
-	err = tool.StuneUpload(stunConfig.GetAccessToken(), fileName, "edward")
+	err = tool.StuneUpload(stunConfig.GetAccessToken(), zipFilename, "edward")
 	if err != nil {
 		fmt.Print(err.Error())
 		c.JSON(http.StatusOK, gin.H{"message": "檔案同步失敗"})
 	}
 
-	/*
-		err = tool.StuneDownload(stunConfig.GetAccessToken(), fileName, "edward")
-		if err != nil {
-			fmt.Print(err.Error())
-			c.JSON(http.StatusOK, gin.H{"message": "檔案同步失敗"})
-		}
-	*/
-
-	c.JSON(http.StatusOK, gin.H{"message": fileName + " " + "檔案同步成功"})
+	c.JSON(http.StatusOK, gin.H{"message": zipFilename + " " + "檔案同步成功"})
 }
 
 // parseTime 將格式為 "2006/01/02" 的字串轉換為 time.Time
