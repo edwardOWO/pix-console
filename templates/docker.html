@@ -57,8 +57,6 @@
                 .then(data => {
                     const jwtToken = data.token.Value;
                     // 這裡你可以對 JWT token 做你需要的處理，例如將其存儲在本地存儲或者使用它來向後端進行授權等操作
-                    console.log("JWT Token:", jwtToken);
-                    alert("JWT Token:", jwtToken);
                     alert("擷取" + path + "日誌")
                     if (ws && ws.readyState === WebSocket.OPEN) {
                         alert("WebSocket is already connected.");

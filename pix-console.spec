@@ -2,7 +2,7 @@
 Name: pix-console
 Summary: pix config service
 Version: 20240318
-Release: 2
+Release: 4
 License: MIT
 
 %description
