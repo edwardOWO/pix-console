@@ -126,24 +126,23 @@
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
           }
-          // 获取服务器返回的Content-Type头
           const contentType = response.headers.get('Content-Type');
           console.log('Content-Type:', contentType);
 
           return response.blob();
         })
         .then(blob => {
-          // 创建一个链接元素
+          // 創建一個超連結元素
           const link = document.createElement('a');
-          // 创建一个Blob URL，并将其分配给链接的href属性
+          // 創建一個Blob URL，定將其分配給鏈結的href屬性
           link.href = window.URL.createObjectURL(blob);
-          // 设置链接的下载属性，指定下载文件的名称
+          // 設置鏈結的下載屬性,指定下載的名稱
           link.download = serviceName + "_" + startDate + "_" + endDate + ".zip"; // 使用实际文件的正确扩展名
-          // 将链接元素添加到文档中
+          // 將超連結加入到文檔中
           document.body.appendChild(link);
-          // 模拟用户点击链接来触发下载
+          // 模擬用戶點擊下載
           link.click();
-          // 删除链接元素
+          // 刪除鏈結元素
           document.body.removeChild(link);
 
           var loadingSpinner = document.getElementById('loadingSpinner');

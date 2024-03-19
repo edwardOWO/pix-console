@@ -456,6 +456,10 @@ func commitDockerfile(commit string) models.ServerInfo {
 			containerInfo.ContainerInfo = append(containerInfo.ContainerInfo, container)
 		}
 
+		if exportDockerImage("/tmp/"+container.ServiceName+".tar", imageName+":"+imageTag) == nil {
+			fmt.Println("Generate docker image :", imageName+":"+imageTag)
+		}
+
 	}
 
 	// 將結構寫入 JSON 檔案
@@ -465,4 +469,16 @@ func commitDockerfile(commit string) models.ServerInfo {
 		return containerInfo
 	}
 	return containerInfo
+}
+
+func exportDockerImage(path string, DockerImageName string) error {
+
+	cmd := exec.Command("docker", "save", "-o", path, DockerImageName)
+	err := cmd.Run()
+	if err != nil {
+		return err
+	}
+	fmt.Println("Docker image exported successfully to", path+"/"+DockerImageName+".tar")
+	return nil
+
 }
