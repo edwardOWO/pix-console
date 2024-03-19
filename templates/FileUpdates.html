@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker Containers</title>
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+
+<body>
+
+    <h1>PIX Containers</h1>
+
+    <div class="container-wrapper">
+        <div class="container">
+            <div class="sidebar">
+                {{range .links}}
+                <a href="{{.href}}" class="{{.class}}">{{.text}}</a>
+                {{end}}
+            </div>
+        </div>
+
+        <div class="content" id="content">
+            <h2>請選擇要上傳的文件</h2>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <input type="file" name="fileToUpload" id="fileToUpload">
+                <br><br>
+                <input type="submit" value="上傳更新文件" name="submit">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var form = document.getElementById("uploadForm");
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault(); // 阻止表單預設的提交行為
+
+                // 使用 FormData 構建表單數據
+                var formData = new FormData(form);
+
+                // 發送 AJAX 請求
+                fetch("api/v1/ClusterUploadPatch", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.json()) // 解析 JSON 格式的回傳訊息
+                .then(data => {
+                    // 顯示回傳訊息
+                    alert(data.message);
+                })
+                .catch(error => {
+                    // 處理錯誤
+                    console.error("發生錯誤:", error);
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

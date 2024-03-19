@@ -124,8 +124,8 @@ func main() {
 	// 在介面上產生站台連結
 	PageLink := view.CreatePageLink()
 
-	m.router.GET("/logs", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "logs.html", PageLink)
+	m.router.GET("/FileUpdates", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "FileUpdates.html", PageLink)
 	})
 
 	m.router.GET("/index", func(c *gin.Context) {
@@ -181,6 +181,8 @@ func main() {
 		apiV1.GET("/docker_compose", v1.DockerComposeHandler)
 		apiV1.POST("/upload", v1.UploadDockerComposeHandler)
 		apiV1.GET("/download", v1.DownloadConfigHandler)
+		apiV1.POST("/UploadPatch", v1.UploadPatchHandler)
+		apiV1.POST("/ClusterUploadPatch", c.ClusterUploadPatch)
 
 		// 更新 PIX　服務
 		apiV1.POST("/updateServer", v1.UpdateServerHandler)

@@ -872,3 +872,668 @@
 ,ServiceStatus: 0,ServerName: 
 ###################2024/03/18 03:16:21 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 7, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
 ,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:24:58 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
+###################2024/03/18 22:24:58 [DEBUG] memberlist: Stream connection from=192.168.1.109:46372
+###################2024/03/18 22:25:04 [DEBUG] memberlist: Failed to join 192.168.1.103:7947: dial tcp 192.168.1.103:7947: i/o timeout
+###################2024/03/18 22:25:09 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
+###################2024/03/18 22:25:09 [DEBUG] memberlist: Stream connection from=192.168.1.109:46384
+###################2024/03/18 22:25:10 [DEBUG] memberlist: Failed to join 192.168.1.103:7947: dial tcp 192.168.1.103:7947: i/o timeout
+###################2024/03/18 22:25:11 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/03/18 22:25:11 PIX-Console Version: pix-console-20240308-4.x86_64
+###################2024/03/18 22:25:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 1, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:26:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 2, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:26:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 3, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:27:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 4, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:27:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 5, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:28:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 6, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:28:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 7, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:29:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 8, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:29:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 9, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:30:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 10, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:30:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 11, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:31:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 12, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:31:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 13, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:32:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 14, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:32:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 15, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:33:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 16, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:33:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 17, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:34:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 18, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:34:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 19, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:35:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 20, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:35:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 21, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:36:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 22, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:36:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 23, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:37:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 24, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:37:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 25, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:38:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 26, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:38:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 27, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:39:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 28, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:39:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 29, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:40:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 30, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:40:43 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
+###################2024/03/18 22:40:43 [DEBUG] memberlist: Stream connection from=192.168.1.109:46516
+###################2024/03/18 22:40:44 [DEBUG] memberlist: Failed to join 192.168.1.103:7947: dial tcp 192.168.1.103:7947: i/o timeout
+###################2024/03/18 22:40:45 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/03/18 22:40:45 PIX-Console Version: pix-console-20240308-4.x86_64
+###################2024/03/18 22:41:15 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 1, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:41:45 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 2, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:42:15 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 3, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:42:45 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 4, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:43:15 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 5, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:43:45 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 6, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:44:15 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 7, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:44:45 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 8, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:45:15 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 9, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:45:45 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 10, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:46:15 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 11, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:46:45 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 12, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:47:18 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 13, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:49:34 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/03/18 22:49:34 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
+###################2024/03/18 22:49:34 [DEBUG] memberlist: Stream connection from=192.168.1.109:46580
+###################2024/03/18 22:49:35 [DEBUG] memberlist: Failed to join 192.168.1.103:7947: dial tcp 192.168.1.103:7947: i/o timeout
+###################2024/03/18 22:49:35 PIX-Console Version: pix-console-20240308-4.x86_64
+###################2024/03/18 22:50:20 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 1, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:50:35 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 2, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:51:05 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 3, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:51:35 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 4, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:52:05 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 5, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:52:35 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 6, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:53:05 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 7, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:53:35 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 8, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:54:05 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 9, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:54:35 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 10, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:55:05 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 11, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:55:35 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 12, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:56:05 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 13, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:56:35 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 14, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:57:05 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 15, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:57:35 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 16, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:58:05 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 17, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:58:35 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 18, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:59:05 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 19, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 22:59:35 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 20, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:00:05 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 21, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:00:35 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 22, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:01:05 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 23, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:01:35 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 24, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:02:06 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
+###################2024/03/18 23:02:06 [DEBUG] memberlist: Stream connection from=192.168.1.109:46682
+###################2024/03/18 23:02:07 [DEBUG] memberlist: Failed to join 192.168.1.103:7947: dial tcp 192.168.1.103:7947: i/o timeout
+###################2024/03/18 23:02:08 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/03/18 23:02:08 PIX-Console Version: pix-console-20240308-4.x86_64
+###################2024/03/18 23:02:38 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 1, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:03:08 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 2, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:03:33 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
+###################2024/03/18 23:03:33 [DEBUG] memberlist: Stream connection from=192.168.1.109:46698
+###################2024/03/18 23:03:34 [DEBUG] memberlist: Failed to join 192.168.1.103:7947: dial tcp 192.168.1.103:7947: i/o timeout
+###################2024/03/18 23:03:35 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/03/18 23:03:35 PIX-Console Version: pix-console-20240308-4.x86_64
+###################2024/03/18 23:04:05 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 1, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:04:35 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 2, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:05:05 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 3, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:05:35 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 4, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:06:05 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 5, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:06:35 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 6, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:07:05 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 7, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:07:35 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 8, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:08:05 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 9, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:08:35 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 10, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:09:05 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 11, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:09:35 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 12, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:10:05 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 13, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:10:35 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 14, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:11:05 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 15, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:11:35 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 16, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:12:05 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 17, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:12:35 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 18, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:13:05 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 19, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:13:35 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 20, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:14:05 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 21, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:14:35 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 22, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:15:05 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 23, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:15:35 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 24, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:16:05 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 25, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:16:35 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 26, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:17:05 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 27, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:17:35 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 28, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:18:05 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/03/18 23:18:05 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
+###################2024/03/18 23:18:05 [DEBUG] memberlist: Stream connection from=192.168.1.109:46824
+###################2024/03/18 23:18:06 [DEBUG] memberlist: Failed to join 192.168.1.103:7947: dial tcp 192.168.1.103:7947: i/o timeout
+###################2024/03/18 23:18:06 PIX-Console Version: pix-console-20240308-4.x86_64
+###################2024/03/18 23:19:26 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
+###################2024/03/18 23:19:26 [DEBUG] memberlist: Stream connection from=192.168.1.109:46830
+###################2024/03/18 23:19:27 [DEBUG] memberlist: Failed to join 192.168.1.103:7947: dial tcp 192.168.1.103:7947: i/o timeout
+###################2024/03/18 23:19:28 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/03/18 23:19:28 PIX-Console Version: pix-console-20240308-4.x86_64
+###################2024/03/18 23:20:52 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
+###################2024/03/18 23:20:52 [DEBUG] memberlist: Stream connection from=192.168.1.109:46838
+###################2024/03/18 23:20:53 [DEBUG] memberlist: Failed to join 192.168.1.103:7947: dial tcp 192.168.1.103:7947: i/o timeout
+###################2024/03/18 23:20:54 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/03/18 23:20:54 PIX-Console Version: pix-console-20240308-4.x86_64
+###################2024/03/18 23:21:24 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 1, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:21:54 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 2, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:22:11 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
+###################2024/03/18 23:22:11 [DEBUG] memberlist: Stream connection from=192.168.1.109:46854
+###################2024/03/18 23:22:12 [DEBUG] memberlist: Failed to join 192.168.1.103:7947: dial tcp 192.168.1.103:7947: i/o timeout
+###################2024/03/18 23:22:13 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/03/18 23:22:13 PIX-Console Version: pix-console-20240308-4.x86_64
+###################2024/03/18 23:22:50 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 1, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:23:13 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 2, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:23:43 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 3, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:24:13 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 4, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:24:36 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
+###################2024/03/18 23:24:36 [DEBUG] memberlist: Stream connection from=192.168.1.109:46880
+###################2024/03/18 23:24:37 [DEBUG] memberlist: Failed to join 192.168.1.103:7947: dial tcp 192.168.1.103:7947: i/o timeout
+###################2024/03/18 23:24:38 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/03/18 23:24:38 PIX-Console Version: pix-console-20240308-4.x86_64
+###################2024/03/18 23:25:10 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 1, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:25:38 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 2, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:26:08 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 3, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:26:38 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 4, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:27:08 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 5, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:27:38 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 6, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:28:08 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 7, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:29:12 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/03/18 23:29:12 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
+###################2024/03/18 23:29:12 [DEBUG] memberlist: Stream connection from=192.168.1.109:46924
+###################2024/03/18 23:29:13 [DEBUG] memberlist: Failed to join 192.168.1.103:7947: dial tcp 192.168.1.103:7947: i/o timeout
+###################2024/03/18 23:29:13 PIX-Console Version: pix-console-20240308-4.x86_64
+###################2024/03/18 23:29:43 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 1, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:29:51 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
+###################2024/03/18 23:29:51 [DEBUG] memberlist: Stream connection from=192.168.1.109:46934
+###################2024/03/18 23:29:52 [DEBUG] memberlist: Failed to join 192.168.1.103:7947: dial tcp 192.168.1.103:7947: i/o timeout
+###################2024/03/18 23:29:53 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/03/18 23:29:53 PIX-Console Version: pix-console-20240308-4.x86_64
+###################2024/03/18 23:33:08 [DEBUG] memberlist: Stream connection from=192.168.1.109:46944
+###################2024/03/18 23:33:08 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
+###################2024/03/18 23:33:09 [DEBUG] memberlist: Failed to join 192.168.1.103:7947: dial tcp 192.168.1.103:7947: i/o timeout
+###################2024/03/18 23:33:10 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/03/18 23:33:10 PIX-Console Version: pix-console-20240308-4.x86_64
+###################2024/03/18 23:33:40 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 1, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:34:10 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 2, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:34:40 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 3, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:35:10 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 4, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:35:40 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 5, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:36:10 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 6, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:36:40 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 7, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:37:10 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 8, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:37:40 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 9, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:38:10 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 10, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:38:40 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 11, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:38:50 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
+###################2024/03/18 23:38:50 [DEBUG] memberlist: Stream connection from=192.168.1.109:47006
+###################2024/03/18 23:38:51 [DEBUG] memberlist: Failed to join 192.168.1.103:7947: dial tcp 192.168.1.103:7947: i/o timeout
+###################2024/03/18 23:38:52 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/03/18 23:38:52 PIX-Console Version: pix-console-20240308-4.x86_64
+###################2024/03/18 23:39:22 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 1, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:39:47 [DEBUG] memberlist: Failed to join 192.168.1.103:7947: dial tcp 192.168.1.103:7947: i/o timeout
+###################2024/03/18 23:39:48 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/03/18 23:39:48 [DEBUG] memberlist: Stream connection from=192.168.1.109:47022
+###################2024/03/18 23:39:48 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
+###################2024/03/18 23:39:48 PIX-Console Version: pix-console-20240308-4.x86_64
+###################2024/03/18 23:40:18 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 1, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:40:48 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 2, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:41:18 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 3, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:41:48 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 4, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:42:18 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 5, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:42:48 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 6, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:43:18 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 7, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:43:48 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 8, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:44:18 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 9, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:44:48 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 10, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:45:18 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 11, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:45:48 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 12, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:46:18 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 13, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:46:48 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 14, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:47:18 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 15, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:47:48 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 16, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:48:18 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 17, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:48:48 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 18, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:49:18 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 19, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:49:48 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 20, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:50:18 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 21, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:50:48 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 22, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:51:18 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 23, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:51:48 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 24, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:52:18 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 25, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:52:48 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 26, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:53:18 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 27, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:53:48 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 28, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:54:18 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 29, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:54:48 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 30, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:55:18 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 31, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:55:48 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 32, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:56:18 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 33, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:56:48 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 34, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:57:18 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 35, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:57:48 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 36, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:58:18 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 37, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:58:48 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 38, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:59:18 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 39, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/18 23:59:48 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 40, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 00:00:18 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 41, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 00:00:48 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 42, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 00:01:18 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 43, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 00:01:48 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 44, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 00:02:18 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 45, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 00:02:48 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 46, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 00:03:18 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 47, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 00:55:39 [DEBUG] memberlist: Initiating push/pull sync with:  192.168.1.109:7947
+###################2024/03/19 00:55:39 [DEBUG] memberlist: Stream connection from=192.168.1.109:47308
+###################2024/03/19 00:55:40 [DEBUG] memberlist: Failed to join 192.168.1.103:7947: dial tcp 192.168.1.103:7947: i/o timeout
+###################2024/03/19 00:55:41 [DEBUG] memberlist: Failed to join 192.168.1.119:7947: dial tcp 192.168.1.119:7947: i/o timeout
+###################2024/03/19 00:55:41 PIX-Console Version: pix-console-20240308-4.x86_64
+###################2024/03/19 00:56:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 1, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 00:56:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 2, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 00:57:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 3, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 00:57:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 4, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 00:58:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 5, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 00:58:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 6, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 00:59:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 7, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 00:59:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 8, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:00:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 9, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:00:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 10, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:01:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 11, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:01:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 12, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:02:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 13, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:02:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 14, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:03:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 15, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:03:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 16, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:04:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 17, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:04:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 18, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:05:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 19, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:05:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 20, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:06:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 21, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:06:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 22, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:07:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 23, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:07:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 24, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:08:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 25, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:08:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 26, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:09:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 27, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:09:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 28, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:10:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 29, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:10:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 30, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:11:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 31, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:11:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 32, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:12:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 33, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:12:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 34, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:13:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 35, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:13:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 36, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:14:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 37, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:14:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 38, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:15:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 39, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:15:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 40, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:16:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 41, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:16:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 42, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:17:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 43, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:17:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 44, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:18:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 45, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:18:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 46, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:19:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 47, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:19:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 48, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:20:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 49, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:20:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 50, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:21:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 51, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:21:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 52, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:22:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 53, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:22:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 54, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:23:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 55, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:23:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 56, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:24:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 57, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:24:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 58, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:25:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 59, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:25:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 60, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:26:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 61, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:26:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 62, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:27:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 63, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:27:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 64, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:28:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 65, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:28:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 66, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:29:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 67, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:29:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 68, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:30:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 69, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:30:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 70, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:31:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 71, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:31:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 72, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:32:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 73, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:32:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 74, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:33:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 75, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:33:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 76, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:34:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 77, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:34:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 78, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:35:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 79, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:35:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 80, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:36:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 81, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:36:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 82, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:37:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 83, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:37:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 84, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:38:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 85, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:38:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 86, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:39:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 87, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:39:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 88, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:40:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 89, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:40:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 90, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:41:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 91, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:41:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 92, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:42:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 93, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:42:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 94, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:43:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 95, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:43:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 96, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:44:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 97, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:44:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 98, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:45:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 99, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:45:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 100, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:46:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 101, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:46:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 102, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:47:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 103, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:47:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 104, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:48:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 105, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:48:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 106, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:49:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 107, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:49:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 108, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:50:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 109, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:50:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 110, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:51:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 111, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:51:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 112, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:52:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 113, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:52:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 114, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:53:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 115, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:53:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 116, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:54:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 117, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:54:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 118, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:55:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 119, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:55:41 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 120, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 
+###################2024/03/19 01:56:11 host1 region: ap-northeast-1, zone: 1a, shard: 100, weight: 121, ServerStatus: 0, ServiceVersion: pix-console-20240308-4.x86_64
+,ServiceStatus: 0,ServerName: 

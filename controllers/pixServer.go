@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
+	"mime/multipart"
 	"net/http"
 	"os"
 	"os/exec"
@@ -314,6 +315,107 @@ func UploadDockerComposeHandler(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, gin.H{"message": "檔案上傳成功"})
+}
+
+func (u *Server) ClusterUploadPatch(c *gin.Context) {
+	// 從請求中讀取檔案
+	fileHeader, err := c.FormFile("fileToUpload")
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	// 取得集群中的節點
+	nodes := u.Memberlist.Members()
+
+	// 將檔案上傳到每個節點
+	for _, node := range nodes {
+		// 打開檔案
+		file, err := fileHeader.Open()
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+		defer file.Close()
+
+		// 創建一個緩衝區來儲存請求的主體
+		body := &bytes.Buffer{}
+		writer := multipart.NewWriter(body)
+
+		// 將檔案加入 multipart 部分
+		part, err := writer.CreateFormFile("fileToUpload", fileHeader.Filename)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+		_, err = io.Copy(part, file)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+
+		// 結束 multipart 部分
+		writer.Close()
+
+		// 組合目標 URL
+		apiUrl := fmt.Sprintf("http://%s%s/api/v1/UploadPatch", node.Addr, common.Config.Port)
+
+		// 建立新的 HTTP 請求
+		req, err := http.NewRequest("POST", apiUrl, body)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+
+		// 設置請求標頭
+		req.Header.Set("Content-Type", writer.FormDataContentType())
+
+		// 加入授權標頭
+		req.Header.Set("Authorization", "Bearer "+"sdklkkfkj!2323dfj92083DKKD2**!*@#&&#!(#&1-9dfg,mzx//v)")
+
+		// 發送請求
+		resp, err := http.DefaultClient.Do(req)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+		defer resp.Body.Close()
+
+		// 檢查響應是否成功
+		if resp.StatusCode != http.StatusOK {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": fmt.Sprintf("無法將檔案上傳到節點 %s", node.Addr)})
+			return
+		}
+	}
+
+	// 返回成功訊息
+	c.JSON(http.StatusOK, gin.H{"message": "檔案上傳成功"})
+}
+
+func UploadPatchHandler(c *gin.Context) {
+
+	file, err := c.FormFile("fileToUpload")
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	dirPath := "/opt/patch/"
+
+	// 使用 os.MkdirAll() 函式創建目錄
+	if err := os.MkdirAll(dirPath, 0755); err != nil {
+		// 如果創建目錄失敗，輸出錯誤訊息
+		panic(err)
+	}
+
+	err = c.SaveUploadedFile(file, dirPath+file.Filename)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"message": "檔案上傳成功"})
+
 }
 
 func StartPixComposeHandler(c *gin.Context) {
