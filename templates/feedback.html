@@ -17,6 +17,46 @@
 
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
+  <style>
+    #loadingSpinner {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 50%;
+      top: 50%;
+      width: 100px;
+      height: 100px;
+      margin: -50px 0 0 -50px;
+      border: 10px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 10px solid #3498db;
+      width: 50px;
+      height: 50px;
+      -webkit-animation: spin 2s linear infinite;
+      animation: spin 2s linear infinite;
+    }
+
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+
 </head>
 
 <body>
@@ -47,6 +87,7 @@
 
       <button type="button" class="btn btn-success" id="downloadBtn">下載系統Log</button>
       <button type="button" class="btn btn-primary" id="uploadBtn">回傳系統Log</button>
+      <div id="loadingSpinner"></div>
     </div>
 
   </div>
@@ -58,6 +99,8 @@
     uploadBtn.addEventListener('click', function () {
       // 在這裡執行您的功能
       // 例如，呼叫一個名為 uploadLog 的函數
+      var loadingSpinner = document.getElementById('loadingSpinner');
+      loadingSpinner.style.display = 'block';
       uploadLog();
     });
 
@@ -66,6 +109,8 @@
     // 添加點擊事件監聽器
     downloadBtn.addEventListener('click', function () {
       if (!checkDateRange()) {
+        var loadingSpinner = document.getElementById('loadingSpinner');
+        loadingSpinner.style.display = 'block';
         downloadLog();
       }
     });

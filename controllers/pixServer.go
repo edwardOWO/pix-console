@@ -524,7 +524,7 @@ func (u *Server) LoginHandler(c *gin.Context) {
 		token := u.utils.GenerateJWTToken(username)
 		c.SetCookie("jwt", token, 360000, "/", "localhost", false, true)
 		c.SetCookie("jwt", token, 360000, "/", common.Config.ExtDomain, false, true)
-		c.Redirect(http.StatusSeeOther, "/index")
+		c.Redirect(http.StatusSeeOther, "/host")
 	} else {
 		c.Redirect(http.StatusSeeOther, "/?error=InvalidCredentials")
 	}
