@@ -2,23 +2,26 @@ package main
 
 import (
 	"fmt"
-	"io"
 	"log"
 	"net/http"
 	"os"
 	"pix-console/common"
 	"pix-console/controllers"
 	_ "pix-console/docs"
+	"pix-console/utils"
 	"pix-console/view"
 
 	v1 "pix-console/controllers"
 
 	"github.com/gin-gonic/gin"
 	"github.com/hashicorp/memberlist"
+	"github.com/sirupsen/logrus"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
+	ginlogrus "github.com/toorop/gin-logrus"
 )
 
+var pLog *utils.PixV2Logger
 var logger *log.Logger
 
 // Main manages main golang application
@@ -49,27 +52,6 @@ func (m *Main) initServer() error {
 	list, _, _ := controllers.StartMemberlist(logger, f)
 	m.memberlist = list
 	logger.Printf("PIX-Console Version: " + common.Config.Version)
-	// Initialize mongo database
-	//err = databases.Database.Init()
-	//if err != nil {
-	//	return err
-	//}
-
-	// Setting Gin Logger
-	if common.Config.EnableGinFileLog {
-		f, _ := os.Create("logs/gin.log")
-		if common.Config.EnableGinConsoleLog {
-			gin.DefaultWriter = io.MultiWriter(os.Stdout, f)
-		} else {
-			gin.DefaultWriter = io.MultiWriter(f)
-		}
-	} else {
-		if !common.Config.EnableGinConsoleLog {
-			gin.DefaultWriter = io.MultiWriter()
-		}
-	}
-
-	m.router = gin.Default()
 
 	return nil
 }
@@ -83,6 +65,13 @@ func main() {
 
 	// 初始化 Server 物件
 	c := v1.Server{}
+
+	pLog := utils.InitLogger("logs/gin.log", logrus.ErrorLevel)
+	m.router = gin.Default()
+
+	m.router.Use(ginlogrus.Logger(pLog.Log))
+
+	c.Logger = pLog
 
 	// 將 memberlist 賦予站台使用
 	c.Memberlist = m.memberlist
@@ -185,8 +174,8 @@ func main() {
 		apiV1.POST("/ClusterUploadPatch", c.ClusterUploadPatch)
 
 		// 更新 PIX　服務
-		apiV1.POST("/updateServer", v1.UpdateServerHandler)
-		apiV1.POST("/cluster_updateServer", v1.ClusterUpdateServerHandler)
+		apiV1.POST("/updateServer", c.UpdateServerHandler)
+		apiV1.POST("/cluster_updateServer", c.ClusterUpdateServerHandler)
 		apiV1.POST("/commitContainer", v1.CommitContainerHandler)
 		apiV1.POST("/updateContainer", v1.UpdateContainerHandler)
 		apiV1.POST("/cluster_updateContainer", v1.ClusterUpdateContainerHandler)

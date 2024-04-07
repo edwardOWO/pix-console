@@ -2,7 +2,6 @@ package controllers
 
 import (
 	"bufio"
-	"bytes"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -13,6 +12,7 @@ import (
 	"os/exec"
 	"pix-console/common"
 	"pix-console/models"
+	"pix-console/utils"
 	"strings"
 	"time"
 
@@ -241,28 +241,29 @@ func ClusterUpdateContainerHandler(c *gin.Context) {
 	response.Body.Close()
 
 }
-func UpdateServerHandler(c *gin.Context) {
+func (s *Server) UpdateServerHandler(c *gin.Context) {
 
-	// 開始更新 Server
-	fmt.Printf("@@@@@@@@@Start Update Server@@@@@@@@@")
+	err := patchServer()
 
-	patchServer()
-
-	// 重啟服務
-	fmt.Printf("@@@@@@@@@Restart Service@@@@@@@@@")
-	command := exec.Command("systemctl", "restart", "pix-console")
-	// 設置標準輸出和標準錯誤輸出
-	command.Stdout = os.Stdout
-	command.Stderr = os.Stderr
-	// 執行命令
-	err := command.Run()
 	if err != nil {
-		fmt.Printf("命令執行出錯: %s\n", err.Error())
+		utils.Log(s.Logger, "Error", utils.Trace()+" URL: "+c.Request.URL.Path, "Update Pix-console Error: "+err.Error())
+		c.JSON(http.StatusInternalServerError, err.Error())
 		return
 	}
+
+	command := exec.Command("systemctl", "restart", "pix-console")
+	output, err := command.CombinedOutput()
+
+	if err != nil {
+		utils.Log(s.Logger, "Error", utils.Trace()+" URL: "+c.Request.URL.Path, "Update Pix-console Error ErrorCode:"+err.Error()+" "+string(output))
+		c.JSON(http.StatusInternalServerError, err.Error())
+		return
+	}
+
+	c.JSON(http.StatusOK, "OK")
 }
 
-func ClusterUpdateServerHandler(c *gin.Context) {
+func (s *Server) ClusterUpdateServerHandler(c *gin.Context) {
 
 	// 定義一個結構體來映射 JSON 中的屬性
 	var requestData struct {
@@ -271,6 +272,7 @@ func ClusterUpdateServerHandler(c *gin.Context) {
 
 	// 使用 BindJSON 方法將 JSON 參數綁定到 requestData
 	if err := c.BindJSON(&requestData); err != nil {
+		utils.Log(s.Logger, "Error", utils.Trace()+" URL: "+c.Request.URL.Path, err.Error())
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
@@ -282,7 +284,7 @@ func ClusterUpdateServerHandler(c *gin.Context) {
 
 	req, err := http.NewRequest("POST", apiUrl, nil)
 	if err != nil {
-		fmt.Print(err.Error())
+		utils.Log(s.Logger, "Error", utils.Trace()+" URL: "+c.Request.URL.Path, err.Error())
 	}
 
 	// 添加 Bearer Token 到標頭
@@ -290,13 +292,13 @@ func ClusterUpdateServerHandler(c *gin.Context) {
 
 	response, err := client.Do(req)
 	if err != nil {
-		fmt.Print(err.Error())
+		utils.Log(s.Logger, "Error", utils.Trace()+" URL: "+c.Request.URL.Path, err.Error())
 	}
 	defer response.Body.Close()
 
 	//c.JSON(http.StatusOK, mergedData)
 }
-func patchServer() {
+func patchServer() error {
 
 	stunConfig := tool.StuneSetting{
 		ClientID:     "pixCollector",
@@ -309,7 +311,7 @@ func patchServer() {
 	err := tool.StuneDownload(stunConfig.GetAccessToken(), "version.txt", "edward")
 	if err != nil {
 		fmt.Print(err.Error())
-		return
+		return err
 	}
 
 	version := LoadVersion()
@@ -317,19 +319,18 @@ func patchServer() {
 	err = tool.StuneDownload(stunConfig.GetAccessToken(), version, "edward")
 	if err != nil {
 		fmt.Print(err.Error())
-		return
+		return err
 	}
 
 	command := exec.Command("rpm", "-Uvh", version)
-	var stdout, stderr bytes.Buffer
-	command.Stdout = &stdout
-	command.Stderr = &stderr
 
-	err = command.Run()
+	_, err = command.CombinedOutput()
+
 	if err != nil {
-		fmt.Print(stderr.String())
-		return
+		return err
 	}
+
+	return nil
 
 }
 func LoadVersion() string {

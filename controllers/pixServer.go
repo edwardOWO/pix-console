@@ -29,6 +29,7 @@ type Server struct {
 	utils      utils.Utils
 	Memberlist *memberlist.Memberlist
 	UserAcount *models.Users
+	Logger     *utils.PixV2Logger
 }
 
 type RequestData struct {

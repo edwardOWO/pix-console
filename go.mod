@@ -76,8 +76,10 @@ require (
 	github.com/rogpeppe/go-internal v1.11.0 // indirect
 	github.com/serialx/hashring v0.0.0-20200727003509-22c0c7ab6b1b
 	github.com/sirupsen/logrus v1.9.3
+	github.com/toorop/gin-logrus v0.0.0-20210225092905-2c785434f26f
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
 	github.com/ugorji/go/codec v1.2.11 // indirect
+	github.com/wneessen/go-mail v0.4.1
 	golang.org/x/arch v0.4.0 // indirect
 	golang.org/x/crypto v0.14.0 // indirect
 	golang.org/x/net v0.17.0 // indirect
