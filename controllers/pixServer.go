@@ -12,6 +12,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"regexp"
 	"strconv"
 	"strings"
 	"time"
@@ -329,6 +330,7 @@ func (u *Server) ClusterUploadPatch(c *gin.Context) {
 	// 取得集群中的節點
 	nodes := u.Memberlist.Members()
 
+	result := ""
 	// 將檔案上傳到每個節點
 	for _, node := range nodes {
 		// 打開檔案
@@ -380,6 +382,24 @@ func (u *Server) ClusterUploadPatch(c *gin.Context) {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 			return
 		}
+
+		var data []byte
+		buf := make([]byte, 1024) // 1KB 缓冲区
+		for {
+			n, err := resp.Body.Read(buf)
+			if err != nil && err != io.EOF {
+				fmt.Println("Error reading response body:", err)
+				return
+			}
+			if n == 0 {
+				break
+			}
+			data = append(data, buf[:n]...)
+		}
+		result += node.Name
+		result += string(data)
+		result += " "
+
 		defer resp.Body.Close()
 
 		// 檢查響應是否成功
@@ -387,13 +407,80 @@ func (u *Server) ClusterUploadPatch(c *gin.Context) {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": fmt.Sprintf("無法將檔案上傳到節點 %s", node.Addr)})
 			return
 		}
+
 	}
 
 	// 返回成功訊息
-	c.JSON(http.StatusOK, gin.H{"message": "檔案上傳成功"})
+	c.JSON(http.StatusOK, gin.H{"message": result})
+}
+
+// 儲存檔案格式
+func updatePatchfile(DirPath string, filename string) error {
+
+	// 讀取 patch 更新檔案
+	jsonData, err := ioutil.ReadFile(filepath.Join(DirPath, "patch.json"))
+	var patches []models.PatchInfo
+
+	if err != nil {
+		_, err = os.Create(filepath.Join(DirPath, "patch.json"))
+		if err != nil {
+			return err
+		}
+		patches = make([]models.PatchInfo, 0)
+	} else {
+		// 解析 json 結構體
+		err = json.Unmarshal(jsonData, &patches)
+		if err != nil {
+			fmt.Println("Error parsing JSON:", err)
+			return err
+		}
+	}
+
+	currentTime := time.Now()
+	formattedTime := currentTime.Format("20060102150405")
+	Version := ""
+
+	// 擷取 patch 檔案格式
+	re := regexp.MustCompile(`(\d{8}-\d+)`)
+	result := re.FindStringSubmatch(filename)
+
+	if len(result) > 1 {
+		Version = result[1]
+	}
+
+	newPatch := models.PatchInfo{
+		UpdateTime:    formattedTime,
+		FileName:      filename,
+		PatchFilePath: filepath.Join(DirPath, "data", filename),
+		RPMversion:    Version,
+		RPMpath:       filepath.Join(DirPath, "data", Version, "pix-console-"+Version+".x86_64.rpm"),
+		Used:          false,
+		SelectVersion: false,
+	}
+
+	// 将新的PatchInfo添加到切片中
+	patches = append(patches, newPatch)
+
+	// 转换为JSON字符串
+	updatedJsonData, err := json.MarshalIndent(patches, "", "    ")
+	if err != nil {
+		fmt.Println("JSON marshaling failed:", err)
+		return err
+	}
+
+	// 將 json 數據寫入文件
+	err = ioutil.WriteFile(filepath.Join(DirPath, "patch.json"), updatedJsonData, os.ModePerm)
+	if err != nil {
+		return err
+	}
+
+	return nil
+
 }
 
 func UploadPatchHandler(c *gin.Context) {
+
+	dirPath := "/opt/patch/"
 
 	file, err := c.FormFile("fileToUpload")
 	if err != nil {
@@ -401,21 +488,58 @@ func UploadPatchHandler(c *gin.Context) {
 		return
 	}
 
-	dirPath := "/opt/patch/"
-
 	// 使用 os.MkdirAll() 函式創建目錄
-	if err := os.MkdirAll(dirPath, 0755); err != nil {
-		// 如果創建目錄失敗，輸出錯誤訊息
-		panic(err)
+	if err := os.MkdirAll(filepath.Join(dirPath, "data"), 0755); err != nil {
+		c.JSON(http.StatusOK, gin.H{"message": err.Error()})
+		return
 	}
 
-	err = c.SaveUploadedFile(file, dirPath+file.Filename)
+	err = c.SaveUploadedFile(file, filepath.Join(dirPath, "data", file.Filename))
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
 
+	err = unzipPackage(filepath.Join(dirPath, "data", file.Filename))
+
+	if err != nil {
+		c.JSON(http.StatusOK, gin.H{"message": err.Error()})
+		return
+	}
+
+	err = updatePatchfile(dirPath, file.Filename)
+	if err != nil {
+		c.JSON(http.StatusOK, gin.H{"message": err.Error()})
+		return
+	}
+
 	c.JSON(http.StatusOK, gin.H{"message": "檔案上傳成功"})
+
+}
+
+func unzipPackage(filePath string) error {
+
+	cmd := exec.Command("tar", "xvf", filePath, "-C", "/opt/patch/data")
+	_, err := cmd.CombinedOutput()
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// 取得更新清單
+func GetPatchlist(c *gin.Context) {
+
+	// 读取 JSON 文件
+	jsonData, err := ioutil.ReadFile(filepath.Join("/opt/patch/", "patch.json"))
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "无法读取 JSON 文件"})
+		return
+	}
+
+	// 将 JSON 数据作为响应返回
+	c.Data(http.StatusOK, "application/json", jsonData)
 
 }
 

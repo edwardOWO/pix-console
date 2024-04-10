@@ -10,6 +10,7 @@ import (
 	"net/http"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"pix-console/common"
 	"pix-console/models"
 	"pix-console/utils"
@@ -300,34 +301,69 @@ func (s *Server) ClusterUpdateServerHandler(c *gin.Context) {
 }
 func patchServer() error {
 
-	stunConfig := tool.StuneSetting{
-		ClientID:     "pixCollector",
-		ClientSecret: "(5vBX1Tu@DDPs0Om1Cfm",
-		AuthURL:      "https://auth.tw.juiker.net",
-		BrandID:      "juiker",
-		Scope:        "tw:stune:basic",
+	/*
+		stunConfig := tool.StuneSetting{
+			ClientID:     "pixCollector",
+			ClientSecret: "(5vBX1Tu@DDPs0Om1Cfm",
+			AuthURL:      "https://auth.tw.juiker.net",
+			BrandID:      "juiker",
+			Scope:        "tw:stune:basic",
+		}
+
+		err := tool.StuneDownload(stunConfig.GetAccessToken(), "version.txt", "edward")
+		if err != nil {
+			fmt.Print(err.Error())
+			return err
+		}
+
+		version := LoadVersion()
+
+		err = tool.StuneDownload(stunConfig.GetAccessToken(), version, "edward")
+		if err != nil {
+			fmt.Print(err.Error())
+			return err
+		}
+	*/
+
+	var patches []models.PatchInfo
+
+	jsonData, err := ioutil.ReadFile(filepath.Join("/opt/patch/", "patch.json"))
+
+	err = json.Unmarshal(jsonData, &patches)
+
+	if err != nil {
+		fmt.Println("Error parsing JSON:", err)
 	}
 
-	err := tool.StuneDownload(stunConfig.GetAccessToken(), "version.txt", "edward")
-	if err != nil {
-		fmt.Print(err.Error())
-		return err
+	for index, patch := range patches {
+
+		// 檢查目前選擇的版本
+		if patch.SelectVersion == true && patch.Used == false {
+
+			// 更新 rpm 檔案
+			command := exec.Command("rpm", "-Uvh", "--oldpackage", patch.RPMpath)
+			output, err := command.CombinedOutput()
+
+			fmt.Printf(string(output))
+
+			if err != nil {
+				return err
+			}
+			// 選擇
+			patches[index].Used = true
+		}
+
 	}
 
-	version := LoadVersion()
-
-	err = tool.StuneDownload(stunConfig.GetAccessToken(), version, "edward")
+	// 更新 patch file
+	updatedJSONData, err := json.MarshalIndent(patches, "", "    ")
 	if err != nil {
-		fmt.Print(err.Error())
-		return err
+		fmt.Println("Error marshaling JSON:", err)
 	}
 
-	command := exec.Command("rpm", "-Uvh", version)
-
-	_, err = command.CombinedOutput()
-
+	err = ioutil.WriteFile(filepath.Join("/opt/patch/", "patch.json"), updatedJSONData, 0644)
 	if err != nil {
-		return err
+		fmt.Println("Error writing JSON file:", err)
 	}
 
 	return nil
