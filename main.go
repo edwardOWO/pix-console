@@ -170,8 +170,12 @@ func main() {
 		apiV1.GET("/docker_compose", v1.DockerComposeHandler)
 		apiV1.POST("/upload", v1.UploadDockerComposeHandler)
 		apiV1.GET("/download", v1.DownloadConfigHandler)
+
+		// 上傳更新檔案
 		apiV1.POST("/UploadPatch", v1.UploadPatchHandler)
 		apiV1.POST("/ClusterUploadPatch", c.ClusterUploadPatch)
+
+		apiV1.GET("/GetPatchlist", v1.GetPatchlist)
 
 		// 更新 PIX　服務
 		apiV1.POST("/updateServer", c.UpdateServerHandler)

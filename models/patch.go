@@ -13,3 +13,11 @@ type ServerInfo struct {
 type ServiceConfig struct {
 	Services map[string]interface{} `yaml:"services"`
 }
+
+type PatchInfo struct {
+	UpdateTime string `json:"updatetime"`
+	FileName   string `json:"patchfile"`
+	FilePath   string `json:"filepath"`
+	RPMversion string `json:"rpmVersion"`
+	Used       bool   `json:"used"`
+}

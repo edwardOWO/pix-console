@@ -28,6 +28,9 @@ build:
 	cp -rp rbac $(TARGET_DIR)
 	cp pix-console $(TARGET_DIR)
 	rpmbuild --target=x86_64 -bb pix-console.spec
+	mkdir -p /tmp/$(VERSION)-$(RELEASE)
+	mv ~/rpmbuild/RPMS/x86_64/pix-console-$(VERSION)-$(RELEASE).x86_64.rpm /tmp/$(VERSION)-$(RELEASE)
+	tar cvf $(VERSION)-$(RELEASE).tar /tmp/$(VERSION)-$(RELEASE)
 
 # 清理目標檔案
 clean:
