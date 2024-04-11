@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Docker Containers</title>
-    <link rel="stylesheet" href="/static/index.css">
-    <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Docker Containers</title>
+  <link rel="stylesheet" href="/static/index.css">
+  <style>
     #loadingSpinner {
       display: none;
       position: fixed;
@@ -49,59 +49,117 @@
 
 <body>
 
-    <h1>PIX Containers</h1>
+  <h1>PIX Containers</h1>
 
-    <div class="container-wrapper">
-        <div class="container">
-            <div class="sidebar">
-                {{range .links}}
-                <a href="{{.href}}" class="{{.class}}">{{.text}}</a>
-                {{end}}
-            </div>
-        </div>
-
-        <div class="content" id="content">
-            <h2>請選擇要上傳的文件</h2>
-            <form id="uploadForm" enctype="multipart/form-data">
-                <input type="file" name="fileToUpload" id="fileToUpload">
-                <br><br>
-                <input type="submit" value="上傳更新文件" name="submit">
-            </form>
-            <div id="loadingSpinner"></div>
-        </div>
+  <div class="container-wrapper">
+    <div class="container">
+      <div class="sidebar">
+        {{range .links}}
+        <a href="{{.href}}" class="{{.class}}">{{.text}}</a>
+        {{end}}
+      </div>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var form = document.getElementById("uploadForm");
+    <div class="content" id="content">
 
-            form.addEventListener("submit", function (event) {
-                event.preventDefault(); // 阻止表單預設的提交行為
 
-                // 使用 FormData 構建表單數據
-                var formData = new FormData(form);
 
-                var loadingSpinner = document.getElementById('loadingSpinner');
-                loadingSpinner.style.display = 'block';
-                // 發送 AJAX 請求
-                fetch("api/v1/ClusterUploadPatch", {
-                    method: "POST",
-                    body: formData
-                })
-                .then(response => response.json()) // 解析 JSON 格式的回傳訊息
-                .then(data => {
-                    // 顯示回傳訊息
-                    alert(data.message);
-                    loadingSpinner.style.display = 'none'; // 隱藏等待動畫
-                })
-                .catch(error => {
-                    // 處理錯誤
-                    console.error("發生錯誤:", error);
-                    loadingSpinner.style.display = 'none'; // 隱藏等待動畫
-                });
-            });
+
+      <div class="content" id="content">
+
+        <h2>請選擇要上傳的文件</h2>
+        <form id="uploadForm" enctype="multipart/form-data">
+          <input type="file" name="fileToUpload" id="fileToUpload">
+          <br><br>
+          <input type="submit" value="上傳更新文件" name="submit">
+        </form>
+        <div id="loadingSpinner"></div>
+
+
+        <div id="containerList">
+          <table>
+            <thead>
+              <tr>
+                <th>更新時間</th>
+                <th>更新版本</th>
+                <th>站台使用狀態</th>
+                <th>容器使用狀態</th>
+              </tr>
+            </thead>
+            <tbody id="containerDataBody"></tbody>
+          </table>
+        </div>
+        <div id="outputResult"></div>
+      </div>
+
+
+
+    </div>
+
+
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      // 上傳檔案
+      var form = document.getElementById("uploadForm");
+      form.addEventListener("submit", function (event) {
+        event.preventDefault(); // 阻止表單預設的提交行為
+
+        // 使用 FormData 構建表單數據
+        var formData = new FormData(form);
+
+        var loadingSpinner = document.getElementById('loadingSpinner');
+        loadingSpinner.style.display = 'block';
+        // 發送 AJAX 請求
+        fetch("api/v1/ClusterUploadPatch", {
+          method: "POST",
+          body: formData
+        })
+          .then(response => response.json()) // 解析 JSON 格式的回傳訊息
+          .then(data => {
+            // 顯示回傳訊息
+            alert(data.message);
+            loadingSpinner.style.display = 'none'; // 隱藏等待動畫
+          })
+          .catch(error => {
+            // 處理錯誤
+            console.error("發生錯誤:", error);
+            loadingSpinner.style.display = 'none'; // 隱藏等待動畫
+          });
+      });
+    });
+
+
+    var tableBody = document.getElementById('containerDataBody');
+    var loadingSpinner = document.getElementById('loadingSpinner');
+
+    // 發送 AJAX 請求取得更新列表
+    fetch("/api/v1/GetPatchlist")
+      .then(response => response.json())
+      .then(data => {
+        // 將JSON數據填入表格
+        data.forEach(patch => {
+          var row = document.createElement("tr");
+          row.innerHTML = `
+                            <td>${patch.updatetime}</td>
+                            <td>${patch.rpmVersion}</td>
+                            <td>${patch.pixConsoleSelect}</td>
+                            <td>${patch.pixComposeSelect}</td>
+                            
+                        `;
+          tableBody.appendChild(row);
         });
-    </script>
+        loadingSpinner.style.display = 'none'; // 隱藏等待動畫
+      })
+      .catch(error => {
+        console.error("發生錯誤:", error);
+        loadingSpinner.style.display = 'none'; // 隱藏等待動畫
+      });
+
+
+  </script>
 
 </body>
 
