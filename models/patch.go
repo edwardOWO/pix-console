@@ -15,11 +15,14 @@ type ServiceConfig struct {
 }
 
 type PatchInfo struct {
-	UpdateTime    string `json:"updatetime"`
-	FileName      string `json:"patchfile"`
-	PatchFilePath string `json:"Patchfilepath"`
-	RPMversion    string `json:"rpmVersion"`
-	RPMpath       string `json:"rpmPath"`
-	Used          bool   `json:"used"`
-	SelectVersion bool   `json:"selectVersion"`
+	UpdateTime        string `json:"updatetime"`
+	FileName          string `json:"patchfile"`
+	PatchFilePath     string `json:"Patchfilepath"`
+	RPMversion        string `json:"rpmVersion"`
+	RPMpath           string `json:"rpmPath"`
+	ContainerListPath string `json:"containerListPath"`
+	PixConsoleUsed    bool   `json:"pixConsoleUsed"`
+	PixComposeUsed    bool   `json:"pixComposeUsed"`
+	PixConsoleSelect  bool   `json:"pixConsoleSelect"`
+	PixComposeSelect  bool   `json:"pixComposeSelect"`
 }

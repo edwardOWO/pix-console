@@ -449,13 +449,16 @@ func updatePatchfile(DirPath string, filename string) error {
 	}
 
 	newPatch := models.PatchInfo{
-		UpdateTime:    formattedTime,
-		FileName:      filename,
-		PatchFilePath: filepath.Join(DirPath, "data", filename),
-		RPMversion:    Version,
-		RPMpath:       filepath.Join(DirPath, "data", Version, "pix-console-"+Version+".x86_64.rpm"),
-		Used:          false,
-		SelectVersion: false,
+		UpdateTime:        formattedTime,
+		FileName:          filename,
+		PatchFilePath:     filepath.Join(DirPath, "data", filename),
+		RPMversion:        Version,
+		RPMpath:           filepath.Join(DirPath, "data", Version, "pix-console-"+Version+".x86_64.rpm"),
+		ContainerListPath: filepath.Join(DirPath, "data", Version, "container.json"),
+		PixConsoleUsed:    false,
+		PixComposeUsed:    false,
+		PixConsoleSelect:  false,
+		PixComposeSelect:  false,
 	}
 
 	// 将新的PatchInfo添加到切片中

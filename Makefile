@@ -1,6 +1,6 @@
 TARGET_DIR := /tmp/pix-console
-VERSION := 20240410
-RELEASE := 1
+VERSION := 20240411
+RELEASE := 4
 STUNE_DIR := edward
 
 # 產生執行檔
@@ -28,8 +28,10 @@ build:
 	cp -rp rbac $(TARGET_DIR)
 	cp pix-console $(TARGET_DIR)
 	rpmbuild --target=x86_64 -bb pix-console.spec
-# create package 
+# create package
+	./stune-tool download container.json edward
 	mkdir -p $(VERSION)-$(RELEASE)
+	cp container.json $(VERSION)-$(RELEASE)
 	mv ~/rpmbuild/RPMS/x86_64/pix-console-$(VERSION)-$(RELEASE).x86_64.rpm $(VERSION)-$(RELEASE)
 	tar cvf $(VERSION)-$(RELEASE).tar $(VERSION)-$(RELEASE)
 

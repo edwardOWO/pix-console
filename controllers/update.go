@@ -30,10 +30,9 @@ func backupService() bool {
 }
 
 // 更新 docker-compose 檔案
-func updateDockerCompose() (bool, error) {
+func updateDockerCompose(updatefilePath string) (bool, error) {
 
-	filePath := "config/container.json"
-	jsonData, err := ioutil.ReadFile(filePath)
+	jsonData, err := ioutil.ReadFile(updatefilePath)
 	if err != nil {
 		fmt.Println("Error reading file:", err)
 		return false, err
@@ -46,7 +45,7 @@ func updateDockerCompose() (bool, error) {
 	}
 
 	// Read the contents of the file
-	filePath = "/opt/pix/run/docker-compose-pro.yml"
+	filePath := "/opt/pix/run/docker-compose-pro.yml"
 	yamlData, err := ioutil.ReadFile(filePath)
 	if err != nil {
 		fmt.Println("Error reading file:", err)
@@ -143,25 +142,89 @@ func checkService() bool {
 	fmt.Print("CheckService\n")
 	return true
 }
-func getlatestVersion() (bool, error) {
-	stunConfig := tool.StuneSetting{
-		ClientID:     "pixCollector",
-		ClientSecret: "(5vBX1Tu@DDPs0Om1Cfm",
-		AuthURL:      "https://auth.tw.juiker.net",
-		BrandID:      "juiker",
-		Scope:        "tw:stune:basic",
+
+// 取得最新版本的 Container 資訊
+func getContainerPatchConfig() (string, error) {
+
+	/*
+		stunConfig := tool.StuneSetting{
+			ClientID:     "pixCollector",
+			ClientSecret: "(5vBX1Tu@DDPs0Om1Cfm",
+			AuthURL:      "https://auth.tw.juiker.net",
+			BrandID:      "juiker",
+			Scope:        "tw:stune:basic",
+		}
+
+		err := tool.StuneDownload(stunConfig.GetAccessToken(), "config/container.json", "edward")
+		if err != nil {
+			fmt.Print(err.Error())
+			return false, err
+		}
+		return true, nil
+	*/
+
+	var patches []models.PatchInfo
+
+	jsonData, err := ioutil.ReadFile(filepath.Join("/opt/patch/", "patch.json"))
+
+	err = json.Unmarshal(jsonData, &patches)
+
+	if err != nil {
+		fmt.Println("Error parsing JSON:", err)
 	}
 
-	err := tool.StuneDownload(stunConfig.GetAccessToken(), "config/container.json", "edward")
-	if err != nil {
-		fmt.Print(err.Error())
-		return false, err
+	var ContainerListPath string
+	for _, patch := range patches {
+
+		// 檢查目前選擇的版本
+		if patch.PixComposeSelect == true && patch.PixComposeUsed == false {
+
+			ContainerListPath = patch.ContainerListPath
+		}
+
 	}
-	return true, nil
+	return ContainerListPath, nil
+}
+
+// 更新 Patch 檔案確認 Container 已經使用並成功更新
+func setPatchConfig(ContainerListPath string) error {
+
+	var patches []models.PatchInfo
+
+	jsonData, err := ioutil.ReadFile(filepath.Join("/opt/patch/", "patch.json"))
+
+	err = json.Unmarshal(jsonData, &patches)
+
+	if err != nil {
+		fmt.Println("Error parsing JSON:", err)
+	}
+
+	for index, patch := range patches {
+
+		// 檢查目前選擇的版本
+		if patch.ContainerListPath == ContainerListPath {
+
+			// 設定 PatchConfig 將 Container 標記為已經使用
+			patches[index].PixComposeUsed = true
+		}
+
+	}
+
+	// 更新 patch file
+	updatedJSONData, err := json.MarshalIndent(patches, "", "    ")
+	if err != nil {
+		return err
+	}
+
+	err = ioutil.WriteFile(filepath.Join("/opt/patch/", "patch.json"), updatedJSONData, 0644)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
 
 // 升級伺服器
-
 func UpdateContainerHandler(c *gin.Context) {
 
 	if !backupService() {
@@ -169,14 +232,14 @@ func UpdateContainerHandler(c *gin.Context) {
 		return
 	}
 
-	status, err := getlatestVersion()
+	ContainerListPath, err := getContainerPatchConfig()
 
-	if !status {
+	if err != nil {
 		c.JSON(http.StatusOK, gin.H{"message": err.Error()})
 		return
 	}
 
-	status, err = updateDockerCompose()
+	status, err := updateDockerCompose(ContainerListPath)
 
 	if !status {
 		c.JSON(http.StatusOK, gin.H{"message": "update Docker Compose Error" + err.Error()})
@@ -195,8 +258,16 @@ func UpdateContainerHandler(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"message": "更新成功"})
+	// 將檔案 patch.json 更新為成功更新
+	err = setPatchConfig(ContainerListPath)
+	if err != nil {
 
+		errorMessage := "patch 檔案更新異常 " + err.Error()
+		c.JSON(http.StatusOK, gin.H{"message": errorMessage})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"message": "更新成功"})
 }
 
 func ClusterUpdateContainerHandler(c *gin.Context) {
@@ -338,7 +409,7 @@ func patchServer() error {
 	for index, patch := range patches {
 
 		// 檢查目前選擇的版本
-		if patch.SelectVersion == true && patch.Used == false {
+		if patch.PixConsoleSelect == true && patch.PixConsoleUsed == false {
 
 			// 更新 rpm 檔案
 			command := exec.Command("rpm", "-Uvh", "--oldpackage", patch.RPMpath)
@@ -350,7 +421,7 @@ func patchServer() error {
 				return err
 			}
 			// 選擇
-			patches[index].Used = true
+			patches[index].PixConsoleUsed = true
 		}
 
 	}
