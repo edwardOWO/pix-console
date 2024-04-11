@@ -546,6 +546,112 @@ func GetPatchlist(c *gin.Context) {
 
 }
 
+func SetPatchlist(c *gin.Context) {
+
+	SetPatch := models.PatchInfo{}
+
+	if err := c.ShouldBindJSON(&SetPatch); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	jsonData, err := ioutil.ReadFile(filepath.Join("/opt/patch", "patch.json"))
+	var patches []models.PatchInfo
+
+	err = json.Unmarshal(jsonData, &patches)
+	if err != nil {
+		return
+	}
+
+	for index, patch := range patches {
+		patches[index].PixComposeSelect = false
+		patches[index].PixConsoleSelect = false
+		// 依照輸入選定更新版本
+		if patch.RPMversion == SetPatch.RPMversion {
+			patches[index].PixComposeSelect = true
+			patches[index].PixConsoleSelect = true
+		}
+	}
+
+	updatedJsonData, err := json.MarshalIndent(patches, "", "    ")
+	if err != nil {
+		fmt.Println("JSON marshaling failed:", err)
+		return
+	}
+
+	// 將 json 數據寫入文件
+	err = ioutil.WriteFile(filepath.Join("/opt/patch", "patch.json"), updatedJsonData, os.ModePerm)
+	if err != nil {
+		return
+	}
+
+	c.JSON(http.StatusOK, patches)
+}
+
+func (u *Server) ClusterSetPatchlist(c *gin.Context) {
+
+	SetPatch := models.PatchInfo{}
+
+	if err := c.ShouldBindJSON(&SetPatch); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	// 取得集群中的節點
+	nodes := u.Memberlist.Members()
+
+	result := ""
+	// 將檔案上傳到每個節點
+	for _, node := range nodes {
+		// 打開檔案
+
+		jsonBody, err := json.Marshal(SetPatch)
+		// 組合目標 URL
+		apiUrl := fmt.Sprintf("http://%s%s/api/v1/setPatchlist", node.Addr, common.Config.Port)
+
+		// 建立新的 HTTP 請求
+		req, err := http.NewRequest("POST", apiUrl, bytes.NewBuffer(jsonBody))
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+
+		req.Header.Set("Content-Type", "application/json")
+		req.Header.Set("Authorization", "Bearer "+"sdklkkfkj!2323dfj92083DKKD2**!*@#&&#!(#&1-9dfg,mzx//v)")
+
+		// 發送請求
+
+		// 發送請求
+		client := &http.Client{}
+		resp, err := client.Do(req)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+		defer resp.Body.Close()
+
+		// 檢查響應是否成功
+		if resp.StatusCode != http.StatusOK {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": fmt.Sprintf("無法將檔案上傳到節點 %s", node.Addr)})
+			return
+		}
+
+		// 讀取響應
+		respBody, err := ioutil.ReadAll(resp.Body)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+
+		// 處理響應
+		result += fmt.Sprintf("Node %s response: %s\n", node.Addr, respBody)
+
+	}
+
+	// 返回成功訊息
+	c.JSON(http.StatusOK, gin.H{"message": result})
+}
+
 func StartPixComposeHandler(c *gin.Context) {
 
 	// 執行 "systemctl start pix-compose" 命令

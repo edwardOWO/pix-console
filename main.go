@@ -177,6 +177,9 @@ func main() {
 
 		apiV1.GET("/GetPatchlist", v1.GetPatchlist)
 
+		apiV1.POST("/setPatchlist", v1.SetPatchlist)
+		apiV1.POST("/clusterSetPatchlist", c.ClusterSetPatchlist)
+
 		// 更新 PIX　服務
 		apiV1.POST("/updateServer", c.UpdateServerHandler)
 		apiV1.POST("/cluster_updateServer", c.ClusterUpdateServerHandler)
