@@ -1,6 +1,6 @@
 TARGET_DIR := /tmp/pix-console
-VERSION := 20240411
-RELEASE := 15
+VERSION := 20240412
+RELEASE := 7
 STUNE_DIR := edward
 
 # 產生執行檔
