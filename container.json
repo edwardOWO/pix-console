@@ -1,0 +1,77 @@
+{
+    "commitmessage": "測試",
+    "containerinfo": [
+        {
+            "updatetime": "2024-03-29 05:59:52",
+            "servicename": "im",
+            "imagename": "harbor.tw.juiker.net/iris/iris",
+            "imagetag": "pix-v2-master-de282505"
+        },
+        {
+            "updatetime": "2024-03-29 05:59:52",
+            "servicename": "im2",
+            "imagename": "harbor.tw.juiker.net/iris/iris",
+            "imagetag": "pix-v2-master-de282505"
+        },
+        {
+            "updatetime": "2024-03-29 05:59:52",
+            "servicename": "im3",
+            "imagename": "harbor.tw.juiker.net/iris/iris",
+            "imagetag": "pix-v2-master-de282505"
+        },
+        {
+            "updatetime": "2024-03-29 05:59:52",
+            "servicename": "sorrel_sbcallinone",
+            "imagename": "harbor.tw.juiker.net/sorrel/sbcallinone",
+            "imagetag": "2.2.2"
+        },
+        {
+            "updatetime": "2024-03-29 05:59:52",
+            "servicename": "web",
+            "imagename": "harbor.tw.juiker.net/rib/rib-pix-server",
+            "imagetag": "TFN-latest"
+        },
+        {
+            "updatetime": "2024-03-29 05:59:52",
+            "servicename": "api",
+            "imagename": "harbor.tw.juiker.net/haunter/pix-v2",
+            "imagetag": "20230612"
+        },
+        {
+            "updatetime": "2024-03-29 05:59:52",
+            "servicename": "minio",
+            "imagename": "harbor.tw.juiker.net/library/minio",
+            "imagetag": "latest"
+        },
+        {
+            "updatetime": "2024-03-29 05:59:52",
+            "servicename": "nginx",
+            "imagename": "harbor.tw.juiker.net/library/nginx",
+            "imagetag": "1.15"
+        },
+        {
+            "updatetime": "2024-03-29 05:59:52",
+            "servicename": "sorrel_api",
+            "imagename": "harbor.tw.juiker.net/sorrel/api",
+            "imagetag": "2.2.3"
+        },
+        {
+            "updatetime": "2024-03-29 05:59:52",
+            "servicename": "sorrel_rose",
+            "imagename": "harbor.tw.juiker.net/sorrel/rose",
+            "imagetag": "2.2.2"
+        },
+        {
+            "updatetime": "2024-03-29 05:59:52",
+            "servicename": "stune",
+            "imagename": "harbor.tw.juiker.net/scoke/scoke",
+            "imagetag": "PRO-50a545f3a8a7a1d120e86fc5671d07737c52f917"
+        },
+        {
+            "updatetime": "2024-03-29 05:59:52",
+            "servicename": "dockerhost",
+            "imagename": "harbor.tw.juiker.net/library/docker-host",
+            "imagetag": "2.5.4"
+        }
+    ]
+}

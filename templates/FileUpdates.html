@@ -80,10 +80,11 @@
           <table>
             <thead>
               <tr>
-                <th>更新時間</th>
-                <th>更新版本</th>
-                <th>站台使用狀態</th>
-                <th>容器使用狀態</th>
+                <th>上傳時間</th>
+                <th>版本號</th>
+                <th>使用狀態</th>
+                <th>說明</th>
+                <th>選取更新</th>
               </tr>
             </thead>
             <tbody id="containerDataBody"></tbody>
@@ -122,6 +123,7 @@
             // 顯示回傳訊息
             alert(data.message);
             loadingSpinner.style.display = 'none'; // 隱藏等待動畫
+            getPatchlist()
           })
           .catch(error => {
             // 處理錯誤
@@ -131,32 +133,90 @@
       });
     });
 
+    getPatchlist()
+    function getPatchlist() {
 
-    var tableBody = document.getElementById('containerDataBody');
-    var loadingSpinner = document.getElementById('loadingSpinner');
+      var tableBody = document.getElementById('containerDataBody');
 
-    // 發送 AJAX 請求取得更新列表
-    fetch("/api/v1/GetPatchlist")
-      .then(response => response.json())
-      .then(data => {
-        // 將JSON數據填入表格
-        data.forEach(patch => {
-          var row = document.createElement("tr");
-          row.innerHTML = `
+      while (tableBody.firstChild) {
+        tableBody.removeChild(tableBody.firstChild);
+      }
+      var loadingSpinner = document.getElementById('loadingSpinner');
+
+      // 發送 AJAX 請求取得更新列表
+      fetch("/api/v1/GetPatchlist")
+        .then(response => response.json())
+        .then(data => {
+          // 將JSON數據填入表格
+          data.forEach(patch => {
+            var row = document.createElement("tr");
+
+
+            var DeploymentStatus=""
+            if (patch.pixConsoleUsed){
+              DeploymentStatus="使用中"
+              rowColor = "#00ff00"; // 亮綠色
+            }else{
+              rowColor = "white"; // 亮綠色
+            }
+
+            if (patch.pixConsoleSelect){
+              DeploymentStatus="待更新"
+              rowColor = "yellow"; // 亮綠色
+            }
+
+
+
+            row.style.backgroundColor = rowColor;
+            row.innerHTML = `
                             <td>${patch.updatetime}</td>
                             <td>${patch.rpmVersion}</td>
-                            <td>${patch.pixConsoleSelect}</td>
-                            <td>${patch.pixComposeSelect}</td>
-                            
+                            <td>${DeploymentStatus}</td>
+                            <td>修正系統檔案</td>
+                            <td><button onclick="SelectPatch('${patch.rpmVersion}')">選取更新</button></td>
                         `;
-          tableBody.appendChild(row);
+            tableBody.appendChild(row);
+          });
+          loadingSpinner.style.display = 'none'; // 隱藏等待動畫
+        })
+        .catch(error => {
+          console.error("發生錯誤:", error);
+          loadingSpinner.style.display = 'none'; // 隱藏等待動畫
         });
-        loadingSpinner.style.display = 'none'; // 隱藏等待動畫
-      })
-      .catch(error => {
-        console.error("發生錯誤:", error);
-        loadingSpinner.style.display = 'none'; // 隱藏等待動畫
-      });
+
+    }
+
+
+    function SelectPatch(RPMVersion) {
+            fetch("/api/v1/clusterSetPatchlist", {
+                method: 'POST', // 將請求方法改為POST
+                headers: {
+                    'Content-Type': 'application/json', // 指定請求頭為JSON格式
+                    // 在這裡可以添加其他請求頭信息
+                },
+                // 如果需要發送數據，可以在這裡添加請求體
+                body: JSON.stringify({ "RPMVersion": RPMVersion,"pixConsoleSelect":true,"pixComposeSelect":true })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        // 將錯誤消息輸出到 outputResult 段落元素
+                        document.getElementById("outputResult").textContent = "出現錯誤：" + data.error;
+                    } else {
+                        // 將結果輸出到 outputResult 段落元素
+                        document.getElementById("outputResult").textContent = JSON.stringify(data, null, 2);
+                        location.reload();
+                    }
+                })
+                .catch(error => {
+                    // 將錯誤消息輸出到 outputResult 段落元素
+                    //document.getElementById("outputResult").textContent = "發生錯誤：" + error;
+                });
+
+            //window.location.reload();
+        }
+
+
 
 
   </script>

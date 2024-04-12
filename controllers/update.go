@@ -408,6 +408,9 @@ func patchServer() error {
 
 	for index, patch := range patches {
 
+		patches[index].PixConsoleUsed = false
+		patches[index].PixComposeUsed = false
+
 		// 檢查目前選擇的版本
 		if patch.PixConsoleSelect == true && patch.PixConsoleUsed == false {
 
@@ -420,8 +423,9 @@ func patchServer() error {
 			if err != nil {
 				return err
 			}
-			// 選擇
+			//
 			patches[index].PixConsoleUsed = true
+			patches[index].PixConsoleSelect = false
 		}
 
 	}

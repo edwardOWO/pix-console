@@ -436,6 +436,12 @@ func updatePatchfile(DirPath string, filename string) error {
 		}
 	}
 
+	for index, _ := range patches {
+
+		patches[index].PixConsoleSelect = false
+		patches[index].PixComposeSelect = false
+	}
+
 	currentTime := time.Now()
 	formattedTime := currentTime.Format("20060102150405")
 	Version := ""
@@ -457,8 +463,8 @@ func updatePatchfile(DirPath string, filename string) error {
 		ContainerListPath: filepath.Join(DirPath, "data", Version, "container.json"),
 		PixConsoleUsed:    false,
 		PixComposeUsed:    false,
-		PixConsoleSelect:  false,
-		PixComposeSelect:  false,
+		PixConsoleSelect:  true,
+		PixComposeSelect:  true,
 	}
 
 	// 将新的PatchInfo添加到切片中
