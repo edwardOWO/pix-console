@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+	"regexp"
 
 	"pix-console/models"
 
@@ -120,6 +121,13 @@ func GetVersion() string {
 		return ""
 	}
 	result := out.String()
-	fmt.Println("伺服器版本: ", result)
-	return result
+	re := regexp.MustCompile(`pix-console-(\d+-\d+)\.x86_64`)
+	match := re.FindStringSubmatch(result)
+	if len(match) > 1 {
+		fmt.Println("伺服器版本: ", match[1])
+	} else {
+		fmt.Println("No match found")
+	}
+
+	return match[1]
 }

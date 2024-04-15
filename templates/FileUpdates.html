@@ -52,22 +52,40 @@
   <h1>PIX Containers</h1>
 
   <div class="container-wrapper">
-    <div class="container">
-      <div class="sidebar">
-        {{range .links}}
-        <a href="{{.href}}" class="{{.class}}">{{.text}}</a>
-        {{end}}
+
+    <div class="container-wrapper">
+      <div class="container">
+        <div class="sidebar">
+          {{range .links}}
+          <a href="{{.href}}" class="{{.class}}">{{.text}}</a>
+          {{end}}
+        </div>
       </div>
-    </div>
-
-    <div class="content" id="content">
-
-
-
-
       <div class="content" id="content">
+        <input type="text" id="hostFilter" oninput="filterContainers()" placeholder="Filter by Host" value="">
+        <input type="text" id="nameFilter" oninput="filterContainers()" placeholder="Filter by Name" value="">
+        <button id="UpdateDocker">服務更新</button>
+        <div id="containerList">
+          <table>
+            <thead>
+              <tr>
+                <th>Host IP</th>
+                <th>Version</th>
+                <th>Host Name</th>
+                <th>ActiveState</th>
+                <th>Service Status</th>
+                <th>System Update</th>
+                <th>service Update</th>
+                <th>logs</th>
 
-        <h2>請選擇要上傳的文件</h2>
+              </tr>
+            </thead>
+            <tbody id="containerDataBody"></tbody>
+          </table>
+        </div>
+        <div id="outputResult"></div>
+
+        <h2>上傳更新文件</h2>
         <form id="uploadForm" enctype="multipart/form-data">
           <input type="file" name="fileToUpload" id="fileToUpload">
           <br><br>
@@ -87,15 +105,19 @@
                 <th>選取更新</th>
               </tr>
             </thead>
-            <tbody id="containerDataBody"></tbody>
+            <tbody id="updateHistory"></tbody>
           </table>
         </div>
-        <div id="outputResult"></div>
+        <div id="updateResult"></div>
       </div>
 
-
-
     </div>
+
+  </div>
+
+
+
+
 
 
   </div>
@@ -136,7 +158,7 @@
     getPatchlist()
     function getPatchlist() {
 
-      var tableBody = document.getElementById('containerDataBody');
+      var tableBody = document.getElementById('updateHistory');
 
       while (tableBody.firstChild) {
         tableBody.removeChild(tableBody.firstChild);
@@ -152,16 +174,16 @@
             var row = document.createElement("tr");
 
 
-            var DeploymentStatus=""
-            if (patch.pixConsoleUsed){
-              DeploymentStatus="使用中"
+            var DeploymentStatus = ""
+            if (patch.pixConsoleUsed) {
+              DeploymentStatus = "使用中"
               rowColor = "#00ff00"; // 亮綠色
-            }else{
+            } else {
               rowColor = "white"; // 亮綠色
             }
 
-            if (patch.pixConsoleSelect){
-              DeploymentStatus="待更新"
+            if (patch.pixConsoleSelect) {
+              DeploymentStatus = "待更新"
               rowColor = "yellow"; // 亮綠色
             }
 
@@ -188,36 +210,286 @@
 
 
     function SelectPatch(RPMVersion) {
-            fetch("/api/v1/clusterSetPatchlist", {
-                method: 'POST', // 將請求方法改為POST
-                headers: {
-                    'Content-Type': 'application/json', // 指定請求頭為JSON格式
-                    // 在這裡可以添加其他請求頭信息
-                },
-                // 如果需要發送數據，可以在這裡添加請求體
-                body: JSON.stringify({ "RPMVersion": RPMVersion,"pixConsoleSelect":true,"pixComposeSelect":true })
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.error) {
-                        // 將錯誤消息輸出到 outputResult 段落元素
-                        document.getElementById("outputResult").textContent = "出現錯誤：" + data.error;
-                    } else {
-                        // 將結果輸出到 outputResult 段落元素
-                        document.getElementById("outputResult").textContent = JSON.stringify(data, null, 2);
-                        location.reload();
-                    }
-                })
-                .catch(error => {
-                    // 將錯誤消息輸出到 outputResult 段落元素
-                    //document.getElementById("outputResult").textContent = "發生錯誤：" + error;
-                });
+      fetch("/api/v1/clusterSetPatchlist", {
+        method: 'POST', // 將請求方法改為POST
+        headers: {
+          'Content-Type': 'application/json', // 指定請求頭為JSON格式
+          // 在這裡可以添加其他請求頭信息
+        },
+        // 如果需要發送數據，可以在這裡添加請求體
+        body: JSON.stringify({ "RPMVersion": RPMVersion, "pixConsoleSelect": true, "pixComposeSelect": true })
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.error) {
+            // 將錯誤消息輸出到 outputResult 段落元素
+            document.getElementById("outputResult").textContent = "出現錯誤：" + data.error;
+          } else {
+            // 將結果輸出到 outputResult 段落元素
+            //document.getElementById("outputResult").textContent = JSON.stringify(data, null, 2);
+            location.reload();
+          }
+        })
+        .catch(error => {
+          // 將錯誤消息輸出到 outputResult 段落元素
+          //document.getElementById("outputResult").textContent = "發生錯誤：" + error;
+        });
 
-            //window.location.reload();
+      //window.location.reload();
+    }
+
+
+
+
+  </script>
+
+  <script>
+
+    let ws;
+    let newWindow;
+
+    function connectWebSocket(exthost) {
+      if (ws && ws.readyState === WebSocket.OPEN) {
+        alert("WebSocket is already connected.");
+        return;
+      }
+
+      //const path = document.getElementById("pathInput").value;
+      path = "pix-console"
+      ws = new WebSocket("ws://" + exthost + ":8080/ws?path=" + path);
+
+      ws.onopen = function () {
+        console.log("WebSocket connected.");
+      };
+
+      ws.onmessage = function (event) {
+        if (!newWindow || newWindow.closed) {
+          newWindow = window.open("", "LogWindow", "width=600,height=400");
+          newWindow.document.title = path;
+          if (!newWindow) {
+            alert("Pop-up blocked! Please enable pop-ups for this site.");
+            return;
+          }
+          newWindow.addEventListener('beforeunload', function () {
+            if (ws && ws.readyState === WebSocket.OPEN) {
+              ws.close();
+            }
+          });
         }
 
+        const logs = newWindow.document.createElement("pre");
+        logs.textContent += event.data; // Use += to append new log data
+        logs.scrollTop = logs.scrollHeight;
+        newWindow.document.body.appendChild(logs);
+        newWindow.scrollTo(0, newWindow.document.body.scrollHeight);
+      };
+
+      ws.onclose = function () {
+        console.log("WebSocket closed.");
+        if (newWindow && !newWindow.closed) {
+          newWindow.close();
+        }
+      };
+
+      ws.onerror = function () {
+        console.error("WebSocket error occurred.");
+        if (newWindow && !newWindow.closed) {
+          newWindow.close();
+        }
+      };
+    }
+
+    document.getElementById("UpdateDocker").addEventListener("click", function () {
+      // 發起POST請求以獲取內存信息
+      alert("服務開始更新")
+      fetch("/api/v1/updateContainer", {
+        method: 'POST', // 將請求方法改為POST
+        headers: {
+          'Content-Type': 'application/json', // 指定請求頭為JSON格式
+          // 在這裡可以添加其他請求頭信息
+        },
+        // 如果需要發送數據，可以在這裡添加請求體
+        // body: JSON.stringify({ key: 'value' })
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.error) {
+            alert("解析錯誤")
+          } else {
+            alert(data.message)
+            location.reload();
+          }
+        })
+        .catch(error => {
+          alert("異常")
+        });
+    });
+    function UpdateService(host) {
+      // 發起POST請求以獲取內存信息
+      alert(host + "PIX 應用服務開始更新")
+      document.getElementById(host).textContent = "In Progress"
+      document.getElementById(host).style.color = "#FFD700";
+
+      fetch("/api/v1/cluster_updateContainer", {
+        method: 'POST', // 將請求方法改為POST
+        headers: {
+          'Content-Type': 'application/json', // 指定請求頭為JSON格式
+          // 在這裡可以添加其他請求頭信息
+        },
+        // 如果需要發送數據，可以在這裡添加請求體
+        body: JSON.stringify({ updatehost: host })
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.error) {
+            // 將錯誤消息輸出到 outputResult 段落元素
+            alert(data.error)
+            console.log(data.error)
+          } else {
+            alert(JSON.stringify(data, null, 2));
+            console.log(JSON.stringify(data, null, 2))
+            //location.reload();
+          }
+        })
+        .catch(error => {
+          // 將錯誤消息輸出到 outputResult 段落元素
+          document.getElementById("outputResult").textContent = "發生錯誤：" + error;
+        });
+
+      //window.location.reload();
+
+    }
 
 
+
+
+    function UpdateServer(host) {
+      // 發起POST請求以獲取內存信息
+      document.getElementById(host).textContent = "In Progress"
+      document.getElementById(host).style.color = "#FFD700";
+
+      alert("PIX系統開始更新")
+      fetch("/api/v1/cluster_updateServer", {
+        method: 'POST', // 將請求方法改為POST
+        headers: {
+          'Content-Type': 'application/json', // 指定請求頭為JSON格式
+          // 在這裡可以添加其他請求頭信息
+        },
+        // 如果需要發送數據，可以在這裡添加請求體
+        body: JSON.stringify({ updatehost: host })
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.error) {
+            // 將錯誤消息輸出到 outputResult 段落元素
+            document.getElementById("outputResult").textContent = "出現錯誤：" + data.error;
+          } else {
+            // 將結果輸出到 outputResult 段落元素
+            document.getElementById("outputResult").textContent = JSON.stringify(data, null, 2);
+            window.location.reload();
+          }
+        })
+        .catch(error => {
+          // 將錯誤消息輸出到 outputResult 段落元素
+          //document.getElementById("outputResult").textContent = "發生錯誤：" + error;
+          alert(error)
+          window.location.reload();
+        });
+
+      //window.location.reload();
+    }
+
+    function fetchAndDisplayContainers() {
+      fetch("api/v1/serverlist")
+        .then(response => response.json())
+        .then(data => displayContainers(data))
+        .catch(error => {
+          console.error("Error fetching data:", error);
+        });
+    }
+
+    // 顯示服務數據
+    function displayContainers(containers) {
+      const containerDataBody = document.getElementById('containerDataBody');
+      containerDataBody.innerHTML = '';
+
+      if (containers.length === 0) {
+        containerDataBody.innerHTML = '<tr><td colspan="5">No containers found.</td></tr>';
+      } else {
+        // 對數據做排序
+        containers.sort((a, b) => a.HOST.localeCompare(b.HOST));
+
+        // 渲染排序後的介面數據
+        containers.forEach(container => {
+          host = container.HOST
+          exthost = container.EXTENDPOINT
+          containerDataBody.innerHTML += `
+          <tr>
+              <td>${container.HOST}</td>
+              <td>${container.IMAGE}</td>
+              <td>${container.NAMES}</td>
+              <td>${container.CREATED}</td>
+              <td id=${host} class="${container.STATUS.includes('UP') ? 'active' : 'inactive'}">${container.STATUS}</td>
+              <td><button onclick="UpdateServer('${host}')">系統更新</button></td>
+              <td><button onclick="UpdateService('${host}')">服務更新</button></td>
+              <td><button onclick="connectWebSocket('${exthost}')">系統日誌</button></td>
+          </tr>
+      `;
+        });
+      }
+
+      // 篩選結果
+      filterContainers();
+    }
+
+    // 讀取機器
+    fetchAndDisplayContainers();
+
+    // 每5秒重新更新當前 Cluster 主機資訊
+    setInterval(fetchAndDisplayContainers, 5000);
+
+    // 使用篩選框篩選
+    function filterContainers() {
+      const hostFilter = document.getElementById('hostFilter');
+      const nameFilter = document.getElementById('nameFilter');
+
+      const hostFilterValue = hostFilter.value.toLowerCase();
+      const nameFilterValue = nameFilter.value.toLowerCase();
+
+      const rows = document.querySelectorAll('#containerDataBody tr');
+
+      rows.forEach(row => {
+        const hostCell = row.querySelector('td:nth-child(1)');
+        const nameCell = row.querySelector('td:nth-child(2)');
+
+        const hostText = hostCell.textContent.toLowerCase();
+        const nameText = nameCell.textContent.toLowerCase();
+
+        const hostMatch = hostText.includes(hostFilterValue) || hostFilterValue === '';
+        const nameMatch = nameText.includes(nameFilterValue) || nameFilterValue === '';
+
+        if (hostMatch && nameMatch) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      //保存過濾狀態到本地儲存
+      localStorage.setItem('hostFilter', hostFilterValue);
+      localStorage.setItem('nameFilter', nameFilterValue);
+    }
+
+    // 恢復過濾狀態
+    const storedHostFilter = localStorage.getItem('hostFilter');
+    if (storedHostFilter) {
+      document.getElementById('hostFilter').value = storedHostFilter;
+    }
+
+    const storedNameFilter = localStorage.getItem('nameFilter');
+    if (storedNameFilter) {
+      document.getElementById('nameFilter').value = storedNameFilter;
+    }
 
   </script>
 

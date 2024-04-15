@@ -25,4 +25,5 @@ type PatchInfo struct {
 	PixComposeUsed    bool   `json:"pixComposeUsed"`
 	PixConsoleSelect  bool   `json:"pixConsoleSelect"`
 	PixComposeSelect  bool   `json:"pixComposeSelect"`
+	ServerUpdateCount int    `json:"serverupdatecount"`
 }

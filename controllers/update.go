@@ -315,10 +315,13 @@ func ClusterUpdateContainerHandler(c *gin.Context) {
 }
 func (s *Server) UpdateServerHandler(c *gin.Context) {
 
-	err := patchServer()
+	memberlistStatus := getMemberlistStatus(s.Memberlist)
+
+	err := patchServer(memberlistStatus)
 
 	if err != nil {
 		utils.Log(s.Logger, "Error", utils.Trace()+" URL: "+c.Request.URL.Path, "Update Pix-console Error: "+err.Error())
+		fmt.Print("Update Pix-console Error: " + err.Error())
 		c.JSON(http.StatusInternalServerError, err.Error())
 		return
 	}
@@ -332,7 +335,7 @@ func (s *Server) UpdateServerHandler(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, "OK")
+	c.JSON(http.StatusOK, gin.H{"Status": "ok"})
 }
 
 func (s *Server) ClusterUpdateServerHandler(c *gin.Context) {
@@ -368,9 +371,9 @@ func (s *Server) ClusterUpdateServerHandler(c *gin.Context) {
 	}
 	defer response.Body.Close()
 
-	//c.JSON(http.StatusOK, mergedData)
+	c.JSON(http.StatusOK, gin.H{"Status": requestData.UpdateHost})
 }
-func patchServer() error {
+func patchServer(ServiceVersion []map[string]interface{}) error {
 
 	/*
 		stunConfig := tool.StuneSetting{
@@ -408,8 +411,8 @@ func patchServer() error {
 
 	for index, patch := range patches {
 
-		patches[index].PixConsoleUsed = false
-		patches[index].PixComposeUsed = false
+		//patches[index].PixConsoleUsed = false
+		//patches[index].PixComposeUsed = false
 
 		// 檢查目前選擇的版本
 		if patch.PixConsoleSelect == true && patch.PixConsoleUsed == false {
@@ -423,9 +426,7 @@ func patchServer() error {
 			if err != nil {
 				return err
 			}
-			//
 			patches[index].PixConsoleUsed = true
-			patches[index].PixConsoleSelect = false
 		}
 
 	}

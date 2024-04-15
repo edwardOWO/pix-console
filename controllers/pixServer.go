@@ -4,6 +4,7 @@ import (
 	"archive/zip"
 	"bytes"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io"
 	"io/ioutil"
@@ -465,6 +466,7 @@ func updatePatchfile(DirPath string, filename string) error {
 		PixComposeUsed:    false,
 		PixConsoleSelect:  true,
 		PixComposeSelect:  true,
+		ServerUpdateCount: 0,
 	}
 
 	// 将新的PatchInfo添加到切片中
@@ -547,8 +549,108 @@ func GetPatchlist(c *gin.Context) {
 		return
 	}
 
+	/*
+		allServerUpdate := true // 預設伺服器已經更新
+		for _, data := range ServiceVersion {
+			if serverVersion, ok := data["IMAGE"].(string); ok {
+				if patch.RPMversion != serverVersion {
+					allServerUpdate = false
+					break // 发现不匹配的版本号，立即中断循环
+				}
+			} else {
+				fmt.Println("IMAGE字段不存在或类型不正确")
+			}
+		}
+
+		// 確認所有的主機都更新完成
+		if allServerUpdate {
+			patches[index].PixConsoleUsed = true
+			patches[index].PixConsoleSelect = false
+		}
+	*/
+
 	// 将 JSON 数据作为响应返回
 	c.Data(http.StatusOK, "application/json", jsonData)
+
+}
+
+// 從請求中提取JWT token
+func extractTokenFromRequest(c *gin.Context) (string, error) {
+	// 尝试从Header中获取JWT token
+	token := c.GetHeader("jwt")
+	if token != "" {
+		// 如果Header中存在JWT token，则返回去除Bearer后的token
+		return strings.TrimSpace(strings.Replace(token, "Bearer", "", 1)), nil
+	}
+
+	// 如果Header中不存在JWT token，则尝试从Cookie中获取
+	token, err := c.Cookie("jwt")
+	if err == nil && token != "" {
+		return token, nil
+	}
+
+	// 如果都无法获取JWT token，则返回错误
+	return "", errors.New("找不到JWT token")
+}
+
+func (u *Server) ClusterGetPatchlist(c *gin.Context) {
+
+	// 解析JWT token
+	token, err := extractTokenFromRequest(c)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "無效的JWT token"})
+		return
+	}
+
+	var Patchlist []models.PatchInfo
+
+	// 取得集群中的節點
+	nodes := u.Memberlist.Members()
+
+	// 從每個節點獲取資料
+	for _, node := range nodes {
+		// 組合目標 URL
+		apiUrl := fmt.Sprintf("http://%s%s/api/v1/GetPatchlist", node.Addr, common.Config.Port)
+
+		// 建立新的HTTP請求
+		req, err := http.NewRequest("GET", apiUrl, nil)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+
+		// 設置標頭，包括JWT token
+		req.Header.Set("Content-Type", "application/json")
+		req.Header.Set("Authorization", "Bearer "+token)
+
+		// 發送請求
+		client := &http.Client{}
+		resp, err := client.Do(req)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+		defer resp.Body.Close()
+
+		// 檢查響應碼
+		if resp.StatusCode != http.StatusOK {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": fmt.Sprintf("API端點返回非200 OK響應：%s", resp.Status)})
+			return
+		}
+
+		// 讀取並解碼響應內容
+		var patchInfos []models.PatchInfo
+		if err := json.NewDecoder(resp.Body).Decode(&patchInfos); err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+
+		// 將解碼後的結果添加到Patchlist中
+		Patchlist = append(Patchlist, patchInfos...)
+	}
+
+	// 返回成功訊息和 Patchlist
+	c.JSON(http.StatusOK, Patchlist)
 
 }
 
@@ -576,6 +678,7 @@ func SetPatchlist(c *gin.Context) {
 		if patch.RPMversion == SetPatch.RPMversion {
 			patches[index].PixComposeSelect = true
 			patches[index].PixConsoleSelect = true
+			patches[index].ServerUpdateCount = 0
 		}
 	}
 
